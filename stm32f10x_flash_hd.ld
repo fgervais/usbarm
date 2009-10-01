@@ -1,6 +1,12 @@
 /*
 Default linker script for STM32F10x_512K_64K
 Copyright RAISONANCE S.A.S. 2008
+
+Modified for High Density devices
+by Francois Gervais, August 2009
+Modified for C++ support with the help of generic.ld
+from CodeSourcery G++ Lite
+by Francois Gervais, Septembre 2009
 */
 
 /* include the common STM32F10x sub-script */
@@ -86,9 +92,6 @@ SECTIONS
     	*(.gcc_except_table)
 	   
     } >FLASH
-    
-    
-    
     
     
     
@@ -266,10 +269,10 @@ SECTIONS
     /* remove the debugging information from the standard libraries */
     DISCARD :
     {
-     libc.a ( * )
-     libm.a ( * )
-     libgcc.a ( * )
-     }
+		libc.a ( * )
+		libm.a ( * )
+		libgcc.a ( * )
+	}
 
     /* Stabs debugging sections.  */
     .stab          0 : { *(.stab) }
