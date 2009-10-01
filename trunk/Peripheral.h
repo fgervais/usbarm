@@ -14,6 +14,8 @@ class Peripheral: public Microcontroller {
 public:
 	Peripheral();
 	virtual ~Peripheral();
+
+	void notify();
 };
 
 #endif /* PERIPHERAL_H_ */
