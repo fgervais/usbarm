@@ -14,6 +14,8 @@ class Uart: public Peripheral {
 public:
 	Uart();
 	virtual ~Uart();
+
+	void handleInterrupt();
 };
 
 #endif /* UART_H_ */

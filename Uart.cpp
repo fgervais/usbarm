@@ -15,3 +15,13 @@ Uart::Uart() {
 Uart::~Uart() {
 	// TODO Auto-generated destructor stub
 }
+
+void Uart::handleInterrupt() {
+	/* Receive buffer full */
+
+	// Get data
+	notify();
+
+
+	/* Send buffer empty */
+}
