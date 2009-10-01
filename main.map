@@ -1,0 +1,1510 @@
+Archive member included because of file (symbol)
+
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o (atexit)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o (exit)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o) (_global_impure_ptr)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o (__libc_fini_array)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o (memset)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o (initialise_monitor_handles)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o) (__register_exitproc)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o) (__call_exitprocs)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o) (__errno)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o) (__sinit)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o) (_fwalk)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o) (free)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o) (_malloc_r)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o) (__malloc_lock)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o) (_sbrk_r)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o) (__sclose)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o) (strlen)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o) (_write_r)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o) (_close_r)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o) (fclose)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o) (_fflush_r)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o) (_free_r)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o) (_lseek_r)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o) (_read_r)
+/home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o) (errno)
+
+Allocating common symbols
+Common symbol       size              file
+
+errno               0x4               /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .ARM.extab     0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .ARM.exidx     0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .text          0x00000000        0x0 startup_stm32f10x_hd.o
+ .data          0x00000000        0x0 startup_stm32f10x_hd.o
+ .bss           0x00000000        0x0 startup_stm32f10x_hd.o
+ .text          0x00000000        0x0 stm32f10x_it.o
+ .data          0x00000000        0x0 stm32f10x_it.o
+ .bss           0x00000000        0x0 stm32f10x_it.o
+ .text          0x00000000        0x0 core_cm3.o
+ .data          0x00000000        0x0 core_cm3.o
+ .bss           0x00000000        0x0 core_cm3.o
+ .text.__get_PSP
+                0x00000000        0x0 core_cm3.o
+ .text.__set_PSP
+                0x00000000        0x0 core_cm3.o
+ .text.__get_MSP
+                0x00000000        0x0 core_cm3.o
+ .text.__set_MSP
+                0x00000000        0x0 core_cm3.o
+ .text.__get_BASEPRI
+                0x00000000        0x0 core_cm3.o
+ .text.__set_BASEPRI
+                0x00000000        0x0 core_cm3.o
+ .text.__get_PRIMASK
+                0x00000000        0x0 core_cm3.o
+ .text.__set_PRIMASK
+                0x00000000        0x0 core_cm3.o
+ .text.__get_FAULTMASK
+                0x00000000        0x0 core_cm3.o
+ .text.__set_FAULTMASK
+                0x00000000        0x0 core_cm3.o
+ .text.__REV    0x00000000        0x0 core_cm3.o
+ .text.__REV16  0x00000000        0x0 core_cm3.o
+ .text.__REVSH  0x00000000        0x0 core_cm3.o
+ .text.__RBIT   0x00000000        0x0 core_cm3.o
+ .text.__LDREXB
+                0x00000000        0x0 core_cm3.o
+ .text.__LDREXH
+                0x00000000        0x0 core_cm3.o
+ .text.__LDREXW
+                0x00000000        0x0 core_cm3.o
+ .text.__STREXB
+                0x00000000        0x0 core_cm3.o
+ .text.__STREXH
+                0x00000000        0x0 core_cm3.o
+ .text.__STREXW
+                0x00000000        0x0 core_cm3.o
+ .text.__get_CONTROL
+                0x00000000        0x0 core_cm3.o
+ .text.__set_CONTROL
+                0x00000000        0x0 core_cm3.o
+ .text          0x00000000        0x0 system_stm32f10x.o
+ .data          0x00000000        0x0 system_stm32f10x.o
+ .bss           0x00000000        0x0 system_stm32f10x.o
+ .rodata.SystemFrequency
+                0x00000000        0x0 system_stm32f10x.o
+ .rodata.SystemFrequency_SysClk
+                0x00000000        0x0 system_stm32f10x.o
+ .rodata.SystemFrequency_AHBClk
+                0x00000000        0x0 system_stm32f10x.o
+ .rodata.SystemFrequency_APB1Clk
+                0x00000000        0x0 system_stm32f10x.o
+ .rodata.SystemFrequency_APB2Clk
+                0x00000000        0x0 system_stm32f10x.o
+ .text.SystemInit
+                0x00000000        0x0 system_stm32f10x.o
+ .text.SetSysClock
+                0x00000000        0x0 system_stm32f10x.o
+ .text.SetSysClockTo72
+                0x00000000        0x0 system_stm32f10x.o
+ .text          0x00000000        0x0 Application.o
+ .data          0x00000000        0x0 Application.o
+ .bss           0x00000000        0x0 Application.o
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .rodata        0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .rodata.str1.4
+                0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .rodata.str1.4
+                0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ COMMON         0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ .text          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+ .data          0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+ .bss           0x00000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00010000         xrw
+FLASH            0x08000000         0x00080000         xr
+FLASHB1          0x00000000         0x00000000         xr
+EXTMEMB0         0x00000000         0x00000000         xr
+EXTMEMB1         0x00000000         0x00000000         xr
+EXTMEMB2         0x00000000         0x00000000         xr
+EXTMEMB3         0x00000000         0x00000000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+LOAD startup_stm32f10x_hd.o
+LOAD stm32f10x_it.o
+LOAD core_cm3.o
+LOAD system_stm32f10x.o
+LOAD Application.o
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/libgcc.a
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libstdc++.a
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libstdc++.a
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libm.a
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a
+START GROUP
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/libgcc.a
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libg.a
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a
+END GROUP
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+LOAD /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+                0x00000400                __Stack_Size = 0x400
+                0x00000400                PROVIDE (_Stack_Size, __Stack_Size)
+                0x2000fc00                __Stack_Init = (_estack - __Stack_Size)
+                0x2000fc00                PROVIDE (_Stack_Init, __Stack_Init)
+                0x00000100                _Minimum_Stack_Size = 0x100
+                0x20010000                _estack = 0x20010000
+
+.isr_vector     0x08000000      0x1e4
+                0x08000000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x1e4 startup_stm32f10x_hd.o
+                0x08000000                g_pfnVectors
+                0x080001e4                . = ALIGN (0x4)
+
+.flashtext      0x080001e4        0x0
+                0x080001e4                . = ALIGN (0x4)
+ *(.flashtext)
+                0x080001e4                . = ALIGN (0x4)
+
+.text           0x080001e4      0x1b4
+                0x080001e4                . = ALIGN (0x4)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x080001e4       0x6c /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .text.Reset_Handler
+                0x08000250       0x54 startup_stm32f10x_hd.o
+                0x08000250                Reset_Handler
+ .text.SystemInit_ExtMemCtl_Dummy
+                0x080002a4        0x2 startup_stm32f10x_hd.o
+                0x080002a4                SystemInit_ExtMemCtl_Dummy
+                0x080002a4                SystemInit_ExtMemCtl
+ .text.Default_Handler
+                0x080002a6        0x2 startup_stm32f10x_hd.o
+                0x080002a6                EXTI2_IRQHandler
+                0x080002a6                TIM8_TRG_COM_IRQHandler
+                0x080002a6                TIM8_CC_IRQHandler
+                0x080002a6                TIM1_CC_IRQHandler
+                0x080002a6                TIM6_IRQHandler
+                0x080002a6                PVD_IRQHandler
+                0x080002a6                SDIO_IRQHandler
+                0x080002a6                EXTI3_IRQHandler
+                0x080002a6                EXTI0_IRQHandler
+                0x080002a6                I2C2_EV_IRQHandler
+                0x080002a6                ADC1_2_IRQHandler
+                0x080002a6                SPI1_IRQHandler
+                0x080002a6                TAMPER_IRQHandler
+                0x080002a6                TIM8_UP_IRQHandler
+                0x080002a6                DMA2_Channel2_IRQHandler
+                0x080002a6                DMA1_Channel4_IRQHandler
+                0x080002a6                USART3_IRQHandler
+                0x080002a6                RTC_IRQHandler
+                0x080002a6                DMA1_Channel7_IRQHandler
+                0x080002a6                CAN1_RX1_IRQHandler
+                0x080002a6                UART5_IRQHandler
+                0x080002a6                ADC3_IRQHandler
+                0x080002a6                TIM4_IRQHandler
+                0x080002a6                DMA2_Channel1_IRQHandler
+                0x080002a6                I2C1_EV_IRQHandler
+                0x080002a6                DMA1_Channel6_IRQHandler
+                0x080002a6                UART4_IRQHandler
+                0x080002a6                TIM3_IRQHandler
+                0x080002a6                RCC_IRQHandler
+                0x080002a6                TIM1_TRG_COM_IRQHandler
+                0x080002a6                DMA1_Channel1_IRQHandler
+                0x080002a6                Default_Handler
+                0x080002a6                EXTI15_10_IRQHandler
+                0x080002a6                TIM7_IRQHandler
+                0x080002a6                TIM5_IRQHandler
+                0x080002a6                EXTI9_5_IRQHandler
+                0x080002a6                SPI2_IRQHandler
+                0x080002a6                DMA1_Channel5_IRQHandler
+                0x080002a6                EXTI4_IRQHandler
+                0x080002a6                USB_LP_CAN1_RX0_IRQHandler
+                0x080002a6                USB_HP_CAN1_TX_IRQHandler
+                0x080002a6                DMA1_Channel3_IRQHandler
+                0x080002a6                FSMC_IRQHandler
+                0x080002a6                TIM1_UP_IRQHandler
+                0x080002a6                WWDG_IRQHandler
+                0x080002a6                TIM2_IRQHandler
+                0x080002a6                TIM1_BRK_IRQHandler
+                0x080002a6                EXTI1_IRQHandler
+                0x080002a6                RTCAlarm_IRQHandler
+                0x080002a6                DMA2_Channel4_5_IRQHandler
+                0x080002a6                USART2_IRQHandler
+                0x080002a6                I2C2_ER_IRQHandler
+                0x080002a6                DMA1_Channel2_IRQHandler
+                0x080002a6                TIM8_BRK_IRQHandler
+                0x080002a6                CAN1_SCE_IRQHandler
+                0x080002a6                FLASH_IRQHandler
+                0x080002a6                USART1_IRQHandler
+                0x080002a6                SPI3_IRQHandler
+                0x080002a6                I2C1_ER_IRQHandler
+                0x080002a6                USBWakeUp_IRQHandler
+                0x080002a6                DMA2_Channel3_IRQHandler
+ .text.NMI_Handler
+                0x080002a8        0xc stm32f10x_it.o
+                0x080002a8                NMI_Handler
+ .text.HardFault_Handler
+                0x080002b4        0x8 stm32f10x_it.o
+                0x080002b4                HardFault_Handler
+ .text.MemManage_Handler
+                0x080002bc        0x8 stm32f10x_it.o
+                0x080002bc                MemManage_Handler
+ .text.BusFault_Handler
+                0x080002c4        0x8 stm32f10x_it.o
+                0x080002c4                BusFault_Handler
+ .text.UsageFault_Handler
+                0x080002cc        0x8 stm32f10x_it.o
+                0x080002cc                UsageFault_Handler
+ .text.SVC_Handler
+                0x080002d4        0xc stm32f10x_it.o
+                0x080002d4                SVC_Handler
+ .text.DebugMon_Handler
+                0x080002e0        0xc stm32f10x_it.o
+                0x080002e0                DebugMon_Handler
+ .text.PendSV_Handler
+                0x080002ec        0xc stm32f10x_it.o
+                0x080002ec                PendSV_Handler
+ .text.SysTick_Handler
+                0x080002f8        0xc stm32f10x_it.o
+                0x080002f8                SysTick_Handler
+ .text.main     0x08000304       0x10 Application.o
+                0x08000304                main
+ .text          0x08000314       0x84 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+                0x08000344                __libc_init_array
+                0x08000314                __libc_fini_array
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .glue_7t       0x08000398        0x0 startup_stm32f10x_hd.o
+ .glue_7t       0x08000398        0x0 stm32f10x_it.o
+ .glue_7t       0x08000398        0x0 core_cm3.o
+ .glue_7t       0x08000398        0x0 system_stm32f10x.o
+ .glue_7t       0x08000398        0x0 Application.o
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ .glue_7t       0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+ *(.glue_7)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .glue_7        0x08000398        0x0 startup_stm32f10x_hd.o
+ .glue_7        0x08000398        0x0 stm32f10x_it.o
+ .glue_7        0x08000398        0x0 core_cm3.o
+ .glue_7        0x08000398        0x0 system_stm32f10x.o
+ .glue_7        0x08000398        0x0 Application.o
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ .glue_7        0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .vfp11_veneer  0x08000398        0x0 startup_stm32f10x_hd.o
+ .vfp11_veneer  0x08000398        0x0 stm32f10x_it.o
+ .vfp11_veneer  0x08000398        0x0 core_cm3.o
+ .vfp11_veneer  0x08000398        0x0 system_stm32f10x.o
+ .vfp11_veneer  0x08000398        0x0 Application.o
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ .vfp11_veneer  0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x20000000        0x0
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .v4_bx         0x20000000        0x0 startup_stm32f10x_hd.o
+ .v4_bx         0x20000000        0x0 stm32f10x_it.o
+ .v4_bx         0x20000000        0x0 core_cm3.o
+ .v4_bx         0x20000000        0x0 system_stm32f10x.o
+ .v4_bx         0x20000000        0x0 Application.o
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ .v4_bx         0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x08000398      0x168
+ *(.eh_frame)
+ .eh_frame      0x08000398        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .eh_frame      0x08000398      0x110 stm32f10x_it.o
+ .eh_frame      0x080004a8        0x0 core_cm3.o
+                                0x2a4 (size before relaxing)
+ .eh_frame      0x080004a8        0x0 system_stm32f10x.o
+                                 0x74 (size before relaxing)
+ .eh_frame      0x080004a8       0x1c Application.o
+                                 0x30 (size before relaxing)
+ .eh_frame      0x080004c4        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+                                 0x2c (size before relaxing)
+ .eh_frame      0x080004c4        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+                                 0x2c (size before relaxing)
+ .eh_frame      0x080004c4       0x38 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+                                 0x4c (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+                                 0x30 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                0x330 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+                                 0x38 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+                                 0x40 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+                                 0x28 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                                0x154 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+                                 0x60 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+                                 0x44 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                 0x40 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+                                 0x3c (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+                                 0x30 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+                                 0x84 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+                                 0x30 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+                                 0x30 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+                                 0x30 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                                 0x48 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+                                 0x4c (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+                                 0x5c (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+                                 0x30 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+                                 0x30 (size before relaxing)
+ .eh_frame      0x080004fc        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+                                 0x6c (size before relaxing)
+ .eh_frame      0x080004fc        0x4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+                0x08000500                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x08000500                __exidx_end = .
+
+.rodata         0x08000500       0x20
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+                0x08000500                . = ALIGN (0x4)
+ *(.init)
+ .init          0x08000500        0x4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+                0x08000500                _init
+ .init          0x08000504        0x8 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+                0x0800050c                . = ALIGN (0x4)
+                0x0800050c                __preinit_array_start = .
+ *(.preinit_array)
+                0x0800050c                __preinit_array_end = .
+                0x0800050c                . = ALIGN (0x4)
+                0x0800050c                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x0800050c        0x4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+                0x08000510                __init_array_end = .
+                0x08000510                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x08000510        0x4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+                0x08000510                _fini
+ .fini          0x08000514        0x8 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+                0x0800051c                . = ALIGN (0x4)
+                0x0800051c                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x0800051c        0x4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x08000520                __fini_array_end = .
+                0x08000520                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x08000520                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x08000520                . = ALIGN (0x4)
+                0x08000520                _etext = .
+                0x08000520                _sidata = _etext
+
+.data           0x20000000        0x4 load address 0x08000520
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sdata = .
+ *(.jcr)
+ .jcr           0x20000000        0x0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .jcr           0x20000000        0x4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                _edata = .
+
+.bss            0x20000004       0x1c load address 0x08000524
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                _sbss = .
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x20000004       0x1c /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ *(COMMON)
+                0x20000020                . = ALIGN (0x4)
+                0x20000020                _ebss = .
+                0x20000020                PROVIDE (end, _ebss)
+                0x20000020                PROVIDE (_end, _ebss)
+
+._usrstack      0x20000020      0x100 load address 0x08000540
+                0x20000020                . = ALIGN (0x4)
+                0x20000020                _susrstack = .
+                0x20000120                . = (. + _Minimum_Stack_Size)
+ *fill*         0x20000020      0x100 00
+                0x20000120                . = ALIGN (0x4)
+                0x20000120                _eusrstack = .
+
+.b1text
+ *(.b1text)
+ *(.b1rodata)
+ *(.b1rodata*)
+
+.eb0text
+ *(.eb0text)
+ *(.eb0rodata)
+ *(.eb0rodata*)
+
+.eb1text
+ *(.eb1text)
+ *(.eb1rodata)
+ *(.eb1rodata*)
+
+.eb2text
+ *(.eb2text)
+ *(.eb2rodata)
+ *(.eb2rodata*)
+
+.eb3text
+ *(.eb3text)
+ *(.eb3rodata)
+ *(.eb3rodata*)
+
+DISCARD
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000      0x22e
+ *(.comment)
+ .comment       0x00000000       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .comment       0x00000012       0x12 stm32f10x_it.o
+ .comment       0x00000024       0x12 core_cm3.o
+ .comment       0x00000036       0x12 system_stm32f10x.o
+ .comment       0x00000048       0x12 Application.o
+ .comment       0x0000005a       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .comment       0x0000006c       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .comment       0x0000007e       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .comment       0x00000090       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .comment       0x000000a2       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .comment       0x000000b4       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .comment       0x000000c6       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .comment       0x000000d8       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .comment       0x000000ea       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .comment       0x000000fc       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .comment       0x0000010e       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .comment       0x00000120       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .comment       0x00000132       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .comment       0x00000144       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .comment       0x00000156       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .comment       0x00000168       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .comment       0x0000017a       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .comment       0x0000018c       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .comment       0x0000019e       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .comment       0x000001b0       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .comment       0x000001c2       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .comment       0x000001d4       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .comment       0x000001e6       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .comment       0x000001f8       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .comment       0x0000020a       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .comment       0x0000021c       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x4f8
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .debug_aranges
+                0x00000028       0x30 startup_stm32f10x_hd.o
+ .debug_aranges
+                0x00000058       0x60 stm32f10x_it.o
+ .debug_aranges
+                0x000000b8       0xc8 core_cm3.o
+ .debug_aranges
+                0x00000180       0x30 system_stm32f10x.o
+ .debug_aranges
+                0x000001b0       0x20 Application.o
+ .debug_aranges
+                0x000001d0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .debug_aranges
+                0x000001f0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .debug_aranges
+                0x00000210       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .debug_aranges
+                0x00000230       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .debug_aranges
+                0x00000250       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .debug_aranges
+                0x00000270       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .debug_aranges
+                0x00000290       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .debug_aranges
+                0x000002b0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .debug_aranges
+                0x000002d0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .debug_aranges
+                0x000002f0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .debug_aranges
+                0x00000310       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .debug_aranges
+                0x00000330       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .debug_aranges
+                0x00000350       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .debug_aranges
+                0x00000370       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .debug_aranges
+                0x00000390       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .debug_aranges
+                0x000003b0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .debug_aranges
+                0x000003d0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .debug_aranges
+                0x000003f0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .debug_aranges
+                0x00000410       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .debug_aranges
+                0x00000430       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .debug_aranges
+                0x00000450       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .debug_aranges
+                0x00000470       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .debug_aranges
+                0x00000490       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .debug_aranges
+                0x000004b0       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .debug_aranges
+                0x000004d0       0x28 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+
+.debug_pubnames
+                0x00000000      0x979
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0xc6 stm32f10x_it.o
+ .debug_pubnames
+                0x000000c6      0x159 core_cm3.o
+ .debug_pubnames
+                0x0000021f       0xa3 system_stm32f10x.o
+ .debug_pubnames
+                0x000002c2       0x1b Application.o
+ .debug_pubnames
+                0x000002dd       0x1d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .debug_pubnames
+                0x000002fa       0x1b /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .debug_pubnames
+                0x00000315       0x39 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .debug_pubnames
+                0x0000034e       0x3e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .debug_pubnames
+                0x0000038c       0x1d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .debug_pubnames
+                0x000003a9      0x159 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .debug_pubnames
+                0x00000502       0x2a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .debug_pubnames
+                0x0000052c       0x27 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .debug_pubnames
+                0x00000553       0x1e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .debug_pubnames
+                0x00000571       0xdb /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .debug_pubnames
+                0x0000064c       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .debug_pubnames
+                0x0000067a       0x26 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .debug_pubnames
+                0x000006a0       0xce /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .debug_pubnames
+                0x0000076e       0x38 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .debug_pubnames
+                0x000007a6       0x1e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .debug_pubnames
+                0x000007c4       0x44 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .debug_pubnames
+                0x00000808       0x1d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .debug_pubnames
+                0x00000825       0x1f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .debug_pubnames
+                0x00000844       0x1f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .debug_pubnames
+                0x00000863       0x2b /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .debug_pubnames
+                0x0000088e       0x2b /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .debug_pubnames
+                0x000008b9       0x31 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .debug_pubnames
+                0x000008ea       0x1f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .debug_pubnames
+                0x00000909       0x1e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .debug_pubnames
+                0x00000927       0x52 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+
+.debug_info     0x00000000     0xf427
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000       0x6d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .debug_info    0x0000006d       0x56 startup_stm32f10x_hd.o
+ .debug_info    0x000000c3      0x130 stm32f10x_it.o
+ .debug_info    0x000001f3      0x548 core_cm3.o
+ .debug_info    0x0000073b      0x286 system_stm32f10x.o
+ .debug_info    0x000009c1       0x49 Application.o
+ .debug_info    0x00000a0a       0xc5 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .debug_info    0x00000acf      0x968 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .debug_info    0x00001437      0x968 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .debug_info    0x00001d9f      0x14e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .debug_info    0x00001eed      0x115 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .debug_info    0x00002002     0x1992 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .debug_info    0x00003994      0x9df /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .debug_info    0x00004373      0x9e8 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .debug_info    0x00004d5b      0x957 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .debug_info    0x000056b2      0xbc8 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .debug_info    0x0000627a      0xb1e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .debug_info    0x00006d98      0x99b /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .debug_info    0x00007733      0xcfc /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .debug_info    0x0000842f      0x980 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .debug_info    0x00008daf      0x98f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .debug_info    0x0000973e      0xadb /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .debug_info    0x0000a219       0xd9 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .debug_info    0x0000a2f2      0x9be /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .debug_info    0x0000acb0      0x983 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .debug_info    0x0000b633      0x9c0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .debug_info    0x0000bff3      0xa26 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .debug_info    0x0000ca19      0xbf2 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .debug_info    0x0000d60b      0x9ac /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .debug_info    0x0000dfb7      0x9b7 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .debug_info    0x0000e96e      0xa4c /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .debug_info    0x0000f3ba       0x6d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+
+.debug_abbrev   0x00000000     0x2af9
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .debug_abbrev  0x00000012       0x12 startup_stm32f10x_hd.o
+ .debug_abbrev  0x00000024       0x4a stm32f10x_it.o
+ .debug_abbrev  0x0000006e       0xd5 core_cm3.o
+ .debug_abbrev  0x00000143       0xf7 system_stm32f10x.o
+ .debug_abbrev  0x0000023a       0x36 Application.o
+ .debug_abbrev  0x00000270       0x81 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .debug_abbrev  0x000002f1      0x177 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .debug_abbrev  0x00000468      0x160 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .debug_abbrev  0x000005c8       0xa4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .debug_abbrev  0x0000066c       0xa3 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .debug_abbrev  0x0000070f      0x3fc /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .debug_abbrev  0x00000b0b      0x1cb /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .debug_abbrev  0x00000cd6      0x1d0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x00000ea6      0x168 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .debug_abbrev  0x0000100e      0x24d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .debug_abbrev  0x0000125b      0x1ee /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .debug_abbrev  0x00001449      0x190 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .debug_abbrev  0x000015d9      0x22a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .debug_abbrev  0x00001803      0x173 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .debug_abbrev  0x00001976      0x197 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .debug_abbrev  0x00001b0d      0x1b9 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .debug_abbrev  0x00001cc6       0x94 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .debug_abbrev  0x00001d5a      0x18d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .debug_abbrev  0x00001ee7      0x188 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .debug_abbrev  0x0000206f      0x1b0 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .debug_abbrev  0x0000221f      0x1cd /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .debug_abbrev  0x000023ec      0x1e2 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .debug_abbrev  0x000025ce      0x197 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .debug_abbrev  0x00002765      0x188 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .debug_abbrev  0x000028ed      0x1fa /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .debug_abbrev  0x00002ae7       0x12 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+
+.debug_line     0x00000000     0x26f4
+ *(.debug_line)
+ .debug_line    0x00000000       0x67 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .debug_line    0x00000067       0x7f startup_stm32f10x_hd.o
+ .debug_line    0x000000e6       0xc6 stm32f10x_it.o
+ .debug_line    0x000001ac      0x249 core_cm3.o
+ .debug_line    0x000003f5      0x10b system_stm32f10x.o
+ .debug_line    0x00000500       0x3e Application.o
+ .debug_line    0x0000053e       0xb4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .debug_line    0x000005f2      0x137 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .debug_line    0x00000729       0xe5 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .debug_line    0x0000080e       0xb3 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .debug_line    0x000008c1      0x11f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .debug_line    0x000009e0      0x389 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .debug_line    0x00000d69      0x13a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .debug_line    0x00000ea3      0x158 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .debug_line    0x00000ffb      0x102 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .debug_line    0x000010fd      0x1bf /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .debug_line    0x000012bc      0x158 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .debug_line    0x00001414      0x13f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .debug_line    0x00001553      0x256 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .debug_line    0x000017a9       0xf7 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .debug_line    0x000018a0      0x137 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .debug_line    0x000019d7      0x159 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .debug_line    0x00001b30       0xf3 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .debug_line    0x00001c23      0x138 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .debug_line    0x00001d5b      0x138 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .debug_line    0x00001e93      0x15a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .debug_line    0x00001fed      0x194 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .debug_line    0x00002181      0x16a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .debug_line    0x000022eb      0x138 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .debug_line    0x00002423      0x137 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .debug_line    0x0000255a      0x130 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .debug_line    0x0000268a       0x6a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x00000000     0x1637
+ *(.debug_str)
+ .debug_str     0x00000000      0x10c stm32f10x_it.o
+                                0x140 (size before relaxing)
+ .debug_str     0x0000010c      0x167 core_cm3.o
+                                0x22a (size before relaxing)
+ .debug_str     0x00000273      0x12b system_stm32f10x.o
+                                0x1da (size before relaxing)
+ .debug_str     0x0000039e       0x23 Application.o
+                                 0x34 (size before relaxing)
+ .debug_str     0x000003c1       0xa7 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+                                0x143 (size before relaxing)
+ .debug_str     0x00000468      0x39e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+                                0x4d6 (size before relaxing)
+ .debug_str     0x00000806       0x81 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+                                0x4e4 (size before relaxing)
+ .debug_str     0x00000887      0x107 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+                                0x1a9 (size before relaxing)
+ .debug_str     0x0000098e       0x92 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+                                0x12e (size before relaxing)
+ .debug_str     0x00000a20      0x36b /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                0x80a (size before relaxing)
+ .debug_str     0x00000d8b       0x53 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+                                0x523 (size before relaxing)
+ .debug_str     0x00000dde       0x5e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+                                0x4fe (size before relaxing)
+ .debug_str     0x00000e3c       0x7c /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+                                0x4cc (size before relaxing)
+ .debug_str     0x00000eb8      0x13d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                                0x5be (size before relaxing)
+ .debug_str     0x00000ff5       0x5b /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+                                0x4ff (size before relaxing)
+ .debug_str     0x00001050       0x49 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+                                0x4e6 (size before relaxing)
+ .debug_str     0x00001099      0x1ff /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                0x6bb (size before relaxing)
+ .debug_str     0x00001298       0x6a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+                                0x4ed (size before relaxing)
+ .debug_str     0x00001302       0x48 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+                                0x4d5 (size before relaxing)
+ .debug_str     0x0000134a       0x5f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+                                0x4fb (size before relaxing)
+ .debug_str     0x000013a9       0x3f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+                                0x12d (size before relaxing)
+ .debug_str     0x000013e8       0x49 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+                                0x4d8 (size before relaxing)
+ .debug_str     0x00001431       0x40 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+                                0x4c8 (size before relaxing)
+ .debug_str     0x00001471       0x4d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                                0x4e0 (size before relaxing)
+ .debug_str     0x000014be       0x4f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+                                0x4fc (size before relaxing)
+ .debug_str     0x0000150d       0x3c /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+                                0x60d (size before relaxing)
+ .debug_str     0x00001549       0x40 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+                                0x4d6 (size before relaxing)
+ .debug_str     0x00001589       0x3e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+                                0x4d6 (size before relaxing)
+ .debug_str     0x000015c7       0x70 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+                                0x509 (size before relaxing)
+
+.debug_loc      0x00000000     0x32a6
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x183 stm32f10x_it.o
+ .debug_loc     0x00000183      0x3de core_cm3.o
+ .debug_loc     0x00000561       0x8d system_stm32f10x.o
+ .debug_loc     0x000005ee       0x2b Application.o
+ .debug_loc     0x00000619       0x3d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .debug_loc     0x00000656       0x3d /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .debug_loc     0x00000693       0x95 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .debug_loc     0x00000728       0xfc /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .debug_loc     0x00000824      0xcc4 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .debug_loc     0x000014e8      0x10e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .debug_loc     0x000015f6      0x161 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .debug_loc     0x00001757      0x2f9 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .debug_loc     0x00001a50      0x1b3 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .debug_loc     0x00001c03       0x7a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .debug_loc     0x00001c7d      0x825 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .debug_loc     0x000024a2       0x79 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .debug_loc     0x0000251b      0x21a /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .debug_loc     0x00002735       0x92 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .debug_loc     0x000027c7       0x9f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .debug_loc     0x00002866       0x79 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .debug_loc     0x000028df       0xe2 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .debug_loc     0x000029c1      0x1ff /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .debug_loc     0x00002bc0      0x3ab /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .debug_loc     0x00002f6b       0x9f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .debug_loc     0x0000300a       0x9f /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .debug_loc     0x000030a9      0x1fd /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x31
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x14 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .ARM.attributes
+                0x00000014       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+ .ARM.attributes
+                0x00000042       0x16 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+ .ARM.attributes
+                0x00000058       0x21 startup_stm32f10x_hd.o
+ .ARM.attributes
+                0x00000079       0x31 stm32f10x_it.o
+ .ARM.attributes
+                0x000000aa       0x31 core_cm3.o
+ .ARM.attributes
+                0x000000db       0x31 system_stm32f10x.o
+ .ARM.attributes
+                0x0000010c       0x31 Application.o
+ .ARM.attributes
+                0x0000013d       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x0000016b       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+ .ARM.attributes
+                0x00000199       0x2c /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+ .ARM.attributes
+                0x000001c5       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+ .ARM.attributes
+                0x000001f3       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+ .ARM.attributes
+                0x00000221       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .ARM.attributes
+                0x0000024f       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x0000027d       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x000002ab       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+ .ARM.attributes
+                0x000002d9       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+ .ARM.attributes
+                0x00000307       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .ARM.attributes
+                0x00000335       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+ .ARM.attributes
+                0x00000363       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .ARM.attributes
+                0x00000391       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+ .ARM.attributes
+                0x000003bf       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+ .ARM.attributes
+                0x000003ed       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+ .ARM.attributes
+                0x0000041b       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+ .ARM.attributes
+                0x00000449       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+ .ARM.attributes
+                0x00000477       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+ .ARM.attributes
+                0x000004a5       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+ .ARM.attributes
+                0x000004d3       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .ARM.attributes
+                0x00000501       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+ .ARM.attributes
+                0x0000052f       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+ .ARM.attributes
+                0x0000055d       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+ .ARM.attributes
+                0x0000058b       0x2e /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+ .ARM.attributes
+                0x000005b9       0x2c /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtend.o
+ .ARM.attributes
+                0x000005e5       0x14 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(main.elf elf32-littlearm)
+
+.debug_ranges   0x00000000      0x508
+ .debug_ranges  0x00000000       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+ .debug_ranges  0x00000020       0x28 startup_stm32f10x_hd.o
+ .debug_ranges  0x00000048       0x58 stm32f10x_it.o
+ .debug_ranges  0x000000a0       0xc0 core_cm3.o
+ .debug_ranges  0x00000160       0x28 system_stm32f10x.o
+ .debug_ranges  0x00000188       0x18 Application.o
+ .debug_ranges  0x000001a0      0x220 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+ .debug_ranges  0x000003c0       0x40 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+ .debug_ranges  0x00000400       0x60 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+ .debug_ranges  0x00000460       0x70 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+ .debug_ranges  0x000004d0       0x18 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+ .debug_ranges  0x000004e8       0x20 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtn.o
+
+Cross Reference Table
+
+Symbol                                            File
+ADC1_2_IRQHandler                                 startup_stm32f10x_hd.o
+ADC3_IRQHandler                                   startup_stm32f10x_hd.o
+BusFault_Handler                                  stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+CAN1_RX1_IRQHandler                               startup_stm32f10x_hd.o
+CAN1_SCE_IRQHandler                               startup_stm32f10x_hd.o
+DMA1_Channel1_IRQHandler                          startup_stm32f10x_hd.o
+DMA1_Channel2_IRQHandler                          startup_stm32f10x_hd.o
+DMA1_Channel3_IRQHandler                          startup_stm32f10x_hd.o
+DMA1_Channel4_IRQHandler                          startup_stm32f10x_hd.o
+DMA1_Channel5_IRQHandler                          startup_stm32f10x_hd.o
+DMA1_Channel6_IRQHandler                          startup_stm32f10x_hd.o
+DMA1_Channel7_IRQHandler                          startup_stm32f10x_hd.o
+DMA2_Channel1_IRQHandler                          startup_stm32f10x_hd.o
+DMA2_Channel2_IRQHandler                          startup_stm32f10x_hd.o
+DMA2_Channel3_IRQHandler                          startup_stm32f10x_hd.o
+DMA2_Channel4_5_IRQHandler                        startup_stm32f10x_hd.o
+DebugMon_Handler                                  stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+Default_Handler                                   startup_stm32f10x_hd.o
+EXTI0_IRQHandler                                  startup_stm32f10x_hd.o
+EXTI15_10_IRQHandler                              startup_stm32f10x_hd.o
+EXTI1_IRQHandler                                  startup_stm32f10x_hd.o
+EXTI2_IRQHandler                                  startup_stm32f10x_hd.o
+EXTI3_IRQHandler                                  startup_stm32f10x_hd.o
+EXTI4_IRQHandler                                  startup_stm32f10x_hd.o
+EXTI9_5_IRQHandler                                startup_stm32f10x_hd.o
+FLASH_IRQHandler                                  startup_stm32f10x_hd.o
+FSMC_IRQHandler                                   startup_stm32f10x_hd.o
+HardFault_Handler                                 stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+I2C1_ER_IRQHandler                                startup_stm32f10x_hd.o
+I2C1_EV_IRQHandler                                startup_stm32f10x_hd.o
+I2C2_ER_IRQHandler                                startup_stm32f10x_hd.o
+I2C2_EV_IRQHandler                                startup_stm32f10x_hd.o
+MemManage_Handler                                 stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+NMI_Handler                                       stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+PVD_IRQHandler                                    startup_stm32f10x_hd.o
+PendSV_Handler                                    stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+RCC_IRQHandler                                    startup_stm32f10x_hd.o
+RTCAlarm_IRQHandler                               startup_stm32f10x_hd.o
+RTC_IRQHandler                                    startup_stm32f10x_hd.o
+Reset_Handler                                     startup_stm32f10x_hd.o
+SDIO_IRQHandler                                   startup_stm32f10x_hd.o
+SPI1_IRQHandler                                   startup_stm32f10x_hd.o
+SPI2_IRQHandler                                   startup_stm32f10x_hd.o
+SPI3_IRQHandler                                   startup_stm32f10x_hd.o
+SVC_Handler                                       stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+SysTick_Handler                                   stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+SystemFrequency                                   system_stm32f10x.o
+SystemFrequency_AHBClk                            system_stm32f10x.o
+SystemFrequency_APB1Clk                           system_stm32f10x.o
+SystemFrequency_APB2Clk                           system_stm32f10x.o
+SystemFrequency_SysClk                            system_stm32f10x.o
+SystemInit                                        system_stm32f10x.o
+SystemInit_ExtMemCtl                              startup_stm32f10x_hd.o
+SystemInit_ExtMemCtl_Dummy                        startup_stm32f10x_hd.o
+TAMPER_IRQHandler                                 startup_stm32f10x_hd.o
+TIM1_BRK_IRQHandler                               startup_stm32f10x_hd.o
+TIM1_CC_IRQHandler                                startup_stm32f10x_hd.o
+TIM1_TRG_COM_IRQHandler                           startup_stm32f10x_hd.o
+TIM1_UP_IRQHandler                                startup_stm32f10x_hd.o
+TIM2_IRQHandler                                   startup_stm32f10x_hd.o
+TIM3_IRQHandler                                   startup_stm32f10x_hd.o
+TIM4_IRQHandler                                   startup_stm32f10x_hd.o
+TIM5_IRQHandler                                   startup_stm32f10x_hd.o
+TIM6_IRQHandler                                   startup_stm32f10x_hd.o
+TIM7_IRQHandler                                   startup_stm32f10x_hd.o
+TIM8_BRK_IRQHandler                               startup_stm32f10x_hd.o
+TIM8_CC_IRQHandler                                startup_stm32f10x_hd.o
+TIM8_TRG_COM_IRQHandler                           startup_stm32f10x_hd.o
+TIM8_UP_IRQHandler                                startup_stm32f10x_hd.o
+UART4_IRQHandler                                  startup_stm32f10x_hd.o
+UART5_IRQHandler                                  startup_stm32f10x_hd.o
+USART1_IRQHandler                                 startup_stm32f10x_hd.o
+USART2_IRQHandler                                 startup_stm32f10x_hd.o
+USART3_IRQHandler                                 startup_stm32f10x_hd.o
+USBWakeUp_IRQHandler                              startup_stm32f10x_hd.o
+USB_HP_CAN1_TX_IRQHandler                         startup_stm32f10x_hd.o
+USB_LP_CAN1_RX0_IRQHandler                        startup_stm32f10x_hd.o
+UsageFault_Handler                                stm32f10x_it.o
+                                                  startup_stm32f10x_hd.o
+WWDG_IRQHandler                                   startup_stm32f10x_hd.o
+_Jv_RegisterClasses                               /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+__LDREXB                                          core_cm3.o
+__LDREXH                                          core_cm3.o
+__LDREXW                                          core_cm3.o
+__RBIT                                            core_cm3.o
+__REV                                             core_cm3.o
+__REV16                                           core_cm3.o
+__REVSH                                           core_cm3.o
+__STREXB                                          core_cm3.o
+__STREXH                                          core_cm3.o
+__STREXW                                          core_cm3.o
+__bss_end__                                       /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+__bss_start__                                     /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+__call_exitprocs                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+__change_mode                                     /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+__deregister_frame_info                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+__dso_handle                                      /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+__errno                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+__fini_array_end                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+__fini_array_start                                /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+__fp_lock_all                                     /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__fp_unlock_all                                   /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__get_BASEPRI                                     core_cm3.o
+__get_CONTROL                                     core_cm3.o
+__get_FAULTMASK                                   core_cm3.o
+__get_MSP                                         core_cm3.o
+__get_PRIMASK                                     core_cm3.o
+__get_PSP                                         core_cm3.o
+__init_array_end                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+__init_array_start                                /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+__libc_fini_array                                 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+__libc_init_array                                 /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+                                                  startup_stm32f10x_hd.o
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+__malloc_av_                                      /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+__malloc_current_mallinfo                         /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+__malloc_lock                                     /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+__malloc_max_sbrked_mem                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+__malloc_max_total_mem                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+__malloc_sbrk_base                                /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+__malloc_top_pad                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+__malloc_trim_threshold                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+__malloc_unlock                                   /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mlock.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+__preinit_array_end                               /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+__preinit_array_start                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+__register_exitproc                               /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+__register_frame_info                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crtbegin.o
+__sclose                                          /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__set_BASEPRI                                     core_cm3.o
+__set_CONTROL                                     core_cm3.o
+__set_FAULTMASK                                   core_cm3.o
+__set_MSP                                         core_cm3.o
+__set_PRIMASK                                     core_cm3.o
+__set_PSP                                         core_cm3.o
+__sfmoreglue                                      /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__sfp                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__sfp_lock_acquire                                /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+__sfp_lock_release                                /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+__sinit                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+__sinit_lock_acquire                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__sinit_lock_release                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__sread                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__sseek                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+__stack_base__                                    /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+__swrite                                          /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+_cleanup                                          /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+_cleanup_r                                        /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+_close                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+_close_r                                          /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+_ebss                                             startup_stm32f10x_hd.o
+_edata                                            startup_stm32f10x_hd.o
+_estack                                           startup_stm32f10x_hd.o
+_exit                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+_fclose_r                                         /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+_fflush_r                                         /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+_fini                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+_free_r                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+_fstat                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_fwalk                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+_fwalk_reent                                      /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fwalk.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+_getpid                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_gettimeofday                                     /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_global_impure_ptr                                /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+_impure_ptr                                       /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-impure.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-errno.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_init                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/thumb/crti.o
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-init.o)
+_isatty                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_kill                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_link                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_lseek                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+_lseek_r                                          /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+_mainCRTStartup                                   /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+_malloc_r                                         /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+_malloc_trim_r                                    /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+_open                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_raise                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_read                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+_read_r                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+_reclaim_reent                                    /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+_rename                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_sbrk                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+_sbrk_r                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-freer.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-mallocr.o)
+_sbss                                             startup_stm32f10x_hd.o
+_sdata                                            startup_stm32f10x_hd.o
+_sidata                                           startup_stm32f10x_hd.o
+_start                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+_stat                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_swiclose                                         /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_swilseek                                         /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_swiopen                                          /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_swiread                                          /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_swiwrite                                         /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_system                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_times                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_unlink                                           /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+_wrapup_reent                                     /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+_write                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+_write_r                                          /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-stdio.o)
+atexit                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-atexit.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+change_back                                       /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+cleanup_glue                                      /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+end                                               /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+errno                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-reent.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-readr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-lseekr.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-closer.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-writer.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-sbrkr.o)
+exit                                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-exit.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+fclose                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fclose.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+fflush                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-fflush.o)
+free                                              /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__call_atexit.o)
+g_pfnVectors                                      startup_stm32f10x_hd.o
+initialise_monitor_handles                        /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+main                                              Application.o
+                                                  startup_stm32f10x_hd.o
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+malloc                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-malloc.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-__atexit.o)
+memset                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-memset.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-findfp.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+start                                             /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/crt0.o
+strlen                                            /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-strlen.o)
+                                                  /home/oex/armtools/lib/gcc/arm-eabi/4.4.1/../../../../arm-eabi/lib/thumb/libc.a(lib_a-syscalls.o)

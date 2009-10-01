@@ -1246,22 +1246,22 @@
 DEFINED SYMBOLS
                             *ABS*:00000000 system_stm32f10x.c
                             .text:00000000 $t
-     /tmp/cc11sDEk.s:27     .rodata.SystemFrequency:00000000 SystemFrequency
-     /tmp/cc11sDEk.s:28     .rodata.SystemFrequency:00000000 $d
-     /tmp/cc11sDEk.s:34     .rodata.SystemFrequency_SysClk:00000000 SystemFrequency_SysClk
-     /tmp/cc11sDEk.s:35     .rodata.SystemFrequency_SysClk:00000000 $d
-     /tmp/cc11sDEk.s:41     .rodata.SystemFrequency_AHBClk:00000000 SystemFrequency_AHBClk
-     /tmp/cc11sDEk.s:42     .rodata.SystemFrequency_AHBClk:00000000 $d
-     /tmp/cc11sDEk.s:48     .rodata.SystemFrequency_APB1Clk:00000000 SystemFrequency_APB1Clk
-     /tmp/cc11sDEk.s:49     .rodata.SystemFrequency_APB1Clk:00000000 $d
-     /tmp/cc11sDEk.s:55     .rodata.SystemFrequency_APB2Clk:00000000 SystemFrequency_APB2Clk
-     /tmp/cc11sDEk.s:56     .rodata.SystemFrequency_APB2Clk:00000000 $d
-     /tmp/cc11sDEk.s:63     .text.SystemInit:00000000 SystemInit
-     /tmp/cc11sDEk.s:60     .text.SystemInit:00000000 $t
-     /tmp/cc11sDEk.s:139    .text.SetSysClock:00000000 SetSysClock
-     /tmp/cc11sDEk.s:136    .text.SetSysClock:00000000 $t
-     /tmp/cc11sDEk.s:166    .text.SetSysClockTo72:00000000 SetSysClockTo72
-     /tmp/cc11sDEk.s:163    .text.SetSysClockTo72:00000000 $t
-     /tmp/cc11sDEk.s:356    .debug_loc:00000000 $d
+     /tmp/ccIx9MZC.s:27     .rodata.SystemFrequency:00000000 SystemFrequency
+     /tmp/ccIx9MZC.s:28     .rodata.SystemFrequency:00000000 $d
+     /tmp/ccIx9MZC.s:34     .rodata.SystemFrequency_SysClk:00000000 SystemFrequency_SysClk
+     /tmp/ccIx9MZC.s:35     .rodata.SystemFrequency_SysClk:00000000 $d
+     /tmp/ccIx9MZC.s:41     .rodata.SystemFrequency_AHBClk:00000000 SystemFrequency_AHBClk
+     /tmp/ccIx9MZC.s:42     .rodata.SystemFrequency_AHBClk:00000000 $d
+     /tmp/ccIx9MZC.s:48     .rodata.SystemFrequency_APB1Clk:00000000 SystemFrequency_APB1Clk
+     /tmp/ccIx9MZC.s:49     .rodata.SystemFrequency_APB1Clk:00000000 $d
+     /tmp/ccIx9MZC.s:55     .rodata.SystemFrequency_APB2Clk:00000000 SystemFrequency_APB2Clk
+     /tmp/ccIx9MZC.s:56     .rodata.SystemFrequency_APB2Clk:00000000 $d
+     /tmp/ccIx9MZC.s:63     .text.SystemInit:00000000 SystemInit
+     /tmp/ccIx9MZC.s:60     .text.SystemInit:00000000 $t
+     /tmp/ccIx9MZC.s:139    .text.SetSysClock:00000000 SetSysClock
+     /tmp/ccIx9MZC.s:136    .text.SetSysClock:00000000 $t
+     /tmp/ccIx9MZC.s:166    .text.SetSysClockTo72:00000000 SetSysClockTo72
+     /tmp/ccIx9MZC.s:163    .text.SetSysClockTo72:00000000 $t
+     /tmp/ccIx9MZC.s:356    .debug_loc:00000000 $d
 
 NO UNDEFINED SYMBOLS
