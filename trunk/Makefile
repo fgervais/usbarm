@@ -2,10 +2,10 @@
 
 
 # Target file name (without extension).
-TARGET = main
+TARGET = Application
 
 # List C source files here. (C dependencies are automatically generated.)
 # use file-extension c for "c-only"-files
-CPPSRC =	main.cpp
+CPPSRC =	Application.cpp
 
 include makefile.mk
