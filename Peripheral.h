@@ -15,6 +15,11 @@ public:
 	Peripheral();
 	virtual ~Peripheral();
 
+	virtual void handleInterrupt();
+
+private:
+
+protected:
 	void notify();
 };
 

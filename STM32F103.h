@@ -10,10 +10,20 @@
 
 #include "Microcontroller.h"
 
+class Uart;
+
 class STM32F103: public Microcontroller {
 public:
+	static Uart* getUart1();
+
+private:
+	// This ensure no instance of this class
 	STM32F103();
 	virtual ~STM32F103();
+	STM32F103(const STM32F103&);
+	STM32F103& operator= (const STM32F103&);
+
+	static Uart *uart1;
 };
 
 #endif /* STM32F103_H_ */

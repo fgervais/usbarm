@@ -1,11 +1,11 @@
 /**
   ******************************************************************************
-  * @file    Project/Template/stm32f10x_it.c 
+  * @file    Project/Template/stm32f10x_it.c
   * @author  MCD Application Team
   * @version V3.1.0
   * @date    06/19/2009
   * @brief   Main Interrupt Service Routines.
-  *          This file provides template for all exceptions handler and 
+  *          This file provides template for all exceptions handler and
   *          peripherals interrupt service routine.
   ******************************************************************************
   * @copy
@@ -18,10 +18,13 @@
   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
   *
   * <h2><center>&copy; COPYRIGHT 2009 STMicroelectronics</center></h2>
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+
+#include "STM32F103.h"
+#include "Uart.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -152,8 +155,18 @@ void SysTick_Handler(void)
 }*/
 
 /**
+ * @brief	This function handle the USART1 interrupt request.
+ * @param	None
+ * @retval	None
+ */
+void USART1_IRQHandler(void)
+{
+	STM32F103::getUart1()->handleInterrupt();
+}
+
+/**
   * @}
-  */ 
+  */
 
 
 /******************* (C) COPYRIGHT 2009 STMicroelectronics *****END OF FILE****/

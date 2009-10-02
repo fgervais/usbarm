@@ -6,9 +6,13 @@
  */
 
 #include "Microcontroller.h"
+
 #include "STM32F103.h"
+#include "Uart.h"
 
 int main(void) {
 
-	Microcontroller *mcu = new STM32F103();
+	Uart *uart1 = STM32F103::getUart1();
+	STM32F103::getUart1()->handleInterrupt();
+
 }
