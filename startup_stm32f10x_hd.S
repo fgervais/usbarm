@@ -100,7 +100,7 @@ LoopFillZerobss:
 	cmp	r2, r3
 	bcc	FillZerobss
 /* Invoke all static constructors */
-/*	bl	__libc_init_array*/
+	bl	__libc_init_array
 /*	bx	lr*/
 /* Call the application's entry point.*/
 	bl	main
