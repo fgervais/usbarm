@@ -16,6 +16,9 @@ Uart::~Uart() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * @brief Handle the Uart interrupt (Send/Receive).
+ */
 void Uart::handleInterrupt() {
 	/* Receive buffer full */
 

@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    Project/Template/stm32f10x_it.h 
+  * @file    Project/Template/stm32f10x_it.h
   * @author  MCD Application Team
   * @version V3.1.0
   * @date    06/19/2009
@@ -16,7 +16,7 @@
   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
   *
   * <h2><center>&copy; COPYRIGHT 2009 STMicroelectronics</center></h2>
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F10x_IT_H
@@ -24,7 +24,7 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
@@ -43,6 +43,8 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+
+void USART1_IRQHandler(void);
 
 #ifdef __cplusplus
 }

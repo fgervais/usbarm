@@ -392,7 +392,7 @@ endif
 %.lss: %.elf
 	@echo
 	@echo $(MSG_EXTENDED_LISTING) $@
-	$(OBJDUMP) -h -S -D $< > $@
+#	$(OBJDUMP) -h -S -D $< > $@
 
 
 # Create a symbol table from ELF output file.
