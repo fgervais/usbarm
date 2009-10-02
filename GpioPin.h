@@ -17,10 +17,15 @@ public:
 	GpioPin(Gpio *port, uint32_t pinFlag);
 	virtual ~GpioPin();
 
-	void High();
-	void Low();
+	static const uint8_t INPUT = 0;
+	static const uint8_t OUTPUT = 1;
+
+	void setHigh();
+	void setLow();
 	bool isHigh();
 	bool isLow();
+
+	Gpio* getPort() { return port; }
 
 private:
 	uint32_t pinFlag;
