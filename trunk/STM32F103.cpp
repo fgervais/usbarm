@@ -10,8 +10,7 @@
 #include "Uart.h"
 #include "Gpio.h"
 
-/* Static init. Required to make the compiler happy */
-Uart* STM32F103::uart1 = 0;
+#include <stdint.h>
 
 STM32F103::STM32F103() {
 	// TODO Auto-generated constructor stub
@@ -34,6 +33,10 @@ Uart* STM32F103::getUart1() {
 	return uart1;
 }
 
-void STM32F103::ioctl(Gpio* port) {
-	uint32_t direction = port->getDirection();
+Gpio* STM32F103::getGpioA() {
+	if(gpioA == 0) {
+		gpioA = new Gpio();
+		// Gpio should somehow be initialized here
+	}
+	return gpioA;
 }

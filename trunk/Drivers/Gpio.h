@@ -8,7 +8,7 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
-namespace Drivers {
+namespace driver {
 
 class Gpio {
 public:

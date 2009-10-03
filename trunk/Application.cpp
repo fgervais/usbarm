@@ -7,12 +7,22 @@
 
 #include "Microcontroller.h"
 
-#include "STM32F103.h"
-#include "Uart.h"
+#include "Kernel.h"
+#include "Gpio.h"
+#include "GpioConfiguration.h"
+
+#include <stdint.h>
 
 int main(void) {
 
-	Uart *uart1 = STM32F103::getUart1();
-	STM32F103::getUart1()->handleInterrupt();
+	Gpio* gpioA = Kernel::getMicrocontroller()->getGpioA();
+
+	GpioConfiguration config;
+
+	config.pin[0] = GpioConfiguration::OUTPUT;
+
+	gpioA->configure(config);
+
+
 
 }

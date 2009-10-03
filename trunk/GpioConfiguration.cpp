@@ -7,8 +7,13 @@
 
 #include "GpioConfiguration.h"
 
+#include <stdint.h>
+
 GpioConfiguration::GpioConfiguration() {
-	// TODO Auto-generated constructor stub
+	for(uint8_t i=0; i<16; i++) {
+		// Initialize every pin as input
+		pin[i] = 0;
+	}
 
 }
 

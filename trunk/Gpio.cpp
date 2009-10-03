@@ -7,10 +7,11 @@
 
 #include "Gpio.h"
 
-#include "stm32f10x.h"
 #include "GpioPin.h"
 #include "GpioConfiguration.h"
-#include "STM32F103.h"
+#include "Kernel.h"
+
+#include <stdint.h>
 
 /**
  * @brief Gpio constructor.
@@ -38,6 +39,6 @@ void Gpio::configure(GpioConfiguration config) {
 		direction |= config.pin[i]<<i;
 	}
 
-	STM32F103::ioctl(this);
+	Kernel::ioctl(this);
 }
 
