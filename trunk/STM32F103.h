@@ -11,10 +11,12 @@
 #include "Microcontroller.h"
 
 class Uart;
+class Gpio;
 
 class STM32F103: public Microcontroller {
 public:
 	static Uart* getUart1();
+	static void ioctl(Gpio port);
 
 private:
 	// This ensure no instance of this class

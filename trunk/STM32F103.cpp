@@ -8,6 +8,7 @@
 #include "STM32F103.h"
 
 #include "Uart.h"
+#include "Gpio.h"
 
 /* Static init. Required to make the compiler happy */
 Uart* STM32F103::uart1 = 0;
@@ -31,4 +32,8 @@ Uart* STM32F103::getUart1() {
 		// Uart should somehow be initialized here
 	}
 	return uart1;
+}
+
+void STM32F103::ioctl(Gpio port) {
+
 }
