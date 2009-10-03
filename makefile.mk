@@ -61,7 +61,7 @@ SRCARM  =
 
 # List C++ source files here.
 # use file-extension cpp for C++-files (use extension .cpp)
-CPPSRC = $(wildcard *.cpp)
+CPPSRC = $(wildcard *.cpp) $(wildcard ./Drivers/*.cpp)
 
 # List C++ source files here which must be compiled in ARM-Mode.
 # use file-extension cpp for C++-files (use extension .cpp)
