@@ -34,6 +34,6 @@ Uart* STM32F103::getUart1() {
 	return uart1;
 }
 
-void STM32F103::ioctl(Gpio port) {
-
+void STM32F103::ioctl(Gpio* port) {
+	uint32_t direction = port->getDirection();
 }

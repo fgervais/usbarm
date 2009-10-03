@@ -10,6 +10,8 @@
 
 #include "Peripheral.h"
 
+#include "stm32f10x.h"
+
 class GpioConfiguration;
 class GpioPin;
 
@@ -21,9 +23,14 @@ public:
 	void configure(GpioConfiguration config);
 	void setInput(GpioPin pin);
 	void setOutput(GpioPin pin);
+	void setAllInput();
+	void setAllOutput();
+
+	uint32_t getDirection() { return direction; }
 
 private:
 	GpioPin* gpioPins[16];
+	uint32_t direction;
 };
 
 #endif /* GPIO_H_ */

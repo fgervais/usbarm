@@ -10,6 +10,8 @@
 
 #include "Microcontroller.h"
 
+#include "stm32f10x.h"
+
 class Peripheral: public Microcontroller {
 public:
 	Peripheral();
@@ -17,7 +19,10 @@ public:
 
 	virtual void handleInterrupt();
 
+	uint8_t getId() { return number; }
+
 private:
+	uint8_t number;
 
 protected:
 	void notify();

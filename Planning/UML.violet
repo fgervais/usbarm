@@ -13,8 +13,6 @@
      <void property="text"> 
       <string>+ getType()
 + addEventListener(EventListener)
-+ getData()
-+ setData()
 # notify()</string> 
      </void> 
     </void> 
@@ -27,8 +25,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>269.0</double> 
-     <double>383.0</double> 
+     <double>506.0</double> 
+     <double>351.0</double> 
     </void> 
    </object> 
   </void> 
@@ -47,8 +45,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>574.0</double> 
-     <double>652.0</double> 
+     <double>881.0</double> 
+     <double>613.0</double> 
     </void> 
    </object> 
   </void> 
@@ -67,8 +65,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>276.0</double> 
-     <double>647.0</double> 
+     <double>620.0</double> 
+     <double>609.0</double> 
     </void> 
    </object> 
   </void> 
@@ -87,8 +85,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>426.0</double> 
-     <double>645.0</double> 
+     <double>752.0</double> 
+     <double>613.0</double> 
     </void> 
    </object> 
   </void> 
@@ -112,8 +110,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1206.3244498050192</double> 
-     <double>486.19053362520407</double> 
+     <double>1443.3244498050192</double> 
+     <double>454.19053362520407</double> 
     </void> 
    </object> 
   </void> 
@@ -132,8 +130,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1181.1892071150028</double> 
-     <double>648.2997889853782</double> 
+     <double>1418.1892071150028</double> 
+     <double>616.2997889853782</double> 
     </void> 
    </object> 
   </void> 
@@ -158,8 +156,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>836.1898703701034</double> 
-     <double>628.1638830402612</double> 
+     <double>1073.1898703701036</double> 
+     <double>596.1638830402612</double> 
     </void> 
    </object> 
   </void> 
@@ -184,10 +182,10 @@ Peripheral</string>
    <object id="ClassNode7" class="com.horstmann.violet.ClassNode"> 
     <void property="attributes"> 
      <void property="text"> 
-      <string>+ USART1 : Uart
-+ USART2 : Uart
-+ PWM : Pwm
-+ USB : Usb
+      <string>- uart1 : Uart
+- uart2 : Uart
+- pwm : Pwm
+- USB : Usb
 </string> 
      </void> 
     </void> 
@@ -197,6 +195,8 @@ Peripheral</string>
 + getUART2() : Uart
 + getPWM() : Pwm
 + getUsb() : Usb
+------------------
++ ioctl(Gpio)
 </string> 
      </void> 
     </void> 
@@ -208,8 +208,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>61.0</double> 
-     <double>387.0</double> 
+     <double>84.0</double> 
+     <double>347.0</double> 
     </void> 
    </object> 
   </void> 
@@ -228,8 +228,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>800.9466988301142</double> 
-     <double>461.7035272901252</double> 
+     <double>1037.9466988301142</double> 
+     <double>429.7035272901252</double> 
     </void> 
    </object> 
   </void> 
@@ -263,8 +263,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>152.0</double> 
-     <double>240.0</double> 
+     <double>196.0</double> 
+     <double>213.0</double> 
     </void> 
    </object> 
   </void> 
@@ -284,8 +284,8 @@ PeripheralEventListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>697.2977992200762</double> 
-     <double>75.81079288499728</double> 
+     <double>934.2977992200762</double> 
+     <double>43.810792884997284</double> 
     </void> 
    </object> 
   </void> 
@@ -307,8 +307,8 @@ PeripheralType</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>425.0</double> 
-     <double>261.0</double> 
+     <double>662.0</double> 
+     <double>229.0</double> 
     </void> 
    </object> 
   </void> 
@@ -322,8 +322,8 @@ PeripheralType</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>149.0</double> 
-     <double>649.0</double> 
+     <double>485.0</double> 
+     <double>612.0</double> 
     </void> 
    </object> 
   </void> 
@@ -337,8 +337,8 @@ PeripheralType</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>18.0</double> 
-     <double>645.0</double> 
+     <double>360.0</double> 
+     <double>608.0</double> 
     </void> 
    </object> 
   </void> 
@@ -364,8 +364,8 @@ PeripheralType</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>784.6762134500816</double> 
-     <double>294.3517636450626</double> 
+     <double>1021.6762134500816</double> 
+     <double>262.3517636450626</double> 
     </void> 
    </object> 
   </void> 
@@ -380,8 +380,8 @@ but can trigger events.</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>35.0</double> 
-     <double>776.0</double> 
+     <double>361.0</double> 
+     <double>720.0</double> 
     </void> 
    </object> 
   </void> 
@@ -395,8 +395,8 @@ but can trigger events.</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>587.2704853800327</double> 
-     <double>290.3517636450626</double> 
+     <double>824.2704853800327</double> 
+     <double>258.3517636450626</double> 
     </void> 
    </object> 
   </void> 
@@ -411,8 +411,8 @@ for timer overflow</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>432.0</double> 
-     <double>176.0</double> 
+     <double>669.0</double> 
+     <double>144.0</double> 
     </void> 
    </object> 
   </void> 
@@ -434,8 +434,51 @@ CommandReceiver
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1153.3784142300055</double> 
-     <double>289.5949351850517</double> 
+     <double>1390.3784142300055</double> 
+     <double>257.5949351850517</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="PackageNode0" class="com.horstmann.violet.PackageNode"> 
+    <void method="addChild"> 
+     <object id="ClassNode16" class="com.horstmann.violet.ClassNode"> 
+      <void property="name"> 
+       <void property="text"> 
+        <string>Gpio</string> 
+       </void> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="addChild"> 
+     <object id="ClassNode17" class="com.horstmann.violet.ClassNode"/> 
+    </void> 
+    <void property="name"> 
+     <string>Drivers</string> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>40.0</double> 
+     <double>560.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object idref="ClassNode16"/> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>46.0</double> 
+     <double>592.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object idref="ClassNode17"/> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>156.0</double> 
+     <double>586.0</double> 
     </void> 
    </object> 
   </void> 
@@ -645,6 +688,18 @@ CommandReceiver
    </object> 
    <object idref="ClassNode15"/> 
    <object idref="ClassNode13"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
+    <void property="bentStyle"> 
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/> 
+    </void> 
+    <void property="endArrowHead"> 
+     <object class="com.horstmann.violet.ArrowHead" field="V"/> 
+    </void> 
+   </object> 
+   <object idref="ClassNode7"/> 
+   <object idref="PackageNode0"/> 
   </void> 
  </object> 
 </java> 
