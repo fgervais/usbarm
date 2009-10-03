@@ -9,9 +9,9 @@
 
 #include "Gpio.h"
 
-GpioPin::GpioPin(Gpio *port, uint32_t pinFlag) {
+GpioPin::GpioPin(Gpio *port, uint32_t pinNumber) {
 	this->port = port;
-	this->pinFlag = pinFlag;
+	this->pinNumber = pinNumber;
 
 }
 

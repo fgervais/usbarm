@@ -14,7 +14,7 @@ class Gpio;
 
 class GpioPin {
 public:
-	GpioPin(Gpio *port, uint32_t pinFlag);
+	GpioPin(Gpio *port, uint32_t pinNumber);
 	virtual ~GpioPin();
 
 	static const uint8_t INPUT = 0;
@@ -26,9 +26,10 @@ public:
 	bool isLow();
 
 	Gpio* getPort() { return port; }
+	uint8_t getPinNumber() { return pinNumber; }
 
 private:
-	uint32_t pinFlag;
+	uint32_t pinNumber;
 	Gpio *port;
 };
 
