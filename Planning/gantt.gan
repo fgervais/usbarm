@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2009-10-05" view-index="0" gantt-divider-location="480" resource-divider-location="300" version="2.0">
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2009-07-19" view-index="0" gantt-divider-location="445" resource-divider-location="300" version="2.0">
     <description/>
-    <view zooming-state="default:3" id="gantt-chart"/>
+    <view zooming-state="default:5" id="gantt-chart"/>
     <view id="resource-table">
-        <field id="0" name="Nom" width="55" order="0"/>
-        <field id="1" name="Rôle par défaut" width="44" order="1"/>
+        <field id="0" name="Name" width="54" order="0"/>
+        <field id="1" name="Default role" width="45" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -46,7 +46,7 @@
             </task>
             <task id="8" name="Choix de la solution" color="#8cb6ce" meeting="false" start="2009-08-19" duration="3" complete="100" priority="1" expand="true"/>
         </task>
-        <task id="10" name="Réalisation" color="#8cb6ce" meeting="false" start="2009-08-24" duration="70" complete="17" priority="1" expand="true">
+        <task id="10" name="Réalisation" color="#8cb6ce" meeting="false" start="2009-08-24" duration="70" complete="38" priority="1" expand="true">
             <task id="11" name="Achat du matériel" color="#8cb6ce" meeting="false" start="2009-08-24" duration="4" complete="100" priority="1" expand="true">
                 <depend id="33" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -54,16 +54,16 @@
             <task id="33" name="Attente pour la réception des pièces" color="#8cb6ce" meeting="false" start="2009-08-28" duration="8" complete="100" priority="1" expand="true">
                 <depend id="15" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="15" name="Familiarisation et installation des outils logiciels et matériel" color="#8cb6ce" meeting="false" start="2009-09-09" duration="8" complete="54" priority="1" expand="true">
+            <task id="15" name="Familiarisation et installation des outils logiciels et matériel" color="#8cb6ce" meeting="false" start="2009-09-09" duration="8" complete="100" priority="1" expand="true">
                 <depend id="16" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="16" name="Création de la carte" color="#8cb6ce" meeting="false" start="2009-09-21" duration="50" complete="0" priority="1" expand="true">
-                <task id="18" name="Intégration d'une télécommande XBOX" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="0" priority="1" expand="true">
+            <task id="16" name="Création de la carte" color="#8cb6ce" meeting="false" start="2009-09-21" duration="50" complete="11" priority="1" expand="true">
+                <task id="18" name="Intégration d'une télécommande XBOX" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="22" priority="1" expand="true">
                     <depend id="28" type="2" difference="0" hardness="Strong"/>
-                    <task id="19" name="Création d'une interface entre le microcontrôleur et le récepteur" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="0" priority="1" expand="true">
-                        <task id="20" name="Implémentation du USB" color="#8cb6ce" meeting="false" start="2009-09-21" duration="30" complete="0" priority="1" expand="true">
+                    <task id="19" name="Création d'une interface entre le microcontrôleur et le récepteur" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="22" priority="1" expand="true">
+                        <task id="20" name="Implémentation du USB" color="#8cb6ce" meeting="false" start="2009-09-21" duration="30" complete="33" priority="1" expand="true">
                             <depend id="21" type="2" difference="0" hardness="Strong"/>
-                            <task id="34" name="Documentation" color="#8cb6ce" meeting="false" start="2009-09-21" duration="10" complete="0" priority="1" expand="true">
+                            <task id="34" name="Documentation" color="#8cb6ce" meeting="false" start="2009-09-21" duration="10" complete="100" priority="1" expand="true">
                                 <depend id="35" type="2" difference="0" hardness="Strong"/>
                             </task>
                             <task id="35" name="Expérimentation avec divers controlleurs" color="#8cb6ce" meeting="false" start="2009-10-05" duration="5" complete="0" priority="1" expand="true">
@@ -81,7 +81,7 @@
                     </task>
                 </task>
                 <task id="17" name="Convertisseur PWM-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-09-21" duration="15" complete="0" priority="1" expand="true"/>
-                <task id="23" name="Systeme de gestion de source (multiplexeur) et gestion de priorité" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true">
+                <task id="23" name="Systeme de gestion de source (multiplexeur) et gestion de priorité" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="false">
                     <task id="24" name="RS232-&gt;Drive" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true"/>
                     <task id="25" name="PWM-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true"/>
                     <task id="26" name="USB décodé-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true"/>
