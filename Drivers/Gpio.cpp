@@ -7,7 +7,7 @@
 
 #include "Gpio.h"
 
-namespace Drivers {
+namespace driver {
 
 Gpio::Gpio() {
 	// TODO Auto-generated constructor stub

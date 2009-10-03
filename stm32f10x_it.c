@@ -161,7 +161,7 @@ void SysTick_Handler(void)
  */
 void USART1_IRQHandler(void)
 {
-	STM32F103::getUart1()->handleInterrupt();
+
 }
 
 /**

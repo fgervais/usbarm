@@ -10,9 +10,9 @@
 
 #include "Microcontroller.h"
 
-#include "stm32f10x.h"
+#include <stdint.h>
 
-class Peripheral: public Microcontroller {
+class Peripheral {
 public:
 	Peripheral();
 	virtual ~Peripheral();

@@ -15,17 +15,16 @@ class Gpio;
 
 class STM32F103: public Microcontroller {
 public:
-	static Uart* getUart1();
-	static void ioctl(Gpio* port);
-
-private:
-	// This ensure no instance of this class
 	STM32F103();
 	virtual ~STM32F103();
-	STM32F103(const STM32F103&);
-	STM32F103& operator= (const STM32F103&);
 
-	static Uart *uart1;
+	virtual Uart* getUart1();
+	virtual Gpio* getGpioA();
+
+private:
+
+	Uart *uart1;
+	Gpio *gpioA;
 };
 
 #endif /* STM32F103_H_ */
