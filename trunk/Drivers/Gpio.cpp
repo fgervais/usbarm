@@ -10,12 +10,12 @@
 namespace driver {
 
 Gpio::Gpio() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 Gpio::~Gpio() {
-	// TODO Auto-generated destructor stub
+
 }
 
 }

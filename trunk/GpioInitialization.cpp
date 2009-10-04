@@ -8,11 +8,10 @@
 #include "GpioInitialization.h"
 
 GpioInitialization::GpioInitialization() {
+	// Initialize array
 	for(uint8_t i=0; i<16; i++) {
-		// Initialize every pin as input
 		pin[i] = 0;
 	}
-
 }
 
 GpioInitialization::~GpioInitialization() {

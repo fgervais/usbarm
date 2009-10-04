@@ -15,7 +15,8 @@ public:
 	Uart();
 	virtual ~Uart();
 
-	void handleInterrupt();
+	void sendInterrupt();
+	void receiveInterrupt();
 };
 
 #endif /* UART_H_ */

@@ -8,10 +8,10 @@
 #include "Mux.h"
 
 Mux::Mux() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 Mux::~Mux() {
-	// TODO Auto-generated destructor stub
+
 }

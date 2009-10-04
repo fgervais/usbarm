@@ -8,10 +8,10 @@
 #include "CommandReveiver.h"
 
 CommandReveiver::CommandReveiver() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 CommandReveiver::~CommandReveiver() {
-	// TODO Auto-generated destructor stub
+
 }

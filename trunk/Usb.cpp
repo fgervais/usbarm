@@ -8,10 +8,10 @@
 #include "Usb.h"
 
 Usb::Usb() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 Usb::~Usb() {
-	// TODO Auto-generated destructor stub
+
 }

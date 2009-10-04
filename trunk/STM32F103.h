@@ -18,13 +18,13 @@ public:
 	STM32F103();
 	virtual ~STM32F103();
 
-	virtual Uart* getUart1();
-	virtual Gpio* getGpioA();
+	static Uart* getUart1();
+	static Gpio* getGpioA();
 
 private:
 
-	Uart *uart1;
-	Gpio *gpioA;
+	static Uart *uart1;
+	static Gpio *gpioA;
 };
 
 #endif /* STM32F103_H_ */

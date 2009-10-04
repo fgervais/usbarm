@@ -17,8 +17,6 @@ public:
 	Peripheral();
 	virtual ~Peripheral();
 
-	virtual void handleInterrupt();
-
 	uint8_t getId() { return number; }
 
 private:

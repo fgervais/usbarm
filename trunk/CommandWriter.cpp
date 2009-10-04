@@ -8,10 +8,10 @@
 #include "CommandWriter.h"
 
 CommandWriter::CommandWriter() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 CommandWriter::~CommandWriter() {
-	// TODO Auto-generated destructor stub
+
 }

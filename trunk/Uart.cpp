@@ -15,15 +15,11 @@ Uart::~Uart() {
 
 }
 
-/**
- * @brief Handle the Uart interrupt (Send/Receive).
- */
-void Uart::handleInterrupt() {
-	/* Receive buffer full */
+void Uart::sendInterrupt() {
 
-	// Get data
-	notify();
-
-
-	/* Send buffer empty */
 }
+
+void Uart::receiveInterrupt() {
+
+}
+

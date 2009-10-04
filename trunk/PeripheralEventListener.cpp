@@ -8,10 +8,10 @@
 #include "PeripheralEventListener.h"
 
 PeripheralEventListener::PeripheralEventListener() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 PeripheralEventListener::~PeripheralEventListener() {
-	// TODO Auto-generated destructor stub
+
 }
