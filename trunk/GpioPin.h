@@ -17,9 +17,6 @@ public:
 	GpioPin(Gpio *port, uint32_t pinNumber);
 	virtual ~GpioPin();
 
-	static const uint8_t INPUT = 0;
-	static const uint8_t OUTPUT = 1;
-
 	void setHigh();
 	void setLow();
 

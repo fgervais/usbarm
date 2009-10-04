@@ -10,9 +10,9 @@
 
 #include "Peripheral.h"
 
-#include <stdint.h>
+#include "stm32f10x.h"
 
-class GpioConfiguration;
+class GpioInitialization;
 class GpioPin;
 
 /**
@@ -20,22 +20,20 @@ class GpioPin;
  */
 class Gpio: public Peripheral {
 public:
-	Gpio();
+	Gpio(GPIO_TypeDef *gpioRegisters);
 	virtual ~Gpio();
 
-	void configure(GpioConfiguration config);
-	void setInput(GpioPin* pin);
-	void setOutput(GpioPin* pin);
-	void setAllInput();
-	void setAllOutput();
+	static const uint8_t SPEED_10MHZ = 0;
+	static const uint8_t OUTPUT = 1;
+
+	void init(GpioInitialization init);
 
 	GpioPin* getPin(uint8_t number);
 
-	uint32_t getDirection() { return direction; }
-
 private:
-	GpioPin* gpioPins[16];
-	uint32_t direction;
+	GPIO_TypeDef *gpioRegisters;
+
+	GpioPin *gpioPins[16];
 };
 
 #endif /* GPIO_H_ */
