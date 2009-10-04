@@ -9,7 +9,7 @@
 
 #include "stm32f10x.h"
 #include "GpioPin.h"
-#include "GpioInitialization.h"
+#include "GpioConfiguration.h"
 
 /**
  * @brief Gpio constructor.
@@ -20,8 +20,8 @@ Gpio::Gpio(GPIO_TypeDef *gpioRegisters) {
 	this->gpioRegisters = gpioRegisters;
 
 	for(uint8_t i=0; i<16; i++) {
-		// Create a new pin with it's corresponding flag.
-		gpioPins[i] = new GpioPin(this, i);
+		// Create a new pin with it's corresponding pin number.
+		gpioPins[i] = new GpioPin(gpioRegisters, i);
 	}
 }
 
@@ -31,10 +31,22 @@ Gpio::~Gpio() {
 
 /**
  * @brief	Configure direction of the port.
- * @param	config Configuration that contains direction for each pins.
+ * @param	init Initialization object.
  */
-void Gpio::init(GpioInitialization init) {
+void Gpio::configure(GpioConfiguration config) {
+	uint32_t configRegister = 0;
 
+	// Port configuration register low
+	for(uint8_t pinNumber=0; pinNumber<8; pinNumber++) {
+		configRegister |= config.pin[pinNumber] << pinNumber;
+	}
+	gpioRegisters->CRL = configRegister;
+
+	// Port configuration register high
+	for(uint8_t pinNumber=8; pinNumber<16; pinNumber++) {
+		configRegister |= config.pin[pinNumber] << (pinNumber%8);
+	}
+	gpioRegisters->CRH = configRegister;
 }
 
 GpioPin* Gpio::getPin(uint8_t number) {
@@ -42,4 +54,12 @@ GpioPin* Gpio::getPin(uint8_t number) {
 		return gpioPins[number];
 	}
 	return 0;
+}
+
+uint32_t Gpio::getData() {
+	return gpioRegisters->ODR;
+}
+
+void Gpio::setData(uint32_t data) {
+	gpioRegisters->IDR = data;
 }

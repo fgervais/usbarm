@@ -10,25 +10,26 @@
 
 #include "stm32f10x.h"
 
-class Gpio;
+/**
+ * General purpose IO pin.
+ */
+class GpioPinConfiguration;
 
 class GpioPin {
 public:
-	GpioPin(Gpio *port, uint32_t pinNumber);
+	GpioPin(GPIO_TypeDef *gpioRegisters, uint32_t pinNumber);
 	virtual ~GpioPin();
+
+	void configure(GpioPinConfiguration config);
+
+	uint32_t isHigh();
 
 	void setHigh();
 	void setLow();
 
-	void setInput();
-	void setOutput();
-
-	Gpio* getPort() { return port; }
-	uint8_t getPinNumber() { return pinNumber; }
-
 private:
 	uint32_t pinNumber;
-	Gpio *port;
+	GPIO_TypeDef *gpioRegisters;
 };
 
 #endif /* GPIOPIN_H_ */

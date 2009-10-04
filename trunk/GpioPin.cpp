@@ -6,17 +6,50 @@
  */
 
 #include "GpioPin.h"
+#include "GpioPinConfiguration.h"
 
 #include "Gpio.h"
 
-GpioPin::GpioPin(Gpio *port, uint32_t pinNumber) {
-	this->port = port;
+GpioPin::GpioPin(GPIO_TypeDef *gpioRegisters, uint32_t pinNumber) {
+	this->gpioRegisters = gpioRegisters;
 	this->pinNumber = pinNumber;
-
 }
 
 GpioPin::~GpioPin() {
 
 }
 
+void GpioPin::configure(GpioPinConfiguration config) {
+	uint32_t configRegister;
 
+	// Use port configuration low
+	if(pinNumber < 8) {
+		configRegister = gpioRegisters->CRL;
+		// Clear the pin configuration
+		configRegister &= ~(0x0F << pinNumber);
+		configRegister |= config.pin << pinNumber;
+		// Apply changes
+		gpioRegisters->CRL = configRegister;
+	}
+	// Use port configuration high
+	else {
+		configRegister = gpioRegisters->CRH;
+		// Clear the pin configuration
+		configRegister &= ~(0x0F << (pinNumber%8));
+		configRegister |= config.pin << (pinNumber%8);
+		// Apply changes
+		gpioRegisters->CRH = configRegister;
+	}
+}
+
+uint32_t GpioPin::isHigh() {
+	return gpioRegisters->IDR & (1 << pinNumber);
+}
+
+void GpioPin::setHigh() {
+	gpioRegisters->BSRR |= (1 << pinNumber);
+}
+
+void GpioPin::setLow() {
+	gpioRegisters->BRR |= (1 << pinNumber);
+}
