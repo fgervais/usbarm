@@ -8,10 +8,10 @@
 #include "CommandFactory.h"
 
 CommandFactory::CommandFactory() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 CommandFactory::~CommandFactory() {
-	// TODO Auto-generated destructor stub
+
 }

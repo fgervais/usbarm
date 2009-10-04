@@ -12,13 +12,17 @@
 
 #include "stm32f10x.h"
 
+/* Static init. Required to make the compiler happy */
+Uart* STM32F103::uart1 = 0;
+Gpio* STM32F103::gpioA = 0;
+
 STM32F103::STM32F103() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 STM32F103::~STM32F103() {
-	// TODO Auto-generated destructor stub
+
 }
 
 /**
