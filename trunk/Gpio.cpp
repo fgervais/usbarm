@@ -49,6 +49,11 @@ void Gpio::configure(GpioConfiguration config) {
 	gpioRegisters->CRH = configRegister;
 }
 
+/**
+ * @brief	Return a concrete GpioPin.
+ * @param number Number of the pin requested.
+ * @return
+ */
 GpioPin* Gpio::getPin(uint8_t number) {
 	if(number < 16) {
 		return gpioPins[number];
@@ -56,10 +61,18 @@ GpioPin* Gpio::getPin(uint8_t number) {
 	return 0;
 }
 
+/**
+ * @brief	Get current Gpio port value.
+ * @return	Value of the Output Data Register.
+ */
 uint32_t Gpio::getData() {
 	return gpioRegisters->ODR;
 }
 
+/**
+ * @brief	Set a value to the Gpio port.
+ * @param data Value of the Input Data Register to set.
+ */
 void Gpio::setData(uint32_t data) {
 	gpioRegisters->IDR = data;
 }
