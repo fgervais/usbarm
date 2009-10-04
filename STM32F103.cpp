@@ -40,7 +40,8 @@ Uart* STM32F103::getUart1() {
 Gpio* STM32F103::getGpioA() {
 	if(gpioA == 0) {
 		gpioA = new Gpio(GPIOA);
-		// Gpio should somehow be initialized here
+		// Send clock to GPIO A
+		RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 	}
 	return gpioA;
 }

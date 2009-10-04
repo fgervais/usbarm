@@ -12,7 +12,7 @@
 
 #include "stm32f10x.h"
 
-class GpioInitialization;
+class GpioConfiguration;
 class GpioPin;
 
 /**
@@ -36,13 +36,15 @@ public:
 	Gpio(GPIO_TypeDef *gpioRegisters);
 	virtual ~Gpio();
 
-	void init(GpioInitialization init);
+	void configure(GpioConfiguration config);
 
 	GpioPin* getPin(uint8_t number);
 
+	uint32_t getData();
+	void setData(uint32_t);
+
 private:
 	GPIO_TypeDef *gpioRegisters;
-
 	GpioPin *gpioPins[16];
 };
 
