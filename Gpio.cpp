@@ -23,15 +23,19 @@ Gpio::Gpio() {
 		// Create a new pin with it's corresponding flag.
 		gpioPins[i] = new GpioPin(this, i);
 	}
+
+	// On most controller, all pins are input (high impedance) on reset.
+	// Asking the microcontroller about it's reset state could be better,
+	direction = 0;
 }
 
 Gpio::~Gpio() {
-	// TODO Auto-generated destructor stub
+
 }
 
 /**
  * @brief	Configure direction of the port.
- * @param	config Configuration that contain direction for each pins.
+ * @param	config Configuration that contains direction for each pins.
  */
 void Gpio::configure(GpioConfiguration config) {
 	direction = 0;
@@ -39,6 +43,41 @@ void Gpio::configure(GpioConfiguration config) {
 		direction |= config.pin[i]<<i;
 	}
 
+	// Ask the kernel to configure the port
 	Kernel::ioctl(this);
 }
 
+void Gpio::setInput(GpioPin* pin) {
+
+}
+
+void Gpio::setOutput(GpioPin* pin) {
+
+}
+
+/**
+ * @brief	Configure all pins of the port as input.
+ */
+void Gpio::setAllInput() {
+	direction = 0;
+
+	// Ask the kernel to configure the port
+	Kernel::ioctl(this);
+}
+
+/**
+ * @brief	Configure all pins of the port as output.
+ */
+void Gpio::setAllOutput() {
+	direction = 0xFFFF;
+
+	// Ask the kernel to configure the port
+	Kernel::ioctl(this);
+}
+
+GpioPin* Gpio::getPin(uint8_t number) {
+	if(number >= 16) {
+		// TODO: Throw an exception
+	}
+	return gpioPins[number];
+}

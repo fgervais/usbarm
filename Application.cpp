@@ -23,6 +23,4 @@ int main(void) {
 
 	gpioA->configure(config);
 
-
-
 }

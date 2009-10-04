@@ -22,8 +22,9 @@ public:
 
 	void setHigh();
 	void setLow();
-	bool isHigh();
-	bool isLow();
+
+	void setInput();
+	void setOutput();
 
 	Gpio* getPort() { return port; }
 	uint8_t getPinNumber() { return pinNumber; }
