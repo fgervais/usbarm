@@ -19,6 +19,10 @@ GpioPin::~GpioPin() {
 
 }
 
+/**
+ * @brief	Configure this pin (Direction, Speed..).
+ * @param config Configuration if the pin.
+ */
 void GpioPin::configure(GpioPinConfiguration config) {
 	uint32_t configRegister;
 
@@ -42,14 +46,24 @@ void GpioPin::configure(GpioPinConfiguration config) {
 	}
 }
 
+/**
+ * @brief	Check if the pin is at the high level.
+ * @return	0 if false, true otherwise.
+ */
 uint32_t GpioPin::isHigh() {
 	return gpioRegisters->IDR & (1 << pinNumber);
 }
 
+/**
+ * @brief	Set the pin to the high level.
+ */
 void GpioPin::setHigh() {
 	gpioRegisters->BSRR |= (1 << pinNumber);
 }
 
+/**
+ * @brief	Set the pin to the low level.
+ */
 void GpioPin::setLow() {
 	gpioRegisters->BRR |= (1 << pinNumber);
 }
