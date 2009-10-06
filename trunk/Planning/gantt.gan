@@ -80,7 +80,7 @@
                         <task id="22" name="Vérification de la robustesse de la transmission sans fil" color="#8cb6ce" meeting="false" start="2009-11-16" duration="5" complete="0" priority="1" expand="true"/>
                     </task>
                 </task>
-                <task id="17" name="Convertisseur PWM-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-09-21" duration="15" complete="0" priority="1" expand="true"/>
+                <task id="17" name="Convertisseur PWM-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-09-21" duration="15" complete="5" priority="1" expand="true"/>
                 <task id="23" name="Systeme de gestion de source (multiplexeur) et gestion de priorité" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="false">
                     <task id="24" name="RS232-&gt;Drive" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true"/>
                     <task id="25" name="PWM-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true"/>
