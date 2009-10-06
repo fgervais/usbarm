@@ -26,7 +26,7 @@ int main(void) {
 	gpioA->configure(portConfig);
 
 	GpioPinConfiguration pinConfig;
-	pinConfig.pin = Gpio::GP_OPEN_DRAIN_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+	pinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
 	gpioA->getPin(0)->configure(pinConfig);
 
 	GpioPin *led = gpioA->getPin(0);
