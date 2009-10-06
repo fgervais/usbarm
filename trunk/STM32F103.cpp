@@ -29,7 +29,7 @@ STM32F103::~STM32F103() {
  * @brief	This function return an instance to the actual Uart1.
  * @return	The STM32F103 Uart1
  */
-Uart* STM32F103::getUart1() {
+Uart* STM32F103::getUart1(uint8_t baudrate, ) {
 	if(uart1 == 0) {
 		uart1 = new Uart();
 		// Uart should somehow be initialized here
