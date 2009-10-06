@@ -17,6 +17,8 @@ int main(void) {
 	// Setup STM32 system (clock, PLL and Flash configuration)
 	SystemInit();
 
+	Uart *uart1 = STM32F103::getUart1();
+
 	Gpio *gpioA = STM32F103::getGpioA();
 
 	GpioConfiguration portConfig;
