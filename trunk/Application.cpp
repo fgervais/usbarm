@@ -21,10 +21,8 @@ int main(void) {
 
 	Gpio *gpioA = STM32F103::getGpioA();
 
-	GpioConfiguration portConfig;
-	for(uint8_t i=0; i<16; i++) {
-		portConfig.pin[i] = Gpio::FLOATING_INPUT;
-	}
+	// Create a new GpioConfiguration with FLOATING_INPUT as default for all pins
+	GpioConfiguration portConfig(Gpio::FLOATING_INPUT);
 	gpioA->configure(portConfig);
 
 	GpioPinConfiguration pinConfig;

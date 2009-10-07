@@ -12,12 +12,15 @@
 
 #include <stdint.h>
 
+class PeripheralEventListener;
+
 class Peripheral {
 public:
 	Peripheral();
 	virtual ~Peripheral();
 
 	uint8_t getId() { return number; }
+	void addEventListener(PeripheralEventListener *listener);
 
 private:
 	uint8_t number;

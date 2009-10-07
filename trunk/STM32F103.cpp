@@ -18,7 +18,6 @@ Gpio* STM32F103::gpioA = 0;
 
 STM32F103::STM32F103() {
 
-
 }
 
 STM32F103::~STM32F103() {

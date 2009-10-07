@@ -7,8 +7,12 @@
 
 #include "Peripheral.h"
 
-Peripheral::Peripheral() {
+#include "PeripheralEventListener.h"
 
+#include <vector>
+using namespace std;
+
+Peripheral::Peripheral() {
 
 }
 
@@ -20,5 +24,9 @@ Peripheral::~Peripheral() {
  * @brief Notify PeripheralEventListeners from an event.
  */
 void Peripheral::notify() {
+
+}
+
+void Peripheral::addEventListener(PeripheralEventListener *listener) {
 
 }
