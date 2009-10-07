@@ -19,11 +19,11 @@ public:
 	Peripheral();
 	virtual ~Peripheral();
 
-	uint8_t getId() { return number; }
+	uint8_t getId() { return id; }
 	void addEventListener(PeripheralEventListener *listener);
 
 private:
-	uint8_t number;
+	uint8_t id;
 
 protected:
 	void notify();
