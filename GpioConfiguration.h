@@ -13,6 +13,7 @@
 class GpioConfiguration {
 public:
 	GpioConfiguration();
+	GpioConfiguration(uint8_t defaultConfig);
 	virtual ~GpioConfiguration();
 
 	uint8_t pin[16];
