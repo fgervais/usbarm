@@ -13,9 +13,9 @@
 class Uart: public Peripheral {
 public:
 
-	//                fck = 2 MHz
-	//  baudrate =  ---------------
-	//              (16 * USARTDIV)
+	/**              fck = 72000000
+	    baudrate =  ----------------
+	                 (16 * USARTDIV) */
 
 	static const uint8_t UART_BAUDRATE_4800		= 0;	/** Uart Speed 4800 baud/s */
 	static const uint8_t UART_BAUDRATE_9600		= 0;	/** Uart Speed 9600 baud/s */
