@@ -10,6 +10,8 @@
 #include "GpioPinConfiguration.h"
 #include "GpioPin.h"
 #include "Gpio.h"
+#include "Uart.h"
+#include "UartConfiguration.h"
 
 #include <stdint.h>
 
@@ -18,6 +20,13 @@ int main(void) {
 	SystemInit();
 
 	Uart *uart1 = STM32F103::getUart1();
+
+	UartConfiguration uart1Config;
+	uart1Config.baudrate 		= Uart::UART_BAUDRATE_9600;
+	uart1Config.stopBit 		= Uart::UART_1_STOPBIT;
+	uart1Config.parityEnable 	= Uart::UART_PARITY_DISABLE;
+	uart1Config.wordLenght		= Uart::UART_1_STOPBIT;
+	uart1->configure(uart1Config);
 
 	Gpio *gpioA = STM32F103::getGpioA();
 
