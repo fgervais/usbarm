@@ -16,6 +16,7 @@ Uart::~Uart() {
 
 }
 
+
 void Uart::sendInterrupt() {
 
 }
@@ -26,8 +27,11 @@ void Uart::receiveInterrupt() {
 
 
 void Uart::configure(UartConfiguration config){
-	//uint32_t configRegister = 0;
-	//uartRegisters->
+	uartRegisters->BRR = config.baudrate;
 
+	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;
+	uartRegisters->CR1 |= UART_ENABLE | UART_TX_ENABLE | UART_RX_ENABLE;
+
+	uartRegisters->CR2 |= config.stopBit;
 }
 

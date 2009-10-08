@@ -31,29 +31,38 @@ public:
 
 	/* USARTDIV = 23.4375, Fraction = 16 * 0.4375 = 7 = 0x7,
 	   Mantisse = 23 = 0x17, BRR = 0x00000177 */
-	static const uint32_t UART_BAUDRATE_19200	= 0x00000177;	/** Uart Speed 19200 baud/s */
+	static const uint32_t UART_BAUDRATE_19200		= 0x00000177;	/** Uart Speed 19200 baud/s */
 
 	/* USARTDIV = 11.7188, Fraction = 16 * 0.7188 = ceil(11.5008) = 12 = 0xC,
 	 * Mantisse = 11 = 0xB, BRR = 0x000000BC  */
-	static const uint32_t UART_BAUDRATE_38400	= 0x000000BC;	/** Uart Speed 38400 baud/s */
+	static const uint32_t UART_BAUDRATE_38400		= 0x000000BC;	/** Uart Speed 38400 baud/s */
 
 	/* USARTDIV = 3.90625, Fraction = 16 * 0.90625 = ceil(14.5) = 15 = 0xF,
 	   Mantisse = 3 = 0x3, BRR = 0x0000003F  */
-	static const uint8_t UART_BAUDRATE_115200	= 0x0000003F;	/** Uart Speed 115200 baud/s */
+	static const uint32_t UART_BAUDRATE_115200		= 0x0000003F;	/** Uart Speed 115200 baud/s */
 
-	static const uint8_t UART_WORD_LENGTH_8BIT	= 0;	/** Uart Word Lenght of 8 bit */
-	static const uint8_t UART_WORD_LENGTH_9BIT	= 1;	/** Uart Word Lenght of 9 bit  */
+	static const uint32_t UART_WORD_LENGTH_8BIT		= 0x00000000;	/** Uart Word Lenght of 8 bit */
+	static const uint32_t UART_WORD_LENGTH_9BIT		= 0x00001000;	/** Uart Word Lenght of 9 bit  */
 
-	static const uint8_t UART_1_STOPBIT			= 0;	/** Uart 1 Stop Bit */
-	static const uint8_t UART_0p5_STOPBIT		= 1;	/** Uart 0.5 Stop Bit */
-	static const uint8_t UART_2_STOPBIT			= 2;	/** Uart 2 Stop Bit */
-	static const uint8_t UART_1p5_STOPBIT		= 3;	/** Uart 1.5 Stop Bit */
+	static const uint32_t UART_1_STOPBIT			= 0x00000000;	/** Uart 1 Stop Bit */
+	static const uint32_t UART_0p5_STOPBIT			= 0x00001000;	/** Uart 0.5 Stop Bit */
+	static const uint32_t UART_2_STOPBIT			= 0x00002000;	/** Uart 2 Stop Bit */
+	static const uint32_t UART_1p5_STOPBIT			= 0x00003000;	/** Uart 1.5 Stop Bit */
 
-	static const uint8_t UART_PARITY_DISABLE 	= 0;	/** Disable Parity */
-	static const uint8_t UART_PARITY_ENABLE 	= 1;	/** Enable Parity */
+	static const uint32_t UART_PARITY_DISABLE 		= 0x00000000;	/** Disable Parity */
+	static const uint32_t UART_PARITY_ENABLE 		= 0x00000400;	/** Enable Parity */
 
-	static const uint8_t UART_PARITY_EVEN 		= 0;	/** Parity Even */
-	static const uint8_t UART_PARITY_ODD 		= 1;	/** Parity Odd */
+	static const uint32_t UART_PARITY_EVEN 			= 0x00000000;	/** Parity Even */
+	static const uint32_t UART_PARITY_ODD 			= 0x00000200;	/** Parity Odd */
+
+	static const uint32_t UART_DISABLE	 			= 0x00000000;	/** UART Disabled */
+	static const uint32_t UART_ENABLE	 			= 0x00002000;	/** UART Enabled */
+
+	static const uint32_t UART_TX_DISABLE	 		= 0x00000000;	/** UART Disabled */
+	static const uint32_t UART_TX_ENABLE	 		= 0x00000008;	/** UART Enabled */
+
+	static const uint32_t UART_RX_DISABLE	 		= 0x00000000;	/** UART Disabled */
+	static const uint32_t UART_RX_ENABLE	 		= 0x00000004;	/** UART Enabled */
 
 private:
 	USART_TypeDef *uartRegisters;

@@ -8,6 +8,8 @@
 #ifndef UARTCONFIG_H_
 #define UARTCONFIG_H_
 
+#include "stm32f10x.h"
+
 class UartConfig {
 public:
 	UartConfig();
