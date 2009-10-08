@@ -72,6 +72,8 @@ public:
 	virtual ~Uart();
 
 	void configure(UartConfiguration config);
+	void write(char *data, uint8_t lenght);
+	char read(uint8_t lenght);
 	void sendInterrupt();
 	void receiveInterrupt();
 

@@ -25,6 +25,16 @@ void Uart::receiveInterrupt() {
 
 }
 
+void Uart::write(char *data, uint8_t lenght){
+	uartRegisters->DR = *data;
+
+}
+
+char Uart::read(uint8_t lenght){
+	char test = 'a';
+	return test;
+}
+
 
 void Uart::configure(UartConfiguration config){
 	uartRegisters->BRR = config.baudrate;
