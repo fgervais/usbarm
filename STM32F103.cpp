@@ -32,7 +32,7 @@ Uart* STM32F103::getUart1() {
 	if(uart1 == 0) {
 		uart1 = new Uart(USART1);
 		// Send clock to USART 1
-		RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
+		RCC->APB2ENR |= RCC_APB2ENR_USART1EN | RCC_APB2ENR_AFIOEN;
 	}
 	return uart1;
 }

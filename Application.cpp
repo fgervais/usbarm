@@ -31,7 +31,10 @@ int main(void) {
 	Gpio *gpioA = STM32F103::getGpioA();
 
 	// Create a new GpioConfiguration with FLOATING_INPUT as default for all pins
-	GpioConfiguration portConfig(Gpio::FLOATING_INPUT);
+	//GpioConfiguration portConfig(Gpio::FLOATING_INPUT);
+	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
+
+
 	gpioA->configure(portConfig);
 
 	GpioPinConfiguration pinConfig;
@@ -44,8 +47,10 @@ int main(void) {
 	while(1) {
 		led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
+		uart1->write('a',1);
+
 		led->setLow();	// Off
 		for(uint32_t i=0; i<1000000; i++);
+		uart1->write('a',1);
 	}
-
 }
