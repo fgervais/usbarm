@@ -25,18 +25,21 @@ void Uart::receiveInterrupt() {
 
 }
 
-void Uart::write(char *data, uint8_t lenght){
-	uartRegisters->DR = *data;
-
+void Uart::write(char data, uint8_t lenght){
+	uartRegisters->DR = data;
 }
 
 char Uart::read(uint8_t lenght){
-	char test = 'a';
-	return test;
+	//char test = 'a';
+	return (uartRegisters->SR & 0x00000040) >> 6;
 }
 
 
 void Uart::configure(UartConfiguration config){
+
+	//if (uartRegisters == USART1)
+
+	//if (uartRegisters == USART2)
 	uartRegisters->BRR = config.baudrate;
 
 	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;
