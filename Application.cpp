@@ -17,12 +17,14 @@
 
 int main(void) {
 	// Setup STM32 system (clock, PLL and Flash configuration)
+	char buf[6] = "test ";
+
 	SystemInit();
 
 	Uart *uart1 = STM32F103::getUart1();
 
 	UartConfiguration uart1Config;
-	uart1Config.baudrate 		= Uart::UART_BAUDRATE_9600;
+	uart1Config.baudrate 		= 9600;
 	uart1Config.stopBit 		= Uart::UART_1_STOPBIT;
 	uart1Config.parityEnable 	= Uart::UART_PARITY_DISABLE;
 	uart1Config.wordLenght		= Uart::UART_1_STOPBIT;
@@ -47,10 +49,11 @@ int main(void) {
 	while(1) {
 		led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
-		uart1->write('a',1);
+
+		uart1->write(buf,5);
 
 		led->setLow();	// Off
 		for(uint32_t i=0; i<1000000; i++);
-		uart1->write('a',1);
+		//uart1->write('d',1);
 	}
 }
