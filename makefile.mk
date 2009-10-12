@@ -462,7 +462,7 @@ $(AOBJARM) : %.o : %.S
 	@echo
 	@echo $(MSG_ASSEMBLING_ARM) $<
 #	$(CC) -c $(ALL_ASFLAGS) $< -o $@
-	$(CC) -c $(ALL_ASFLAGS) $< -o $@
+	$(CPP) -c $(ALL_ASFLAGS) $< -o $@
 
 
 # Target: clean project.
