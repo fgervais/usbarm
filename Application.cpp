@@ -26,7 +26,7 @@ int main(void) {
 	UartConfiguration uart1Config;
 	uart1Config.baudrate 		= 9600;
 	uart1Config.stopBit 		= Uart::UART_1_STOPBIT;
-	uart1Config.parityEnable 	= Uart::UART_PARITY_DISABLE;
+	uart1Config.parity		 	= Uart::UART_PARITY_DISABLE;
 	uart1Config.wordLenght		= Uart::UART_1_STOPBIT;
 	uart1->configure(uart1Config);
 
