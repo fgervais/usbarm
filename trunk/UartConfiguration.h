@@ -5,15 +5,15 @@
  *      Author: oex
  */
 
-#ifndef UARTCONFIG_H_
-#define UARTCONFIG_H_
+#ifndef UARTCONFIGURATION_H_
+#define UARTCONFIGURATION_H_
 
 #include "stm32f10x.h"
 
-class UartConfig {
+class UartConfiguration {
 public:
-	UartConfig();
-	virtual ~UartConfig();
+	UartConfiguration();
+	virtual ~UartConfiguration();
 
 	uint8_t baudrate;
 	uint8_t parity;
@@ -21,4 +21,4 @@ public:
 	uint8_t wordLenght;
 };
 
-#endif /* UARTCONFIG_H_ */
+#endif /* UARTCONFIGURATION_H_ */

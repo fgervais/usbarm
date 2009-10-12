@@ -74,7 +74,7 @@ void Uart::configure(UartConfiguration config){
 
 	uartRegisters->BRR = calculateBRR(config.baudrate);
 
-	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;
+	uartRegisters->CR1 |= config.wordLenght | config.parity;
 	uartRegisters->CR1 |= UART_ENABLE | UART_TX_ENABLE | UART_RX_ENABLE;
 
 	uartRegisters->CR2 |= config.stopBit;
