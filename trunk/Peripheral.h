@@ -11,6 +11,7 @@
 #include "Microcontroller.h"
 
 #include <stdint.h>
+#include <vector>
 
 class PeripheralEventListener;
 
@@ -24,6 +25,7 @@ public:
 
 private:
 	uint8_t id;
+	std::vector<PeripheralEventListener*> listeners;
 
 protected:
 	void notify();
