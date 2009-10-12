@@ -16,9 +16,6 @@ private:
 	int head;
 	int tail;
 	int size;
-
-	/* Used to sync access to internal array */
-	pthread_mutex_t mutex;
 public:
 	int addElement(const T& element);
 	T getElement();
