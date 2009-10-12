@@ -15,7 +15,7 @@ public:
 	PeripheralEventListener();
 	virtual ~PeripheralEventListener();
 
-	virtual void update(Peripheral peripheral) = 0;
+	virtual void update(Peripheral *peripheral) = 0;
 };
 
 #endif /* PERIPHERALEVENTLISTENER_H_ */
