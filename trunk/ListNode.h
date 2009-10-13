@@ -11,15 +11,15 @@
 template <typename T>
 class ListNode {
 private:
-	T* element;
+	const T& element;
 	ListNode<T>* nextNode;
 public:
-	ListNode(T* element, ListNode* next);
+	ListNode(const T& element, ListNode<T>* next);
 	virtual ~ListNode();
 
-	T* next();
-	void setNext(ListNode* next);
-	T* getElement();
+	ListNode<T>* next();
+	void setNext(ListNode<T>* next);
+	const T& getElement();
 };
 
 /*
@@ -29,17 +29,22 @@ public:
  */
 
 template <typename T>
-T* ListNode<T>::next() {
-	return nextNode;
-}
-
-template <typename T>
-void ListNode<T>::setNext(ListNode* next) {
+ListNode<T>::ListNode(const T& element, ListNode<T>* next) : element(element){
 	this->nextNode = next;
 }
 
 template <typename T>
-T* ListNode<T>::getElement() {
+ListNode<T>* ListNode<T>::next() {
+	return nextNode;
+}
+
+template <typename T>
+void ListNode<T>::setNext(ListNode<T>* next) {
+	this->nextNode = next;
+}
+
+template <typename T>
+const T& ListNode<T>::getElement() {
 	return element;
 }
 

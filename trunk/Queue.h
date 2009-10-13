@@ -8,6 +8,7 @@
 #ifndef QUEUE_H_
 #define QUEUE_H_
 
+// TODO: All this thing should be modified to contain references
 template <typename T>
 class Queue {
 private:
@@ -71,6 +72,7 @@ int Queue<T>::addElement(const T& element) {
 }
 
 template <typename T>
+//TODO:this should return T& or const T&
 T Queue<T>::getElement() {
 	if(count > 0) {
 		count--;
