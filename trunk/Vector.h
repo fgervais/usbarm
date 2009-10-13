@@ -62,13 +62,28 @@ void Vector<T>::addElement(const T& element) {
 
 template <typename T>
 T Vector<T>::getElement(uint32_t position) {
-	ListNode<T>* iterator = head;
-	// Browse through the linked list
-	for(uint32_t i=0; i<position; i++) {
-		iterator = iterator->next();
-	}
+	static ListNode<T>* iterator = head;
+	static uint32_t iteratorPosition = 0;
 
-	return iterator->getElement();
+	if(position < count) {
+
+		if(position < iteratorPosition) {
+			// Reset iterator
+			iteratorPosition = 0;
+			iterator = head;
+		}
+
+		// Browse through the linked list
+		for(; iteratorPosition<position; iteratorPosition++) {
+			iterator = iterator->next();
+		}
+
+		return iterator->getElement();
+	}
+	else {
+		//TODO: Raise an exception?
+		return 0;
+	}
 }
 
 template <typename T>
