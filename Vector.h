@@ -37,6 +37,7 @@ Vector<T>::Vector() {
 	// Basic initialization
 	count = 0;
 	head = 0;
+	tail = head;
 }
 
 template <typename T>
@@ -47,13 +48,13 @@ Vector<T>::~Vector() {
 
 template <typename T>
 void Vector<T>::addElement(const T& element) {
+	ListNode<T> node(element,0);
+
 	// Adding the first element
-	//TODO: Broken
 	if(head == 0) {
-		ListNode<T> node(element,0);
+		head = &node;
 	}
 	else {
-		ListNode<T> node(element,0);
 		tail->setNext(&node);
 		tail = &node;
 	}
