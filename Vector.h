@@ -17,13 +17,12 @@ private:
 	uint32_t count;
 	ListNode<T>* head;
 	ListNode<T>* tail;
-	uint32_t savedIteratorPosition;
 public:
 	Vector();
 	virtual ~Vector();
 
 	void addElement(const T& element);
-	T getElement(uint32_t position);
+	T& getElement(uint32_t position);
 	uint32_t size();
 };
 
@@ -49,11 +48,12 @@ Vector<T>::~Vector() {
 template <typename T>
 void Vector<T>::addElement(const T& element) {
 	// Adding the first element
+	//TODO: Broken
 	if(head == 0) {
-		ListNode<T> node(&element,0);
+		ListNode<T> node(element,0);
 	}
 	else {
-		ListNode<T> node(&element,0);
+		ListNode<T> node(element,0);
 		tail->setNext(&node);
 		tail = &node;
 	}
@@ -61,29 +61,27 @@ void Vector<T>::addElement(const T& element) {
 }
 
 template <typename T>
-T Vector<T>::getElement(uint32_t position) {
+T& Vector<T>::getElement(uint32_t position) {
 	static ListNode<T>* iterator = head;
 	static uint32_t iteratorPosition = 0;
 
 	if(position < count) {
-
-		if(position < iteratorPosition) {
-			// Reset iterator
-			iteratorPosition = 0;
-			iterator = head;
-		}
-
-		// Browse through the linked list
-		for(; iteratorPosition<position; iteratorPosition++) {
-			iterator = iterator->next();
-		}
-
-		return iterator->getElement();
-	}
-	else {
 		//TODO: Raise an exception?
-		return 0;
 	}
+
+	if(position < iteratorPosition) {
+		// Reset iterator
+		iteratorPosition = 0;
+		iterator = head;
+	}
+
+	// Browse through the linked list
+	for(; iteratorPosition<position; iteratorPosition++) {
+		iterator = iterator->next();
+	}
+
+	// Return a non constant type
+	return const_cast<T&>(iterator->getElement());
 }
 
 template <typename T>
