@@ -26,7 +26,7 @@ int main(void) {
 	UartConfiguration uart1Config;
 	uart1Config.baudrate 		= 9600;
 	uart1Config.stopBit 		= Uart::UART_1_STOPBIT;
-	uart1Config.parity		 	= Uart::UART_PARITY_DISABLE;
+	uart1Config.parityEnable 	= Uart::UART_PARITY_DISABLE;
 	uart1Config.wordLenght		= Uart::UART_1_STOPBIT;
 	uart1->configure(uart1Config);
 
@@ -43,16 +43,17 @@ int main(void) {
 	pinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
 	gpioA->getPin(0)->configure(pinConfig);
 
-	GpioPin *led = gpioA->getPin(0);
+	STM32F103::getGpioA()->getPin(0)->setHigh();
 
+	//GpioPin *led = gpioA->getPin(0);
 	// Blink led
 	while(1) {
-		led->setHigh();	// On
+		//led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
 
 		uart1->write(buf,5);
 
-		led->setLow();	// Off
+		//led->setLow();	// Off
 		for(uint32_t i=0; i<1000000; i++);
 		//uart1->write('d',1);
 	}
