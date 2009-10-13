@@ -12,6 +12,7 @@
 
 #include <stdint.h>
 #include <vector>
+#include "Vector.h"
 
 class PeripheralEventListener;
 
@@ -26,6 +27,7 @@ public:
 private:
 	uint8_t id;
 	std::vector<PeripheralEventListener*> listeners;
+	Vector<int> test();
 
 protected:
 	void notify();
