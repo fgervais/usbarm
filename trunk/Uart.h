@@ -38,14 +38,17 @@ public:
 	static const uint32_t UART_DISABLE	 			= 0x00000000;	/** UART Disabled */
 	static const uint32_t UART_ENABLE	 			= 0x00002000;	/** UART Enabled */
 
-	static const uint32_t UART_TX_DISABLE	 		= 0x00000000;	/** UART Disabled */
-	static const uint32_t UART_TX_ENABLE	 		= 0x00000008;	/** UART Enabled */
+	static const uint32_t UART_TX_DISABLE	 		= 0x00000000;	/** UART Transmitter Disabled */
+	static const uint32_t UART_TX_ENABLE	 		= 0x00000008;	/** UART Transmitter Enabled */
 
-	static const uint32_t UART_RX_DISABLE	 		= 0x00000000;	/** UART Disabled */
-	static const uint32_t UART_RX_ENABLE	 		= 0x00000004;	/** UART Enabled */
+	static const uint32_t UART_RX_DISABLE	 		= 0x00000000;	/** UART Receiver Disabled */
+	static const uint32_t UART_RX_ENABLE	 		= 0x00000004;	/** UART Receiver Enabled */
 
-	static const uint32_t UART_TX_DATA_REGISTER		= 0x00000080; /** UART Transmission
-																data register is empty */
+	static const uint32_t UART_TX_DATA_REGISTER		= 0x00000080;   /** UART Transmission
+																        data register is empty */
+
+	static const uint32_t UART_TX_INTERRUPT_ENABLE   = 0x00000080;  /** UART Transmit Interrupt enable */
+	static const uint32_t UART_TX_INTERRUPT_DISABLE  = 0x00000000;  /** UART Transmit Interrupt disable*/
 
 private:
 	USART_TypeDef *uartRegisters;

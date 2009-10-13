@@ -19,7 +19,11 @@ Uart::~Uart() {
 
 
 void Uart::sendInterrupt() {
-
+	if (!charBuffer.empty())
+	{
+		uartRegisters->DR = charBuffer.front();
+		charBuffer.pop();
+	}
 }
 
 void Uart::receiveInterrupt() {
@@ -32,15 +36,19 @@ void Uart::write(char* data, uint16_t lenght){
 	{
 		charBuffer.push(data[i]);
 	}
+	if (!(uartRegisters->SR & UART_TX_DATA_REGISTER))
+	{
+		uartRegisters->DR = charBuffer.front();
+		charBuffer.pop();
+	}
 
-
-	while(!charBuffer.empty())
+	/*while(!charBuffer.empty())
 	{
 		//waiting for the data to be transfert in the TransmitDataRegister
 		while(!(uartRegisters->SR & UART_TX_DATA_REGISTER));
 		uartRegisters->DR = charBuffer.front();
 		charBuffer.pop();
-	}
+	} */
 }
 
 char Uart::read(uint8_t lenght){
@@ -74,8 +82,9 @@ void Uart::configure(UartConfiguration config){
 
 	uartRegisters->BRR = calculateBRR(config.baudrate);
 
-	uartRegisters->CR1 |= config.wordLenght | config.parity;
+	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;
 	uartRegisters->CR1 |= UART_ENABLE | UART_TX_ENABLE | UART_RX_ENABLE;
+	uartRegisters->CR1 |= UART_TX_INTERRUPT_ENABLE;
 
 	uartRegisters->CR2 |= config.stopBit;
 }

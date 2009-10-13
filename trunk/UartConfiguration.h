@@ -15,10 +15,11 @@ public:
 	UartConfiguration();
 	virtual ~UartConfiguration();
 
-	uint8_t baudrate;
-	uint8_t parity;
-	uint8_t stopBit;
-	uint8_t wordLenght;
+	uint16_t baudrate;
+	uint32_t parityType;
+	uint32_t parityEnable;
+	uint32_t stopBit;
+	uint32_t wordLenght;
 };
 
 #endif /* UARTCONFIGURATION_H_ */
