@@ -36,13 +36,13 @@ void Uart::receiveInterrupt() {
 
 }
 
-void Uart::write(char* data, uint16_t lenght) {
+void Uart::write(char* data, uint16_t length) {
 
 	//disable UART Interrupt
 	uartRegisters->CR1 &= UART_TX_INTERRUPT_DISABLE;
 
 
-	for (int8_t i=0; i < lenght && data[i]; i++) {
+	for (int16_t i=0; (i < length) && (data[i]); i++) {
 		queue->addElement(data[i]);
 	}
 	if (!(uartRegisters->SR & UART_TX_DATA_REGISTER)) {
@@ -84,7 +84,7 @@ void Uart::configure(UartConfiguration config){
 
 
 	uartRegisters->BRR = calculateBRR(config.baudrate);
-
+	//uartRegisters->BRR = 0x0000014DC;
 	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;
 	uartRegisters->CR1 |= UART_ENABLE | UART_TX_ENABLE | UART_RX_ENABLE;
 

@@ -60,7 +60,7 @@ public:
 	Uart(USART_TypeDef *uartRegisters, uint32_t PCLK1_Frequency);
 	virtual ~Uart();
 	void configure(UartConfiguration config);
-	void write(char* data, uint16_t lenght);
+	void write(char* data, uint16_t length);
 	char read(uint8_t lenght);
 	void sendInterrupt();
 	void receiveInterrupt();
