@@ -9,6 +9,7 @@
 
 #include "Uart.h"
 #include "Gpio.h"
+#include "Spi.h"
 
 #include "stm32f10x.h"
 
@@ -16,6 +17,7 @@
 Uart* STM32F103::uart1 = 0;
 Uart* STM32F103::uart2 = 0;
 Gpio* STM32F103::gpioA = 0;
+Spi* STM32F103::spi1 = 0;
 
 
 STM32F103::STM32F103() {
@@ -80,7 +82,13 @@ Gpio* STM32F103::getGpioA() {
 	return gpioA;
 }
 
-
+Spi* STM32F103::getSpi1() {
+	if(spi1 == 0) {
+		spi1 = new Spi(SPI1);
+		RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
+	}
+	return spi1;
+}
 
 
 
