@@ -19,5 +19,8 @@ Spi::~Spi() {
 }
 
 void Spi::configure(SpiConfiguration config) {
+	uint16_t cr1;
+	cr1 = spiRegisters->CR1;
+
 
 }

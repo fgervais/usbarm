@@ -15,8 +15,12 @@ public:
 	SpiConfiguration();
 	virtual ~SpiConfiguration();
 
-	uint32_t duplex;
-	uint32_t mode;
+	uint16_t bus;
+	uint16_t mode;
+	uint16_t clockPolarity;
+	uint16_t clockPhase;
+	uint16_t frameFormat;
+	uint16_t firstBit;
 };
 
 #endif /* SPICONFIGURATION_H_ */

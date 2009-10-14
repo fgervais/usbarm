@@ -62,6 +62,7 @@ typedef struct
 
 class Uart;
 class Gpio;
+class Spi;
 
 class STM32F103: public Microcontroller {
 public:
@@ -71,12 +72,15 @@ public:
 	static Uart* getUart1();
 	static Uart* getUart2();
 	static Gpio* getGpioA();
+	static Spi* getSpi1();
 
 private:
 
 	static Uart *uart1;
 	static Uart *uart2;
 	static Gpio *gpioA;
+	static Spi *spi1;
+
 	static void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct);
 	static void getRccClockFreq(systemClocksFreq* systemClock);
 };
