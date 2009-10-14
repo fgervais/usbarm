@@ -85,7 +85,8 @@ Gpio* STM32F103::getGpioA() {
 Spi* STM32F103::getSpi1() {
 	if(spi1 == 0) {
 		spi1 = new Spi(SPI1);
-		RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
+		// Send clock to SPI1
+		RCC->APB2ENR |= RCC_APB2ENR_SPI1EN | RCC_APB2ENR_AFIOEN;
 	}
 	return spi1;
 }
