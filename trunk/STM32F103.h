@@ -29,6 +29,28 @@ static __I uint8_t ADCPrescTable[4] = {2, 4, 6, 8};
 #define CFGR_ADCPRE_Set_Mask      ((uint32_t)0x0000C000)
 
 
+
+typedef struct
+{
+  uint8_t NVIC_IRQChannel;                    /*!< Specifies the IRQ channel to be enabled or disabled.
+                                                   This parameter can be a value of @ref IRQn_Type
+                                                   (For the complete STM32 Devices IRQ Channels list, please
+                                                    refer to stm32f10x.h file) */
+
+  uint8_t NVIC_IRQChannelPreemptionPriority;  /*!< Specifies the pre-emption priority for the IRQ channel
+                                                   specified in NVIC_IRQChannel. This parameter can be a value
+                                                   between 0 and 15 as described in the table @ref NVIC_Priority_Table */
+
+  uint8_t NVIC_IRQChannelSubPriority;         /*!< Specifies the subpriority level for the IRQ channel specified
+                                                   in NVIC_IRQChannel. This parameter can be a value
+                                                   between 0 and 15 as described in the table @ref NVIC_Priority_Table */
+
+  FunctionalState NVIC_IRQChannelCmd;         /*!< Specifies whether the IRQ channel defined in NVIC_IRQChannel
+                                                   will be enabled or disabled.
+                                                   This parameter can be set either to ENABLE or DISABLE */
+} NVIC_InitTypeDef;
+
+
 typedef struct
 {
 	  uint32_t SYSCLK_Frequency;  /*!< returns SYSCLK clock frequency expressed in Hz */
@@ -55,6 +77,7 @@ private:
 	static Uart *uart1;
 	static Uart *uart2;
 	static Gpio *gpioA;
+	static void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct);
 	static void getRccClockFreq(systemClocksFreq* systemClock);
 };
 

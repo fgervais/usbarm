@@ -39,7 +39,14 @@ Uart* STM32F103::getUart1() {
 		uart1 = new Uart(USART1, systemClock.PCLK2_Frequency);
 		// Send clock to USART 1
 		RCC->APB2ENR |= RCC_APB2ENR_USART1EN | RCC_APB2ENR_AFIOEN;
+
+		//enable UART1 Interrupt
+		NVIC->ISER[1] = 0x20;
+
+		//set priority to UART1 Interrupt
+		NVIC->IP[USART1_IRQn] = 0;
 	}
+
 	return uart1;
 }
 
@@ -72,6 +79,8 @@ Gpio* STM32F103::getGpioA() {
 	}
 	return gpioA;
 }
+
+
 
 
 

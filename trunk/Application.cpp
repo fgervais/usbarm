@@ -43,17 +43,16 @@ int main(void) {
 	pinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
 	gpioA->getPin(0)->configure(pinConfig);
 
-	STM32F103::getGpioA()->getPin(0)->setHigh();
+	GpioPin *led = gpioA->getPin(0);
 
-	//GpioPin *led = gpioA->getPin(0);
 	// Blink led
 	while(1) {
-		//led->setHigh();	// On
+		led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
 
 		uart1->write(buf,5);
 
-		//led->setLow();	// Off
+		led->setLow();	// Off
 		for(uint32_t i=0; i<1000000; i++);
 		//uart1->write('d',1);
 	}
