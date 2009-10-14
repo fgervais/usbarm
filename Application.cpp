@@ -17,7 +17,22 @@
 
 int main(void) {
 	// Setup STM32 system (clock, PLL and Flash configuration)
-	char buf[11] = "je t'aime ";
+	char buf[8];
+	buf[0] = 't';
+	buf[1] = 'e';
+	buf[2] = 's';
+	buf[3] = 't';
+	buf[4] = 't';
+	buf[5] = 't';
+	buf[6] = ' ';
+	buf[7] = 0;
+	//buf[8] = 0;
+	//buf[9] = 0;
+	/*buf[6] = 'e';
+	buf[7] = 's';
+	buf[8] = 't';
+	buf[9] = ' ';
+	buf[10] = 0;*/
 
 	SystemInit();
 
@@ -50,7 +65,7 @@ int main(void) {
 		led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
 
-		uart1->write(buf,11);
+		uart1->write(buf,sizeof(buf));
 
 		led->setLow();	// Off
 		for(uint32_t i=0; i<1000000; i++);
