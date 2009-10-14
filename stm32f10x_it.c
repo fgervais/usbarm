@@ -164,7 +164,6 @@ void SysTick_Handler(void)
 void USART1_IRQHandler(void)
 {
 	// Data received?
-	STM32F103::getGpioA()->getPin(0)->setHigh();
 	STM32F103::getUart1()->receiveInterrupt();
 
 	// Data sent?

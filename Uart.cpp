@@ -8,9 +8,14 @@
 #include "Uart.h"
 #include "UartConfiguration.h"
 
+#include "STM32F103.h"
+#include "Gpio.h"
+#include "GpioPin.h"
+
 Uart::Uart(USART_TypeDef *uartRegisters, uint32_t clockFrequency) {
 	this->uartRegisters = uartRegisters;
 	this->clockFrequency = clockFrequency;
+	this->queue = new Queue<char>(200);
 }
 
 Uart::~Uart() {
@@ -19,10 +24,11 @@ Uart::~Uart() {
 
 
 void Uart::sendInterrupt() {
-	if (!charBuffer.empty())
-	{
-		uartRegisters->DR = charBuffer.front();
-		charBuffer.pop();
+	if (!(queue->isEmpty())){
+		uartRegisters->DR = queue->getElement();
+	}
+	else {
+		uartRegisters->CR1 &= UART_TX_INTERRUPT_DISABLE;
 	}
 }
 
@@ -30,25 +36,22 @@ void Uart::receiveInterrupt() {
 
 }
 
-void Uart::write(char* data, uint16_t lenght){
+void Uart::write(char* data, uint16_t lenght) {
 
-	for (int8_t i=0; i < lenght && data[i]; i++)
-	{
-		charBuffer.push(data[i]);
+	//disable UART Interrupt
+	uartRegisters->CR1 &= UART_TX_INTERRUPT_DISABLE;
+
+
+	for (int8_t i=0; i < lenght && data[i]; i++) {
+		queue->addElement(data[i]);
 	}
-	if (!(uartRegisters->SR & UART_TX_DATA_REGISTER))
-	{
-		uartRegisters->DR = charBuffer.front();
-		charBuffer.pop();
+	if (!(uartRegisters->SR & UART_TX_DATA_REGISTER)) {
+		if (!queue->isEmpty())
+			uartRegisters->DR = queue->getElement() ;
 	}
 
-	/*while(!charBuffer.empty())
-	{
-		//waiting for the data to be transfert in the TransmitDataRegister
-		while(!(uartRegisters->SR & UART_TX_DATA_REGISTER));
-		uartRegisters->DR = charBuffer.front();
-		charBuffer.pop();
-	} */
+	//enable UART Interrupt
+	uartRegisters->CR1 |= UART_TX_INTERRUPT_ENABLE;
 }
 
 char Uart::read(uint8_t lenght){
@@ -84,7 +87,6 @@ void Uart::configure(UartConfiguration config){
 
 	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;
 	uartRegisters->CR1 |= UART_ENABLE | UART_TX_ENABLE | UART_RX_ENABLE;
-	uartRegisters->CR1 |= UART_TX_INTERRUPT_ENABLE;
 
 	uartRegisters->CR2 |= config.stopBit;
 }

@@ -10,11 +10,7 @@
 
 #include "Peripheral.h"
 #include "stm32f10x.h"
-
-#include <iostream>
-#include <queue>
-
-
+#include "Queue.h"
 
 class UartConfiguration;
 
@@ -48,19 +44,21 @@ public:
 																        data register is empty */
 
 	static const uint32_t UART_TX_INTERRUPT_ENABLE   = 0x00000080;  /** UART Transmit Interrupt enable */
-	static const uint32_t UART_TX_INTERRUPT_DISABLE  = 0x00000000;  /** UART Transmit Interrupt disable*/
+	static const uint32_t UART_TX_INTERRUPT_DISABLE  = ~0x00000080;  /** UART Transmit Interrupt disable*/
 
 private:
 	USART_TypeDef *uartRegisters;
+	Queue<char>* queue;
 	uint32_t clockFrequency;
 	uint16_t calculateBRR(uint16_t baudrate);
-	std::queue<int8_t> charBuffer;
+
+
+
 
 public:
 
 	Uart(USART_TypeDef *uartRegisters, uint32_t PCLK1_Frequency);
 	virtual ~Uart();
-
 	void configure(UartConfiguration config);
 	void write(char* data, uint16_t lenght);
 	char read(uint8_t lenght);
