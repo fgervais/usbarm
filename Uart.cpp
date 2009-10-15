@@ -19,7 +19,8 @@ Uart::Uart(USART_TypeDef *uartRegisters, uint32_t clockFrequency) {
 }
 
 Uart::~Uart() {
-
+	/* Free memory */
+	delete queue;
 }
 
 
