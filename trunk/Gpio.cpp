@@ -26,7 +26,8 @@ Gpio::Gpio(GPIO_TypeDef *gpioRegisters) {
 }
 
 Gpio::~Gpio() {
-
+	/* Free memory */
+	delete[] gpioPins;
 }
 
 /**

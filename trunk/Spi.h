@@ -26,6 +26,16 @@ public:
 	static const uint16_t FRAME_16BITS = 0;
 	static const uint16_t LSB_FISRT = 0;
 	static const uint16_t MSB_FIRST = 0;
+	static const uint16_t SOFTWARE_SLAVESELECT = 0;
+	static const uint16_t HARDWARE_SLAVESELECT = 0;
+	static const uint16_t CLOCK_PRESCALER_2 = 0;
+	static const uint16_t CLOCK_PRESCALER_4 = 0;
+	static const uint16_t CLOCK_PRESCALER_8 = 0;
+	static const uint16_t CLOCK_PRESCALER_16 = 0;
+	static const uint16_t CLOCK_PRESCALER_32 = 0;
+	static const uint16_t CLOCK_PRESCALER_64 = 0;
+	static const uint16_t CLOCK_PRESCALER_128 = 0;
+	static const uint16_t CLOCK_PRESCALER_256 = 0;
 
 	Spi(SPI_TypeDef *spiRegisters);
 	virtual ~Spi();

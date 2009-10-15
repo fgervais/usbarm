@@ -8,18 +8,17 @@
 #ifndef QUEUE_H_
 #define QUEUE_H_
 
-// TODO: All this thing should be modified to contain references
 template <typename T>
 class Queue {
 private:
-	T* array;
+	const T** array;
 	int count;
 	int head;
 	int tail;
 	int size;
 public:
 	int addElement(const T& element);
-	T getElement();
+	T& getElement();
 	int isEmpty();
 	int isFull();
 	Queue(int size);
@@ -34,8 +33,8 @@ public:
 
 template <typename T>
 Queue<T>::Queue(int size) {
-	/* Create the queue internal array */
-	array = new T[size];
+	/* Create the queue internal array of constant pointers */
+	array = new const T*[size];
 
 	// Var init
 	count = 0;
@@ -63,7 +62,7 @@ int Queue<T>::addElement(const T& element) {
 		count++;
 		tail++;
 		tail %= size;
-		array[tail] = element;
+		array[tail] = &element;
 		return 0;
 	}
 	else {
@@ -72,15 +71,16 @@ int Queue<T>::addElement(const T& element) {
 }
 
 template <typename T>
-//TODO:this should return T& or const T&
-T Queue<T>::getElement() {
+T& Queue<T>::getElement() {
 	if(count > 0) {
 		count--;
 		head++;
 		head %= size;
 	}
-	T element = array[head];
-	return element;
+	// Cast away the const qualifier
+	T* non_const = const_cast<T*>(array[head]);
+	// Return a reference to the actual element
+	return *non_const;
 }
 
 template <typename T>

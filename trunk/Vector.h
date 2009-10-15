@@ -46,6 +46,11 @@ Vector<T>::~Vector() {
 
 }
 
+/**
+ * @brief Add an element to the vector.
+ *
+ * @param element Element to be added.
+ */
 template <typename T>
 void Vector<T>::addElement(const T& element) {
 	ListNode<T> node(element,0);
@@ -61,6 +66,24 @@ void Vector<T>::addElement(const T& element) {
 	count++;
 }
 
+/**
+ * @brief Return the element at the specified position.
+ *
+ * Note 1: As this function returns a reference, it
+ * cannot just return null in case the position is
+ * grater than the amount of element in the vector.
+ *
+ * The best way to handle this would be to throw an
+ * exception but this would make the executable way
+ * too big. So for now it does nothing.
+ *
+ * Note 2: A complex and efficient algorithm could be
+ * inserted here. This one is simple and is optimized
+ * for sequential access like browsing the whole vector
+ * with a for loop.
+ *
+ * @param position Position of the required element.
+ */
 template <typename T>
 T& Vector<T>::getElement(uint32_t position) {
 	static ListNode<T>* iterator = head;
@@ -85,6 +108,9 @@ T& Vector<T>::getElement(uint32_t position) {
 	return const_cast<T&>(iterator->getElement());
 }
 
+/**
+ * @brief Return the size of the vector.
+ */
 template <typename T>
 uint32_t Vector<T>::size() {
 	return count;
