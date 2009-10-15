@@ -15,12 +15,16 @@ public:
 	SpiConfiguration();
 	virtual ~SpiConfiguration();
 
-	uint16_t bus;
-	uint16_t mode;
+	uint16_t lineMode;
+	uint16_t frameFormat;
+	uint16_t slaveSelect;
+	uint16_t firstBit;
+	uint16_t prescaler;
+	uint16_t configuration;
 	uint16_t clockPolarity;
 	uint16_t clockPhase;
-	uint16_t frameFormat;
-	uint16_t firstBit;
+
+
 };
 
 #endif /* SPICONFIGURATION_H_ */
