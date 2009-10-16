@@ -8,13 +8,12 @@
 #ifndef VECTOR_H_
 #define VECTOR_H_
 
-#include <stdint.h>
 #include "ListNode.h"
 
 template <typename T>
 class Vector {
 private:
-	uint32_t count;
+	int count;
 	ListNode<T>* head;
 	ListNode<T>* tail;
 public:
@@ -22,8 +21,8 @@ public:
 	virtual ~Vector();
 
 	void addElement(const T& element);
-	T& getElement(uint32_t position);
-	uint32_t size();
+	T& getElement(int position);
+	int size();
 };
 
 /*
@@ -53,15 +52,16 @@ Vector<T>::~Vector() {
  */
 template <typename T>
 void Vector<T>::addElement(const T& element) {
-	ListNode<T> node(element,0);
+	ListNode<T> *node = new ListNode<T>(element,0);
 
 	// Adding the first element
 	if(head == 0) {
-		head = &node;
+		head = node;
+		tail = head;
 	}
 	else {
-		tail->setNext(&node);
-		tail = &node;
+		tail->setNext(node);
+		tail = node;
 	}
 	count++;
 }
@@ -85,10 +85,10 @@ void Vector<T>::addElement(const T& element) {
  * @param position Position of the required element.
  */
 template <typename T>
-T& Vector<T>::getElement(uint32_t position) {
+T& Vector<T>::getElement(int position) {
 	static ListNode<T>* iterator = head;
-	static uint32_t iteratorPosition = 0;
-
+	static int iteratorPosition = 0;
+	
 	if(position < count) {
 		//TODO: Raise an exception?
 	}
@@ -98,7 +98,7 @@ T& Vector<T>::getElement(uint32_t position) {
 		iteratorPosition = 0;
 		iterator = head;
 	}
-
+	
 	// Browse through the linked list
 	for(; iteratorPosition<position; iteratorPosition++) {
 		iterator = iterator->next();
@@ -112,7 +112,7 @@ T& Vector<T>::getElement(uint32_t position) {
  * @brief Return the size of the vector.
  */
 template <typename T>
-uint32_t Vector<T>::size() {
+int Vector<T>::size() {
 	return count;
 }
 

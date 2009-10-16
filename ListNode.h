@@ -11,7 +11,7 @@
 template <typename T>
 class ListNode {
 private:
-	const T& element;
+	T element;
 	ListNode<T>* nextNode;
 public:
 	ListNode(const T& element, ListNode<T>* next);
@@ -29,8 +29,14 @@ public:
  */
 
 template <typename T>
-ListNode<T>::ListNode(const T& element, ListNode<T>* next) : element(element){
+ListNode<T>::ListNode(const T& element, ListNode<T>* next) {
+	this->element = element;
 	this->nextNode = next;
+}
+
+template <typename T>
+ListNode<T>::~ListNode() {
+
 }
 
 template <typename T>
