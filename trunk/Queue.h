@@ -11,7 +11,7 @@
 template <typename T>
 class Queue {
 private:
-	const T** array;
+	T* array;
 	int count;
 	int head;
 	int tail;
@@ -34,7 +34,7 @@ public:
 template <typename T>
 Queue<T>::Queue(int size) {
 	/* Create the queue internal array of constant pointers */
-	array = new const T*[size];
+	array = new T[size];
 
 	// Var init
 	count = 0;
@@ -62,7 +62,7 @@ int Queue<T>::addElement(const T& element) {
 		count++;
 		tail++;
 		tail %= size;
-		array[tail] = &element;
+		array[tail] = element;
 		return 0;
 	}
 	else {
@@ -77,10 +77,8 @@ T& Queue<T>::getElement() {
 		head++;
 		head %= size;
 	}
-	// Cast away the const qualifier
-	T* non_const = const_cast<T*>(array[head]);
 	// Return a reference to the actual element
-	return *non_const;
+	return array[head];
 }
 
 template <typename T>
