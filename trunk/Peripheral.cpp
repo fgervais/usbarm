@@ -26,7 +26,7 @@ Peripheral::~Peripheral() {
 void Peripheral::notify() {
 	// Browse through every listeners and tell them that
 	// this object have an event pending
-	for(uint32_t i=0; i<listeners.size(); i++) {
+	for(int32_t i=0; i<listeners.size(); i++) {
 		if(listeners.getElement(i) != 0) {
 			listeners.getElement(i)->update(this);
 		}
