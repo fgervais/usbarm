@@ -16,7 +16,6 @@
 #include <stdint.h>
 
 int main(void) {
-	// Setup STM32 system (clock, PLL and Flash configuration)
 	char buf[8];
 	buf[0] = 't';
 	buf[1] = 'e';
@@ -34,6 +33,7 @@ int main(void) {
 	buf[9] = ' ';
 	buf[10] = 0;*/
 
+	// Setup STM32 system (clock, PLL and Flash configuration)
 	SystemInit();
 
 	Uart *uart1 = STM32F103::getUart1();
@@ -47,13 +47,23 @@ int main(void) {
 
 	Gpio *gpioA = STM32F103::getGpioA();
 
-	// Create a new GpioConfiguration with FLOATING_INPUT as default for all pins
-	//GpioConfiguration portConfig(Gpio::FLOATING_INPUT);
+	// Set default port behavior
 	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
-
-
 	gpioA->configure(portConfig);
 
+	// Configure SPI
+	GpioPinConfiguration spiPinConfig;
+	// SCLK
+	spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+	gpioA->getPin(5)->configure(spiPinConfig);
+	// MISO
+	spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+	gpioA->getPin(6)->configure(spiPinConfig);
+	// MOSI
+	spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+	gpioA->getPin(7)->configure(spiPinConfig);
+
+	// Configure blinking led
 	GpioPinConfiguration pinConfig;
 	pinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
 	gpioA->getPin(0)->configure(pinConfig);

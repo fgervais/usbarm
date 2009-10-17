@@ -8,7 +8,14 @@
 #include "SpiConfiguration.h"
 
 SpiConfiguration::SpiConfiguration() {
-
+	lineMode 	= 0;
+	frameFormat = 0;
+	slaveSelect = 0;
+	firstBit 	= 0;
+	prescaler 	= 0;
+	configuration = 0;
+	clockPolarity = 0;
+	clockPhase 	= 0;
 }
 
 SpiConfiguration::~SpiConfiguration() {

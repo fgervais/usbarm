@@ -21,9 +21,21 @@ Spi::~Spi() {
 void Spi::configure(SpiConfiguration config) {
 	uint16_t cr1 = 0;
 
+	cr1 |= config.lineMode | config.frameFormat | config.slaveSelect |
+		config.firstBit | config.prescaler | config.configuration |
+		config.clockPolarity | config.clockPhase;
 
+	spiRegisters->CR1 = cr1;
 
-	spiRegisters->CR1;
+	// Enable SPI
+	spiRegisters->CR1 |= SPI_CR1_SPE;
 
+	// Select SPI mode
+	spiRegisters->I2SPR &= ~(SPI_I2SCFGR_I2SMOD);
+}
 
+uint16_t Spi::readWrite(uint16_t data) {
+	spiRegisters->DR = data;
+
+	return spiRegisters->DR;
 }
