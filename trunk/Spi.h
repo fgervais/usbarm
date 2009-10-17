@@ -45,7 +45,7 @@ public:
 	virtual ~Spi();
 
 	void configure(SpiConfiguration config);
-	uint8_t readWrite(uint8_t data);
+	uint16_t readWrite(uint16_t data);
 private :
 	SPI_TypeDef *spiRegisters;
 };

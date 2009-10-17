@@ -23,8 +23,6 @@ public:
 	uint16_t configuration;
 	uint16_t clockPolarity;
 	uint16_t clockPhase;
-
-
 };
 
 #endif /* SPICONFIGURATION_H_ */
