@@ -7,8 +7,10 @@
 
 #include "MAX3421E.h"
 
-MAX3421E::MAX3421E() {
+#include "Spi.h"
 
+MAX3421E::MAX3421E(Spi *spi) {
+	this->spi = spi;
 }
 
 MAX3421E::~MAX3421E() {
@@ -19,9 +21,10 @@ MAX3421E::~MAX3421E() {
  * @brief Write data to the specified register address.
  * @param address Address of the register to write to.
  * @param data Data to write to the register.
+ * @return Status bits.
  */
-void writeRegister(uint8_t address, uint8_t data) {
-
+uint8_t writeRegister(uint8_t address, uint8_t data) {
+	return 0;
 }
 
 /**
@@ -36,17 +39,19 @@ void writeRegister(uint8_t address, uint8_t data) {
  * @param address Register address of the first byte.
  * @param data Array of bytes to write.
  * @param length Number of bytes in the array.
+ * @return Status bits.
  */
-void writeBytes(uint8_t address, uint8_t *data, uint8_t length) {
-
+uint8_t writeBytes(uint8_t address, uint8_t *data, uint8_t length) {
+	return 0;
 }
 
 /**
  * @brief Read a register.
  * @param address Address of the register to read.
- * @return Value of the register read.
+ * @param data Pointer used to return the register value.
+ * @return Status bits.
  */
-uint8_t readRegister(uint8_t address) {
+uint8_t readRegister(uint8_t address, uint8_t *data) {
 	return 0;
 }
 
@@ -55,7 +60,7 @@ uint8_t readRegister(uint8_t address) {
  * @param address Register address of the first byte.
  * @param data Array used to return the bytes read.
  * @param length Number of byte to read.
- * @return
+ * @return Status bits.
  */
 uint8_t readBytes(uint8_t address, uint8_t *data, uint8_t length) {
 	return 0;
