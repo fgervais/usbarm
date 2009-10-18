@@ -35,18 +35,18 @@ Gpio::~Gpio() {
  * @param	init Initialization object.
  */
 void Gpio::configure(GpioConfiguration portConfig) {
-	uint32_t configRegister = 0;
+	uint32_t configRegister;
 
 	// Port configuration register low
+	configRegister = 0;
 	for(uint8_t pinNumber=0; pinNumber<8; pinNumber++) {
-//		configRegister |= (portConfig.pin[pinNumber] << pinNumber);
 		configRegister |= (portConfig.pin[pinNumber] << (pinNumber*4));
 	}
 	gpioRegisters->CRL = configRegister;
 
 	// Port configuration register high
+	configRegister = 0;
 	for(uint8_t pinNumber=8; pinNumber<16; pinNumber++) {
-//		configRegister |= (portConfig.pin[pinNumber] << (pinNumber%8));
 		configRegister |= (portConfig.pin[pinNumber] << (pinNumber%8)*4);
 	}
 	gpioRegisters->CRH = configRegister;
