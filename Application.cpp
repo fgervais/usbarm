@@ -51,17 +51,6 @@ int main(void) {
 	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
 	gpioA->configure(portConfig);
 
-	// Configure SPI
-	GpioPinConfiguration spiPinConfig;
-	// SCLK
-	spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-	gpioA->getPin(5)->configure(spiPinConfig);
-	// MISO
-	spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-	gpioA->getPin(6)->configure(spiPinConfig);
-	// MOSI
-	spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-	gpioA->getPin(7)->configure(spiPinConfig);
 
 	// Configure blinking led
 	GpioPinConfiguration pinConfig;

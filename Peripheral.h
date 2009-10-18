@@ -18,6 +18,7 @@ class PeripheralEventListener;
 class Peripheral {
 public:
 	Peripheral();
+	Peripheral(uint8_t id);
 	virtual ~Peripheral();
 
 	uint8_t getId() { return id; }

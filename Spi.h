@@ -13,6 +13,7 @@
 #include "stm32f10x.h"
 
 class SpiConfiguration;
+class GpioPin;
 
 class Spi: public Peripheral {
 public:
@@ -41,13 +42,18 @@ public:
 	static const uint16_t CLOCK_PHASE_EDGE1		= 0x0000; /** The first clock transition is the first data capture edge */
 	static const uint16_t CLOCK_PHASE_EDGE2		= 0x0001; /** The second clock transition is the first data capture edge */
 
-	Spi(SPI_TypeDef *spiRegisters);
+	Spi(uint8_t id, SPI_TypeDef *spiRegisters, GpioPin *slaveSelect);
 	virtual ~Spi();
 
 	void configure(SpiConfiguration config);
 	uint16_t readWrite(uint16_t data);
+	uint8_t readWrite(uint8_t data);
+	void selectSlave();
+	void unselectSlave();
+	uint8_t isBusy();
 private :
 	SPI_TypeDef *spiRegisters;
+	GpioPin *slaveSelect;
 };
 
 #endif /* SPI_H_ */

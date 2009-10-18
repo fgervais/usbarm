@@ -12,8 +12,11 @@
 #include <stdint.h>
 
 Peripheral::Peripheral() {
-	// Empty the listener container
-	//listeners.clear();
+	this->id = 0;
+}
+
+Peripheral::Peripheral(uint8_t id) {
+	this->id = id;
 }
 
 Peripheral::~Peripheral() {
