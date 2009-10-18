@@ -10,6 +10,8 @@
 #include "Uart.h"
 #include "Gpio.h"
 #include "Spi.h"
+#include "GpioPin.h"
+#include "GpioPinConfiguration.h"
 
 #include "stm32f10x.h"
 
@@ -84,7 +86,23 @@ Gpio* STM32F103::getGpioA() {
 
 Spi* STM32F103::getSpi1() {
 	if(spi1 == 0) {
-		spi1 = new Spi(SPI1);
+		// Configure SPI IOs
+		GpioPinConfiguration spiPinConfig;
+		// NSS
+		spiPinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+		gpioA->getPin(4)->configure(spiPinConfig);
+		// SCLK
+		spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+		gpioA->getPin(5)->configure(spiPinConfig);
+		// MISO
+		spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+		gpioA->getPin(6)->configure(spiPinConfig);
+		// MOSI
+		spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+		gpioA->getPin(7)->configure(spiPinConfig);
+
+		// Create a new Spi with these parameters (ID, Registers, SlaveSelect pin)
+		spi1 = new Spi(1, SPI1, gpioA->getPin(4));
 		// Send clock to SPI1
 		RCC->APB2ENR |= RCC_APB2ENR_SPI1EN | RCC_APB2ENR_AFIOEN;
 	}

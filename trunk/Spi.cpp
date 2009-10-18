@@ -9,9 +9,11 @@
 
 #include "stm32f10x.h"
 #include "SpiConfiguration.h"
+#include "GpioPin.h"
 
-Spi::Spi(SPI_TypeDef *spiRegisters) {
+Spi::Spi(uint8_t id, SPI_TypeDef *spiRegisters, GpioPin *slaveSelect) : Peripheral(id) {
 	this->spiRegisters = spiRegisters;
+	this->slaveSelect = slaveSelect;
 }
 
 Spi::~Spi() {
@@ -35,7 +37,29 @@ void Spi::configure(SpiConfiguration config) {
 }
 
 uint16_t Spi::readWrite(uint16_t data) {
+	// Wait while transmit buffer is not empty
+	while(!(spiRegisters->SR & SPI_SR_TXE))
 	spiRegisters->DR = data;
 
 	return spiRegisters->DR;
+}
+
+uint8_t Spi::readWrite(uint8_t data) {
+	// Wait while transmit buffer is not empty
+	while(!(spiRegisters->SR & SPI_SR_TXE))
+	spiRegisters->DR = data;
+
+	return spiRegisters->DR;
+}
+
+void Spi::selectSlave() {
+	slaveSelect->setLow();
+}
+
+void Spi::unselectSlave() {
+	slaveSelect->setHigh();
+}
+
+uint8_t Spi::isBusy() {
+	return spiRegisters->SR & SPI_SR_BSY;
 }
