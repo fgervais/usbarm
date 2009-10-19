@@ -7,9 +7,10 @@
 
 #include "Usb.h"
 
-Usb::Usb() {
+#include "MAX3421E.h"
 
-
+Usb::Usb(MAX3421E *controller) {
+	this->controller = controller;
 }
 
 Usb::~Usb() {

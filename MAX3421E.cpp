@@ -8,9 +8,23 @@
 #include "MAX3421E.h"
 
 #include "Spi.h"
+#include "SpiConfiguration.h"
 
 MAX3421E::MAX3421E(Spi *spi) {
 	this->spi = spi;
+
+	// Configure SPI according to MAX3421E datasheet (mode 0,0).
+	SpiConfiguration spiConfig;
+	spiConfig.lineMode 		= Spi::FULL_DUPLEX_2LINES;
+	spiConfig.frameFormat 	= Spi::FRAME_8BITS;
+	spiConfig.slaveSelect 	= Spi::HARDWARE_SLAVESELECT;
+	spiConfig.firstBit 		= Spi::MSB_FIRST;
+	spiConfig.prescaler 	= Spi::CLOCK_PRESCALER_2;
+	spiConfig.configuration = Spi::MASTER;
+	spiConfig.clockPolarity = Spi::CLOCK_POLARITY_LOW;
+	spiConfig.clockPhase 	= Spi::CLOCK_PHASE_EDGE1;
+
+	spi->configure(spiConfig);
 }
 
 MAX3421E::~MAX3421E() {
@@ -61,7 +75,7 @@ uint8_t MAX3421E::writeBytes(uint8_t address, uint8_t *data, uint8_t length) {
 	while(spi->isBusy());
 	spi->unselectSlave();
 
-	return 0;
+	return status;
 }
 
 /**
@@ -71,16 +85,35 @@ uint8_t MAX3421E::writeBytes(uint8_t address, uint8_t *data, uint8_t length) {
  * @return Status bits.
  */
 uint8_t MAX3421E::readRegister(uint8_t address, uint8_t *data) {
-	return 0;
+	return readBytes(address, data, 1);
 }
 
 /**
  * @brief Read multiple bytes of the MAX3421E.
  * @param address Register address of the first byte.
  * @param data Array used to return the bytes read.
+ * Note: Enough memory must be allocated for "length" elements.
+ *
  * @param length Number of byte to read.
  * @return Status bits.
  */
 uint8_t MAX3421E::readBytes(uint8_t address, uint8_t *data, uint8_t length) {
-	return 0;
+	uint8_t status;
+
+	// For more information on command format, see MAX3421E datasheet
+	uint8_t command = address << 3;
+
+	spi->selectSlave();
+	// While the command is clocked in, the status bits are clocked out
+	status = spi->readWrite(command);
+
+	for(uint8_t i=0; i<length; i++) {
+		data[i] = spi->readWrite((uint8_t)0x00);
+	}
+
+	// Wait until spi is finished with the transmission
+	while(spi->isBusy());
+	spi->unselectSlave();
+
+	return status;
 }

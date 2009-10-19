@@ -51,7 +51,6 @@ int main(void) {
 	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
 	gpioA->configure(portConfig);
 
-
 	// Configure blinking led
 	GpioPinConfiguration pinConfig;
 	pinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
