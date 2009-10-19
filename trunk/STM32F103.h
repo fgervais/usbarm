@@ -63,6 +63,7 @@ typedef struct
 class Uart;
 class Gpio;
 class Spi;
+class Usb;
 
 class STM32F103: public Microcontroller {
 public:
@@ -80,6 +81,7 @@ private:
 	static Uart *uart2;
 	static Gpio *gpioA;
 	static Spi *spi1;
+	static Usb *usb;
 
 	static void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct);
 	static void getRccClockFreq(systemClocksFreq* systemClock);

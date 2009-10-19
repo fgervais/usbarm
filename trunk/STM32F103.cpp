@@ -12,6 +12,7 @@
 #include "Spi.h"
 #include "GpioPin.h"
 #include "GpioPinConfiguration.h"
+#include "Usb.h"
 
 #include "stm32f10x.h"
 
@@ -20,7 +21,7 @@ Uart* STM32F103::uart1 = 0;
 Uart* STM32F103::uart2 = 0;
 Gpio* STM32F103::gpioA = 0;
 Spi* STM32F103::spi1 = 0;
-
+Usb* STM32F103::usb = 0;
 
 STM32F103::STM32F103() {
 
@@ -88,21 +89,22 @@ Spi* STM32F103::getSpi1() {
 	if(spi1 == 0) {
 		// Configure SPI IOs
 		GpioPinConfiguration spiPinConfig;
+		Gpio *portA = getGpioA();
 		// NSS
 		spiPinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-		gpioA->getPin(4)->configure(spiPinConfig);
+		portA->getPin(4)->configure(spiPinConfig);
 		// SCLK
 		spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-		gpioA->getPin(5)->configure(spiPinConfig);
+		portA->getPin(5)->configure(spiPinConfig);
 		// MISO
 		spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-		gpioA->getPin(6)->configure(spiPinConfig);
+		portA->getPin(6)->configure(spiPinConfig);
 		// MOSI
 		spiPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-		gpioA->getPin(7)->configure(spiPinConfig);
+		portA->getPin(7)->configure(spiPinConfig);
 
 		// Create a new Spi with these parameters (ID, Registers, SlaveSelect pin)
-		spi1 = new Spi(1, SPI1, gpioA->getPin(4));
+		spi1 = new Spi(1, SPI1, portA->getPin(4));
 		// Send clock to SPI1
 		RCC->APB2ENR |= RCC_APB2ENR_SPI1EN | RCC_APB2ENR_AFIOEN;
 	}

@@ -10,10 +10,15 @@
 
 #include "Peripheral.h"
 
+class MAX3421E;
+
 class Usb: public Peripheral {
 public:
-	Usb();
+	Usb(MAX3421E *controller);
 	virtual ~Usb();
+
+private:
+	MAX3421E *controller;
 };
 
 #endif /* USB_H_ */
