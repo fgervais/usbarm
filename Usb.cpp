@@ -11,6 +11,8 @@
 
 Usb::Usb(MAX3421E *controller) {
 	this->controller = controller;
+
+	// Configure the controller
 }
 
 Usb::~Usb() {
