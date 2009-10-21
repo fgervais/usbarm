@@ -42,7 +42,7 @@ public:
 	static const uint16_t CLOCK_PHASE_EDGE1		= 0x0000; /** The first clock transition is the first data capture edge */
 	static const uint16_t CLOCK_PHASE_EDGE2		= 0x0001; /** The second clock transition is the first data capture edge */
 
-	Spi(uint8_t id, SPI_TypeDef *spiRegisters, GpioPin *slaveSelect);
+	Spi(SPI_TypeDef *spiRegisters, uint8_t id, GpioPin *slaveSelect);
 	virtual ~Spi();
 
 	void configure(SpiConfiguration config);

@@ -16,12 +16,12 @@
  *
  * This function takes care of the individual pins initialization.
  */
-Gpio::Gpio(GPIO_TypeDef *gpioRegisters) {
+Gpio::Gpio(GPIO_TypeDef *gpioRegisters, uint8_t id) : Peripheral(id) {
 	this->gpioRegisters = gpioRegisters;
 
 	for(uint8_t i=0; i<16; i++) {
 		// Create a new pin with it's corresponding pin number.
-		gpioPins[i] = new GpioPin(gpioRegisters, i);
+		gpioPins[i] = new GpioPin(gpioRegisters, i, id);
 	}
 }
 

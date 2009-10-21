@@ -206,6 +206,8 @@ public:
 	uint8_t writeBytes(uint8_t address, uint8_t *data, uint8_t length);
 	uint8_t readRegister(uint8_t address, uint8_t *data);
 	uint8_t readBytes(uint8_t address, uint8_t *data, uint8_t length);
+	void configure();
+	void reset();
 
 private:
 	Spi *spi;

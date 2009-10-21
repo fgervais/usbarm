@@ -11,7 +11,7 @@
 #include "SpiConfiguration.h"
 #include "GpioPin.h"
 
-Spi::Spi(uint8_t id, SPI_TypeDef *spiRegisters, GpioPin *slaveSelect) : Peripheral(id) {
+Spi::Spi(SPI_TypeDef *spiRegisters, uint8_t id, GpioPin *slaveSelect) : Peripheral(id) {
 	this->spiRegisters = spiRegisters;
 	this->slaveSelect = slaveSelect;
 }
