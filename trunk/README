@@ -1,0 +1,11 @@
+Note: This template has been built from a template done by Peter Harrison. His original README has been keept but renamed as README_LEGACY.
+------------------
+
+This folder contain...
+
+These are some impotant things to keep in mind:
+
+There might be some peripheral conflict since some/all GPIO are multiplexed.
+
+For now EXTI9_5_IRQHandler and EXTI15_10_IRQHandler make dump call to stateChanged() of every GpioPin without checking which pin 
+is the interrupt source.

@@ -117,3 +117,19 @@ uint8_t MAX3421E::readBytes(uint8_t address, uint8_t *data, uint8_t length) {
 
 	return status;
 }
+
+void MAX3421E::configure() {
+	// Set the controller in full duplex and positive edge interrupt
+	writeRegister(PINCTL, PINCTL_FDUPSPI | PINCTL_POSINT);
+}
+
+void MAX3421E::reset() {
+	uint8_t usbirq;
+
+	writeRegister(USBCTL, USBCTL_CHIPRES);
+	writeRegister(USBCTL, 0x00);
+	// Wait until the oscillator and PLL stabilize
+	do {
+		readRegister(USBIRQ, &usbirq);
+	} while(!(usbirq & USBIRQ_OSCOKIRQ));
+}

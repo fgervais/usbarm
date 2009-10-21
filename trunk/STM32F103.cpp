@@ -78,7 +78,7 @@ Uart* STM32F103::getUart2() {
 
 Gpio* STM32F103::getGpioA() {
 	if(gpioA == 0) {
-		gpioA = new Gpio(GPIOA);
+		gpioA = new Gpio(GPIOA, 1);
 		// Send clock to GPIO A
 		RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 	}
@@ -104,7 +104,7 @@ Spi* STM32F103::getSpi1() {
 		portA->getPin(7)->configure(spiPinConfig);
 
 		// Create a new Spi with these parameters (ID, Registers, SlaveSelect pin)
-		spi1 = new Spi(1, SPI1, portA->getPin(4));
+		spi1 = new Spi(SPI1, 1, portA->getPin(4));
 		// Send clock to SPI1
 		RCC->APB2ENR |= RCC_APB2ENR_SPI1EN | RCC_APB2ENR_AFIOEN;
 	}

@@ -7,16 +7,30 @@
 
 #include "GpioPin.h"
 #include "GpioPinConfiguration.h"
-
+#include "GpioPinEventListener.h"
 #include "Gpio.h"
 
-GpioPin::GpioPin(GPIO_TypeDef *gpioRegisters, uint32_t pinNumber) {
+GpioPin::GpioPin(GPIO_TypeDef *gpioRegisters, uint8_t pinNumber, uint8_t portNumber) {
 	this->gpioRegisters = gpioRegisters;
 	this->pinNumber = pinNumber;
+	this->portNumber = portNumber;
+
+	// Initialization
+	extiConfigured = 0;
 }
 
 GpioPin::~GpioPin() {
 
+}
+
+void GpioPin::extInterrupt() {
+	// Browse through every listeners and tell them that
+	// this object have an event pending
+	for(int32_t i=0; i<listeners.size(); i++) {
+		if(listeners.getElement(i) != 0) {
+			listeners.getElement(i)->stateChanged(this);
+		}
+	}
 }
 
 /**
@@ -66,4 +80,14 @@ void GpioPin::setHigh() {
  */
 void GpioPin::setLow() {
 	gpioRegisters->BRR |= (1 << pinNumber);
+}
+
+void GpioPin::addEventListener(GpioPinEventListener *listener) {
+	if(!extiConfigured) {
+		// TODO: Configure exti interrupt
+		extiConfigured = 1;
+	}
+	else {
+		listeners.addElement(listener);
+	}
 }

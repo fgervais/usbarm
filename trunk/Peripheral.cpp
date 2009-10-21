@@ -6,7 +6,6 @@
  */
 
 #include "Peripheral.h"
-
 #include "PeripheralEventListener.h"
 
 #include <stdint.h>
