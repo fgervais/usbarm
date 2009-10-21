@@ -84,10 +84,60 @@ void GpioPin::setLow() {
 
 void GpioPin::addEventListener(GpioPinEventListener *listener) {
 	if(!extiConfigured) {
-		// TODO: Configure exti interrupt
+		configureInterrupt();
 		extiConfigured = 1;
 	}
 	else {
 		listeners.addElement(listener);
 	}
+}
+
+
+void GpioPin::configureInterrupt() {
+	/* Configure exti interrupt with ninja bit operations */
+	AFIO->EXTICR[pinNumber >> 2] &= (0x00FF << (pinNumber & 0x0003));
+	AFIO->EXTICR[pinNumber >> 2] |= (portNumber << (pinNumber & 0x0003));
+	EXTI->IMR |= (1<<pinNumber);
+	EXTI->EMR |= (1<<pinNumber);
+	// Set interrupt on rising edge
+	EXTI->RTSR |= (1<<pinNumber);
+
+	/*
+	 * Configure NVIC for GPIO interrupt
+	 *
+	 * Alright, lets try to explain all that.
+	 *
+	 * The number of priority bit can be anything from 1 to 8 bits
+	 * depending on the Cortex-m3 implementation. This is why we rely
+	 * on __NVIC_PRIO_BITS which has been defined by ST.
+	 *
+	 * IP[] array is 240 8bits registers for all 240 possible interrupts
+	 * of the Cortex-m3. Only a small number of these are implemented by
+	 * ST in the low-cost STM32. The interrupt number is defined as
+	 * XXX_URQn by ST. This is what we use as the array index.
+	 *
+	 * This array contains the interrupt priority and sub priority and
+	 * is *MSB FIRST*. This means that priority 1 is 0x80.
+	 *
+	 * ISER[] is an array of register use to enable the interrupt. There
+	 * is 8 register of 32 bits. Since one bit is used to enable an
+	 * interrupt, this gives use 256 possible interrupt which is enough
+	 * for our 240 possible interrupt.
+	 *
+	 * To understand how we set that you have to see the XXX_IRQn value
+	 * as two informations encoded in the same word. The first 5 bits
+	 * is the interrupt number and the other upper bits are the
+	 * number of the register in which the interrupt is located.
+	 * This is why we shift right 5 bits and we mask XXX_IRQn with a
+	 * 5 bits mask.
+	 */
+	uint8_t priority = 0;
+	// Priority is on __NVIC_PRIO_BITS bits
+	uint8_t priotityMask = (1 << __NVIC_PRIO_BITS) - 1;
+	// Priority is shifted because it's MSB first
+	NVIC->IP[EXTI1_IRQn] = (priority & priotityMask) << __NVIC_PRIO_BITS;
+	// Clear interrupt pending bit
+	EXTI->PR |= 0x01;
+	// Enable the interrupt
+	NVIC->ISER[EXTI1_IRQn >> 5] = 1 << (EXTI1_IRQn & 0x1F);
 }

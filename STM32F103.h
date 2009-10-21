@@ -74,6 +74,7 @@ public:
 	static Uart* getUart2();
 	static Gpio* getGpioA();
 	static Spi* getSpi1();
+	static Usb* getUsb();
 
 private:
 

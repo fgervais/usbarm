@@ -12,10 +12,15 @@
 #include "Gpio.h"
 #include "Uart.h"
 #include "UartConfiguration.h"
+#include "Usb.h"
 
 #include <stdint.h>
 
+#define francois
+//#define remi
+
 int main(void) {
+#ifdef remi
 	char buf[8];
 	buf[0] = 't';
 	buf[1] = 'e';
@@ -32,6 +37,7 @@ int main(void) {
 	buf[8] = 't';
 	buf[9] = ' ';
 	buf[10] = 0;*/
+#endif
 
 	// Setup STM32 system (clock, PLL and Flash configuration)
 	SystemInit();
@@ -52,18 +58,27 @@ int main(void) {
 	gpioA->configure(portConfig);
 
 	// Configure blinking led
-	GpioPinConfiguration pinConfig;
-	pinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-	gpioA->getPin(0)->configure(pinConfig);
+	GpioPinConfiguration ledPinConfig;
+	ledPinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+	gpioA->getPin(0)->configure(ledPinConfig);
 
 	GpioPin *led = gpioA->getPin(0);
+
+#ifdef francois
+	// Create the usb port
+	STM32F103::getUsb();
+	// Simulate an external interrupt
+	EXTI->SWIER |= 0x02;
+#endif
 
 	// Blink led
 	while(1) {
 		led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
 
+#ifdef remi
 		uart1->write(buf,sizeof(buf));
+#endif
 
 		led->setLow();	// Off
 		for(uint32_t i=0; i<1000000; i++);
