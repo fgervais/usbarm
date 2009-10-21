@@ -19,7 +19,8 @@ class GpioPinConfiguration;
  */
 class GpioPin {
 public:
-	GpioPin(GPIO_TypeDef *gpioRegisters, uint8_t pinNumber, uint8_t portNumber);
+	GpioPin(GPIO_TypeDef *gpioRegisters,
+			uint8_t pinNumber, uint8_t portNumber);
 	virtual ~GpioPin();
 	void extInterrupt();
 	void configure(GpioPinConfiguration config);
@@ -34,6 +35,8 @@ private:
 	GPIO_TypeDef *gpioRegisters;
 	Vector<GpioPinEventListener*> listeners;
 	uint8_t extiConfigured;
+
+	void configureInterrupt();
 };
 
 #endif /* GPIOPIN_H_ */

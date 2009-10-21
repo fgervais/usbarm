@@ -170,6 +170,46 @@ void USART1_IRQHandler(void)
 	STM32F103::getUart1()->sendInterrupt();
 }
 
+// TODO: All that is unimplemented for now
+void EXTI0_IRQHandler(void)
+{
+
+}
+
+void EXTI1_IRQHandler(void)
+{
+	// TODO: Should check which port it is linked to
+	// not just assume GpioA
+	STM32F103::getGpioA()->getPin(1)->extInterrupt();
+	// Clear interrupt pending bit
+	EXTI->PR |= 0x01;
+}
+
+void EXTI2_IRQHandler(void)
+{
+
+}
+
+void EXTI3_IRQHandler(void)
+{
+
+}
+
+void EXTI4_IRQHandler(void)
+{
+
+}
+
+void EXTI9_5_IRQHandler(void)
+{
+
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+
+}
+
 /**
   * @}
   */

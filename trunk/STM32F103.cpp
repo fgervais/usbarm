@@ -13,8 +13,10 @@
 #include "GpioPin.h"
 #include "GpioPinConfiguration.h"
 #include "Usb.h"
+#include "MAX3421E.h"
 
 #include "stm32f10x.h"
+#include "core_cm3.h"
 
 /* Static init. Required to make the compiler happy */
 Uart* STM32F103::uart1 = 0;
@@ -55,8 +57,6 @@ Uart* STM32F103::getUart1() {
 	return uart1;
 }
 
-
-
 /**
  * @brief	This function return an instance to the actual Uart1.
  * @return	The STM32F103 Uart1
@@ -75,10 +75,9 @@ Uart* STM32F103::getUart2() {
 	return uart2;
 }
 
-
 Gpio* STM32F103::getGpioA() {
 	if(gpioA == 0) {
-		gpioA = new Gpio(GPIOA, 1);
+		gpioA = new Gpio(GPIOA, AFIO, EXTI, 1);
 		// Send clock to GPIO A
 		RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 	}
@@ -111,7 +110,16 @@ Spi* STM32F103::getSpi1() {
 	return spi1;
 }
 
+Usb* STM32F103::getUsb() {
+	if(usb == 0) {
+		MAX3421E* controller = new MAX3421E(getSpi1());
+		GpioPin* interruptPin = getGpioA()->getPin(1);
+		// Create the new usb port with GpioA1 as external interrupt pin
+		usb = new Usb(controller, interruptPin);
 
+	}
+	return usb;
+}
 
 /**
   * @brief  Returns the frequencies of different on chip clocks.
