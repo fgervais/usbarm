@@ -44,8 +44,8 @@ void GpioPin::configure(GpioPinConfiguration config) {
 	if(pinNumber < 8) {
 		configRegister = gpioRegisters->CRL;
 		// Clear the pin configuration
-		configRegister &= ~(0x0F << pinNumber);
-		configRegister |= config.pin << pinNumber;
+		configRegister &= ~(0x0F << (pinNumber*4));
+		configRegister |= config.pin << (pinNumber*4);
 		// Apply changes
 		gpioRegisters->CRL = configRegister;
 	}
@@ -53,8 +53,8 @@ void GpioPin::configure(GpioPinConfiguration config) {
 	else {
 		configRegister = gpioRegisters->CRH;
 		// Clear the pin configuration
-		configRegister &= ~(0x0F << (pinNumber%8));
-		configRegister |= config.pin << (pinNumber%8);
+		configRegister &= ~(0x0F << ((pinNumber%8)*4));
+		configRegister |= config.pin << ((pinNumber%8)*4);
 		// Apply changes
 		gpioRegisters->CRH = configRegister;
 	}
@@ -87,17 +87,19 @@ void GpioPin::addEventListener(GpioPinEventListener *listener) {
 		configureInterrupt();
 		extiConfigured = 1;
 	}
-	else {
-		listeners.addElement(listener);
-	}
+	listeners.addElement(listener);
 }
 
 
 void GpioPin::configureInterrupt() {
 	/* Configure exti interrupt with ninja bit operations */
+	// Clear current configuration
 	AFIO->EXTICR[pinNumber >> 2] &= (0x00FF << (pinNumber & 0x0003));
-	AFIO->EXTICR[pinNumber >> 2] |= (portNumber << (pinNumber & 0x0003));
+	// Configure which port gets the external interrupt
+	AFIO->EXTICR[pinNumber >> 2] |= ((portNumber-1) << (pinNumber & 0x0003));
+	// Clear the interrupt mask
 	EXTI->IMR |= (1<<pinNumber);
+	// Clear the event mask
 	EXTI->EMR |= (1<<pinNumber);
 	// Set interrupt on rising edge
 	EXTI->RTSR |= (1<<pinNumber);
@@ -135,9 +137,11 @@ void GpioPin::configureInterrupt() {
 	// Priority is on __NVIC_PRIO_BITS bits
 	uint8_t priotityMask = (1 << __NVIC_PRIO_BITS) - 1;
 	// Priority is shifted because it's MSB first
+	// TODO: EXTI1_IRQn can't be used here. Should be generic
 	NVIC->IP[EXTI1_IRQn] = (priority & priotityMask) << __NVIC_PRIO_BITS;
 	// Clear interrupt pending bit
 	EXTI->PR |= 0x01;
+	NVIC->ICPR[EXTI1_IRQn >> 5] = 1 << (EXTI1_IRQn & 0x1F);
 	// Enable the interrupt
 	NVIC->ISER[EXTI1_IRQn >> 5] = 1 << (EXTI1_IRQn & 0x1F);
 }
