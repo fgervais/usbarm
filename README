@@ -5,7 +5,20 @@ This folder contain...
 
 These are some impotant things to keep in mind:
 
-There might be some peripheral conflict since some/all GPIO are multiplexed.
+- There might be some peripheral conflict since some/all GPIO are multiplexed.
 
-For now EXTI9_5_IRQHandler and EXTI15_10_IRQHandler make dump call to stateChanged() of every GpioPin without checking which pin 
-is the interrupt source.
+Here is how thing are done and what are the bad things that could happen.
+The first time you ask STM32F103 class for something, it will configure everything
+and the instance returned is guaranteed to work. However, it will not configure it
+again as long as the program is running. So if you have two different peripheral 
+that are using the same IOs, as soon has you ask for the second one, the first 
+one will stop working.
+
+- External interrupts can only work on one GPIO port at a time.
+
+If you add a listener on let say GPIOA pin 1. The pin will bind the external
+interrupts to port A and will then activate the pin 1 interrupt. If later in
+the program you add a listener to GPIOB pin 5, the pin will bind the external
+interrupts to port B. In that case, the GPIOA pin 1 will stop receiving interrupts.
+This is a hardware limitation. On the other hand, up to every pin of a port
+can receive external interrupt.
