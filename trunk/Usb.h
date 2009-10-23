@@ -27,6 +27,10 @@ public:
 private:
 	MAX3421E *controller;
 	GpioPin* interruptPin;
+
+	enum Status { Reset, Connected };
+
+	Status status;
 };
 
 #endif /* USB_H_ */

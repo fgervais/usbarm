@@ -158,7 +158,7 @@ public:
 
 	// Bit definition for MODE register
 	static const uint8_t MODE_HOST			= 0x01;
-	static const uint8_t MODE_SPEED			= 0x02;
+	static const uint8_t MODE_LOWSPEED		= 0x02;
 	static const uint8_t MODE_HUBPRE		= 0x04;
 	static const uint8_t MODE_SOFKAENAB		= 0x08;
 	static const uint8_t MODE_SEPIRQ		= 0x10;
