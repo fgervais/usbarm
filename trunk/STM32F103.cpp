@@ -67,10 +67,10 @@ Uart* STM32F103::getUart1() {
 		uart1->configure(uart1Config);
 
 		//enable UART1 Interrupt
-		//NVIC->ISER[1] = 0x20;
+		NVIC->ISER[1] = 0x20;
 
 		//set priority to UART1 Interrupt
-		//NVIC->IP[USART1_IRQn] = 0;
+		NVIC->IP[USART1_IRQn] = 0;
 	}
 
 	return uart1;
