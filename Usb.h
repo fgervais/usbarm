@@ -19,6 +19,9 @@ public:
 	Usb(MAX3421E *controller, GpioPin *extInterrupt);
 	virtual ~Usb();
 
+	void detectDevice();
+
+	// GpioPinEventListener interface implementation
 	void stateChanged(GpioPin* pin);
 
 private:
