@@ -51,7 +51,7 @@ void Uart::poll(void) {
 		txQueue->addElement(' ');
 		txQueue->addElement(uartRegisters->DR);
 		txQueue->addElement('\r');
-	//	txQueue->addElement('\n');
+
 
 		uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
 	}
