@@ -11,8 +11,6 @@
 #include "GpioPinConfiguration.h"
 #include "Gpio.h"
 
-#include "stm32f10x.h" //debug
-
 #include <stdint.h>
 
 Usb::Usb(MAX3421E *controller, GpioPin *interruptPin) {
@@ -38,10 +36,33 @@ Usb::~Usb() {
 }
 
 void Usb::detectDevice() {
+	/*
+	 * Configure the driver as a host with a pull-down on each data line.
+	 * The host is running at full speed.
+	 *
+	 * Pull-down are needed to detect a new device and the speed supported
+	 * by that device. A low speed device will have a pull-up on D- and
+	 * a full speed device a pull-up on D+.
+	 */
+	controller->writeRegister(MAX3421E::MODE,
+			MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN | MAX3421E::MODE_HOST);
 
+	status = Reset;
+
+	// Clear the connect IRQ
+	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
+	// Enable connect interrupt
+	controller->writeRegister(MAX3421E::HIEN, MAX3421E::HIEN_CONNIE);
 }
 
 void Usb::stateChanged(GpioPin* pin) {
+	switch(status) {
+	case Reset:
+		break;
+	case Connected:
+		break;
+	}
+
 	GPIOA->BSRR |= 0x01;	// On
 	for(uint32_t i=0; i<100000; i++);
 
