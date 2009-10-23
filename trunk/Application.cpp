@@ -20,8 +20,8 @@ void main_francois();
 void main_remi();
 
 int main(void) {
-	main_francois();
-	//main_remi();
+	//main_francois();
+	main_remi();
 }
 
 void main_francois() {
@@ -69,40 +69,21 @@ void main_francois() {
 }
 
 void main_remi() {
-	char buf[8];
-	buf[0] = 't';
-	buf[1] = 'e';
-	buf[2] = 's';
-	buf[3] = 't';
-	buf[4] = 't';
-	buf[5] = 't';
-	buf[6] = ' ';
-	buf[7] = 0;
-	//buf[8] = 0;
-	//buf[9] = 0;
-	/*buf[6] = 'e';
-	buf[7] = 's';
-	buf[8] = 't';
-	buf[9] = ' ';
-	buf[10] = 0;*/
-
 	// Setup STM32 system (clock, PLL and Flash configuration)
 	SystemInit();
 
-	Uart *uart1 = STM32F103::getUart1();
-
-	UartConfiguration uart1Config;
-	uart1Config.baudrate 		= 9600;
-	uart1Config.stopBit 		= Uart::UART_1_STOPBIT;
-	uart1Config.parityEnable 	= Uart::UART_PARITY_DISABLE;
-	uart1Config.wordLenght		= Uart::UART_1_STOPBIT;
-	uart1->configure(uart1Config);
-
 	Gpio *gpioA = STM32F103::getGpioA();
-
 	// Set default port behavior
 	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
 	gpioA->configure(portConfig);
+
+
+	Uart *uart1 = STM32F103::getUart1();
+
+
+
+
+
 
 	// Configure blinking led
 	GpioPinConfiguration ledPinConfig;
@@ -114,12 +95,16 @@ void main_remi() {
 	// Blink led
 	while(1) {
 		led->setHigh();	// On
-		for(uint32_t i=0; i<1000000; i++);
+		for(uint32_t i=0; i<100000; i++){
+			uart1->poll();
+		}
 
-		uart1->write(buf,sizeof(buf));
+		//char buf[] = {'a','l','l','o',' ',0};
+		//uart1->write(buf, sizeof(buf));
 
 		led->setLow();	// Off
-		for(uint32_t i=0; i<1000000; i++);
-		//uart1->write('d',1);
+		for(uint32_t i=0; i<100000; i++){
+			uart1->poll();
+		}
 	}
 }

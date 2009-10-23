@@ -14,6 +14,7 @@
 #include "GpioPinConfiguration.h"
 #include "Usb.h"
 #include "MAX3421E.h"
+#include "UartConfiguration.h"
 
 #include "stm32f10x.h"
 #include "core_cm3.h"
@@ -45,13 +46,31 @@ Uart* STM32F103::getUart1() {
 	if(uart1 == 0) {
 		uart1 = new Uart(USART1, systemClock.PCLK2_Frequency);
 		// Send clock to USART 1
-		RCC->APB2ENR |= RCC_APB2ENR_USART1EN | RCC_APB2ENR_AFIOEN;
+		RCC->APB2ENR |= RCC_APB2ENR_USART1EN | RCC_APB2ENR_AFIOEN | RCC_APB2ENR_IOPAEN;
+
+
+		// Configure Uart1 IOs
+		GpioPinConfiguration uartTxPinConfig, uartRxPinConfig;
+		Gpio *portA = getGpioA();
+		// NSS
+		//uartTxPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+		//portA->getPin(9)->configure(uartTxPinConfig);
+
+		uartRxPinConfig.pin = Gpio::FLOATING_INPUT;
+		portA->getPin(10)->configure(uartRxPinConfig);
+
+		UartConfiguration uart1Config;
+		uart1Config.baudrate 		= 9600;
+		uart1Config.stopBit 		= Uart::UART_1_STOPBIT;
+		uart1Config.parityEnable 	= Uart::UART_PARITY_DISABLE;
+		uart1Config.wordLenght		= Uart::UART_1_STOPBIT;
+		uart1->configure(uart1Config);
 
 		//enable UART1 Interrupt
-		NVIC->ISER[1] = 0x20;
+		//NVIC->ISER[1] = 0x20;
 
 		//set priority to UART1 Interrupt
-		NVIC->IP[USART1_IRQn] = 0;
+		//NVIC->IP[USART1_IRQn] = 0;
 	}
 
 	return uart1;

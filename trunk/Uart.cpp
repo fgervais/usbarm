@@ -5,58 +5,66 @@
  *      Author: oex
  */
 
+
 #include "Uart.h"
 #include "UartConfiguration.h"
-
-#include "STM32F103.h"
 #include "Gpio.h"
 #include "GpioPin.h"
+
+#include "STM32F103.h"
 
 Uart::Uart(USART_TypeDef *uartRegisters, uint32_t clockFrequency) {
 	this->uartRegisters = uartRegisters;
 	this->clockFrequency = clockFrequency;
-	this->queue = new Queue<char>(200);
+	this->txQueue = new Queue<char>(200);
+
 }
 
 Uart::~Uart() {
 	/* Free memory */
-	delete queue;
+	delete txQueue;
 }
 
 
 void Uart::sendInterrupt() {
-	if (!(queue->isEmpty())){
-		uartRegisters->DR = queue->getElement();
-	}
-	else {
-		uartRegisters->CR1 &= UART_TX_INTERRUPT_DISABLE;
-	}
 }
 
 void Uart::receiveInterrupt() {
+}
 
+void Uart::poll(void) {
+
+
+	if (!txQueue->isEmpty()) {
+		if (uartRegisters->SR & UART_TX_DATA_REGISTER) {
+			uartRegisters->DR = txQueue->getElement();
+		}
+	}
+
+	if (uartRegisters->SR & UART_RX_DATA_REGISTER) {
+
+		txQueue->addElement('r');
+		txQueue->addElement('e');
+		txQueue->addElement('c');
+		txQueue->addElement('u');
+		txQueue->addElement(':');
+		txQueue->addElement(' ');
+		txQueue->addElement(uartRegisters->DR);
+		txQueue->addElement('\r');
+	//	txQueue->addElement('\n');
+
+		uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
+	}
 }
 
 void Uart::write(char* data, uint16_t length) {
-
-	//disable UART Interrupt
-	uartRegisters->CR1 &= UART_TX_INTERRUPT_DISABLE;
-
-
-	for (int16_t i=0; (i < length) && (data[i]); i++) {
-		queue->addElement(data[i]);
+	for (uint8_t i = 0; i < length; i++) {
+		txQueue->addElement(data[i]);
 	}
-	if (!(uartRegisters->SR & UART_TX_DATA_REGISTER)) {
-		if (!queue->isEmpty())
-			uartRegisters->DR = queue->getElement() ;
-	}
-
-	//enable UART Interrupt
-	uartRegisters->CR1 |= UART_TX_INTERRUPT_ENABLE;
 }
 
 char Uart::read(uint8_t lenght){
-	//char test = 'a';
+
 	return (uartRegisters->SR & 0x00000040) >> 6;
 }
 
@@ -69,8 +77,8 @@ uint16_t Uart::calculateBRR(uint16_t baudrate){
 	                 (16 * USARTDIV)
 	*/
 
-	/*	USARTDIV = 937.5, Fraction = 16 * 0.5 = 8 = 0x8,
-		Mantisse = 937 = 0x3A9, BRR = 0x00003A9C  */
+	/*	USARTDIV = 478.75, Fraction = 16 * 0.75 = 11.68 = 0xC,
+		Mantisse = 478 = 0x1DEC, BRR = 0x00001DEC  */
 
 	mantisse = ((0x19 * this->clockFrequency) / (0x04 * (baudrate)));
 	tmpreg = (mantisse / 0x64) << 0x04;
@@ -82,13 +90,13 @@ uint16_t Uart::calculateBRR(uint16_t baudrate){
 }
 
 void Uart::configure(UartConfiguration config){
-
-
 	uartRegisters->BRR = calculateBRR(config.baudrate);
-	//uartRegisters->BRR = 0x0000014DC;
+	//uartRegisters->BRR = 0x1D4C;
+
 	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;
 	uartRegisters->CR1 |= UART_ENABLE | UART_TX_ENABLE | UART_RX_ENABLE;
 
 	uartRegisters->CR2 |= config.stopBit;
+	uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
 }
 

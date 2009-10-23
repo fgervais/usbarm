@@ -43,17 +43,25 @@ public:
 	static const uint32_t UART_TX_DATA_REGISTER		= 0x00000080;   /** UART Transmission
 																        data register is empty */
 
+	static const uint32_t UART_RX_DATA_REGISTER 	= 0x00000020; 	/** UART Receive data register
+																					is not empty */
+
+	static const uint32_t UART_TC_DATA_REGISTER		= 0x00000040;   /** UART Transmission
+																        complete data register is empty */
+	static const uint32_t UART_TC_DATA_REGISTER_CLR	= ~0x00000040;   /** Clear UART Transmission
+																        data register is empty */
+
 	static const uint32_t UART_TX_INTERRUPT_ENABLE   = 0x00000080;  /** UART Transmit Interrupt enable */
 	static const uint32_t UART_TX_INTERRUPT_DISABLE  = ~0x00000080;  /** UART Transmit Interrupt disable*/
 
+	static const uint32_t UART_TC_INTERRUPT_ENABLE   = 0x00000040;  /** UART Transmition complete Interrupt enable */
+	static const uint32_t UART_TC_INTERRUPT_DISABLE  = ~0x00000040;  /** UART Transmition complete Interrupt disable*/
+
 private:
 	USART_TypeDef *uartRegisters;
-	Queue<char>* queue;
+	Queue<char>* txQueue;
 	uint32_t clockFrequency;
 	uint16_t calculateBRR(uint16_t baudrate);
-
-
-
 
 public:
 
@@ -62,6 +70,7 @@ public:
 	void configure(UartConfiguration config);
 	void write(char* data, uint16_t length);
 	char read(uint8_t lenght);
+	void poll();
 	void sendInterrupt();
 	void receiveInterrupt();
 
