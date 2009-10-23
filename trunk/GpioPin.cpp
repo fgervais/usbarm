@@ -104,6 +104,42 @@ void GpioPin::configureInterrupt() {
 	// Set interrupt on rising edge
 	EXTI->RTSR |= (1<<pinNumber);
 
+	// Get the IRQn according to the pin number
+	// Better way to do this anyone?
+	uint8_t irqNumber;
+	switch(pinNumber) {
+	case 0:
+		irqNumber = EXTI0_IRQn;
+		break;
+	case 1:
+		irqNumber = EXTI1_IRQn;
+		break;
+	case 2:
+		irqNumber = EXTI2_IRQn;
+		break;
+	case 3:
+		irqNumber = EXTI3_IRQn;
+		break;
+	case 4:
+		irqNumber = EXTI4_IRQn;
+		break;
+	case 5:
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+		irqNumber = EXTI9_5_IRQn;
+		break;
+	case 10:
+	case 11:
+	case 12:
+	case 13:
+	case 14:
+	case 15:
+		irqNumber = EXTI15_10_IRQn;
+		break;
+	}
+
 	/*
 	 * Configure NVIC for GPIO interrupt
 	 *
@@ -137,11 +173,10 @@ void GpioPin::configureInterrupt() {
 	// Priority is on __NVIC_PRIO_BITS bits
 	uint8_t priotityMask = (1 << __NVIC_PRIO_BITS) - 1;
 	// Priority is shifted because it's MSB first
-	// TODO: EXTI1_IRQn can't be used here. Should be generic
-	NVIC->IP[EXTI1_IRQn] = (priority & priotityMask) << __NVIC_PRIO_BITS;
+	NVIC->IP[irqNumber] = (priority & priotityMask) << __NVIC_PRIO_BITS;
 	// Clear interrupt pending bit
 	EXTI->PR |= 0x01;
-	NVIC->ICPR[EXTI1_IRQn >> 5] = 1 << (EXTI1_IRQn & 0x1F);
+	NVIC->ICPR[irqNumber >> 5] = 1 << (irqNumber & 0x1F);
 	// Enable the interrupt
-	NVIC->ISER[EXTI1_IRQn >> 5] = 1 << (EXTI1_IRQn & 0x1F);
+	NVIC->ISER[irqNumber >> 5] = 1 << (irqNumber & 0x1F);
 }
