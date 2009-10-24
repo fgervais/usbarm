@@ -7,9 +7,14 @@
 
 #include "Command.h"
 
-Command::Command() {
+Command::Command(char* message) {
+	//todo not working.. probably a detail about OO programming..
+	//	this.message = message;
 
+}
 
+char* Command::getMessage() {
+	return message;
 }
 
 Command::~Command() {

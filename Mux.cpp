@@ -7,6 +7,10 @@
 
 #include "Mux.h"
 
+void Mux::setOutput(Output* output) {
+	this->output = output;
+}
+
 Mux::Mux() {
 
 
