@@ -9,8 +9,12 @@
 #define COMMAND_H_
 
 class Command {
+private:
+	char message[10];
+
 public:
-	Command();
+	Command(char* message);
+	char* getMessage(void);
 	virtual ~Command();
 };
 
