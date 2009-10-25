@@ -55,17 +55,53 @@ void Usb::detectDevice() {
 	controller->writeRegister(MAX3421E::HIEN, MAX3421E::HIEN_CONNIE);
 }
 
+void Usb::enumerateDevice() {
+
+}
+
 void Usb::stateChanged(GpioPin* pin) {
+	uint8_t busState;
 	switch(status) {
 	case Reset:
+		// Blink led fast
+		GPIOA->BSRR |= 0x01;	// On
+		for(uint32_t i=0; i<100000; i++);
+		GPIOA->BRR |= 0x01;	// Off
+		for(uint32_t i=0; i<100000; i++);
+
+		// Clear the connect IRQ
+		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
+		// Read the bus state
+		controller->readRegister(MAX3421E::HRSL, &busState);
+		// Full speed device
+		if(busState & MAX3421E::HRSL_JSTATUS) {
+			controller->writeRegister(MAX3421E::MODE,
+						MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN
+						| MAX3421E::MODE_SOFKAENAB | MAX3421E::MODE_HOST);
+		}
+		// Low speed device
+		else if(busState & MAX3421E::HRSL_KSTATUS) {
+			controller->writeRegister(MAX3421E::MODE,
+						MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN
+						| MAX3421E::MODE_SOFKAENAB | MAX3421E::MODE_LOWSPEED
+						| MAX3421E::MODE_HOST);
+		}
+		status = Connected;
 		break;
 	case Connected:
+		// Blink led fast
+		GPIOA->BSRR |= 0x01;	// On
+		for(uint32_t i=0; i<100000; i++);
+		GPIOA->BRR |= 0x01;	// Off
+		for(uint32_t i=0; i<100000; i++);
+
+		// Clear the connect IRQ
+		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
+		// Stop automatic SOF/Keep-Alive generation
+		controller->writeRegister(MAX3421E::MODE,
+					MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN | MAX3421E::MODE_HOST);
+
+		status = Reset;
 		break;
 	}
-
-	GPIOA->BSRR |= 0x01;	// On
-	for(uint32_t i=0; i<100000; i++);
-
-	GPIOA->BRR |= 0x01;	// Off
-	for(uint32_t i=0; i<100000; i++);
 }
