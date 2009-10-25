@@ -20,6 +20,7 @@ public:
 	virtual ~Usb();
 
 	void detectDevice();
+	void enumerateDevice();
 
 	// GpioPinEventListener interface implementation
 	void stateChanged(GpioPin* pin);
