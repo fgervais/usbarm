@@ -47,7 +47,7 @@ void Usb::detectDevice() {
 	controller->writeRegister(MAX3421E::MODE,
 			MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN | MAX3421E::MODE_HOST);
 
-	status = Reset;
+	state = Reset;
 
 	// Clear the connect IRQ
 	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
@@ -61,7 +61,7 @@ void Usb::enumerateDevice() {
 
 void Usb::stateChanged(GpioPin* pin) {
 	uint8_t busState;
-	switch(status) {
+	switch(state) {
 	case Reset:
 		// Blink led fast
 		GPIOA->BSRR |= 0x01;	// On
@@ -86,9 +86,9 @@ void Usb::stateChanged(GpioPin* pin) {
 						| MAX3421E::MODE_SOFKAENAB | MAX3421E::MODE_LOWSPEED
 						| MAX3421E::MODE_HOST);
 		}
-		status = Connected;
+		state = Default;
 		break;
-	case Connected:
+	case Default:
 		// Blink led fast
 		GPIOA->BSRR |= 0x01;	// On
 		for(uint32_t i=0; i<100000; i++);
@@ -101,7 +101,9 @@ void Usb::stateChanged(GpioPin* pin) {
 		controller->writeRegister(MAX3421E::MODE,
 					MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN | MAX3421E::MODE_HOST);
 
-		status = Reset;
+		state = Reset;
+		break;
+	default:
 		break;
 	}
 }
