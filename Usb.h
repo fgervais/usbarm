@@ -19,7 +19,7 @@ public:
 	Usb(MAX3421E *controller, GpioPin *extInterrupt);
 	virtual ~Usb();
 
-	void detectDevice();
+	void listenForDevice();
 	void enumerateDevice();
 
 	// GpioPinEventListener interface implementation
@@ -29,9 +29,13 @@ private:
 	MAX3421E *controller;
 	GpioPin* interruptPin;
 
-	enum State { Reset, Default, Status, Address };
+	enum State { Disconnect, Connect, Default, Reset, Normal } state;
 
-	State state;
+	// Global flag
+	uint8_t devDetected;
+	uint8_t devEnumerated;
+
+	void waitFrames(uint32_t number);
 };
 
 #endif /* USB_H_ */
