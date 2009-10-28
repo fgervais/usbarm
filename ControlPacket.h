@@ -14,20 +14,19 @@
 
 class ControlPacket: public UsbPacket {
 public:
-	static const uint8_t SETADDRESS = 0x05;
-	static const uint8_t GETDESCRIPTOR = 0x06;
+	uint8_t requestType;
+	uint8_t request;
+	uint16_t value;
+	uint16_t index;
+	uint16_t length;
 
-	void setValue();
-	void setIndex();
-	void setLength();
 	uint8_t* toArray();
 
-	ControlPacket(uint8_t request);
+	ControlPacket();
 	virtual ~ControlPacket();
 
 private:
 	uint8_t rawPacket[8];
-	uint8_t request;
 };
 
 #endif /* CONTROLPACKET_H_ */

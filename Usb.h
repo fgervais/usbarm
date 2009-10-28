@@ -37,7 +37,8 @@ private:
 	uint8_t devEnumerated;
 
 	void waitFrames(uint32_t number);
-	void sendPacket(ControlPacket packet);
+	void sendRequest(ControlPacket request);
+	void receiveRawData(uint8_t* rawData);
 };
 
 #endif /* USB_H_ */
