@@ -13,6 +13,7 @@
 
 class MAX3421E;
 class GpioPin;
+class ControlPacket;
 
 class Usb: public Peripheral, GpioPinEventListener {
 public:
@@ -36,6 +37,7 @@ private:
 	uint8_t devEnumerated;
 
 	void waitFrames(uint32_t number);
+	void sendPacket(ControlPacket packet);
 };
 
 #endif /* USB_H_ */
