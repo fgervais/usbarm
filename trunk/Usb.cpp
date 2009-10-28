@@ -10,6 +10,9 @@
 #include "GpioPin.h"
 #include "GpioPinConfiguration.h"
 #include "Gpio.h"
+#include "ControlPacket.h"
+#include "GetDescriptor.h"
+#include "SetAddress.h"
 
 #include <stdint.h>
 
@@ -91,6 +94,10 @@ void Usb::enumerateDevice() {
 	 * will respond to address 0x00 until we give it another one.
 	 */
 	controller->writeRegister(MAX3421E::PERADDR, 0x00);
+
+	//ControlPacket *request = new GetDescriptor(0x01, 0x08);
+
+
 
 }
 
