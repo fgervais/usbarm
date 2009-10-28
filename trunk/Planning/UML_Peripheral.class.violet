@@ -267,14 +267,6 @@ GpioPinEventListener</string>
   </void> 
   <void method="addNode"> 
    <object id="ClassNode11" class="com.horstmann.violet.ClassNode"> 
-    <void property="attributes"> 
-     <void property="text"> 
-      <string>- type
-- address
-- endpoint
-- payload</string> 
-     </void> 
-    </void> 
     <void property="name"> 
      <void property="text"> 
       <string>UsbPacket</string> 
@@ -292,7 +284,7 @@ GpioPinEventListener</string>
    <object id="ClassNode12" class="com.horstmann.violet.ClassNode"> 
     <void property="name"> 
      <void property="text"> 
-      <string>Control</string> 
+      <string>ControlPacket</string> 
      </void> 
     </void> 
    </object> 
@@ -307,7 +299,7 @@ GpioPinEventListener</string>
    <object id="ClassNode13" class="com.horstmann.violet.ClassNode"> 
     <void property="name"> 
      <void property="text"> 
-      <string>Interrupt</string> 
+      <string>InterruptPacket</string> 
      </void> 
     </void> 
    </object> 
@@ -315,36 +307,6 @@ GpioPinEventListener</string>
     <void method="setLocation"> 
      <double>847.0</double> 
      <double>596.0</double> 
-    </void> 
-   </object> 
-  </void> 
-  <void method="addNode"> 
-   <object id="ClassNode14" class="com.horstmann.violet.ClassNode"> 
-    <void property="name"> 
-     <void property="text"> 
-      <string>SetAdress</string> 
-     </void> 
-    </void> 
-   </object> 
-   <object class="java.awt.geom.Point2D$Double"> 
-    <void method="setLocation"> 
-     <double>609.0</double> 
-     <double>725.0</double> 
-    </void> 
-   </object> 
-  </void> 
-  <void method="addNode"> 
-   <object id="ClassNode15" class="com.horstmann.violet.ClassNode"> 
-    <void property="name"> 
-     <void property="text"> 
-      <string>GetDescriptor</string> 
-     </void> 
-    </void> 
-   </object> 
-   <object class="java.awt.geom.Point2D$Double"> 
-    <void method="setLocation"> 
-     <double>761.0</double> 
-     <double>729.0</double> 
     </void> 
    </object> 
   </void> 
@@ -508,30 +470,6 @@ GpioPinEventListener</string>
    </object> 
    <object idref="ClassNode13"/> 
    <object idref="ClassNode11"/> 
-  </void> 
-  <void method="connect"> 
-   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
-    <void property="bentStyle"> 
-     <object class="com.horstmann.violet.BentStyle" field="VHV"/> 
-    </void> 
-    <void property="endArrowHead"> 
-     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/> 
-    </void> 
-   </object> 
-   <object idref="ClassNode14"/> 
-   <object idref="ClassNode12"/> 
-  </void> 
-  <void method="connect"> 
-   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
-    <void property="bentStyle"> 
-     <object class="com.horstmann.violet.BentStyle" field="VHV"/> 
-    </void> 
-    <void property="endArrowHead"> 
-     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/> 
-    </void> 
-   </object> 
-   <object idref="ClassNode15"/> 
-   <object idref="ClassNode12"/> 
   </void> 
  </object> 
 </java> 
