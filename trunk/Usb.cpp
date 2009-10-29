@@ -95,25 +95,16 @@ void Usb::listenForDevice() {
 }
 
 void Usb::enumerateDevice() {
-	// Perform a bus reset (Put the bus in SE0 state)
-	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_BUSRST);
+	ControlPacket* request;
+	uint8_t* rawData;
 
 	/*
 	 * Host and device use this first reset to issue the high speed handshake.
 	 *
 	 * We have to do it even if we know that our controller doesn't support
-	 * high speed since it's in the standard.
+	 * high speed since it's in the USB standard.
 	 */
-
-	state = Reset;
-
-	// Wait until bus reset is done
-	uint8_t hctl;
-	do {
-		controller->readRegister(MAX3421E::HCTL, &hctl);
-	} while(hctl == 1);
-
-	state = Default;
+	busReset();
 
 	/*
 	 * According to the programming manual we should wait at least 1 frame
@@ -123,7 +114,7 @@ void Usb::enumerateDevice() {
 	waitFrames(200);
 
 	/*
-	 * Get the maximum packet size of endpoint 0.
+	 * Get the maximum packet size of EndPoint 0.
 	 *
 	 * This information will be used for every other control transfers.
 	 * For those how are not familiar with the USB standard, the device
@@ -134,18 +125,24 @@ void Usb::enumerateDevice() {
 	// Using the 'safe' value for now
 	maxPacketSize = 0x08;
 
-	ControlPacket *request = new GetDescriptor(0x01, 0x08);
+	request = new GetDescriptor(0x01, 0x08);
 	sendRequest(request);
 
-	uint8_t* rawData = new uint8_t[request->length];
+	rawData = new uint8_t[request->length];
 	receiveRawData(rawData, request->length, maxPacketSize);
 
 	// OUT Status stage
 	launchTransfer(MAX3421E::TOKEN_HSOUT, 0x00);
 
 	// Set the maximum EP0 packet size
+	maxPacketSize = rawData[7];
+
+	// Free resources used for that request
+	delete request;
+	delete[] rawData;
 
 	// Reset the device to be in a known state
+	busReset();
 
 	// Set address
 
@@ -245,6 +242,21 @@ uint8_t Usb::launchTransfer(uint8_t token, uint8_t endpoint) {
 	hrslt = hrsl & 0x0F;
 
 	return hrsl;
+}
+
+void Usb::busReset() {
+	// Perform a bus reset (Put the bus in SE0 state)
+	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_BUSRST);
+
+	state = Reset;
+
+	// Wait until bus reset is done
+	uint8_t hctl;
+	do {
+		controller->readRegister(MAX3421E::HCTL, &hctl);
+	} while(hctl == 1);
+
+	state = Default;
 }
 
 void Usb::stateChanged(GpioPin* pin) {

@@ -43,6 +43,7 @@ private:
 	uint8_t sendRequest(ControlPacket* request);
 	uint8_t receiveRawData(uint8_t* rawData, uint16_t length, uint8_t packetSize);
 	uint8_t launchTransfer(uint8_t token, uint8_t endpoint);
+	void busReset();
 };
 
 #endif /* USB_H_ */
