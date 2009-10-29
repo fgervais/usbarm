@@ -188,6 +188,18 @@ public:
 	static const uint8_t HXFR_ISO			= 0x40;
 	static const uint8_t HXFR_HS			= 0x80;
 
+	// Bit settings for different transfer types
+	// Directly related to HXFR register
+	static const uint8_t TOKEN_SETUP		= 0x10;
+	static const uint8_t TOKEN_BULKIN		= 0x00;
+	static const uint8_t TOKEN_IN			= 0x00;
+	static const uint8_t TOKEN_BULKOUT		= 0x20;
+	static const uint8_t TOKEN_OUT			= 0x20;
+	static const uint8_t TOKEN_HSIN			= 0x80;
+	static const uint8_t TOKEN_HSOUT		= 0xA0;
+	static const uint8_t TOKEN_ISOIN		= 0x40;
+	static const uint8_t TOKEN_ISOOUT		= 0x60;
+
 	// Bit definition for HRSL register
 	static const uint8_t HRSL_HRSLT0		= 0x01;
 	static const uint8_t HRSL_HRSLT1		= 0x02;
@@ -197,6 +209,24 @@ public:
 	static const uint8_t HRSL_SNDTOGRD		= 0x20;
 	static const uint8_t HRSL_KSTATUS		= 0x40;
 	static const uint8_t HRSL_JSTATUS		= 0x80;
+
+	// HRSLT codes
+	static const uint8_t HRSLT_SUCCESS		= 0x00;		/** Successful Transfer */
+	static const uint8_t HRSLT_BUSY			= 0x01;		/** SIE is busy, transfer pending */
+	static const uint8_t HRSLT_BADREQ		= 0x02;		/** Bad value in HXFR reg */
+	static const uint8_t HRSLT_NAK			= 0x04;		/** Peripheral returned NAK */
+	static const uint8_t HRSLT_STALL		= 0x05;		/** Peripheral returned STALL */
+	static const uint8_t HRSLT_TOGERR		= 0x06;		/** Toggle error/ISO over-underrun */
+	static const uint8_t HRSLT_WRONGPID		= 0x07;		/** Received the wrong PID */
+	static const uint8_t HRSLT_BADBC		= 0x08;		/** Bad byte count */
+	static const uint8_t HRSLT_PIDERR		= 0x09;		/** Receive PID is corrupted */
+	static const uint8_t HRSLT_PKTERR		= 0x0A;		/** Packet error (stuff, EOP) */
+	static const uint8_t HRSLT_CRCERR		= 0x0B;		/** CRC error */
+	static const uint8_t HRSLT_KERR			= 0x0C;		/** K-state instead of response */
+	static const uint8_t HRSLT_JERR			= 0x0D;		/** J-state instead of response */
+	static const uint8_t HRSLT_TIMEOUT		= 0x0E;		/** Device did not respond in time */
+	static const uint8_t HRSLT_BABBLE		= 0x0F;		/** Device talked too long */
+
 
 
 	MAX3421E(Spi *spi);

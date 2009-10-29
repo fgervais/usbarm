@@ -16,6 +16,42 @@
 
 #include <stdint.h>
 
+/**
+ * Interface to MAX3421E controller.
+ *
+ * Copyright note: A lot of this code is coming from MAXIM USB Lab sample code.
+ * Not literally but the sequence is greatly inspired. Following is an exact copy
+ * of their code license :
+ *
+ *******************************************************************************
+ *
+ * Copyright (C) 2006 Maxim Integrated Products, Inc. All Rights Reserved.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL MAXIM
+ * INTEGRATED PRODUCTS INC. BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+ * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ *******************************************************************************
+ *
+ * Subnote: I was really *not* impressed by the quality of the code included
+ * in the USB Lab. I don't know who did it but it's not a proper programmer.
+ *
+ * @param controller instance of the MAX3421E controller
+ * @param interruptPin Pin which is used by the MAX3421E to interrupt the CPU
+ */
 Usb::Usb(MAX3421E *controller, GpioPin *interruptPin) {
 	this->controller = controller;
 	this->interruptPin = interruptPin;
@@ -95,10 +131,25 @@ void Usb::enumerateDevice() {
 	 */
 	controller->writeRegister(MAX3421E::PERADDR, 0x00);
 
-	//ControlPacket *request = new GetDescriptor(0x01, 0x08);
+	// Using the 'safe' value for now
+	maxPacketSize = 0x08;
 
+	ControlPacket *request = new GetDescriptor(0x01, 0x08);
+	sendRequest(request);
 
+	uint8_t* rawData = new uint8_t[request->length];
+	receiveRawData(rawData, request->length, maxPacketSize);
 
+	// OUT Status stage
+	launchTransfer(MAX3421E::TOKEN_HSOUT, 0x00);
+
+	// Set the maximum EP0 packet size
+
+	// Reset the device to be in a known state
+
+	// Set address
+
+	// Play with descriptors
 }
 
 void Usb::waitFrames(uint32_t number) {
@@ -116,6 +167,84 @@ void Usb::waitFrames(uint32_t number) {
 
 	} while(--frameCounter > 0);
 
+}
+
+uint8_t Usb::sendRequest(ControlPacket* request) {
+	// Load setup buffer
+	controller->writeBytes(MAX3421E::SUDFIFO,request->toArray(),8);
+
+	return launchTransfer(MAX3421E::HXFR_SETUP, 0x00);
+}
+
+uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length, uint8_t packetSize) {
+	// Variable used to store MAX3421E register value
+	uint8_t hrslt;
+	uint8_t rcvbc;
+	uint16_t offset = 0;
+
+	// First packet has DATA1 ID. See USB standard.
+	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
+
+	// Clear the receive IRQ just to make sure
+	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
+
+	do {
+		hrslt = launchTransfer(MAX3421E::TOKEN_IN, 0x00);
+
+		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
+			// Check the number of bytes received
+			controller->readRegister(MAX3421E::RCVBC, &rcvbc);
+
+			// Clear the receive IRQ
+			// This is really important according to the MAX3421E programming manual
+			controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
+
+			if(rcvbc <= (length - offset)) {
+				// Fill the buffer
+				controller->readBytes(MAX3421E::RCVFIFO, rawData+offset, rcvbc);
+			}
+			else {
+				// Fill the buffer
+				controller->readBytes(MAX3421E::RCVFIFO, rawData+offset, length - offset);
+			}
+
+			offset += rcvbc;
+		}
+		/*
+		 * The transfer is complete under three conditions:
+		 * 1. There's been a problem in the transfer.
+		 * 2. The device sent a short packet (< packetSize)
+		 * 3. 'length' bytes have been transferred.
+		 */
+	} while(hrslt == MAX3421E::HRSLT_SUCCESS && rcvbc == packetSize && offset < length);
+
+	return hrslt;
+}
+
+uint8_t Usb::launchTransfer(uint8_t token, uint8_t endpoint) {
+	// Variable used to store MAX3421E register value
+	uint8_t hirq;
+	uint8_t hrsl, hrslt;
+
+	// Clear the transfer IRQ
+	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_HXFRDNIRQ);
+	// Start transfer
+	controller->writeRegister(MAX3421E::HXFR, token|endpoint);
+
+	// Poll the IRQ to know when transfer is done
+	do {
+		controller->readRegister(MAX3421E::HIRQ, &hirq);
+	} while(hirq == 0);
+
+	// From MAXIM example. Is it necessary?
+	// Clear the transfer IRQ
+	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_HXFRDNIRQ);
+
+	// Get transfer result
+	controller->readRegister(MAX3421E::HRSL, &hrsl);
+	hrslt = hrsl & 0x0F;
+
+	return hrsl;
 }
 
 void Usb::stateChanged(GpioPin* pin) {

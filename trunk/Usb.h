@@ -30,6 +30,9 @@ private:
 	MAX3421E *controller;
 	GpioPin* interruptPin;
 
+	// Maximum EP0 packet size
+	uint8_t maxPacketSize;
+
 	enum State { Disconnect, Connect, Default, Reset, Normal } state;
 
 	// Global flag
@@ -37,8 +40,9 @@ private:
 	uint8_t devEnumerated;
 
 	void waitFrames(uint32_t number);
-	void sendRequest(ControlPacket request);
-	void receiveRawData(uint8_t* rawData);
+	uint8_t sendRequest(ControlPacket* request);
+	uint8_t receiveRawData(uint8_t* rawData, uint16_t length, uint8_t packetSize);
+	uint8_t launchTransfer(uint8_t token, uint8_t endpoint);
 };
 
 #endif /* USB_H_ */
