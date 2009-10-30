@@ -47,7 +47,7 @@
  *******************************************************************************
  *
  * Subnote: I was really *not* impressed by the quality of the code included
- * in the USB Lab. I don't know who did it but it's not a proper programmer.
+ * in the USB Lab. It is weird that MAXIM release that kind of code. Francois
  *
  * @param controller instance of the MAX3421E controller
  * @param interruptPin Pin which is used by the MAX3421E to interrupt the CPU
@@ -129,7 +129,7 @@ void Usb::enumerateDevice() {
 	sendRequest(request);
 
 	rawData = new uint8_t[request->length];
-	receiveRawData(rawData, request->length, maxPacketSize);
+	receiveRawData(rawData, request->length, 0x00, maxPacketSize);
 
 	// OUT Status stage
 	launchTransfer(MAX3421E::TOKEN_HSOUT, 0x00);
@@ -143,8 +143,30 @@ void Usb::enumerateDevice() {
 
 	// Reset the device to be in a known state
 	busReset();
+	waitFrames(200);
 
-	// Set address
+	/*
+	 * Set address of the device.
+	 */
+	request = new SetAddress(0x07);
+	sendRequest(request);
+
+	/*
+	 * The status stage should always be in the opposite direction of the last
+	 * transaction. As there is not Data Stage, the last transaction was in the
+	 * OUT direction so the Status Stage send an IN token.
+	 * We should get NAK or the DATA1 PID. When we get the DATA1 PID the 3421
+	 * automatically sends the closing ACK.
+	 */
+	launchTransfer(MAX3421E::TOKEN_HSIN, 0x00);
+
+	// From MAXIM USB Lab
+	waitFrames(30);
+	// Further communication should be sent to address 0x07
+	controller->writeRegister(MAX3421E::PERADDR, 0x07);
+
+	// Free resources used for that request
+	delete request;
 
 	// Play with descriptors
 }
@@ -170,10 +192,11 @@ uint8_t Usb::sendRequest(ControlPacket* request) {
 	// Load setup buffer
 	controller->writeBytes(MAX3421E::SUDFIFO,request->toArray(),8);
 
-	return launchTransfer(MAX3421E::HXFR_SETUP, 0x00);
+	return launchTransfer(MAX3421E::TOKEN_SETUP, 0x00);
 }
 
-uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length, uint8_t packetSize) {
+uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
+		uint8_t endpoint, uint8_t packetSize) {
 	// Variable used to store MAX3421E register value
 	uint8_t hrslt;
 	uint8_t rcvbc;
@@ -186,7 +209,7 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length, uint8_t packetSiz
 	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
 	do {
-		hrslt = launchTransfer(MAX3421E::TOKEN_IN, 0x00);
+		hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
 
 		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
 			// Check the number of bytes received
