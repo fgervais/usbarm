@@ -47,7 +47,7 @@
  *******************************************************************************
  *
  * Subnote: I was really *not* impressed by the quality of the code included
- * in the USB Lab. It is weird that MAXIM release that kind of code. Francois
+ * in the USB Lab. It is weird that Maxim release that kind of code. Francois
  *
  * @param controller instance of the MAX3421E controller
  * @param interruptPin Pin which is used by the MAX3421E to interrupt the CPU
