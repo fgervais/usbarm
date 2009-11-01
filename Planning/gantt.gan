@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2009-09-20" view-index="0" gantt-divider-location="614" resource-divider-location="300" version="2.0">
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2009-09-27" view-index="0" gantt-divider-location="614" resource-divider-location="300" version="2.0">
     <description/>
     <view zooming-state="default:5" id="gantt-chart"/>
     <view id="resource-table">
-        <field id="0" name="Nom" width="54" order="0"/>
-        <field id="1" name="Rôle par défaut" width="45" order="1"/>
+        <field id="0" name="Name" width="54" order="0"/>
+        <field id="1" name="Default role" width="45" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -46,7 +46,7 @@
             </task>
             <task id="8" name="Choix de la solution" color="#8cb6ce" meeting="false" start="2009-08-19" duration="3" complete="100" priority="1" expand="true"/>
         </task>
-        <task id="10" name="Réalisation" color="#8cb6ce" meeting="false" start="2009-08-24" duration="70" complete="40" priority="1" expand="true">
+        <task id="10" name="Réalisation" color="#8cb6ce" meeting="false" start="2009-08-24" duration="70" complete="59" priority="1" expand="true">
             <task id="11" name="Achat du matériel" color="#8cb6ce" meeting="false" start="2009-08-24" duration="4" complete="100" priority="1" expand="true">
                 <depend id="33" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -57,25 +57,26 @@
             <task id="15" name="Familiarisation et installation des outils logiciels et matériel" color="#8cb6ce" meeting="false" start="2009-09-09" duration="8" complete="100" priority="1" expand="true">
                 <depend id="16" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="16" name="Création de la carte" color="#8cb6ce" meeting="false" start="2009-09-21" duration="50" complete="14" priority="1" expand="true">
+            <task id="16" name="Création de la carte" color="#8cb6ce" meeting="false" start="2009-09-21" duration="50" complete="41" priority="1" expand="true">
                 <task id="38" name="UML et planification" color="#8cb6ce" meeting="false" start="2009-09-21" duration="10" complete="100" priority="1" expand="true"/>
-                <task id="18" name="Intégration d'une télécommande XBOX" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="22" priority="1" expand="true">
+                <task id="18" name="Intégration d'une télécommande XBOX" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="63" priority="1" expand="true">
                     <depend id="28" type="2" difference="0" hardness="Strong"/>
-                    <task id="19" name="Création d'une interface entre le microcontrôleur et le récepteur" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="22" priority="1" expand="true">
-                        <task id="20" name="Implémentation du USB" color="#8cb6ce" meeting="false" start="2009-09-21" duration="30" complete="33" priority="1" expand="true">
+                    <task id="19" name="Création d'une interface entre le microcontrôleur et le récepteur" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="63" priority="1" expand="true">
+                        <task id="20" name="Implémentation du USB" color="#8cb6ce" meeting="false" start="2009-09-21" duration="35" complete="81" priority="1" expand="true">
                             <depend id="21" type="2" difference="0" hardness="Strong"/>
                             <task id="34" name="Documentation" color="#8cb6ce" meeting="false" start="2009-09-21" duration="10" complete="100" priority="1" expand="true">
                                 <depend id="35" type="2" difference="0" hardness="Strong"/>
                             </task>
-                            <task id="35" name="Expérimentation avec divers controlleurs" color="#8cb6ce" meeting="false" start="2009-10-05" duration="5" complete="0" priority="1" expand="true">
+                            <task id="35" name="Expérimentation avec divers controlleurs" color="#8cb6ce" meeting="false" start="2009-10-05" duration="5" complete="100" priority="1" expand="true">
                                 <depend id="36" type="2" difference="0" hardness="Strong"/>
                             </task>
-                            <task id="36" name="Choix du controlleur" color="#8cb6ce" meeting="false" start="2009-10-12" duration="5" complete="0" priority="1" expand="true">
+                            <task id="36" name="Choix du controlleur" color="#8cb6ce" meeting="false" start="2009-10-12" duration="5" complete="100" priority="1" expand="true">
                                 <depend id="37" type="2" difference="0" hardness="Strong"/>
                             </task>
-                            <task id="37" name="Programmation d'un pilote" color="#8cb6ce" meeting="false" start="2009-10-19" duration="10" complete="0" priority="1" expand="true"/>
+                            <task id="37" name="Programmation d'un pilote" color="#8cb6ce" meeting="false" start="2009-10-19" duration="10" complete="85" priority="1" expand="true"/>
+                            <task id="42" name="Tests et deverminage du pilote" color="#8cb6ce" meeting="false" start="2009-11-02" duration="5" complete="0" priority="1" expand="true"/>
                         </task>
-                        <task id="21" name="Décodage des commandes de Microsoft" color="#8cb6ce" meeting="false" start="2009-11-02" duration="10" complete="0" priority="1" expand="true">
+                        <task id="21" name="Décodage des commandes de Microsoft" color="#8cb6ce" meeting="false" start="2009-11-09" duration="5" complete="0" priority="1" expand="true">
                             <depend id="22" type="2" difference="0" hardness="Strong"/>
                         </task>
                         <task id="22" name="Vérification de la robustesse de la transmission sans fil" color="#8cb6ce" meeting="false" start="2009-11-16" duration="5" complete="0" priority="1" expand="true"/>
