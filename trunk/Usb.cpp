@@ -171,6 +171,14 @@ void Usb::enumerateDevice() {
 	// Play with descriptors
 }
 
+void Usb::serviceHID() {
+	uint8_t* rawData;
+
+	rawData = new uint8_t[12];
+	// Get an interrupt report
+	receiveRawData(rawData, 0x08, 0x01, 0x08);
+}
+
 void Usb::waitFrames(uint32_t number) {
 	uint8_t frameCounter = number;
 	uint8_t hirq;

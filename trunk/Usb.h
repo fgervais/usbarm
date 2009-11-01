@@ -22,6 +22,7 @@ public:
 
 	void listenForDevice();
 	void enumerateDevice();
+	void serviceHID();
 
 	// GpioPinEventListener interface implementation
 	void stateChanged(GpioPin* pin);
@@ -45,6 +46,7 @@ private:
 			uint8_t endpoint, uint8_t packetSize);
 	uint8_t launchTransfer(uint8_t token, uint8_t endpoint);
 	void busReset();
+	void getReport();
 };
 
 #endif /* USB_H_ */
