@@ -49,8 +49,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1166.3244498050192</double> 
-     <double>447.19053362520407</double> 
+     <double>1069.3244498050192</double> 
+     <double>434.19053362520407</double> 
     </void> 
    </object> 
   </void> 
@@ -69,8 +69,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1153.1892071150028</double> 
-     <double>601.2997889853782</double> 
+     <double>1048.1892071150028</double> 
+     <double>588.2997889853782</double> 
     </void> 
    </object> 
   </void> 
@@ -95,8 +95,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>818.1898703701036</double> 
-     <double>590.1638830402612</double> 
+     <double>718.1898703701036</double> 
+     <double>579.1638830402612</double> 
     </void> 
    </object> 
   </void> 
@@ -164,8 +164,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>780.9466988301142</double> 
-     <double>457.7035272901252</double> 
+     <double>675.9466988301142</double> 
+     <double>444.7035272901252</double> 
     </void> 
    </object> 
   </void> 
@@ -249,8 +249,8 @@ PeripheralType</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>768.6762134500816</double> 
-     <double>312.3517636450626</double> 
+     <double>663.6762134500816</double> 
+     <double>299.3517636450626</double> 
     </void> 
    </object> 
   </void> 
@@ -272,8 +272,8 @@ CommandReceiver
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1120.3784142300055</double> 
-     <double>309.5949351850517</double> 
+     <double>1015.3784142300055</double> 
+     <double>296.5949351850517</double> 
     </void> 
    </object> 
   </void> 
@@ -303,8 +303,8 @@ UartEventListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>685.0</double> 
-     <double>116.0</double> 
+     <double>574.0</double> 
+     <double>112.0</double> 
     </void> 
    </object> 
   </void> 
@@ -319,8 +319,8 @@ PwmEventListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>840.0</double> 
-     <double>119.0</double> 
+     <double>729.0</double> 
+     <double>106.0</double> 
     </void> 
    </object> 
   </void> 
@@ -335,8 +335,8 @@ UsbEventListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1012.0</double> 
-     <double>122.0</double> 
+     <double>907.0</double> 
+     <double>109.0</double> 
     </void> 
    </object> 
   </void> 
