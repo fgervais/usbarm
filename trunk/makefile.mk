@@ -63,7 +63,12 @@ SRCARM  =
 
 # List C++ source files here.
 # use file-extension cpp for C++-files (use extension .cpp)
-CPPSRC = $(wildcard *.cpp) $(wildcard ./Drivers/*.cpp)
+CPPSRC = $(wildcard *.cpp)
+CPPSRC += $(wildcard ./configuration/*.cpp)
+CPPSRC += $(wildcard ./event/*.cpp)
+CPPSRC += $(wildcard ./helper/*.cpp)
+CPPSRC += $(wildcard ./peripheral/*.cpp)
+CPPSRC += $(wildcard ./usb/*.cpp)
 
 # List C++ source files here which must be compiled in ARM-Mode.
 # use file-extension cpp for C++-files (use extension .cpp)
@@ -121,7 +126,13 @@ vpath %.c $(DRIVERS)/src $(CM3) $(STARTUP)
 # List any extra directories to look for include files here.
 # Each directory must be separated by a space.
 # Make sure we can find the peripheral driver library include files (PH May 2009)
-EXTRAINCDIRS = $(DRIVERS)/inc $(CM3) 
+EXTRAINCDIRS = $(DRIVERS)/inc $(CM3)
+EXTRAINCDIRS += ./configuration
+EXTRAINCDIRS += ./event
+EXTRAINCDIRS += ./helper
+EXTRAINCDIRS += ./peripheral
+EXTRAINCDIRS += ./usb
+
 
 # List any extra directories to look for library files here.
 # Each directory must be separated by a space.
