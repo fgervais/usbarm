@@ -10,7 +10,7 @@
 
 class Command {
 private:
-	char message[10];
+	char *message;
 
 public:
 	Command(char* message);

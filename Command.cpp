@@ -8,8 +8,7 @@
 #include "Command.h"
 
 Command::Command(char* message) {
-	//todo not working.. probably a detail about OO programming..
-	//	this.message = message;
+	this->message = message;
 
 }
 
