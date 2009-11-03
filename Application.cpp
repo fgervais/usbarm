@@ -80,10 +80,13 @@ void main_remi() {
 
 	Uart *uart1 = STM32F103::getUart1();
 
-
-
-
-
+	// Sample
+	switch(uart1->getType()) {
+	case Peripheral::Uart:
+		break;
+	default:
+		break;
+	}
 
 	// Configure blinking led
 	GpioPinConfiguration ledPinConfig;
