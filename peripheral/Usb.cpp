@@ -92,6 +92,8 @@ void Usb::listenForDevice() {
 	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
 	// Enable connect interrupt
 	controller->writeRegister(MAX3421E::HIEN, MAX3421E::HIEN_CONNIE);
+	// Enable global interrupt
+	controller->writeRegister(MAX3421E::CPUCTL, MAX3421E::CPUCTL_IE);
 }
 
 void Usb::enumerateDevice() {
