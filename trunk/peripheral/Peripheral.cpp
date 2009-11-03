@@ -18,8 +18,13 @@ Peripheral::Peripheral(uint8_t id) {
 	this->id = id;
 }
 
-Peripheral::~Peripheral() {
+Peripheral::Peripheral(PeripheralType type, uint8_t id) {
+	this->id = id;
+	this->type = type;
+}
 
+Peripheral::~Peripheral() {
+	this->id = 0;
 }
 
 /**

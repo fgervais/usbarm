@@ -17,15 +17,20 @@ class PeripheralEventListener;
 
 class Peripheral {
 public:
+	enum PeripheralType { Uart, Pwm, Spi, Usb };
+
 	Peripheral();
 	Peripheral(uint8_t id);
+	Peripheral(PeripheralType type, uint8_t id);
 	virtual ~Peripheral();
 
 	uint8_t getId() { return id; }
+	PeripheralType getType() { return type; }
 	void addEventListener(PeripheralEventListener *listener);
 
 private:
 	uint8_t id;
+	PeripheralType type;
 	Vector<PeripheralEventListener*> listeners;
 
 
