@@ -12,6 +12,7 @@ class Command {
 private:
 	char *message;
 
+
 public:
 	Command(char* message);
 	char* getMessage(void);
