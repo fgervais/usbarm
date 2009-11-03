@@ -65,7 +65,8 @@ private:
 
 public:
 
-	Uart(USART_TypeDef *uartRegisters, uint32_t PCLK1_Frequency);
+	Uart(USART_TypeDef *uartRegisters, uint8_t id,
+			PeripheralType type, uint32_t PCLK1_Frequency);
 	virtual ~Uart();
 	void configure(UartConfiguration config);
 	void write(char* data, uint16_t length);
