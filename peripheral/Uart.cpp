@@ -13,7 +13,8 @@
 
 #include "STM32F103.h"
 
-Uart::Uart(USART_TypeDef *uartRegisters, uint32_t clockFrequency) {
+Uart::Uart(USART_TypeDef *uartRegisters, uint8_t id,
+		PeripheralType type, uint32_t PCLK1_Frequency) : Peripheral (id, type) {
 	this->uartRegisters = uartRegisters;
 	this->clockFrequency = clockFrequency;
 	this->txQueue = new Queue<char>(200);

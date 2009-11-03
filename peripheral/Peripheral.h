@@ -21,7 +21,7 @@ public:
 
 	Peripheral();
 	Peripheral(uint8_t id);
-	Peripheral(PeripheralType type, uint8_t id);
+	Peripheral(uint8_t id, PeripheralType type);
 	virtual ~Peripheral();
 
 	uint8_t getId() { return id; }
