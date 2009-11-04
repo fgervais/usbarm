@@ -60,6 +60,7 @@ public:
 private:
 	USART_TypeDef *uartRegisters;
 	Queue<char>* txQueue;
+	Queue<char>* rxQueue;
 	uint32_t clockFrequency;
 	uint16_t calculateBRR(uint16_t baudrate);
 
@@ -70,7 +71,7 @@ public:
 	virtual ~Uart();
 	void configure(UartConfiguration config);
 	void write(char* data, uint16_t length);
-	char read(uint8_t lenght);
+	char read();
 	void poll();
 	void sendInterrupt();
 	void receiveInterrupt();
