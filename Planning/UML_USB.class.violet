@@ -55,13 +55,13 @@
    <object class="com.horstmann.violet.ClassNode"> 
     <void property="methods"> 
      <void property="text"> 
-      <string>+ buildDeviceDescriptor(uint8_t[] rawDescriptor)
-+ buildConfigurationDescriptor(uint8_t[] rawDescriptor)</string> 
+      <string>+ createDeviceDescriptor(uint8_t[] rawDescriptor)
++ createConfigurationDescriptor(uint8_t[] rawDescriptor)</string> 
      </void> 
     </void> 
     <void property="name"> 
      <void property="text"> 
-      <string>DescriptorBuilder</string> 
+      <string>DescriptorFactory</string> 
      </void> 
     </void> 
    </object> 
@@ -166,12 +166,12 @@
    <object class="com.horstmann.violet.ClassNode"> 
     <void property="methods"> 
      <void property="text"> 
-      <string>+ buildKeyboardReport(uint8_t[] rawDescriptor)</string> 
+      <string>+ createKeyboardReport(uint8_t[] rawDescriptor)</string> 
      </void> 
     </void> 
     <void property="name"> 
      <void property="text"> 
-      <string>ReportBuilder</string> 
+      <string>ReportFactory</string> 
      </void> 
     </void> 
    </object> 

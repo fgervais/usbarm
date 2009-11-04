@@ -5,14 +5,12 @@
  *      Author: fgervais
  */
 
-#ifndef CONTROLPACKET_H_
-#define CONTROLPACKET_H_
-
-#include "UsbPacket.h"
+#ifndef CONTROLREQUEST_H_
+#define CONTROLREQUEST_H_
 
 #include <stdint.h>
 
-class ControlPacket: public UsbPacket {
+class ControlRequest {
 public:
 	uint8_t requestType;
 	uint8_t request;
@@ -22,11 +20,11 @@ public:
 
 	uint8_t* toArray();
 
-	ControlPacket();
-	virtual ~ControlPacket();
+	ControlRequest();
+	virtual ~ControlRequest();
 
 private:
 	uint8_t rawPacket[8];
 };
 
-#endif /* CONTROLPACKET_H_ */
+#endif /* CONTROLREQUEST_H_ */

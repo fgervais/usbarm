@@ -10,7 +10,7 @@
 #include "GpioPin.h"
 #include "GpioPinConfiguration.h"
 #include "Gpio.h"
-#include "ControlPacket.h"
+#include "ControlRequest.h"
 #include "GetDescriptor.h"
 #include "SetAddress.h"
 
@@ -97,7 +97,7 @@ void Usb::listenForDevice() {
 }
 
 void Usb::enumerateDevice() {
-	ControlPacket* request;
+	ControlRequest* request;
 	uint8_t* rawData;
 
 	/*
@@ -198,7 +198,7 @@ void Usb::waitFrames(uint32_t number) {
 
 }
 
-uint8_t Usb::sendRequest(ControlPacket* request) {
+uint8_t Usb::sendRequest(ControlRequest* request) {
 	// Load setup buffer
 	controller->writeBytes(MAX3421E::SUDFIFO,request->toArray(),8);
 

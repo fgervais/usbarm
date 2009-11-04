@@ -8,9 +8,9 @@
 #ifndef SETADDRESS_H_
 #define SETADDRESS_H_
 
-#include "ControlPacket.h"
+#include "ControlRequest.h"
 
-class SetAddress: public ControlPacket {
+class SetAddress: public ControlRequest {
 public:
 	SetAddress(uint16_t address);
 	virtual ~SetAddress();
