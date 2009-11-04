@@ -10,9 +10,20 @@
 
 #include "Descriptor.h"
 
+#include <stdint.h>
+
 class ConfigurationDescriptor: public Descriptor {
 public:
-	ConfigurationDescriptor();
+	uint8_t length;
+	uint8_t descriptorType;
+	uint16_t totalLength;
+	uint8_t numInterface;
+	uint8_t configurationValue;
+	uint8_t configuration;
+	uint8_t attributes;
+	uint8_t maxPower;
+
+	ConfigurationDescriptor(uint8_t* rawDescriptor);
 	virtual ~ConfigurationDescriptor();
 };
 
