@@ -13,7 +13,7 @@
 
 class MAX3421E;
 class GpioPin;
-class ControlPacket;
+class ControlRequest;
 
 class Usb: public Peripheral, GpioPinEventListener {
 public:
@@ -41,7 +41,7 @@ private:
 	uint8_t devEnumerated;
 
 	void waitFrames(uint32_t number);
-	uint8_t sendRequest(ControlPacket* request);
+	uint8_t sendRequest(ControlRequest* request);
 	uint8_t receiveRawData(uint8_t* rawData, uint16_t length,
 			uint8_t endpoint, uint8_t packetSize);
 	uint8_t launchTransfer(uint8_t token, uint8_t endpoint);

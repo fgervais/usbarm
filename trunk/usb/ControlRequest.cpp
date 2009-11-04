@@ -5,18 +5,19 @@
  *      Author: fgervais
  */
 
-#include "ControlPacket.h"
+#include "ControlRequest.h"
 
 #include <stdint.h>
 
-ControlPacket::ControlPacket() {
-}
-
-ControlPacket::~ControlPacket() {
+ControlRequest::ControlRequest() {
 
 }
 
-uint8_t* ControlPacket::toArray() {
+ControlRequest::~ControlRequest() {
+
+}
+
+uint8_t* ControlRequest::toArray() {
 	rawPacket[0] = requestType;
 	rawPacket[1] = request;
 	rawPacket[2] = (uint8_t)(value & 0x00FF);

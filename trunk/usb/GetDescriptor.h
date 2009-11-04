@@ -8,9 +8,9 @@
 #ifndef GETDESCRIPTOR_H_
 #define GETDESCRIPTOR_H_
 
-#include "ControlPacket.h"
+#include "ControlRequest.h"
 
-class GetDescriptor: public ControlPacket {
+class GetDescriptor: public ControlRequest {
 public:
 	GetDescriptor(uint16_t descriptorTypeIndex, uint16_t descriptorLength);
 	virtual ~GetDescriptor();
