@@ -11,7 +11,8 @@
 Command* CommandFactory::createCommand(Uart *uart) {
 	Command *tmpCommand;
 
-	if (uart->getId() == Peripheral::Controller)
+	// the uart that we are working with is plugged to the controller (id 1)
+	if (uart->getId() == 1)
 	{
 		controllerBuffer[controllerIndex] = uart->read();
 		if (controllerBuffer[controllerIndex] == '\r')
@@ -23,7 +24,8 @@ Command* CommandFactory::createCommand(Uart *uart) {
 			controllerIndex++;
 
 	}
-	if (uart->getId() == Peripheral::Drive)
+	// if the uart that we receive is the Drive (id 2)
+	if (uart->getId() == 2)
 	{
 		driveBuffer[driveIndex] = uart->read();
 		if (driveBuffer[driveIndex] == '\r')
