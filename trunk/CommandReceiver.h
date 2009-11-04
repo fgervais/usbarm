@@ -11,9 +11,9 @@
 class CommandReceiver {
 public:
 	CommandReceiver();
-	virtual void addCommandWriter() = 0;
-	virtual void receiveCommand() = 0;
-	virtual ~CommandReceiver() = 0;
+	void addCommandWriter();
+	void receiveCommand();
+	virtual ~CommandReceiver();
 };
 
 #endif /* COMMANDRECEIVER_H_ */

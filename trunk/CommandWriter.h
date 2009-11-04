@@ -10,10 +10,13 @@
 
 #include "PeripheralEventListener.h"
 #include "CommandReceiver.h"
+#include "Command.h"
 
 class CommandWriter: public PeripheralEventListener {
 public:
-	CommandWriter();
+	CommandWriter(CommandReceiver *output);
+	void setOutput(CommandReceiver *output);
+	void write(Command *command);
 	virtual ~CommandWriter();
 private:
 	CommandReceiver *output;
