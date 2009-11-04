@@ -7,8 +7,16 @@
 
 #include "Command.h"
 
-Command::Command(char* message) {
-	this->message = message;
+Command::Command(char* message, uint8_t size) {
+
+	for(uint8_t i = 0; i < size; i++)
+	{
+		this->message[i] = message[i];
+	}
+
+}
+
+Command::Command(){
 
 }
 

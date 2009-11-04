@@ -18,7 +18,7 @@ class PeripheralEventListener;
 class Peripheral {
 public:
 	enum PeripheralType { Uart, Pwm, Spi, Usb };
-
+	enum PeripheralId { Drive, Controller, XboxRemote, RadioRemote };
 	Peripheral();
 	Peripheral(uint8_t id);
 	Peripheral(uint8_t id, PeripheralType type);

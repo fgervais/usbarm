@@ -14,15 +14,16 @@
 #include "STM32F103.h"
 
 Uart::Uart(USART_TypeDef *uartRegisters, uint8_t id,
-		PeripheralType type, uint32_t PCLK1_Frequency) : Peripheral (id, type) {
+		PeripheralType type, uint32_t PCLK1_Frequency) {
 	this->uartRegisters = uartRegisters;
 	this->clockFrequency = clockFrequency;
 	this->txQueue = new Queue<char>(200);
-
+	this->rxQueue = new Queue<char>(200);
 }
 
 Uart::~Uart() {
 	/* Free memory */
+	delete rxQueue;
 	delete txQueue;
 }
 
@@ -35,43 +36,46 @@ void Uart::receiveInterrupt() {
 
 void Uart::poll(void) {
 
-
+	// if some data are present in the send Queue,
+	// write the first char in the transmit data register
 	if (!txQueue->isEmpty()) {
 		if (uartRegisters->SR & UART_TX_DATA_REGISTER) {
 			uartRegisters->DR = txQueue->getElement();
 		}
 	}
 
+	// if some data are present in the receive data register
+	// put it in the receive Queue
 	if (uartRegisters->SR & UART_RX_DATA_REGISTER) {
-
-		txQueue->addElement('r');
-		txQueue->addElement('e');
-		txQueue->addElement('c');
-		txQueue->addElement('u');
-		txQueue->addElement(':');
-		txQueue->addElement(' ');
-		txQueue->addElement(uartRegisters->DR);
-		txQueue->addElement('\r');
-
-
+		rxQueue->addElement(uartRegisters->DR);
 		uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
 	}
 }
 
 void Uart::write(char* data, uint16_t length) {
+	//insert data in the txQueue
 	for (uint8_t i = 0; i < length; i++) {
 		txQueue->addElement(data[i]);
 	}
 }
 
-char Uart::read(uint8_t lenght){
+char Uart::read(){
+	char data = -1;
+	// if some data are present in the receive Queue
+	// return the first char in the queue
+	if (!rxQueue->isEmpty())
+		data = rxQueue->getElement();
 
-	return (uartRegisters->SR & 0x00000040) >> 6;
+	return data;
 }
 
 
 uint16_t Uart::calculateBRR(uint16_t baudrate){
 	uint32_t mantisse = 0, tmpreg = 0, fractional = 0;
+
+	// this calculation is explicated in
+	// the Software Reference manuel page 665, 666
+
 
 	/**             fck = 72000000MHz
 	    baudrate =  -----------------
@@ -91,13 +95,18 @@ uint16_t Uart::calculateBRR(uint16_t baudrate){
 }
 
 void Uart::configure(UartConfiguration config){
+	// set baudrate
 	uartRegisters->BRR = calculateBRR(config.baudrate);
 	//uartRegisters->BRR = 0x1D4C;
 
+	// set wordLenght, parity, UartEnable, UartTxEnable UartRxEnable
 	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;
 	uartRegisters->CR1 |= UART_ENABLE | UART_TX_ENABLE | UART_RX_ENABLE;
 
+	// set stopbit
 	uartRegisters->CR2 |= config.stopBit;
+
+	// usefull?
 	uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
 }
 
