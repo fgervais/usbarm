@@ -8,8 +8,13 @@
 #ifndef DESCRIPTOR_H_
 #define DESCRIPTOR_H_
 
+#include <stdint.h>
+
 class Descriptor {
 public:
+	uint8_t bLength;
+	uint8_t bDescriptorType;
+
 	Descriptor();
 	virtual ~Descriptor();
 };

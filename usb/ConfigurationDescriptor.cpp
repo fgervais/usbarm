@@ -8,14 +8,14 @@
 #include "ConfigurationDescriptor.h"
 
 ConfigurationDescriptor::ConfigurationDescriptor(uint8_t* rawDescriptor) {
-	length				= rawDescriptor[0];
-	descriptorType		= rawDescriptor[1];
-	totalLength			= (rawDescriptor[3] << 8) | rawDescriptor[2];
-	numInterface		= rawDescriptor[4];
-	configurationValue	= rawDescriptor[5];
-	configuration		= rawDescriptor[6];
-	attributes			= rawDescriptor[7];
-	maxPower			= rawDescriptor[8];
+	bLength				= rawDescriptor[0];
+	bDescriptorType		= rawDescriptor[1];
+	wTotalLength		= (rawDescriptor[3] << 8) | rawDescriptor[2];
+	bNumInterface		= rawDescriptor[4];
+	bConfigurationValue	= rawDescriptor[5];
+	iConfiguration		= rawDescriptor[6];
+	bmAttributes		= rawDescriptor[7];
+	bMaxPower			= rawDescriptor[8];
 }
 
 ConfigurationDescriptor::~ConfigurationDescriptor() {
