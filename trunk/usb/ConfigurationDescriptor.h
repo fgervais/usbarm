@@ -14,14 +14,12 @@
 
 class ConfigurationDescriptor: public Descriptor {
 public:
-	uint8_t length;
-	uint8_t descriptorType;
-	uint16_t totalLength;
-	uint8_t numInterface;
-	uint8_t configurationValue;
-	uint8_t configuration;
-	uint8_t attributes;
-	uint8_t maxPower;
+	uint16_t wTotalLength;
+	uint8_t bNumInterface;
+	uint8_t bConfigurationValue;
+	uint8_t iConfiguration;
+	uint8_t bmAttributes;
+	uint8_t bMaxPower;
 
 	ConfigurationDescriptor(uint8_t* rawDescriptor);
 	virtual ~ConfigurationDescriptor();
