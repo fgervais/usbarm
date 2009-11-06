@@ -15,7 +15,7 @@
 class MAX3421E;
 class GpioPin;
 class ControlRequest;
-//class GamepadReport;
+class GamepadReport;
 
 class Usb: public Peripheral, GpioPinEventListener {
 public:
