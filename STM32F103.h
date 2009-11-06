@@ -64,6 +64,7 @@ class Uart;
 class Gpio;
 class Spi;
 class Usb;
+class Timer;
 
 class STM32F103: public Microcontroller {
 public:
@@ -78,6 +79,7 @@ public:
 	static Gpio* getGpioD();
 	static Spi* getSpi1();
 	static Usb* getUsb();
+	static Timer* getTimer2();
 
 private:
 
@@ -89,6 +91,7 @@ private:
 	static Gpio *gpioD;
 	static Spi *spi1;
 	static Usb *usb;
+	static Timer* timer2;
 
 	static void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct);
 	static void getRccClockFreq(systemClocksFreq* systemClock);

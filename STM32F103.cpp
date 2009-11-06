@@ -15,6 +15,7 @@
 #include "Usb.h"
 #include "MAX3421E.h"
 #include "UartConfiguration.h"
+#include "Timer.h"
 
 #include "stm32f10x.h"
 #include "core_cm3.h"
@@ -28,6 +29,7 @@ Gpio* STM32F103::gpioC = 0;
 Gpio* STM32F103::gpioD = 0;
 Spi* STM32F103::spi1 = 0;
 Usb* STM32F103::usb = 0;
+Timer* STM32F103::timer2 = 0;
 
 STM32F103::STM32F103() {
 
@@ -110,7 +112,7 @@ Gpio* STM32F103::getGpioB() {
 
 Gpio* STM32F103::getGpioC() {
 	if(gpioC == 0) {
-		gpioC = new Gpio(GPIOC, 2);
+		gpioC = new Gpio(GPIOC, 3);
 		// Send clock to GPIO C
 		RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
 	}
@@ -119,7 +121,7 @@ Gpio* STM32F103::getGpioC() {
 
 Gpio* STM32F103::getGpioD() {
 	if(gpioD == 0) {
-		gpioD = new Gpio(GPIOD, 2);
+		gpioD = new Gpio(GPIOD, 4);
 		// Send clock to GPIO D
 		RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
 	}
@@ -161,6 +163,13 @@ Usb* STM32F103::getUsb() {
 
 	}
 	return usb;
+}
+
+Timer* STM32F103::getTimer2() {
+	if(timer2 == 0) {
+
+	}
+	return timer2;
 }
 
 /**
