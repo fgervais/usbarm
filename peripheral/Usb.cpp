@@ -10,6 +10,8 @@
 #include "GpioPin.h"
 #include "GpioPinConfiguration.h"
 #include "Gpio.h"
+#include "TimerConfiguration.h"
+#include "Timer.h"
 #include "ControlRequest.h"
 #include "GetDescriptor.h"
 #include "SetAddress.h"
@@ -52,19 +54,37 @@
  * @param controller instance of the MAX3421E controller
  * @param interruptPin Pin which is used by the MAX3421E to interrupt the CPU
  */
-Usb::Usb(MAX3421E *controller, GpioPin *interruptPin) {
+Usb::Usb(MAX3421E *controller, GpioPin *interruptPin, Timer* timer) {
 	this->controller = controller;
 	this->interruptPin = interruptPin;
+	this->timer = timer;
 
 	// Init class members
 	report = 0;
 	devDetected = 0;
 	devEnumerated = 0;
+	serviceRequired = 0;
+	serviceInitialized = 0;
 
 	// Ensure the external interrupt pin has the right configuration
-	GpioPinConfiguration config;
-	config.pin = Gpio::PULLUP_PULLDOWN_INPUT;
-	interruptPin->configure(config);
+	GpioPinConfiguration gpioPinconfig;
+	gpioPinconfig.pin = Gpio::PULLUP_PULLDOWN_INPUT;
+	interruptPin->configure(gpioPinconfig);
+
+	// Configure the Timer in counter mode
+	TimerConfiguration timerConfig;
+	timerConfig.mode = Timer::COUNTER_MODE;
+	timerConfig.autoRelead = 57600;
+	timerConfig.prescaler = 15;
+	timer->configure(timerConfig);
+
+	/*
+	 * Keyboard interrupt = 24 ms
+	 * 1/(36 * 10^6) * 57600 * 15 = 24 ms
+	 *
+	 * Gamepad interrupt = 1 ms
+	 * 1/(36 * 10^6) * 36000 = 1 ms
+	 */
 
 	// TODO: Change this for the "standard" configuration
 	/* Configure the controller */
@@ -178,12 +198,19 @@ void Usb::enumerateDevice() {
 	// Play with descriptors
 }
 
-void Usb::serviceHID() {
+void Usb::serviceHid() {
 	uint8_t* rawData;
 
-	rawData = new uint8_t[12];
-	// Get an interrupt report
-	receiveRawData(rawData, 0x08, 0x01, 0x08);
+	if(!serviceInitialized) {
+		timer->addEventListener(this);
+		timer->enable();
+		serviceInitialized = 1;
+	}
+	else if(serviceRequired) {
+		rawData = new uint8_t[12];
+		// Get an interrupt report
+		receiveRawData(rawData, 0x08, 0x01, 0x08);
+	}
 }
 
 void Usb::waitFrames(uint32_t number) {
@@ -353,4 +380,8 @@ void Usb::stateChanged(GpioPin* pin) {
 		}
 	}
 
+}
+
+void Usb::timerOverflowed(Timer* timer) {
+	serviceRequired = 1;
 }

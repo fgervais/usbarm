@@ -27,6 +27,7 @@
 #include "Uart.h"
 #include "Gpio.h"
 #include "GpioPin.h"
+#include "Timer.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -424,6 +425,17 @@ void EXTI15_10_IRQHandler(void) {
 
 	// Clear interrupt pending bit
 	EXTI->PR |= (1 << extiPin);
+}
+
+/**
+ * @brief	This function handle the TIM2_IRQHandler interrupt request.
+ * @param	None
+ * @retval	None
+ */
+void TIM2_IRQHandler(void) {
+	if(TIM2->SR & TIM_SR_UIF) {
+		STM32F103::getTimer2()->overflowInterrupt();
+	}
 }
 
 /**
