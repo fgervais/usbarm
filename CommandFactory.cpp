@@ -27,7 +27,7 @@ Command* CommandFactory::createCommand(Uart *uart) {
 	}
 	// if the uart that we receive is the Drive (id 2)
 	//if (uart->getId() == 2)
-	if (uart->getTag() == Peripheral::Drive)
+	else if (uart->getTag() == Peripheral::Drive)
 	{
 		driveBuffer[driveIndex] = uart->read();
 		if (driveBuffer[driveIndex] == '\r')
