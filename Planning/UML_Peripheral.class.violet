@@ -338,7 +338,7 @@ UsbEventListener</string>
     <void property="name"> 
      <void property="text"> 
       <string>&quot;Interface&quot;
-TimerEventListener</string> 
+TimerOverflowListener</string> 
      </void> 
     </void> 
    </object> 
@@ -346,6 +346,28 @@ TimerEventListener</string>
     <void method="setLocation"> 
      <double>405.0</double> 
      <double>447.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ClassNode15" class="com.horstmann.violet.ClassNode"> 
+    <void property="methods"> 
+     <void property="text"> 
+      <string>+ mode
++ prescaler
++ autoReload</string> 
+     </void> 
+    </void> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>TimerConfiguration</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>328.0</double> 
+     <double>322.0</double> 
     </void> 
    </object> 
   </void> 
@@ -533,6 +555,18 @@ TimerEventListener</string>
    </object> 
    <object idref="ClassNode3"/> 
    <object idref="ClassNode14"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
+    <void property="bentStyle"> 
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/> 
+    </void> 
+    <void property="endArrowHead"> 
+     <object class="com.horstmann.violet.ArrowHead" field="V"/> 
+    </void> 
+   </object> 
+   <object idref="ClassNode3"/> 
+   <object idref="ClassNode15"/> 
   </void> 
  </object> 
 </java> 

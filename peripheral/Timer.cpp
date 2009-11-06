@@ -46,7 +46,7 @@ void Timer::configure(TimerConfiguration config) {
 	switch(config.mode) {
 	case Timer::COUNTER_MODE:
 		timerRegisters->PSC = config.prescaler;
-		timerRegisters->ARR = config.autoRelead;
+		timerRegisters->ARR = config.autoReload;
 		counterMode();
 		break;
 	case Timer::PWM_INPUT_MODE:

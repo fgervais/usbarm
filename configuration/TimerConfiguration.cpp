@@ -10,7 +10,7 @@
 TimerConfiguration::TimerConfiguration() {
 	mode = 0;
 	prescaler = 0;
-	autoRelead = 0;
+	autoReload = 0;
 }
 
 TimerConfiguration::~TimerConfiguration() {
