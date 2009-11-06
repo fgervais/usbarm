@@ -158,8 +158,10 @@ Usb* STM32F103::getUsb() {
 	if(usb == 0) {
 		MAX3421E* controller = new MAX3421E(getSpi1());
 		GpioPin* interruptPin = getGpioA()->getPin(1);
-		// Create the new usb port with GpioA1 as external interrupt pin
-		usb = new Usb(controller, interruptPin);
+		Timer* timer = getTimer2();
+		// Create the new USB port with GpioA1 as external interrupt pin
+		// and Timer2 to schedule HID interrupt service.
+		usb = new Usb(controller, interruptPin, timer);
 
 	}
 	return usb;
@@ -167,7 +169,9 @@ Usb* STM32F103::getUsb() {
 
 Timer* STM32F103::getTimer2() {
 	if(timer2 == 0) {
-
+		timer2 = new Timer(TIM2, 2);
+		// Send clock to Timer2
+		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
 	}
 	return timer2;
 }
