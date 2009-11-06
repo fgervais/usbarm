@@ -171,16 +171,259 @@ void USART1_IRQHandler(void)
 }
 
 /**
+ * @brief	This function handle the EXT0 interrupt request.
+ * @param	None
+ * @retval	None
+ */
+void EXTI0_IRQHandler(void) {
+	uint8_t exti;
+	/* Check which port is linked to that interrupt */
+	// Right shift four time "pin number"
+	exti = (AFIO->EXTICR[0] & 0x000F);
+
+	switch(exti) {
+	case 0:
+		STM32F103::getGpioA()->getPin(0)->extInterrupt();
+		break;
+	case 1:
+		STM32F103::getGpioB()->getPin(0)->extInterrupt();
+		break;
+	case 2:
+		STM32F103::getGpioC()->getPin(0)->extInterrupt();
+		break;
+	case 3:
+		STM32F103::getGpioD()->getPin(0)->extInterrupt();
+		break;
+	}
+
+	// Clear interrupt pending bit
+	EXTI->PR |= EXTI_PR_PR0;
+}
+
+/**
  * @brief	This function handle the EXT1 interrupt request.
  * @param	None
  * @retval	None
  */
 void EXTI1_IRQHandler(void) {
-	// TODO: Should check which port it is linked to
-	// not just assume GpioA
-	STM32F103::getGpioA()->getPin(1)->extInterrupt();
+	uint8_t exti;
+	/* Check which port is linked to that interrupt */
+	// Right shift four time "pin number"
+	exti = ((AFIO->EXTICR[0] >> 4) & 0x000F);
+
+	switch(exti) {
+	case 0:
+		STM32F103::getGpioA()->getPin(1)->extInterrupt();
+		break;
+	case 1:
+		STM32F103::getGpioB()->getPin(1)->extInterrupt();
+		break;
+	case 2:
+		STM32F103::getGpioC()->getPin(1)->extInterrupt();
+		break;
+	case 3:
+		STM32F103::getGpioD()->getPin(1)->extInterrupt();
+		break;
+	}
+
 	// Clear interrupt pending bit
-	EXTI->PR |= 0x01;
+	EXTI->PR |= EXTI_PR_PR1;
+}
+
+/**
+ * @brief	This function handle the EXT2 interrupt request.
+ * @param	None
+ * @retval	None
+ */
+void EXTI2_IRQHandler(void) {
+	uint8_t exti;
+	/* Check which port is linked to that interrupt */
+	// Right shift four time "pin number"
+	exti = ((AFIO->EXTICR[0] >> 8) & 0x000F);
+
+	switch(exti) {
+	case 0:
+		STM32F103::getGpioA()->getPin(2)->extInterrupt();
+		break;
+	case 1:
+		STM32F103::getGpioB()->getPin(2)->extInterrupt();
+		break;
+	case 2:
+		STM32F103::getGpioC()->getPin(2)->extInterrupt();
+		break;
+	case 3:
+		STM32F103::getGpioD()->getPin(2)->extInterrupt();
+		break;
+	}
+
+	// Clear interrupt pending bit
+	EXTI->PR |= EXTI_PR_PR2;
+}
+
+/**
+ * @brief	This function handle the EXT3 interrupt request.
+ * @param	None
+ * @retval	None
+ */
+void EXTI3_IRQHandler(void) {
+	uint8_t exti;
+	/* Check which port is linked to that interrupt */
+	// Right shift four time "pin number"
+	exti = ((AFIO->EXTICR[0] >> 12) & 0x000F);
+
+	switch(exti) {
+	case 0:
+		STM32F103::getGpioA()->getPin(3)->extInterrupt();
+		break;
+	case 1:
+		STM32F103::getGpioB()->getPin(3)->extInterrupt();
+		break;
+	case 2:
+		STM32F103::getGpioC()->getPin(3)->extInterrupt();
+		break;
+	case 3:
+		STM32F103::getGpioD()->getPin(3)->extInterrupt();
+		break;
+	}
+
+	// Clear interrupt pending bit
+	EXTI->PR |= EXTI_PR_PR3;
+}
+
+/**
+ * @brief	This function handle the EXT4 interrupt request.
+ * @param	None
+ * @retval	None
+ */
+void EXTI4_IRQHandler(void) {
+	uint8_t exti;
+	/* Check which port is linked to that interrupt */
+	// Right shift four time "pin number"
+	exti = (AFIO->EXTICR[1] & 0x000F);
+
+	switch(exti) {
+	case 0:
+		STM32F103::getGpioA()->getPin(4)->extInterrupt();
+		break;
+	case 1:
+		STM32F103::getGpioB()->getPin(4)->extInterrupt();
+		break;
+	case 2:
+		STM32F103::getGpioC()->getPin(4)->extInterrupt();
+		break;
+	case 3:
+		STM32F103::getGpioD()->getPin(4)->extInterrupt();
+		break;
+	}
+
+	// Clear interrupt pending bit
+	EXTI->PR |= EXTI_PR_PR4;
+}
+
+/**
+ * @brief	This function handle the EXT9_5 interrupt request.
+ * @param	None
+ * @retval	None
+ */
+void EXTI9_5_IRQHandler(void) {
+	uint8_t exti;
+	uint8_t extiPin;
+	// Check which external interrupt triggered
+	if(EXTI->PR & EXTI_PR_PR5) {
+		/* Check which port is linked to that interrupt */
+		// Right shift four time "pin number"
+		exti = ((AFIO->EXTICR[1] >> 4) & 0x000F);
+		extiPin = 5;
+	}
+	else if(EXTI->PR & EXTI_PR_PR6) {
+		exti = ((AFIO->EXTICR[1] >> 8) & 0x000F);
+		extiPin = 6;
+	}
+	else if(EXTI->PR & EXTI_PR_PR7) {
+		exti = ((AFIO->EXTICR[1] >> 12) & 0x000F);
+		extiPin = 7;
+	}
+	else if(EXTI->PR & EXTI_PR_PR8) {
+		exti = (AFIO->EXTICR[2] & 0x000F);
+		extiPin = 8;
+	}
+	else if(EXTI->PR & EXTI_PR_PR9) {
+		exti = ((AFIO->EXTICR[2] >> 4) & 0x000F);
+		extiPin = 9;
+	}
+
+	switch(exti) {
+	case 0:
+		STM32F103::getGpioA()->getPin(extiPin)->extInterrupt();
+		break;
+	case 1:
+		STM32F103::getGpioB()->getPin(extiPin)->extInterrupt();
+		break;
+	case 2:
+		STM32F103::getGpioC()->getPin(extiPin)->extInterrupt();
+		break;
+	case 3:
+		STM32F103::getGpioD()->getPin(extiPin)->extInterrupt();
+		break;
+	}
+
+	// Clear interrupt pending bit
+	EXTI->PR |= (1 << extiPin);
+}
+
+/**
+ * @brief	This function handle the EXT15_10 interrupt request.
+ * @param	None
+ * @retval	None
+ */
+void EXTI15_10_IRQHandler(void) {
+	uint8_t exti;
+	uint8_t extiPin;
+	// Check which external interrupt triggered
+	if(EXTI->PR & EXTI_PR_PR10) {
+		/* Check which port is linked to that interrupt */
+		// Right shift four time "pin number"
+		exti = ((AFIO->EXTICR[2] >> 8) & 0x000F);
+		extiPin = 10;
+	}
+	else if(EXTI->PR & EXTI_PR_PR11) {
+		exti = ((AFIO->EXTICR[2] >> 12) & 0x000F);
+		extiPin = 11;
+	}
+	else if(EXTI->PR & EXTI_PR_PR12) {
+		exti = (AFIO->EXTICR[3] & 0x000F);
+		extiPin = 12;
+	}
+	else if(EXTI->PR & EXTI_PR_PR13) {
+		exti = ((AFIO->EXTICR[3] >> 4) & 0x000F);
+		extiPin = 13;
+	}
+	else if(EXTI->PR & EXTI_PR_PR14) {
+		exti = ((AFIO->EXTICR[3] >> 8) & 0x000F);
+		extiPin = 14;
+	}
+	else if(EXTI->PR & EXTI_PR_PR15) {
+		exti = ((AFIO->EXTICR[3] >> 12) & 0x000F);
+		extiPin = 15;
+	}
+
+	switch(exti) {
+	case 0:
+		STM32F103::getGpioA()->getPin(extiPin)->extInterrupt();
+		break;
+	case 1:
+		STM32F103::getGpioB()->getPin(extiPin)->extInterrupt();
+		break;
+	case 2:
+		STM32F103::getGpioC()->getPin(extiPin)->extInterrupt();
+		break;
+	case 3:
+		STM32F103::getGpioD()->getPin(extiPin)->extInterrupt();
+		break;
+	}
+
+	// Clear interrupt pending bit
+	EXTI->PR |= (1 << extiPin);
 }
 
 /**

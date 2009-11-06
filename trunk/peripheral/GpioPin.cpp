@@ -94,9 +94,9 @@ void GpioPin::addEventListener(GpioPinEventListener *listener) {
 void GpioPin::configureInterrupt() {
 	/* Configure exti interrupt with ninja bit operations */
 	// Clear current configuration
-	AFIO->EXTICR[pinNumber >> 2] &= (0x00FF << (pinNumber & 0x0003));
+	AFIO->EXTICR[pinNumber >> 2] &= (0x000F << ((pinNumber & 0x0003)*4));
 	// Configure which port gets the external interrupt
-	AFIO->EXTICR[pinNumber >> 2] |= ((portNumber-1) << (pinNumber & 0x0003));
+	AFIO->EXTICR[pinNumber >> 2] |= ((portNumber-1) << ((pinNumber & 0x0003)*4));
 	// Clear the interrupt mask
 	EXTI->IMR |= (1<<pinNumber);
 	// Clear the event mask

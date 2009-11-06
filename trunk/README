@@ -13,12 +13,3 @@ and the instance returned is guaranteed to work. However, it will not configure 
 again as long as the program is running. So if you have two different peripheral 
 that are using the same IOs, as soon has you ask for the second one, the first 
 one will stop working.
-
-- External interrupts can only work on one GPIO port at a time.
-
-If you add a listener on let say GPIOA pin 1. The pin will bind the external
-interrupts to port A and will then activate the pin 1 interrupt. If later in
-the program you add a listener to GPIOB pin 5, the pin will bind the external
-interrupts to port B. In that case, the GPIOA pin 1 will stop receiving interrupts.
-This is a hardware limitation. On the other hand, up to every pin of a port
-can receive external interrupt.

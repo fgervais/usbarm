@@ -23,6 +23,9 @@
 Uart* STM32F103::uart1 = 0;
 Uart* STM32F103::uart2 = 0;
 Gpio* STM32F103::gpioA = 0;
+Gpio* STM32F103::gpioB = 0;
+Gpio* STM32F103::gpioC = 0;
+Gpio* STM32F103::gpioD = 0;
 Spi* STM32F103::spi1 = 0;
 Usb* STM32F103::usb = 0;
 
@@ -89,11 +92,38 @@ Uart* STM32F103::getUart2() {
 
 Gpio* STM32F103::getGpioA() {
 	if(gpioA == 0) {
-		gpioA = new Gpio(GPIOA, AFIO, EXTI, 1);
+		gpioA = new Gpio(GPIOA, 1);
 		// Send clock to GPIO A
 		RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 	}
 	return gpioA;
+}
+
+Gpio* STM32F103::getGpioB() {
+	if(gpioB == 0) {
+		gpioB = new Gpio(GPIOB, 2);
+		// Send clock to GPIO B
+		RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+	}
+	return gpioB;
+}
+
+Gpio* STM32F103::getGpioC() {
+	if(gpioC == 0) {
+		gpioC = new Gpio(GPIOC, 2);
+		// Send clock to GPIO C
+		RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+	}
+	return gpioC;
+}
+
+Gpio* STM32F103::getGpioD() {
+	if(gpioD == 0) {
+		gpioD = new Gpio(GPIOD, 2);
+		// Send clock to GPIO D
+		RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
+	}
+	return gpioD;
 }
 
 Spi* STM32F103::getSpi1() {
@@ -125,7 +155,7 @@ Spi* STM32F103::getSpi1() {
 Usb* STM32F103::getUsb() {
 	if(usb == 0) {
 		MAX3421E* controller = new MAX3421E(getSpi1());
-		GpioPin* interruptPin = getGpioA()->getPin(1);
+		GpioPin* interruptPin = getGpioB()->getPin(1);
 		// Create the new usb port with GpioA1 as external interrupt pin
 		usb = new Usb(controller, interruptPin);
 
