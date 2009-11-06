@@ -33,9 +33,7 @@ public:
 	static const uint8_t AF_PUSH_PULL_OUTPUT	= 0x08; /** Alternate function output Push-pull */
 	static const uint8_t AF_OPEN_DRAIN_OUTPUT	= 0x0C;	/** Alternate function output Open-drain */
 
-	Gpio(GPIO_TypeDef *gpioRegisters,
-			AFIO_TypeDef *afioRegisters,
-			EXTI_TypeDef *extiRegisters, uint8_t id);
+	Gpio(GPIO_TypeDef *gpioRegisters, uint8_t id);
 	virtual ~Gpio();
 
 	void configure(GpioConfiguration config);
@@ -47,8 +45,6 @@ public:
 
 private:
 	GPIO_TypeDef *gpioRegisters;
-	AFIO_TypeDef *afioRegisters;
-	EXTI_TypeDef *extiRegisters;
 	GpioPin *gpioPins[16];
 };
 

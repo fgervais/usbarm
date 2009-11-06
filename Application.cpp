@@ -20,8 +20,8 @@ void main_francois();
 void main_remi();
 
 int main(void) {
-	//main_francois();
-	main_remi();
+	main_francois();
+	//main_remi();
 }
 
 void main_francois() {
@@ -45,7 +45,7 @@ void main_francois() {
 	STM32F103::getUsb();
 
 	// Clear interrupt pending bit
-	EXTI->PR |= 0x01;
+	EXTI->PR |= EXTI_PR_PR1;
 
 	// Reset led sequence
 	for(uint32_t j=0; j<10; j++) {
@@ -64,7 +64,7 @@ void main_francois() {
 		for(uint32_t i=0; i<1000000; i++);
 
 		// Simulate an external interrupt
-		EXTI->SWIER |= 0x02;
+		//EXTI->SWIER |= EXTI_SWIER_SWIER1;
 	}
 }
 

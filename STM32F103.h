@@ -73,6 +73,9 @@ public:
 	static Uart* getUart1();
 	static Uart* getUart2();
 	static Gpio* getGpioA();
+	static Gpio* getGpioB();
+	static Gpio* getGpioC();
+	static Gpio* getGpioD();
 	static Spi* getSpi1();
 	static Usb* getUsb();
 
@@ -81,6 +84,9 @@ private:
 	static Uart *uart1;
 	static Uart *uart2;
 	static Gpio *gpioA;
+	static Gpio *gpioB;
+	static Gpio *gpioC;
+	static Gpio *gpioD;
 	static Spi *spi1;
 	static Usb *usb;
 

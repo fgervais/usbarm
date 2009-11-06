@@ -301,6 +301,12 @@ void Usb::stateChanged(GpioPin* pin) {
 	uint8_t hostIRQ;
 	controller->readRegister(MAX3421E::HIRQ, &hostIRQ);
 
+	// Blink led fast
+	GPIOA->BSRR |= 0x01;	// On
+	for(uint32_t i=0; i<100000; i++);
+	GPIOA->BRR |= 0x01;	// Off
+	for(uint32_t i=0; i<100000; i++);
+
 	if(hostIRQ & MAX3421E::HIRQ_CONNIRQ) {
 
 		if(state == Disconnect) {
