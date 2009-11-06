@@ -77,7 +77,6 @@ void main_remi() {
 	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
 	gpioA->configure(portConfig);
 
-
 	Uart *uart1 = STM32F103::getUart1();
 	UartConfiguration uart1Config;
 	uart1Config.baudrate 		= 9600;
@@ -86,13 +85,12 @@ void main_remi() {
 	uart1Config.wordLenght		= Uart::UART_1_STOPBIT;
 	uart1->configure(uart1Config);
 
-	// Sample
-	switch(uart1->getType()) {
-	case Peripheral::Uart:
-		break;
-	default:
-		break;
-	}
+	Uart *uart2 = STM32F103::getUart2();
+	// Uart2 config
+
+	// Tag each Uart with their respective source
+	uart1->setTag(Peripheral::Controller);
+	uart2->setTag(Peripheral::Drive);
 
 	// Configure blinking led
 	GpioPinConfiguration ledPinConfig;
