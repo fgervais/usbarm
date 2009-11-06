@@ -155,7 +155,7 @@ Spi* STM32F103::getSpi1() {
 Usb* STM32F103::getUsb() {
 	if(usb == 0) {
 		MAX3421E* controller = new MAX3421E(getSpi1());
-		GpioPin* interruptPin = getGpioB()->getPin(1);
+		GpioPin* interruptPin = getGpioA()->getPin(1);
 		// Create the new usb port with GpioA1 as external interrupt pin
 		usb = new Usb(controller, interruptPin);
 
