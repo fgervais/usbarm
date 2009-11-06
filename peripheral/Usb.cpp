@@ -56,6 +56,11 @@ Usb::Usb(MAX3421E *controller, GpioPin *interruptPin) {
 	this->controller = controller;
 	this->interruptPin = interruptPin;
 
+	// Init class members
+	report = 0;
+	devDetected = 0;
+	devEnumerated = 0;
+
 	// Ensure the external interrupt pin has the right configuration
 	GpioPinConfiguration config;
 	config.pin = Gpio::PULLUP_PULLDOWN_INPUT;

@@ -10,10 +10,12 @@
 
 #include "Peripheral.h"
 #include "GpioPinEventListener.h"
+#include "GamepadReport.h"
 
 class MAX3421E;
 class GpioPin;
 class ControlRequest;
+//class GamepadReport;
 
 class Usb: public Peripheral, GpioPinEventListener {
 public:
@@ -23,6 +25,8 @@ public:
 	void listenForDevice();
 	void enumerateDevice();
 	void serviceHID();
+	uint8_t deviceDetected() { return devDetected; };
+	uint8_t deviceEnumerated() { return devEnumerated; };
 
 	// GpioPinEventListener interface implementation
 	void stateChanged(GpioPin* pin);
@@ -30,6 +34,7 @@ public:
 private:
 	MAX3421E *controller;
 	GpioPin* interruptPin;
+	GamepadReport* report;
 
 	// Maximum EP0 packet size
 	uint8_t maxPacketSize;
@@ -46,7 +51,7 @@ private:
 			uint8_t endpoint, uint8_t packetSize);
 	uint8_t launchTransfer(uint8_t token, uint8_t endpoint);
 	void busReset();
-	void getReport();
+	GamepadReport getReport() { return *report; };
 };
 
 #endif /* USB_H_ */
