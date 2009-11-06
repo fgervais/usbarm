@@ -14,7 +14,7 @@ class TimerConfiguration {
 public:
 	uint16_t mode;
 	uint16_t prescaler;
-	uint16_t autoRelead;
+	uint16_t autoReload;
 
 	TimerConfiguration();
 	virtual ~TimerConfiguration();

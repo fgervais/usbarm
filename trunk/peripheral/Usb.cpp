@@ -74,7 +74,7 @@ Usb::Usb(MAX3421E *controller, GpioPin *interruptPin, Timer* timer) {
 	// Configure the Timer in counter mode
 	TimerConfiguration timerConfig;
 	timerConfig.mode = Timer::COUNTER_MODE;
-	timerConfig.autoRelead = 57600;
+	timerConfig.autoReload = 57600;
 	timerConfig.prescaler = 15;
 	timer->configure(timerConfig);
 
