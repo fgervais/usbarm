@@ -74,8 +74,10 @@ Usb::Usb(MAX3421E *controller, GpioPin *interruptPin, Timer* timer) {
 	// Configure the Timer in counter mode
 	TimerConfiguration timerConfig;
 	timerConfig.mode = Timer::COUNTER_MODE;
-	timerConfig.autoReload = 57600;
-	timerConfig.prescaler = 15;
+	//timerConfig.autoReload = 57600;
+	//timerConfig.prescaler = 15;
+	timerConfig.autoReload = 0xFFFF;
+	timerConfig.prescaler = 1500;
 	timer->configure(timerConfig);
 
 	/*
@@ -210,6 +212,7 @@ void Usb::serviceHid() {
 		rawData = new uint8_t[12];
 		// Get an interrupt report
 		receiveRawData(rawData, 0x08, 0x01, 0x08);
+		serviceRequired = 0;
 	}
 }
 
@@ -384,4 +387,10 @@ void Usb::stateChanged(GpioPin* pin) {
 
 void Usb::timerOverflowed(Timer* timer) {
 	serviceRequired = 1;
+
+	// Blink led fast
+	GPIOA->BSRR |= 0x01;	// On
+	for(uint32_t i=0; i<100000; i++);
+	GPIOA->BRR |= 0x01;	// Off
+	for(uint32_t i=0; i<100000; i++);
 }
