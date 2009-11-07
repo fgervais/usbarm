@@ -436,6 +436,7 @@ void TIM2_IRQHandler(void) {
 	if(TIM2->SR & TIM_SR_UIF) {
 		STM32F103::getTimer2()->overflowInterrupt();
 	}
+	TIM2->SR &= ~TIM_SR_UIF;
 }
 
 /**

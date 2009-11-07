@@ -42,10 +42,12 @@ void main_francois() {
 	GpioPin *led = gpioA->getPin(0);
 
 	// Create the usb port
-	STM32F103::getUsb();
+	Usb* usb = STM32F103::getUsb();
 
 	// Clear interrupt pending bit
 	EXTI->PR |= EXTI_PR_PR1;
+
+	usb->serviceHid();
 
 	// Reset led sequence
 	for(uint32_t j=0; j<10; j++) {
@@ -57,11 +59,13 @@ void main_francois() {
 
 	// Blink led
 	while(1) {
+		/*
 		led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
 
 		led->setLow();	// Off
 		for(uint32_t i=0; i<1000000; i++);
+		*/
 
 		// Simulate an external interrupt
 		//EXTI->SWIER |= EXTI_SWIER_SWIER1;
