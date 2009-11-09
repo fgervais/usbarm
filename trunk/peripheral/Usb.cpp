@@ -90,7 +90,7 @@ Usb::Usb(MAX3421E *controller, GpioPin *interruptPin, Timer* timer) {
 
 	// TODO: Change this for the "standard" configuration
 	/* Configure the controller */
-	//controller->configure();
+	controller->configure();
 	//controller->reset();
 
 	// Register as an external interrupt listener

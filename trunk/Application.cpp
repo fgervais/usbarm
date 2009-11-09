@@ -40,15 +40,7 @@ void main_francois() {
 	gpioA->getPin(0)->configure(ledPinConfig);
 
 	GpioPin *led = gpioA->getPin(0);
-	/*
-	Uart *uart1 = STM32F103::getUart1();
-	UartConfiguration uart1Config;
-	uart1Config.baudrate 		= 9600;
-	uart1Config.stopBit 		= Uart::UART_1_STOPBIT;
-	uart1Config.parityEnable 	= Uart::UART_PARITY_DISABLE;
-	uart1Config.wordLenght		= Uart::UART_WORD_LENGTH_8BIT;
-	uart1->configure(uart1Config);
-	*/
+
 	// Create the usb port
 	Usb* usb = STM32F103::getUsb();
 
@@ -65,12 +57,10 @@ void main_francois() {
 		for(uint32_t i=0; i<100000; i++);
 	}
 
+	usb->listenForDevice();
+
 	// Blink led
 	while(1) {
-		//char c = 'A';
-		//uart1->write(&c, 1);
-		//uart1->poll();
-
 		/*
 		led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
