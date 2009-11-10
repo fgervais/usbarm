@@ -68,7 +68,7 @@ uint8_t MAX3421E::writeBytes(uint8_t address, uint8_t *data, uint8_t length) {
 	status = spi->readWrite(command);
 
 	for(uint8_t i=0; i<length; i++) {
-		spi->readWrite(data[i]);
+		spi->write(data[i]);
 	}
 
 	// Wait until spi is finished with the transmission

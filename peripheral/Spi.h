@@ -48,6 +48,8 @@ public:
 	void configure(SpiConfiguration config);
 	uint16_t readWrite(uint16_t data);
 	uint8_t readWrite(uint8_t data);
+	void write(uint16_t data);
+	void write(uint8_t data);
 	void selectSlave();
 	void unselectSlave();
 	uint8_t isBusy();
