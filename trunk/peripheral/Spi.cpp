@@ -48,7 +48,8 @@ void Spi::configure(SpiConfiguration config) {
 	}
 
 	selectSlave();
-	readWrite((uint8_t)0xAA);
+	readWrite((uint8_t)0xBB);
+	while(isBusy());
 	unselectSlave();
 }
 
@@ -62,12 +63,17 @@ uint16_t Spi::readWrite(uint16_t data) {
 }
 
 uint8_t Spi::readWrite(uint8_t data) {
+	return readWrite((uint16_t)data);
+}
+
+void Spi::write(uint16_t data) {
 	// Wait while transmit buffer is not empty
 	while(!(spiRegisters->SR & SPI_SR_TXE));
 	spiRegisters->DR = data;
+}
 
-	while(spiRegisters->SR & SPI_SR_BSY);
-	return spiRegisters->DR;
+void Spi::write(uint8_t data) {
+	write((uint16_t)data);
 }
 
 void Spi::selectSlave() {
