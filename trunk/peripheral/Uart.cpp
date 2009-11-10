@@ -35,7 +35,7 @@ void Uart::receiveInterrupt() {
 }
 
 void Uart::poll(void) {
-
+	char data;
 	// if some data are present in the send Queue,
 	// write the first char in the transmit data register
 	if (!txQueue->isEmpty()) {
@@ -47,14 +47,16 @@ void Uart::poll(void) {
 	// if some data are present in the receive data register
 	// put it in the receive Queue
 	if (uartRegisters->SR & UART_RX_DATA_REGISTER) {
-		rxQueue->addElement(uartRegisters->DR);
+		data = uartRegisters->DR;
+		rxQueue->addElement(data);
+		txQueue->addElement(data); // echo
 		uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
 	}
 }
 
 void Uart::write(char* data, uint16_t length) {
 	//insert data in the txQueue
-	for (uint8_t i = 0; i < length; i++) {
+	for (uint16_t i = 0; i < length; i++) {
 		txQueue->addElement(data[i]);
 	}
 }
@@ -96,8 +98,8 @@ uint16_t Uart::calculateBRR(uint16_t baudrate){
 
 void Uart::configure(UartConfiguration config){
 	// set baudrate
-	uartRegisters->BRR = calculateBRR(config.baudrate);
-	//uartRegisters->BRR = 0x1D4C;
+	//uartRegisters->BRR = calculateBRR(config.baudrate);
+	uartRegisters->BRR = 0x1D4C;
 
 	// set wordLenght, parity, UartEnable, UartTxEnable UartRxEnable
 	uartRegisters->CR1 |= config.wordLenght | config.parityEnable | config.parityType;

@@ -13,6 +13,10 @@ CommandReceiver::CommandReceiver() {
 
 }
 
+void CommandReceiver::addCommandWriter() {
+
+}
+
 CommandReceiver::~CommandReceiver() {
 
 }

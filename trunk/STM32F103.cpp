@@ -49,6 +49,7 @@ Uart* STM32F103::getUart1() {
 	getRccClockFreq(&systemClock);
 
 	if(uart1 == 0) {
+
 		uart1 = new Uart(USART1, 1, Peripheral::Uart, systemClock.PCLK2_Frequency);
 		// Send clock to USART 1
 		RCC->APB2ENR |= RCC_APB2ENR_USART1EN | RCC_APB2ENR_AFIOEN | RCC_APB2ENR_IOPAEN;
