@@ -20,8 +20,8 @@ void main_francois();
 void main_remi();
 
 int main(void) {
-	//main_francois();
-	main_remi();
+	main_francois();
+	//main_remi();
 }
 
 void main_francois() {
@@ -47,17 +47,17 @@ void main_francois() {
 	// Clear interrupt pending bit
 	EXTI->PR |= EXTI_PR_PR1;
 
-	usb->serviceHid();
+	//usb->serviceHid();
 
 	// Reset led sequence
-	for(uint32_t j=0; j<10; j++) {
+	/*for(uint32_t j=0; j<10; j++) {
 		led->setHigh();	// On
 		for(uint32_t i=0; i<100000; i++);
 		led->setLow();	// Off
 		for(uint32_t i=0; i<100000; i++);
-	}
+	}*/
 
-	usb->listenForDevice();
+	//usb->listenForDevice();
 
 	// Blink led
 	while(1) {
