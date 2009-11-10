@@ -60,7 +60,7 @@ public:
 private:
 	USART_TypeDef *uartRegisters;
 	Queue<char>* txQueue;
-	Queue<char>* rxQueue;
+	//Queue<char>* rxQueue;
 	uint32_t clockFrequency;
 	uint16_t calculateBRR(uint16_t baudrate);
 

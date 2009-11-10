@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2009-09-20" view-index="0" gantt-divider-location="614" resource-divider-location="300" version="2.0">
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2009-11-02" view-index="0" gantt-divider-location="614" resource-divider-location="300" version="2.0">
     <description/>
-    <view zooming-state="default:4" id="gantt-chart"/>
+    <view zooming-state="default:3" id="gantt-chart"/>
     <view id="resource-table">
-        <field id="0" name="Name" width="54" order="0"/>
-        <field id="1" name="Default role" width="45" order="1"/>
+        <field id="0" name="Nom" width="54" order="0"/>
+        <field id="1" name="Rôle par défaut" width="45" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -46,7 +46,7 @@
             </task>
             <task id="8" name="Choix de la solution" color="#8cb6ce" meeting="false" start="2009-08-19" duration="3" complete="100" priority="1" expand="true"/>
         </task>
-        <task id="10" name="Réalisation" color="#8cb6ce" meeting="false" start="2009-08-24" duration="70" complete="62" priority="1" expand="true">
+        <task id="10" name="Réalisation" color="#8cb6ce" meeting="false" start="2009-08-24" duration="70" complete="70" priority="1" expand="true">
             <task id="11" name="Achat du matériel" color="#8cb6ce" meeting="false" start="2009-08-24" duration="4" complete="100" priority="1" expand="true">
                 <depend id="33" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -57,7 +57,7 @@
             <task id="15" name="Familiarisation et installation des outils logiciels et matériel" color="#8cb6ce" meeting="false" start="2009-09-09" duration="8" complete="100" priority="1" expand="true">
                 <depend id="16" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="16" name="Création de la carte" color="#8cb6ce" meeting="false" start="2009-09-21" duration="50" complete="46" priority="1" expand="true">
+            <task id="16" name="Création de la carte" color="#8cb6ce" meeting="false" start="2009-09-21" duration="50" complete="57" priority="1" expand="true">
                 <task id="38" name="UML et planification" color="#8cb6ce" meeting="false" start="2009-09-21" duration="10" complete="100" priority="1" expand="true"/>
                 <task id="18" name="Intégration d'une télécommande XBOX" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="73" priority="1" expand="true">
                     <depend id="28" type="2" difference="0" hardness="Strong"/>
@@ -82,11 +82,10 @@
                         <task id="22" name="Vérification de la robustesse de la transmission sans fil" color="#8cb6ce" meeting="false" start="2009-11-16" duration="5" complete="0" priority="1" expand="true"/>
                     </task>
                 </task>
-                <task id="17" name="Convertisseur PWM-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-10-05" duration="10" complete="5" priority="1" expand="true"/>
-                <task id="23" name="Systeme de gestion de source (multiplexeur) et gestion de priorité" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="false">
-                    <task id="24" name="RS232-&gt;Drive" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true"/>
-                    <task id="25" name="PWM-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true"/>
-                    <task id="26" name="USB décodé-&gt;RS232" color="#8cb6ce" meeting="false" start="2009-10-12" duration="4" complete="0" priority="1" expand="true"/>
+                <task id="23" name="Systeme de gestion de source (multiplexeur) et gestion de priorité" color="#8cb6ce" meeting="false" start="2009-10-05" duration="40" complete="68" priority="1" expand="true">
+                    <task id="24" name="Uart" color="#8cb6ce" meeting="false" start="2009-10-05" duration="15" complete="87" priority="1" expand="true"/>
+                    <task id="25" name="PWM" color="#8cb6ce" meeting="false" start="2009-11-16" duration="10" complete="10" priority="1" expand="true"/>
+                    <task id="26" name="Multiplexeur" color="#8cb6ce" meeting="false" start="2009-10-26" duration="15" complete="65" priority="1" expand="true"/>
                 </task>
                 <task id="14" name="Réorganisation des récepteurs" color="#8cb6ce" meeting="false" start="2009-10-19" duration="4" complete="0" priority="1" expand="true"/>
                 <task id="13" name="Réorganisation des arrêts d'urgence et alimentations" color="#8cb6ce" meeting="false" start="2009-10-26" duration="4" complete="0" priority="1" expand="true"/>
@@ -109,6 +108,7 @@
         <resource id="0" name="Remi" function="Default:0" contacts="" phone=""/>
         <resource id="1" name="Francois" function="Default:0" contacts="" phone=""/>
         <resource id="2" name="Equipe" function="Default:0" contacts="" phone=""/>
+        <resource id="3" name="Club Capra" function="Default:0" contacts="" phone=""/>
     </resources>
     <allocations>
         <allocation task-id="0" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
@@ -134,13 +134,12 @@
         <allocation task-id="37" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="21" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="22" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="17" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="23" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="24" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="25" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="26" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="14" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="13" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="27" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="28" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="29" resource-id="2" function="Default:0" responsible="true" load="100.0"/>

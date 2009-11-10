@@ -59,17 +59,17 @@ Uart* STM32F103::getUart1() {
 		GpioPinConfiguration uartTxPinConfig, uartRxPinConfig;
 		Gpio *portA = getGpioA();
 		// NSS
-		//uartTxPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
-		//portA->getPin(9)->configure(uartTxPinConfig);
+		uartTxPinConfig.pin = Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+		portA->getPin(9)->configure(uartTxPinConfig);
 
 		uartRxPinConfig.pin = Gpio::FLOATING_INPUT;
 		portA->getPin(10)->configure(uartRxPinConfig);
 
 		//enable UART1 Interrupt
-		NVIC->ISER[1] = 0x20;
+		//NVIC->ISER[1] = 0x20;
 
 		//set priority to UART1 Interrupt
-		NVIC->IP[USART1_IRQn] = 0;
+		//NVIC->IP[USART1_IRQn] = 0;
 	}
 
 	return uart1;
