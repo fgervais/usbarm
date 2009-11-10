@@ -20,8 +20,8 @@ void main_francois();
 void main_remi();
 
 int main(void) {
-	main_francois();
-	//main_remi();
+	//main_francois();
+	main_remi();
 }
 
 void main_francois() {
@@ -75,21 +75,27 @@ void main_francois() {
 }
 
 void main_remi() {
+	char buf[27] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm' ,'n', 'o', 'p' ,'q'
+	,'r', 's','t','u','v','w','x','y','z',' '};
 	// Setup STM32 system (clock, PLL and Flash configuration)
 	SystemInit();
 
-	Gpio *gpioA = STM32F103::getGpioA();
-	// Set default port behavior
-	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
-	gpioA->configure(portConfig);
 
 	Uart *uart1 = STM32F103::getUart1();
 	UartConfiguration uart1Config;
 	uart1Config.baudrate 		= 9600;
 	uart1Config.stopBit 		= Uart::UART_1_STOPBIT;
 	uart1Config.parityEnable 	= Uart::UART_PARITY_DISABLE;
-	uart1Config.wordLenght		= Uart::UART_1_STOPBIT;
+	uart1Config.wordLenght		= Uart::UART_WORD_LENGTH_8BIT;
 	uart1->configure(uart1Config);
+
+
+	Gpio *gpioA = STM32F103::getGpioA();
+	// Set default port behavior
+	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
+	gpioA->configure(portConfig);
+
+
 
 	Uart *uart2 = STM32F103::getUart2();
 	// Uart2 config
@@ -112,8 +118,8 @@ void main_remi() {
 			uart1->poll();
 		}
 
-		//char buf[] = {'a','l','l','o',' ',0};
-		//uart1->write(buf, sizeof(buf));
+
+		uart1->write((char *)buf, 27);
 
 		led->setLow();	// Off
 		for(uint32_t i=0; i<100000; i++){

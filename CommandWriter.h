@@ -14,12 +14,12 @@
 
 class CommandWriter: public PeripheralEventListener {
 public:
-	CommandWriter(CommandReceiver *output);
-	void setOutput(CommandReceiver *output);
+	CommandWriter();
+	void setOutput();
 	void write(Command *command);
 	virtual ~CommandWriter();
 private:
-	CommandReceiver *output;
+	//CommandReceiver *output;
 };
 
 #endif /* COMMANDWRITER_H_ */

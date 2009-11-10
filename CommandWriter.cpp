@@ -7,15 +7,15 @@
 
 #include "CommandWriter.h"
 
-void CommandWriter::setOutput(CommandReceiver *output) {
-	this->output = output;
+void CommandWriter::setOutput() {
+	//this->output = output;
 }
 
 void CommandWriter::write(Command *command) {
 
 }
 
-CommandWriter::CommandWriter(CommandReceiver *output) {
+CommandWriter::CommandWriter() {
 
 
 }
