@@ -18,12 +18,12 @@ Uart::Uart(USART_TypeDef *uartRegisters, uint8_t id,
 	this->uartRegisters = uartRegisters;
 	this->clockFrequency = clockFrequency;
 	this->txQueue = new Queue<char>(200);
-	this->rxQueue = new Queue<char>(200);
+	//this->rxQueue = new Queue<char>(200);
 }
 
 Uart::~Uart() {
 	/* Free memory */
-	delete rxQueue;
+	//delete rxQueue;
 	delete txQueue;
 }
 
@@ -48,9 +48,10 @@ void Uart::poll(void) {
 	// put it in the receive Queue
 	if (uartRegisters->SR & UART_RX_DATA_REGISTER) {
 		data = uartRegisters->DR;
-		rxQueue->addElement(data);
+		//rxQueue->addElement(data);
 		txQueue->addElement(data); // echo
-		uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
+
+		//uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
 	}
 }
 
@@ -65,8 +66,8 @@ char Uart::read(){
 	char data = -1;
 	// if some data are present in the receive Queue
 	// return the first char in the queue
-	if (!rxQueue->isEmpty())
-		data = rxQueue->getElement();
+	//if (!rxQueue->isEmpty())
+		//data = rxQueue->getElement();
 
 	return data;
 }
@@ -109,6 +110,6 @@ void Uart::configure(UartConfiguration config){
 	uartRegisters->CR2 |= config.stopBit;
 
 	// usefull?
-	uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
+	//uartRegisters->SR &= ~UART_RX_DATA_REGISTER;
 }
 

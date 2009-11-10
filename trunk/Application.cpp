@@ -81,6 +81,14 @@ void main_remi() {
 	SystemInit();
 
 
+
+
+
+	Gpio *gpioA = STM32F103::getGpioA();
+	// Set default port behavior
+	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
+	gpioA->configure(portConfig);
+
 	Uart *uart1 = STM32F103::getUart1();
 	UartConfiguration uart1Config;
 	uart1Config.baudrate 		= 9600;
@@ -89,20 +97,12 @@ void main_remi() {
 	uart1Config.wordLenght		= Uart::UART_WORD_LENGTH_8BIT;
 	uart1->configure(uart1Config);
 
-
-	Gpio *gpioA = STM32F103::getGpioA();
-	// Set default port behavior
-	GpioConfiguration portConfig(Gpio::AF_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ);
-	gpioA->configure(portConfig);
-
-
-
-	Uart *uart2 = STM32F103::getUart2();
+	//Uart *uart2 = STM32F103::getUart2();
 	// Uart2 config
 
 	// Tag each Uart with their respective source
 	uart1->setTag(Peripheral::Controller);
-	uart2->setTag(Peripheral::Drive);
+	//uart2->setTag(Peripheral::Drive);
 
 	// Configure blinking led
 	GpioPinConfiguration ledPinConfig;
@@ -114,15 +114,15 @@ void main_remi() {
 	// Blink led
 	while(1) {
 		led->setHigh();	// On
-		for(uint32_t i=0; i<100000; i++){
+		for(uint32_t i=0; i<1000000; i++){
 			uart1->poll();
 		}
 
 
-		uart1->write((char *)buf, 27);
+		uart1->write((char *)buf, 1);
 
 		led->setLow();	// Off
-		for(uint32_t i=0; i<100000; i++){
+		for(uint32_t i=0; i<1000000; i++){
 			uart1->poll();
 		}
 	}
