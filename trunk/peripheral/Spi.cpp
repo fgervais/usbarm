@@ -37,20 +37,6 @@ void Spi::configure(SpiConfiguration config) {
 
 	// Enable SPI
 	spiRegisters->CR1 |= SPI_CR1_SPE;
-
-	//debug
-	for(uint32_t j=0; j<4; j++) {
-		// Blink led fast
-		GPIOA->BSRR |= 0x01;	// On
-		for(uint32_t i=0; i<100000; i++);
-		GPIOA->BRR |= 0x01;	// Off
-		for(uint32_t i=0; i<100000; i++);
-	}
-
-	selectSlave();
-	readWrite((uint8_t)0xBB);
-	while(isBusy());
-	unselectSlave();
 }
 
 uint16_t Spi::readWrite(uint16_t data) {

@@ -133,3 +133,10 @@ void MAX3421E::reset() {
 		readRegister(USBIRQ, &usbirq);
 	} while(!(usbirq & USBIRQ_OSCOKIRQ));
 }
+
+uint8_t MAX3421E::getRevision() {
+	uint8_t revision = 0;
+	readRegister(REVISION, &revision);
+
+	return revision;
+}
