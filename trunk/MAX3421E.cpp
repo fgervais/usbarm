@@ -17,9 +17,9 @@ MAX3421E::MAX3421E(Spi *spi) {
 	SpiConfiguration spiConfig;
 	spiConfig.lineMode 		= Spi::FULL_DUPLEX_2LINES;
 	spiConfig.frameFormat 	= Spi::FRAME_8BITS;
-	spiConfig.slaveSelect 	= Spi::HARDWARE_SLAVESELECT;
+	spiConfig.slaveSelect 	= Spi::SOFTWARE_SLAVESELECT;
 	spiConfig.firstBit 		= Spi::MSB_FIRST;
-	spiConfig.prescaler 	= Spi::CLOCK_PRESCALER_256;
+	spiConfig.prescaler 	= Spi::CLOCK_PRESCALER_128;
 	spiConfig.configuration = Spi::MASTER;
 	spiConfig.clockPolarity = Spi::CLOCK_POLARITY_LOW;
 	spiConfig.clockPhase 	= Spi::CLOCK_PHASE_EDGE1;
