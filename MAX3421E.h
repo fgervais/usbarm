@@ -238,6 +238,7 @@ public:
 	uint8_t readBytes(uint8_t address, uint8_t *data, uint8_t length);
 	void configure();
 	void reset();
+	uint8_t getRevision();
 
 private:
 	Spi *spi;
