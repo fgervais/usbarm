@@ -49,7 +49,7 @@ Command* CommandFactory::createCommand(Usb *usb) {
 	tmpCommand = new Command(test,4);
 	return new Command(test,4);
 }
-Command* CommandFactory::createCommand(Pwm *pwm) {
+Command* CommandFactory::createCommand(Timer *timer) {
 	Command *tmpCommand;
 	char test[9] = "!B77";
 

@@ -20,12 +20,6 @@ Peripheral::Peripheral(uint8_t id) {
 	this->tag = None;
 }
 
-Peripheral::Peripheral(uint8_t id, PeripheralType type) {
-	this->id = id;
-	this->type = type;
-	this->tag = None;
-}
-
 Peripheral::~Peripheral() {
 
 }

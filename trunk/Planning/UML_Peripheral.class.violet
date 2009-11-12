@@ -12,8 +12,7 @@
     </void> 
     <void property="methods"> 
      <void property="text"> 
-      <string>+ Gpio(GPIO_TypeDef*)
-+ configure(GpioConfiguration)
+      <string>+ configure(GpioConfiguration)
 + getPin(uint8_t) : GpioPin*
 + getData() : uint32_t
 + setData(uint32_t)</string> 
@@ -27,8 +26,8 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>51.0</double> 
-     <double>288.0</double> 
+     <double>41.0</double> 
+     <double>476.0</double> 
     </void> 
    </object> 
   </void> 
@@ -47,8 +46,8 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>429.0</double> 
-     <double>601.0</double> 
+     <double>592.0</double> 
+     <double>775.0</double> 
     </void> 
    </object> 
   </void> 
@@ -56,18 +55,22 @@
    <object id="ClassNode2" class="com.horstmann.violet.ClassNode"> 
     <void property="attributes"> 
      <void property="text"> 
-      <string>- pinNumber : uint32_t
-- gpioRegisters : GPIO_TypeDef*</string> 
+      <string>- pinNumber : uint8_t
+- portNumber : uint32_t
+- gpioRegisters : GPIO_TypeDef*
+- listeners : Vector&lt;GpioPinEventListener*&gt;
+- extiConfigured :uint8_t</string> 
      </void> 
     </void> 
     <void property="methods"> 
      <void property="text"> 
-      <string>+ GpioPin(GPIO_TypeDef *, uint32_t)
-+ extInterrupt()
+      <string>+ extInterrupt()
 + configure(GpioPinConfiguration)
++ addEventListener(GpioPinEventListener*)
 + isHigh() :uint32_t
 + setHigh()
-+ setLow()</string> 
++ setLow()
+- configureInterrupt()</string> 
      </void> 
     </void> 
     <void property="name"> 
@@ -78,13 +81,32 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>119.0</double> 
-     <double>505.0</double> 
+     <double>274.0</double> 
+     <double>709.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
    <object id="ClassNode3" class="com.horstmann.violet.ClassNode"> 
+    <void property="attributes"> 
+     <void property="text"> 
+      <string>- timerRegisters : TIM_TypeDef*
+- mode : Mode
+- overflowListeners : Vector&lt;TimerOverflowListener*&gt;
+- overflowiConfigured : uint8_t</string> 
+     </void> 
+    </void> 
+    <void property="methods"> 
+     <void property="text"> 
+      <string>+ overflowInterrupt()
++ configure(TimerConfiguration)
++ addEventListener(TimerOverflowListener*)
++ enable()
++ disable()
+- counterMode()
+- configureOverflowInterrupt()</string> 
+     </void> 
+    </void> 
     <void property="name"> 
      <void property="text"> 
       <string>Timer</string> 
@@ -93,33 +115,13 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>525.0</double> 
-     <double>286.0</double> 
+     <double>667.0</double> 
+     <double>477.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
    <object id="ClassNode4" class="com.horstmann.violet.ClassNode"> 
-    <void property="attributes"> 
-     <void property="text"> 
-      <string>- Percentage</string> 
-     </void> 
-    </void> 
-    <void property="name"> 
-     <void property="text"> 
-      <string>Pwm</string> 
-     </void> 
-    </void> 
-   </object> 
-   <object class="java.awt.geom.Point2D$Double"> 
-    <void method="setLocation"> 
-     <double>807.0</double> 
-     <double>285.0</double> 
-    </void> 
-   </object> 
-  </void> 
-  <void method="addNode"> 
-   <object id="ClassNode5" class="com.horstmann.violet.ClassNode"> 
     <void property="attributes"> 
      <void property="text"> 
       <string>+ pin[] : uint8_t</string> 
@@ -133,13 +135,13 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>322.0</double> 
-     <double>228.0</double> 
+     <double>267.0</double> 
+     <double>499.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode6" class="com.horstmann.violet.ClassNode"> 
+   <object id="ClassNode5" class="com.horstmann.violet.ClassNode"> 
     <void property="attributes"> 
      <void property="text"> 
       <string>+ baudrate
@@ -157,16 +159,39 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1073.0</double> 
-     <double>494.0</double> 
+     <double>868.0</double> 
+     <double>79.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode7" class="com.horstmann.violet.ClassNode"> 
+   <object id="ClassNode6" class="com.horstmann.violet.ClassNode"> 
     <void property="attributes"> 
      <void property="text"> 
-      <string>- Data</string> 
+      <string>- controller : MAX3421E*
+- interruptPin : GpioPin*
+- timer : Timer*
+- report : GamepadReport*
+- maxPacketSize : uint8_t
+- devDetected : uint8_t
+- devEnumerated : uint8_t
+- serviceRequired : uint8_t
+- serviceInitialized : uint8_t</string> 
+     </void> 
+    </void> 
+    <void property="methods"> 
+     <void property="text"> 
+      <string>+ listenForDevice()
++ enumerateDevice()
++ serviceHid()
++ deviceDetected() : uint8_t
++ deviceEnumerated() : uint8_t
+- waitFrames(uint32_t)
+- sendRequest(ControlRequest*) : uint8_t
+- receiveRawData()
+- launchTransfer() : uint8_t
+- busReset()
+- getReport() : GamepadReport</string> 
      </void> 
     </void> 
     <void property="name"> 
@@ -177,13 +202,13 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>670.0</double> 
-     <double>287.0</double> 
+     <double>1061.0</double> 
+     <double>124.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode8" class="com.horstmann.violet.ClassNode"> 
+   <object id="ClassNode7" class="com.horstmann.violet.ClassNode"> 
     <void property="attributes"> 
      <void property="text"> 
       <string>- rxQueue
@@ -208,13 +233,13 @@
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>936.0</double> 
-     <double>293.0</double> 
+     <double>630.0</double> 
+     <double>68.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode9" class="com.horstmann.violet.ClassNode"> 
+   <object id="ClassNode8" class="com.horstmann.violet.ClassNode"> 
     <void property="name"> 
      <void property="text"> 
       <string>&quot;Abstract&quot;
@@ -224,8 +249,8 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>104.0</double> 
-     <double>55.0</double> 
+     <double>787.0</double> 
+     <double>311.0</double> 
     </void> 
    </object> 
   </void> 
@@ -239,13 +264,13 @@ Peripheral</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>261.0</double> 
-     <double>24.0</double> 
+     <double>684.0</double> 
+     <double>290.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode10" class="com.horstmann.violet.ClassNode"> 
+   <object id="ClassNode9" class="com.horstmann.violet.ClassNode"> 
     <void property="methods"> 
      <void property="text"> 
       <string>+ stateChanged(GpioPin)</string> 
@@ -260,37 +285,16 @@ GpioPinEventListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>160.29779922007617</double> 
-     <double>722.8107928849972</double> 
+     <double>37.29779922007617</double> 
+     <double>693.8107928849972</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode11" class="com.horstmann.violet.ClassNode"> 
+   <object id="ClassNode10" class="com.horstmann.violet.ClassNode"> 
     <void property="methods"> 
      <void property="text"> 
-      <string>+ inputCaptured(Pwm)</string> 
-     </void> 
-    </void> 
-    <void property="name"> 
-     <void property="text"> 
-      <string>&quot;Interface&quot;
-PwmEventListener</string> 
-     </void> 
-    </void> 
-   </object> 
-   <object class="java.awt.geom.Point2D$Double"> 
-    <void method="setLocation"> 
-     <double>759.0</double> 
-     <double>451.0</double> 
-    </void> 
-   </object> 
-  </void> 
-  <void method="addNode"> 
-   <object id="ClassNode12" class="com.horstmann.violet.ClassNode"> 
-    <void property="methods"> 
-     <void property="text"> 
-      <string>+ dataReceived(Uart);</string> 
+      <string>+ dataReceived(Uart)</string> 
      </void> 
     </void> 
     <void property="name"> 
@@ -302,16 +306,16 @@ UartEventListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1217.0</double> 
-     <double>220.0</double> 
+     <double>440.0</double> 
+     <double>27.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode13" class="com.horstmann.violet.ClassNode"> 
+   <object id="ClassNode11" class="com.horstmann.violet.ClassNode"> 
     <void property="methods"> 
      <void property="text"> 
-      <string>+ dataReceived(Usb)</string> 
+      <string>+ reportReceived(Usb*)</string> 
      </void> 
     </void> 
     <void property="name"> 
@@ -323,13 +327,13 @@ UsbEventListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>597.0</double> 
-     <double>450.0</double> 
+     <double>1390.0</double> 
+     <double>123.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode14" class="com.horstmann.violet.ClassNode"> 
+   <object id="ClassNode12" class="com.horstmann.violet.ClassNode"> 
     <void property="methods"> 
      <void property="text"> 
       <string>+ timerOverflowed(Timer)</string> 
@@ -344,14 +348,14 @@ TimerOverflowListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>405.0</double> 
-     <double>447.0</double> 
+     <double>451.0</double> 
+     <double>452.0</double> 
     </void> 
    </object> 
   </void> 
   <void method="addNode"> 
-   <object id="ClassNode15" class="com.horstmann.violet.ClassNode"> 
-    <void property="methods"> 
+   <object id="ClassNode13" class="com.horstmann.violet.ClassNode"> 
+    <void property="attributes"> 
      <void property="text"> 
       <string>+ mode
 + prescaler
@@ -366,8 +370,91 @@ TimerOverflowListener</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>328.0</double> 
-     <double>322.0</double> 
+     <double>1076.0</double> 
+     <double>530.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ClassNode14" class="com.horstmann.violet.ClassNode"> 
+    <void property="attributes"> 
+     <void property="text"> 
+      <string>- spiRegisters : SPI_TypeDef*
+- slaveSelect : GpioPin*</string> 
+     </void> 
+    </void> 
+    <void property="methods"> 
+     <void property="text"> 
+      <string>+ configure(SpiConfiguration)
++ readWrite(uint16_t)
++ readWrite(uint8_t)
++ write(uint16_t)
++ write(uint8_t)
++ selectSlave();
++ unselectSlave()
++ isBusy() : uint8_t</string> 
+     </void> 
+    </void> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>Spi</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>68.0</double> 
+     <double>32.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ClassNode15" class="com.horstmann.violet.ClassNode"> 
+    <void property="attributes"> 
+     <void property="text"> 
+      <string>+ lineMode
++ frameFormat
++ slaveSelect
++ firstBit
++ prescaler
++ configuration
++ clockPolarity
++ clockPhase</string> 
+     </void> 
+    </void> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>SpiConfiguration</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>279.0</double> 
+     <double>37.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ClassNode16" class="com.horstmann.violet.ClassNode"> 
+    <void property="attributes"> 
+     <void property="text"> 
+      <string>None
+Counter
+PwmInput</string> 
+     </void> 
+    </void> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>&quot;Enunaration&quot;
+Mode</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>1094.0</double> 
+     <double>652.0</double> 
     </void> 
    </object> 
   </void> 
@@ -380,13 +467,13 @@ TimerOverflowListener</string>
      <object class="com.horstmann.violet.ArrowHead" field="V"/> 
     </void> 
    </object> 
-   <object idref="ClassNode8"/> 
-   <object idref="ClassNode6"/> 
+   <object idref="ClassNode7"/> 
+   <object idref="ClassNode5"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.ClassRelationshipEdge"> 
     <void property="bentStyle"> 
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/> 
+     <object class="com.horstmann.violet.BentStyle" field="VHV"/> 
     </void> 
     <void property="endArrowHead"> 
      <object class="com.horstmann.violet.ArrowHead" field="V"/> 
@@ -405,7 +492,7 @@ TimerOverflowListener</string>
     </void> 
    </object> 
    <object idref="ClassNode0"/> 
-   <object idref="ClassNode5"/> 
+   <object idref="ClassNode4"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.ClassRelationshipEdge"> 
@@ -429,7 +516,19 @@ TimerOverflowListener</string>
     </void> 
    </object> 
    <object idref="ClassNode3"/> 
-   <object idref="ClassNode9"/> 
+   <object idref="ClassNode8"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
+    <void property="bentStyle"> 
+     <object class="com.horstmann.violet.BentStyle" field="VHV"/> 
+    </void> 
+    <void property="endArrowHead"> 
+     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/> 
+    </void> 
+   </object> 
+   <object idref="ClassNode6"/> 
+   <object idref="ClassNode8"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.ClassRelationshipEdge"> 
@@ -441,31 +540,7 @@ TimerOverflowListener</string>
     </void> 
    </object> 
    <object idref="ClassNode7"/> 
-   <object idref="ClassNode9"/> 
-  </void> 
-  <void method="connect"> 
-   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
-    <void property="bentStyle"> 
-     <object class="com.horstmann.violet.BentStyle" field="VHV"/> 
-    </void> 
-    <void property="endArrowHead"> 
-     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/> 
-    </void> 
-   </object> 
-   <object idref="ClassNode4"/> 
-   <object idref="ClassNode9"/> 
-  </void> 
-  <void method="connect"> 
-   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
-    <void property="bentStyle"> 
-     <object class="com.horstmann.violet.BentStyle" field="VHV"/> 
-    </void> 
-    <void property="endArrowHead"> 
-     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/> 
-    </void> 
-   </object> 
    <object idref="ClassNode8"/> 
-   <object idref="ClassNode9"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.ClassRelationshipEdge"> 
@@ -477,7 +552,7 @@ TimerOverflowListener</string>
     </void> 
    </object> 
    <object idref="ClassNode0"/> 
-   <object idref="ClassNode9"/> 
+   <object idref="ClassNode8"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.ClassRelationshipEdge"> 
@@ -489,11 +564,11 @@ TimerOverflowListener</string>
     </void> 
    </object> 
    <object idref="ClassNode0"/> 
-   <object idref="ClassNode9"/> 
+   <object idref="ClassNode8"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.NoteEdge"/> 
-   <object idref="ClassNode9"/> 
+   <object idref="ClassNode8"/> 
    <object idref="NoteNode0"/> 
   </void> 
   <void method="connect"> 
@@ -506,7 +581,7 @@ TimerOverflowListener</string>
     </void> 
    </object> 
    <object idref="ClassNode2"/> 
-   <object idref="ClassNode10"/> 
+   <object idref="ClassNode9"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.ClassRelationshipEdge"> 
@@ -517,19 +592,7 @@ TimerOverflowListener</string>
      <object class="com.horstmann.violet.ArrowHead" field="DIAMOND"/> 
     </void> 
    </object> 
-   <object idref="ClassNode7"/> 
-   <object idref="ClassNode13"/> 
-  </void> 
-  <void method="connect"> 
-   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
-    <void property="bentStyle"> 
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/> 
-    </void> 
-    <void property="startArrowHead"> 
-     <object class="com.horstmann.violet.ArrowHead" field="DIAMOND"/> 
-    </void> 
-   </object> 
-   <object idref="ClassNode4"/> 
+   <object idref="ClassNode6"/> 
    <object idref="ClassNode11"/> 
   </void> 
   <void method="connect"> 
@@ -541,8 +604,8 @@ TimerOverflowListener</string>
      <object class="com.horstmann.violet.ArrowHead" field="DIAMOND"/> 
     </void> 
    </object> 
-   <object idref="ClassNode8"/> 
-   <object idref="ClassNode12"/> 
+   <object idref="ClassNode7"/> 
+   <object idref="ClassNode10"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.ClassRelationshipEdge"> 
@@ -554,7 +617,7 @@ TimerOverflowListener</string>
     </void> 
    </object> 
    <object idref="ClassNode3"/> 
-   <object idref="ClassNode14"/> 
+   <object idref="ClassNode12"/> 
   </void> 
   <void method="connect"> 
    <object class="com.horstmann.violet.ClassRelationshipEdge"> 
@@ -566,7 +629,43 @@ TimerOverflowListener</string>
     </void> 
    </object> 
    <object idref="ClassNode3"/> 
+   <object idref="ClassNode13"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
+    <void property="bentStyle"> 
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/> 
+    </void> 
+    <void property="endArrowHead"> 
+     <object class="com.horstmann.violet.ArrowHead" field="V"/> 
+    </void> 
+   </object> 
+   <object idref="ClassNode14"/> 
    <object idref="ClassNode15"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
+    <void property="bentStyle"> 
+     <object class="com.horstmann.violet.BentStyle" field="VHV"/> 
+    </void> 
+    <void property="endArrowHead"> 
+     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/> 
+    </void> 
+   </object> 
+   <object idref="ClassNode14"/> 
+   <object idref="ClassNode8"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
+    <void property="bentStyle"> 
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/> 
+    </void> 
+    <void property="endArrowHead"> 
+     <object class="com.horstmann.violet.ArrowHead" field="V"/> 
+    </void> 
+   </object> 
+   <object idref="ClassNode3"/> 
+   <object idref="ClassNode16"/> 
   </void> 
  </object> 
 </java> 

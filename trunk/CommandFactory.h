@@ -5,7 +5,7 @@
  *      Author: oex
  */
 #include "Uart.h"
-#include "Pwm.h"
+#include "Timer.h"
 #include "Usb.h"
 #include "Command.h"
 #include "stm32f10x.h"
@@ -19,7 +19,7 @@ class CommandFactory {
 public:
 	CommandFactory();
 	Command* createCommand(Uart *uart);
-	Command* createCommand(Pwm *pwm);
+	Command* createCommand(Timer *timer);
 	Command* createCommand(Usb *usb);
 	virtual ~CommandFactory();
 private:
