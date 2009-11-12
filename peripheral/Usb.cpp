@@ -65,6 +65,7 @@ Usb::Usb(MAX3421E *controller, GpioPin *interruptPin, Timer* timer) {
 	devEnumerated = 0;
 	serviceRequired = 0;
 	serviceInitialized = 0;
+	state = Disconnect;
 
 	// Ensure the external interrupt pin has the right configuration
 	GpioPinConfiguration gpioPinconfig;
@@ -367,6 +368,8 @@ void Usb::stateChanged(GpioPin* pin) {
 							| MAX3421E::MODE_SOFKAENAB | MAX3421E::MODE_LOWSPEED
 							| MAX3421E::MODE_HOST);
 			}
+			devDetected = 0;
+			devEnumerated = 0;
 			state = Connect;
 		}
 		else {
