@@ -61,10 +61,10 @@ void main_francois() {
 	while(1) {
 
 		if(usb->deviceDetected()) {
-			led->setHigh();	// On
+			/*led->setHigh();	// On
 			for(uint32_t i=0; i<100000; i++);
 			led->setLow();	// Off
-			for(uint32_t i=0; i<100000; i++);
+			for(uint32_t i=0; i<100000; i++);*/
 
 			if(!usb->deviceEnumerated()) {
 				usb->enumerateDevice();

@@ -17,7 +17,7 @@ public:
 	// MAX3421E Registers
 	static const uint8_t RCVFIFO	= 1;
 	static const uint8_t SNDFIFO	= 2;
-	static const uint8_t SUDFIFO	= 3;
+	static const uint8_t SUDFIFO	= 4;
 	static const uint8_t RCVBC		= 6;
 	static const uint8_t SNDBC		= 7;
 	static const uint8_t USBIRQ		= 13;
