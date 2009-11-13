@@ -11,6 +11,14 @@ void Mux::setOutput(Output* output) {
 	this->output = output;
 }
 
+void Mux::addCommandWriter() {
+
+}
+void Mux::receiveCommand() {
+
+}
+
+
 Mux::Mux() {
 
 

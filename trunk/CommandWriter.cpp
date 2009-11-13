@@ -8,7 +8,7 @@
 #include "CommandWriter.h"
 
 void CommandWriter::setOutput() {
-	//this->output = output;
+	this->output = output;
 }
 
 void CommandWriter::write(Command *command) {

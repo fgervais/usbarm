@@ -131,8 +131,7 @@ void main_remi() {
 			uart1->poll();
 		}
 
-
-		uart1->write((char *)buf, 1);
+		uart1->write((char *)buf, 27);
 
 		led->setLow();	// Off
 		for(uint32_t i=0; i<1000000; i++){

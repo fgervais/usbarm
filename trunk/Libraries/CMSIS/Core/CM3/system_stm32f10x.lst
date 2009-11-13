@@ -1276,22 +1276,22 @@
 DEFINED SYMBOLS
                             *ABS*:00000000 system_stm32f10x.c
                             .text:00000000 $t
-     /tmp/ccLaex9s.s:27     .rodata.SystemFrequency:00000000 SystemFrequency
-     /tmp/ccLaex9s.s:28     .rodata.SystemFrequency:00000000 $d
-     /tmp/ccLaex9s.s:34     .rodata.SystemFrequency_SysClk:00000000 SystemFrequency_SysClk
-     /tmp/ccLaex9s.s:35     .rodata.SystemFrequency_SysClk:00000000 $d
-     /tmp/ccLaex9s.s:41     .rodata.SystemFrequency_AHBClk:00000000 SystemFrequency_AHBClk
-     /tmp/ccLaex9s.s:42     .rodata.SystemFrequency_AHBClk:00000000 $d
-     /tmp/ccLaex9s.s:48     .rodata.SystemFrequency_APB1Clk:00000000 SystemFrequency_APB1Clk
-     /tmp/ccLaex9s.s:49     .rodata.SystemFrequency_APB1Clk:00000000 $d
-     /tmp/ccLaex9s.s:55     .rodata.SystemFrequency_APB2Clk:00000000 SystemFrequency_APB2Clk
-     /tmp/ccLaex9s.s:56     .rodata.SystemFrequency_APB2Clk:00000000 $d
-     /tmp/ccLaex9s.s:63     .text.SystemInit:00000000 SystemInit
-     /tmp/ccLaex9s.s:60     .text.SystemInit:00000000 $t
-     /tmp/ccLaex9s.s:139    .text._ZL11SetSysClockv:00000000 _ZL11SetSysClockv
-     /tmp/ccLaex9s.s:136    .text._ZL11SetSysClockv:00000000 $t
-     /tmp/ccLaex9s.s:166    .text._ZL15SetSysClockTo72v:00000000 _ZL15SetSysClockTo72v
-     /tmp/ccLaex9s.s:163    .text._ZL15SetSysClockTo72v:00000000 $t
-     /tmp/ccLaex9s.s:386    .debug_loc:00000000 $d
+     /tmp/ccF0KqRD.s:27     .rodata.SystemFrequency:00000000 SystemFrequency
+     /tmp/ccF0KqRD.s:28     .rodata.SystemFrequency:00000000 $d
+     /tmp/ccF0KqRD.s:34     .rodata.SystemFrequency_SysClk:00000000 SystemFrequency_SysClk
+     /tmp/ccF0KqRD.s:35     .rodata.SystemFrequency_SysClk:00000000 $d
+     /tmp/ccF0KqRD.s:41     .rodata.SystemFrequency_AHBClk:00000000 SystemFrequency_AHBClk
+     /tmp/ccF0KqRD.s:42     .rodata.SystemFrequency_AHBClk:00000000 $d
+     /tmp/ccF0KqRD.s:48     .rodata.SystemFrequency_APB1Clk:00000000 SystemFrequency_APB1Clk
+     /tmp/ccF0KqRD.s:49     .rodata.SystemFrequency_APB1Clk:00000000 $d
+     /tmp/ccF0KqRD.s:55     .rodata.SystemFrequency_APB2Clk:00000000 SystemFrequency_APB2Clk
+     /tmp/ccF0KqRD.s:56     .rodata.SystemFrequency_APB2Clk:00000000 $d
+     /tmp/ccF0KqRD.s:63     .text.SystemInit:00000000 SystemInit
+     /tmp/ccF0KqRD.s:60     .text.SystemInit:00000000 $t
+     /tmp/ccF0KqRD.s:139    .text._ZL11SetSysClockv:00000000 _ZL11SetSysClockv
+     /tmp/ccF0KqRD.s:136    .text._ZL11SetSysClockv:00000000 $t
+     /tmp/ccF0KqRD.s:166    .text._ZL15SetSysClockTo72v:00000000 _ZL15SetSysClockTo72v
+     /tmp/ccF0KqRD.s:163    .text._ZL15SetSysClockTo72v:00000000 $t
+     /tmp/ccF0KqRD.s:386    .debug_loc:00000000 $d
 
 NO UNDEFINED SYMBOLS
