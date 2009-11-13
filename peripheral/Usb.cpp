@@ -158,7 +158,7 @@ void Usb::enumerateDevice() {
 	// Using the 'safe' value for now
 	maxPacketSize = 0x08;
 
-	request = new GetDescriptor(0x01, 0x08);
+	request = new GetDescriptor(0x0100, 0x0008);
 	sendRequest(request);
 
 	rawData = new uint8_t[request->length];
@@ -202,6 +202,8 @@ void Usb::enumerateDevice() {
 	delete request;
 
 	// Play with descriptors
+
+	devEnumerated = 1;
 }
 
 void Usb::serviceHid() {
@@ -221,11 +223,11 @@ void Usb::serviceHid() {
 }
 
 void Usb::waitFrames(uint32_t number) {
-	uint8_t frameCounter = number;
+	uint8_t frameCounter;
 	uint8_t hirq;
 
 	// Wait the specified number of frame
-	do {
+	for(frameCounter = 0; frameCounter < number; frameCounter++) {
 		// Clear frame IRQ
 		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_FRAMEIRQ);
 
@@ -233,13 +235,13 @@ void Usb::waitFrames(uint32_t number) {
 			controller->readRegister(MAX3421E::HIRQ, &hirq);
 		} while(hirq == 0);
 
-	} while(--frameCounter > 0);
+	}
 
 }
 
 uint8_t Usb::sendRequest(ControlRequest* request) {
 	// Load setup buffer
-	controller->writeBytes(MAX3421E::SUDFIFO,request->toArray(),8);
+	controller->writeBytes(MAX3421E::SUDFIFO,request->toArray(),request->length);
 
 	return launchTransfer(MAX3421E::TOKEN_SETUP, 0x00);
 }
@@ -303,9 +305,9 @@ uint8_t Usb::launchTransfer(uint8_t token, uint8_t endpoint) {
 	// Poll the IRQ to know when transfer is done
 	do {
 		controller->readRegister(MAX3421E::HIRQ, &hirq);
-	} while(hirq == 0);
+	} while((hirq & MAX3421E::HIRQ_HXFRDNIRQ) == 0);
 
-	// From MAXIM example. Is it necessary?
+	// From MAXIM's example. Is it necessary?
 	// Clear the transfer IRQ
 	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_HXFRDNIRQ);
 
@@ -317,6 +319,13 @@ uint8_t Usb::launchTransfer(uint8_t token, uint8_t endpoint) {
 }
 
 void Usb::busReset() {
+	/*
+	 * Disable connection interrupt since after the reset, the condition
+	 * for the interrupt will be met but it won't be because of a device
+	 * connected but only because the bus returned to its default state.
+	 */
+	controller->writeRegister(MAX3421E::HIEN, 0x00);
+
 	// Perform a bus reset (Put the bus in SE0 state)
 	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_BUSRST);
 
@@ -329,6 +338,10 @@ void Usb::busReset() {
 	} while(hctl == 1);
 
 	state = Default;
+	// Clear the connect IRQ
+	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
+	// Re-enable the connection interrupt
+	controller->writeRegister(MAX3421E::HIEN, MAX3421E::HIEN_CONNIE);
 }
 
 void Usb::stateChanged(GpioPin* pin) {
@@ -344,12 +357,6 @@ void Usb::stateChanged(GpioPin* pin) {
 	if(hostIRQ & MAX3421E::HIRQ_CONNIRQ) {
 
 		if(state == Disconnect) {
-			// Blink led fast
-			GPIOA->BSRR |= 0x01;	// On
-			for(uint32_t i=0; i<100000; i++);
-			GPIOA->BRR |= 0x01;	// Off
-			for(uint32_t i=0; i<100000; i++);
-
 			// Clear the connect IRQ
 			controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
 			// Read the bus state
@@ -368,23 +375,19 @@ void Usb::stateChanged(GpioPin* pin) {
 							| MAX3421E::MODE_SOFKAENAB | MAX3421E::MODE_LOWSPEED
 							| MAX3421E::MODE_HOST);
 			}
-			devDetected = 0;
+			devDetected = 1;
 			devEnumerated = 0;
 			state = Connect;
 		}
 		else {
-			// Blink led fast
-			GPIOA->BSRR |= 0x01;	// On
-			for(uint32_t i=0; i<100000; i++);
-			GPIOA->BRR |= 0x01;	// Off
-			for(uint32_t i=0; i<100000; i++);
-
 			// Clear the connect IRQ
 			controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
 			// Stop automatic SOF/Keep-Alive generation
 			controller->writeRegister(MAX3421E::MODE,
 						MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN | MAX3421E::MODE_HOST);
 
+			devDetected = 0;
+			devEnumerated = 0;
 			state = Disconnect;
 		}
 	}

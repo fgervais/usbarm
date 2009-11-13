@@ -47,8 +47,6 @@ void main_francois() {
 	// Clear interrupt pending bit
 	EXTI->PR |= EXTI_PR_PR1;
 
-	//usb->serviceHid();
-
 	// Reset led sequence
 	/*for(uint32_t j=0; j<10; j++) {
 		led->setHigh();	// On
@@ -61,6 +59,21 @@ void main_francois() {
 
 	// Blink led
 	while(1) {
+
+		if(usb->deviceDetected()) {
+			led->setHigh();	// On
+			for(uint32_t i=0; i<100000; i++);
+			led->setLow();	// Off
+			for(uint32_t i=0; i<100000; i++);
+
+			if(!usb->deviceEnumerated()) {
+				usb->enumerateDevice();
+			}
+			else {
+				//usb->serviceHid();
+			}
+		}
+
 		/*
 		led->setHigh();	// On
 		for(uint32_t i=0; i<1000000; i++);
