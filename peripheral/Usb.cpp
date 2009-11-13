@@ -271,9 +271,6 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 	// First packet has DATA1 ID. See USB standard.
 	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
 
-	// Clear the receive IRQ just to make sure
-	//controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
-
 	do {
 		hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
 
