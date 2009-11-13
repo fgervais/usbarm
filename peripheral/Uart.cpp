@@ -10,6 +10,7 @@
 #include "UartConfiguration.h"
 #include "Gpio.h"
 #include "GpioPin.h"
+#include "Queue.h"
 
 #include "STM32F103.h"
 

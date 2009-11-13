@@ -9,7 +9,7 @@
 #define COMMANDWRITER_H_
 
 #include "PeripheralEventListener.h"
-#include "CommandReceiver.h"
+#include "Mux.h"
 #include "Command.h"
 
 class CommandWriter: public PeripheralEventListener {
@@ -19,7 +19,7 @@ public:
 	void write(Command *command);
 	virtual ~CommandWriter();
 private:
-	//CommandReceiver *output;
+	Mux *output;
 };
 
 #endif /* COMMANDWRITER_H_ */

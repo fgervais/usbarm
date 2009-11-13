@@ -12,9 +12,10 @@
 
 class CommandReceiver {
 public:
+
 	CommandReceiver();
 	void addCommandWriter();
-	virtual void receiveCommand() = 0;
+	virtual void receiveCommand() =0;
 	virtual ~CommandReceiver();
 };
 
