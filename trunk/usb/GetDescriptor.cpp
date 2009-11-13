@@ -13,7 +13,7 @@ GetDescriptor::GetDescriptor(uint16_t descriptorTypeIndex, uint16_t descriptorLe
 	request		= 0x06;
 	value		= descriptorTypeIndex;
 	index		= 0x00;
-	length		= 0x00;
+	length		= descriptorLength;
 }
 
 GetDescriptor::~GetDescriptor() {
