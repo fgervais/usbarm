@@ -130,6 +130,14 @@ void Usb::listenForDevice() {
 void Usb::enumerateDevice() {
 	ControlRequest* request;
 	uint8_t* rawData;
+	uint8_t hrsl;
+
+	//debug
+	// Blink led fast
+	GPIOA->BSRR |= 0x01;	// On
+	for(uint32_t i=0; i<100000; i++);
+	GPIOA->BRR |= 0x01;	// Off
+	for(uint32_t i=0; i<100000; i++);
 
 	/*
 	 * Host and device use this first reset to issue the high speed handshake.
@@ -159,6 +167,7 @@ void Usb::enumerateDevice() {
 	maxPacketSize = 0x08;
 
 	request = new GetDescriptor(0x0100, 0x0008);
+
 	sendRequest(request);
 
 	rawData = new uint8_t[request->length];
@@ -243,7 +252,13 @@ uint8_t Usb::sendRequest(ControlRequest* request) {
 	// Load setup buffer
 	controller->writeBytes(MAX3421E::SUDFIFO,request->toArray(),request->length);
 
-	return launchTransfer(MAX3421E::TOKEN_SETUP, 0x00);
+	// TODO: should be able to timeout
+	uint8_t hrslt;
+	do {
+		hrslt = launchTransfer(MAX3421E::TOKEN_SETUP, 0x00);
+	} while(hrslt != MAX3421E::HRSLT_SUCCESS);
+
+	return hrslt;
 }
 
 uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
@@ -257,7 +272,7 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
 
 	// Clear the receive IRQ just to make sure
-	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
+	//controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
 	do {
 		hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
@@ -265,10 +280,6 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
 			// Check the number of bytes received
 			controller->readRegister(MAX3421E::RCVBC, &rcvbc);
-
-			// Clear the receive IRQ
-			// This is really important according to the MAX3421E programming manual
-			controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
 			if(rcvbc <= (length - offset)) {
 				// Fill the buffer
@@ -281,6 +292,10 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 
 			offset += rcvbc;
 		}
+
+		// Clear the receive IRQ and free the buffer
+		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
+
 		/*
 		 * The transfer is complete under three conditions:
 		 * 1. There's been a problem in the transfer.
@@ -288,6 +303,9 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 		 * 3. 'length' bytes have been transferred.
 		 */
 	} while(hrslt == MAX3421E::HRSLT_SUCCESS && rcvbc == packetSize && offset < length);
+
+	// Clear IRQ and free the buffer
+	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
 	return hrslt;
 }
@@ -315,7 +333,7 @@ uint8_t Usb::launchTransfer(uint8_t token, uint8_t endpoint) {
 	controller->readRegister(MAX3421E::HRSL, &hrsl);
 	hrslt = hrsl & 0x0F;
 
-	return hrsl;
+	return hrslt;
 }
 
 void Usb::busReset() {
@@ -347,12 +365,6 @@ void Usb::busReset() {
 void Usb::stateChanged(GpioPin* pin) {
 	uint8_t hostIRQ;
 	controller->readRegister(MAX3421E::HIRQ, &hostIRQ);
-
-	// Blink led fast
-	GPIOA->BSRR |= 0x01;	// On
-	for(uint32_t i=0; i<100000; i++);
-	GPIOA->BRR |= 0x01;	// Off
-	for(uint32_t i=0; i<100000; i++);
 
 	if(hostIRQ & MAX3421E::HIRQ_CONNIRQ) {
 
