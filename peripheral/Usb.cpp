@@ -135,10 +135,10 @@ void Usb::enumerateDevice() {
 
 	//debug
 	// Blink led fast
-	GPIOA->BSRR |= 0x01;	// On
+	/*GPIOA->BSRR |= 0x01;	// On
 	for(uint32_t i=0; i<100000; i++);
 	GPIOA->BRR |= 0x01;	// Off
-	for(uint32_t i=0; i<100000; i++);
+	for(uint32_t i=0; i<100000; i++);*/
 
 	/*
 	 * Host and device use this first reset to issue the high speed handshake.
@@ -179,15 +179,6 @@ void Usb::enumerateDevice() {
 
 	// Set the maximum EP0 packet size
 	maxPacketSize = rawData[7];
-
-	//debug
-	for(int i=0;i<rawData[7];i++) {
-		// Blink led fast
-		GPIOA->BSRR |= 0x01;	// On
-		for(uint32_t i=0; i<10000; i++);
-		GPIOA->BRR |= 0x01;	// Off
-		for(uint32_t i=0; i<10000; i++);
-	}
 
 	// Free resources used for that request
 	delete request;
@@ -232,23 +223,26 @@ void Usb::enumerateDevice() {
 
 	DeviceDescriptor* deviceDescriptor = new DeviceDescriptor(rawData);
 
-	if(deviceDescriptor->idVendor == 0x04b3) {
-		// Blink led fast
-		GPIOA->BSRR |= 0x01;	// On
-		for(uint32_t i=0; i<10000; i++);
-		GPIOA->BRR |= 0x01;	// Off
-		for(uint32_t i=0; i<10000; i++);
+	devEnumerated = 1;
 
-		if(deviceDescriptor->idProduct == 0x3025) {
+	// Blink led fast
+	/*GPIOA->BSRR |= 0x01;	// On
+	for(uint32_t i=0; i<100000; i++);
+	GPIOA->BRR |= 0x01;	// Off
+	for(uint32_t i=0; i<100000; i++);*/
+
+	// debug
+	//if(deviceDescriptor->idVendor == 0x04b3) {
+	if(deviceDescriptor->idVendor == 0x046d) {
+		//if(deviceDescriptor->idProduct == 0x3025) {
+		if(deviceDescriptor->idProduct == 0xc018) {
 			// Blink led fast
 			GPIOA->BSRR |= 0x01;	// On
-			for(uint32_t i=0; i<10000; i++);
+			for(uint32_t i=0; i<100000; i++);
 			GPIOA->BRR |= 0x01;	// Off
-			for(uint32_t i=0; i<10000; i++);
+			for(uint32_t i=0; i<100000; i++);
 		}
 	}
-
-	devEnumerated = 1;
 }
 
 void Usb::serviceHid() {
@@ -311,7 +305,10 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 		// Clear the receive IRQ and free the buffer
 		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
-		hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
+		// TODO: should be able to timeout
+		do {
+			hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
+		} while(hrslt != MAX3421E::HRSLT_SUCCESS);
 
 		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
 			// Check the number of bytes received
@@ -330,7 +327,7 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 		}
 
 		// Clear the receive IRQ and free the buffer
-		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
+		//controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
 		/*
 		 * The transfer is complete under three conditions:
@@ -405,8 +402,6 @@ void Usb::stateChanged(GpioPin* pin) {
 	if(hostIRQ & MAX3421E::HIRQ_CONNIRQ) {
 
 		if(state == Disconnect) {
-			// Clear the connect IRQ
-			controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
 			// Read the bus state
 			uint8_t busState;
 			controller->readRegister(MAX3421E::HRSL, &busState);
@@ -428,16 +423,17 @@ void Usb::stateChanged(GpioPin* pin) {
 			state = Connect;
 		}
 		else {
-			// Clear the connect IRQ
-			controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
 			// Stop automatic SOF/Keep-Alive generation
 			controller->writeRegister(MAX3421E::MODE,
 						MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN | MAX3421E::MODE_HOST);
 
 			devDetected = 0;
-			devEnumerated = 0;
+			//devEnumerated = 0;
 			state = Disconnect;
 		}
+
+		// Clear the connect IRQ
+		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_CONNIRQ);
 	}
 
 }

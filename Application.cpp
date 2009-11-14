@@ -67,6 +67,14 @@ void main_francois() {
 			for(uint32_t i=0; i<100000; i++);*/
 
 			if(!usb->deviceEnumerated()) {
+
+				//debug
+				// Blink led fast
+				GPIOA->BSRR |= 0x01;	// On
+				for(uint32_t i=0; i<100000; i++);
+				GPIOA->BRR |= 0x01;	// Off
+				for(uint32_t i=0; i<100000; i++);
+
 				usb->enumerateDevice();
 			}
 			else {
