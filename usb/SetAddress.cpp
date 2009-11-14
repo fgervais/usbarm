@@ -9,11 +9,11 @@
 
 SetAddress::SetAddress(uint16_t address) {
 	// Set all the Base class member
-	requestType	= 0x00;
-	request		= 0x05;
-	value		= address;
-	index		= 0x00;
-	length		= 0x00;
+	bmRequestType	= 0x00;
+	bRequest		= 0x05;
+	wValue		= address;
+	wIndex		= 0x0000;
+	wLength		= 0x0000;
 }
 
 SetAddress::~SetAddress() {

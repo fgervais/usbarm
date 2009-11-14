@@ -18,14 +18,14 @@ ControlRequest::~ControlRequest() {
 }
 
 uint8_t* ControlRequest::toArray() {
-	rawPacket[0] = requestType;
-	rawPacket[1] = request;
-	rawPacket[2] = (uint8_t)(value & 0x00FF);
-	rawPacket[3] = (uint8_t)((value >> 8) & 0x00FF);
-	rawPacket[4] = (uint8_t)(index & 0x00FF);
-	rawPacket[5] = (uint8_t)((index >> 8) & 0x00FF);
-	rawPacket[6] = (uint8_t)(length & 0x00FF);
-	rawPacket[7] = (uint8_t)((length >> 8) & 0x00FF);
+	rawPacket[0] = bmRequestType;
+	rawPacket[1] = bRequest;
+	rawPacket[2] = (uint8_t)(wValue & 0x00FF);
+	rawPacket[3] = (uint8_t)((wValue >> 8) & 0x00FF);
+	rawPacket[4] = (uint8_t)(wIndex & 0x00FF);
+	rawPacket[5] = (uint8_t)((wIndex >> 8) & 0x00FF);
+	rawPacket[6] = (uint8_t)(wLength & 0x00FF);
+	rawPacket[7] = (uint8_t)((wLength >> 8) & 0x00FF);
 
 	return rawPacket;
 }

@@ -12,11 +12,11 @@
 
 class ControlRequest {
 public:
-	uint8_t requestType;
-	uint8_t request;
-	uint16_t value;
-	uint16_t index;
-	uint16_t length;
+	uint8_t bmRequestType;
+	uint8_t bRequest;
+	uint16_t wValue;
+	uint16_t wIndex;
+	uint16_t wLength;
 
 	uint8_t* toArray();
 

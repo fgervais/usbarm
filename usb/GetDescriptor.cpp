@@ -9,11 +9,11 @@
 
 GetDescriptor::GetDescriptor(uint16_t descriptorTypeIndex, uint16_t descriptorLength) {
 	// Set all the Base class member
-	requestType	= 0x80;
-	request		= 0x06;
-	value		= descriptorTypeIndex;
-	index		= 0x00;
-	length		= descriptorLength;
+	bmRequestType	= 0x80;
+	bRequest		= 0x06;
+	wValue		= descriptorTypeIndex;
+	wIndex		= 0x0000;
+	wLength		= descriptorLength;
 }
 
 GetDescriptor::~GetDescriptor() {
