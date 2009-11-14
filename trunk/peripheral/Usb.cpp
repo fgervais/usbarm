@@ -15,6 +15,7 @@
 #include "ControlRequest.h"
 #include "GetDescriptor.h"
 #include "SetAddress.h"
+#include "DeviceDescriptor.h"
 
 #include <stdint.h>
 
@@ -220,8 +221,32 @@ void Usb::enumerateDevice() {
 	delete request;
 
 	// Play with descriptors
-	// Get the whole device descriptor with the new address
+	ControlRequest* r = new GetDescriptor(0x0100, 0x0012);
+	sendRequest(r);
 
+	rawData = new uint8_t[r->wLength];
+	receiveRawData(rawData, r->wLength, 0x00, maxPacketSize);
+
+	// OUT Status stage
+	launchTransfer(MAX3421E::TOKEN_HSOUT, 0x00);
+
+	DeviceDescriptor* deviceDescriptor = new DeviceDescriptor(rawData);
+
+	if(deviceDescriptor->idVendor == 0x04b3) {
+		// Blink led fast
+		GPIOA->BSRR |= 0x01;	// On
+		for(uint32_t i=0; i<10000; i++);
+		GPIOA->BRR |= 0x01;	// Off
+		for(uint32_t i=0; i<10000; i++);
+
+		if(deviceDescriptor->idProduct == 0x3025) {
+			// Blink led fast
+			GPIOA->BSRR |= 0x01;	// On
+			for(uint32_t i=0; i<10000; i++);
+			GPIOA->BRR |= 0x01;	// Off
+			for(uint32_t i=0; i<10000; i++);
+		}
+	}
 
 	devEnumerated = 1;
 }
@@ -283,6 +308,9 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
 
 	do {
+		// Clear the receive IRQ and free the buffer
+		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
+
 		hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
 
 		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
