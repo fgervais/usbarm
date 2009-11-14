@@ -170,14 +170,23 @@ void Usb::enumerateDevice() {
 
 	sendRequest(request);
 
-	rawData = new uint8_t[request->length];
-	receiveRawData(rawData, request->length, 0x00, maxPacketSize);
+	rawData = new uint8_t[request->wLength];
+	receiveRawData(rawData, request->wLength, 0x00, maxPacketSize);
 
 	// OUT Status stage
 	launchTransfer(MAX3421E::TOKEN_HSOUT, 0x00);
 
 	// Set the maximum EP0 packet size
 	maxPacketSize = rawData[7];
+
+	//debug
+	for(int i=0;i<rawData[7];i++) {
+		// Blink led fast
+		GPIOA->BSRR |= 0x01;	// On
+		for(uint32_t i=0; i<10000; i++);
+		GPIOA->BRR |= 0x01;	// Off
+		for(uint32_t i=0; i<10000; i++);
+	}
 
 	// Free resources used for that request
 	delete request;
@@ -211,6 +220,8 @@ void Usb::enumerateDevice() {
 	delete request;
 
 	// Play with descriptors
+	// Get the whole device descriptor with the new address
+
 
 	devEnumerated = 1;
 }
@@ -250,7 +261,7 @@ void Usb::waitFrames(uint32_t number) {
 
 uint8_t Usb::sendRequest(ControlRequest* request) {
 	// Load setup buffer
-	controller->writeBytes(MAX3421E::SUDFIFO,request->toArray(),request->length);
+	controller->writeBytes(MAX3421E::SUDFIFO,request->toArray(),0x08);
 
 	// TODO: should be able to timeout
 	uint8_t hrslt;
