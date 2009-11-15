@@ -17,6 +17,8 @@
 #include "SetAddress.h"
 #include "SetConfiguration.h"
 #include "DeviceDescriptor.h"
+#include "OutputReport.h"
+#include "GamepadOutputReport.h"
 
 #include <stdint.h>
 
@@ -250,22 +252,28 @@ void Usb::enumerateDevice() {
 }
 
 void Usb::serviceHid() {
-	uint8_t rawData[12];
+	uint8_t rawData[20];
 
 	if(!serviceInitialized) {
 		timer->addEventListener(this);
 		timer->enable();
 		serviceInitialized = 1;
+
+		ControlRequest* setConfiguration = new SetConfiguration(0x01);
+		sendRequest(setConfiguration);
+		delete setConfiguration;
 		//debug
 		//serviceRequired = 1;
 	}
 	if(serviceRequired) {
-		ControlRequest* setConfiguration = new SetConfiguration(0x01);
+		OutputReport* outputReport = new GamepadOutputReport(0x02);
+		sendInterruptReport(outputReport);
+		delete outputReport;
 
-		sendRequest(setConfiguration);
 		// Get an interrupt report
 		//receiveRawData(rawData, 0x08, 0x01, 0x08); // Keyboard
-		receiveRawData(rawData, 0x04, 0x01, 0x05); // Mouse
+		//receiveRawData(rawData, 0x04, 0x01, 0x05); // Mouse
+		receiveRawData(rawData, 0x14, 0x01, 0x20); // Gamepad
 		serviceRequired = 0;
 	}
 }
@@ -348,6 +356,20 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 
 	// Clear IRQ and free the buffer
 	controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
+
+	return hrslt;
+}
+
+uint8_t Usb::sendInterruptReport(OutputReport* outputReport) {
+	// Load setup buffer
+	controller->writeBytes(MAX3421E::SNDFIFO,outputReport->toArray(),outputReport->length);
+	controller->writeRegister(MAX3421E::SNDBC, outputReport->length);
+
+	// TODO: should be able to timeout
+	uint8_t hrslt;
+	do {
+		hrslt = launchTransfer(MAX3421E::TOKEN_BULKOUT, 0x01);
+	} while(hrslt != MAX3421E::HRSLT_SUCCESS);
 
 	return hrslt;
 }

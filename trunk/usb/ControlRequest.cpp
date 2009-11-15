@@ -18,6 +18,8 @@ ControlRequest::~ControlRequest() {
 }
 
 uint8_t* ControlRequest::toArray() {
+	// TODO: I don't think it's safe to return an array like that
+	// The array should be allocated using new.
 	rawPacket[0] = bmRequestType;
 	rawPacket[1] = bRequest;
 	rawPacket[2] = (uint8_t)(wValue & 0x00FF);
