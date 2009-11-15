@@ -18,6 +18,7 @@ class GpioPin;
 class Timer;
 class ControlRequest;
 class GamepadReport;
+class OutputReport;
 
 class Usb: public Peripheral, GpioPinEventListener, TimerOverflowListener {
 public:
@@ -47,15 +48,17 @@ private:
 	enum State { Disconnect, Connect, Default, Reset, Normal } state;
 
 	// Global flag
-	uint8_t devDetected;
-	uint8_t devEnumerated;
-	uint8_t serviceRequired;
+	volatile uint8_t devDetected;
+	volatile uint8_t devEnumerated;
+	volatile uint8_t serviceRequired;
 	uint8_t serviceInitialized;
 
 	void waitFrames(uint32_t number);
 	uint8_t sendRequest(ControlRequest* request);
 	uint8_t receiveRawData(uint8_t* rawData, uint16_t length,
 			uint8_t endpoint, uint8_t packetSize);
+	uint8_t receiveInterruptReport();
+	uint8_t sendInterruptReport(OutputReport* outputReport);
 	uint8_t launchTransfer(uint8_t token, uint8_t endpoint);
 	void busReset();
 	GamepadReport getReport() { return *report; };
