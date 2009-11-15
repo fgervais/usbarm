@@ -15,6 +15,7 @@
 #include "ControlRequest.h"
 #include "GetDescriptor.h"
 #include "SetAddress.h"
+#include "SetConfiguration.h"
 #include "DeviceDescriptor.h"
 
 #include <stdint.h>
@@ -76,10 +77,11 @@ Usb::Usb(MAX3421E *controller, GpioPin *interruptPin, Timer* timer) {
 	// Configure the Timer in counter mode
 	TimerConfiguration timerConfig;
 	timerConfig.mode = Timer::COUNTER_MODE;
-	//timerConfig.autoReload = 57600;
-	//timerConfig.prescaler = 15;
-	timerConfig.autoReload = 0xFFFF;
-	timerConfig.prescaler = 1500;
+	timerConfig.autoReload = 57600;
+	timerConfig.prescaler = 15;
+	//debug
+	//timerConfig.autoReload = 0xFFFF;
+	//timerConfig.prescaler = 1500;
 	timer->configure(timerConfig);
 
 	/*
@@ -232,31 +234,38 @@ void Usb::enumerateDevice() {
 	for(uint32_t i=0; i<100000; i++);*/
 
 	// debug
-	//if(deviceDescriptor->idVendor == 0x04b3) {
-	if(deviceDescriptor->idVendor == 0x046d) {
-		//if(deviceDescriptor->idProduct == 0x3025) {
-		if(deviceDescriptor->idProduct == 0xc018) {
+	//if(deviceDescriptor->idVendor == 0x04b3) { // Keyboard
+	//if(deviceDescriptor->idVendor == 0x046d) { // Mouse
+	//if(deviceDescriptor->idVendor == 0x045e) { // Xbox receiver
+		//if(deviceDescriptor->idProduct == 0x3025) { // Keyboard
+		//if(deviceDescriptor->idProduct == 0xc018) { // Mouse
+		//if(deviceDescriptor->idProduct == 0x0719) { // Xbox receiver
 			// Blink led fast
-			GPIOA->BSRR |= 0x01;	// On
+			/*GPIOA->BSRR |= 0x01;	// On
 			for(uint32_t i=0; i<100000; i++);
 			GPIOA->BRR |= 0x01;	// Off
-			for(uint32_t i=0; i<100000; i++);
-		}
-	}
+			for(uint32_t i=0; i<100000; i++);*/
+		//}
+	//}
 }
 
 void Usb::serviceHid() {
-	uint8_t* rawData;
+	uint8_t rawData[12];
 
 	if(!serviceInitialized) {
 		timer->addEventListener(this);
 		timer->enable();
 		serviceInitialized = 1;
+		//debug
+		//serviceRequired = 1;
 	}
-	else if(serviceRequired) {
-		rawData = new uint8_t[12];
+	if(serviceRequired) {
+		ControlRequest* setConfiguration = new SetConfiguration(0x01);
+
+		sendRequest(setConfiguration);
 		// Get an interrupt report
-		receiveRawData(rawData, 0x08, 0x01, 0x08);
+		//receiveRawData(rawData, 0x08, 0x01, 0x08); // Keyboard
+		receiveRawData(rawData, 0x04, 0x01, 0x05); // Mouse
 		serviceRequired = 0;
 	}
 }
@@ -428,7 +437,7 @@ void Usb::stateChanged(GpioPin* pin) {
 						MAX3421E::MODE_DPPULLDN | MAX3421E::MODE_DMPULLDN | MAX3421E::MODE_HOST);
 
 			devDetected = 0;
-			//devEnumerated = 0;
+			//devEnumerated = 0;	// This seems to create a race condition
 			state = Disconnect;
 		}
 
@@ -441,9 +450,10 @@ void Usb::stateChanged(GpioPin* pin) {
 void Usb::timerOverflowed(Timer* timer) {
 	serviceRequired = 1;
 
+	//debug
 	// Blink led fast
-	GPIOA->BSRR |= 0x01;	// On
+	/*GPIOA->BSRR |= 0x01;	// On
 	for(uint32_t i=0; i<100000; i++);
 	GPIOA->BRR |= 0x01;	// Off
-	for(uint32_t i=0; i<100000; i++);
+	for(uint32_t i=0; i<100000; i++);*/
 }

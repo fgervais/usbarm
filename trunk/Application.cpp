@@ -78,7 +78,7 @@ void main_francois() {
 				usb->enumerateDevice();
 			}
 			else {
-				//usb->serviceHid();
+				usb->serviceHid();
 			}
 		}
 
