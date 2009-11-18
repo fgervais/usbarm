@@ -120,7 +120,7 @@
    <object id="ClassNode5" class="com.horstmann.violet.ClassNode"> 
     <void property="name"> 
      <void property="text"> 
-      <string>InterruptReport</string> 
+      <string>InputReport</string> 
      </void> 
     </void> 
    </object> 

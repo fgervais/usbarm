@@ -1,19 +1,21 @@
 /*
- * GamepadReport.h
+ * GamepadInputReport.h
  *
- *  Created on: Nov 5, 2009
+ *  Created on: Nov 18, 2009
  *      Author: fgervais
  */
 
-#ifndef GAMEPADREPORT_H_
-#define GAMEPADREPORT_H_
+#ifndef GAMEPADINPUTREPORT_H_
+#define GAMEPADINPUTREPORT_H_
 
-#include "InterruptReport.h"
+#include "InputReport.h"
 
 #include <stdint.h>
 
-class GamepadReport: public InterruptReport {
+class GamepadInputReport: public InputReport {
 public:
+	// Reference : http://free60.org/wiki/GamePad
+
 	/*
 	 * 0x01 : LED status message
 	 * 0x00 : normal input report message.
@@ -52,8 +54,26 @@ public:
 	int16_t rightStickX;
 	int16_t rightStickY;
 
-	GamepadReport(uint8_t* rawReport);
-	virtual ~GamepadReport();
+	// All 8 buttons mapped to a byte variable
+	uint8_t dPadUp;
+	uint8_t dPadDown;
+	uint8_t dPadLeft;
+	uint8_t dPadRight;
+	uint8_t start;
+	uint8_t back;
+	uint8_t leftStickPress;
+	uint8_t rightStickPress;
+
+	uint8_t lb;
+	uint8_t rb;
+	uint8_t xboxButton;
+	uint8_t a;
+	uint8_t b;
+	uint8_t x;
+	uint8_t y;
+
+	GamepadInputReport(uint8_t* rawReport);
+	virtual ~GamepadInputReport();
 };
 
-#endif /* GAMEPADREPORT_H_ */
+#endif /* GAMEPADINPUTREPORT_H_ */

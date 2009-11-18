@@ -13,6 +13,7 @@
 #include "Uart.h"
 #include "UartConfiguration.h"
 #include "Usb.h"
+#include "NesControllerInterface.h"
 
 #include <stdint.h>
 
@@ -29,6 +30,7 @@ void main_francois() {
 	SystemInit();
 
 	Gpio *gpioA = STM32F103::getGpioA();
+	Gpio *gpioC = STM32F103::getGpioC();
 
 	// Set default port behavior
 	GpioConfiguration portConfig(Gpio::FLOATING_INPUT);
@@ -43,6 +45,10 @@ void main_francois() {
 
 	// Create the usb port
 	Usb* usb = STM32F103::getUsb();
+
+	// Create a new NES controller intreface
+	NesControllerInterface* nesInterface = new NesControllerInterface(gpioC->getPin(3), gpioC->getPin(4), gpioC->getPin(5));
+	usb->addEventListener(nesInterface);
 
 	// Clear interrupt pending bit
 	EXTI->PR |= EXTI_PR_PR1;
@@ -61,9 +67,9 @@ void main_francois() {
 
 	//debug
 	// Blink led fast
-	GPIOA->BSRR |= 0x01;	// On
+	led->setHigh();	// On
 	for(uint32_t i=0; i<100000; i++);
-	GPIOA->BRR |= 0x01;	// Off
+	led->setLow();	// Off
 	for(uint32_t i=0; i<100000; i++);
 
 	usb->enumerateDevice();

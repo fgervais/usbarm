@@ -19,6 +19,8 @@
 #include "DeviceDescriptor.h"
 #include "OutputReport.h"
 #include "GamepadOutputReport.h"
+#include "GamepadInputReport.h"
+#include "GamepadReportListener.h"
 
 #include <stdint.h>
 
@@ -64,7 +66,7 @@ Usb::Usb(MAX3421E *controller, GpioPin *interruptPin, Timer* timer) {
 	this->timer = timer;
 
 	// Init class members
-	report = 0;
+	gamepadReport = 0;
 	devDetected = 0;
 	devEnumerated = 0;
 	serviceRequired = 0;
@@ -291,43 +293,48 @@ void Usb::serviceHid() {
 		sendRequest(setConfiguration);
 		delete setConfiguration;
 
-		// Init data toggle
+		// Init data toggle for endpoint 0x01
 		controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_SNDTOG0);
 		controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG0);
-
-		//debug
-		//serviceRequired = 1;
 	}
 	if(serviceRequired) {
 		if(outPollingDelay == 0) {
-			//OutputReport* outputReport = new GamepadOutputReport(0x02);
-			GamepadOutputReport outputReport(0x02);
-			sendInterruptReport(&outputReport);
-			//delete outputReport;
+			OutputReport* outputReport = new GamepadOutputReport(0x02);
+			sendInterruptReport(outputReport);
+			delete outputReport;
 			outPollingDelay = 7;
 		}
 		else {
 			outPollingDelay--;
-
-			// Get an interrupt report
-			//receiveRawData(rawData, 0x08, 0x01, 0x08); // Keyboard
-			//receiveRawData(rawData, 0x04, 0x01, 0x05); // Mouse
-			hrslt = receiveRawData(rawData, 0x1d, 0x01, 0x20); // Gamepad
 		}
+
+		// Get an interrupt report
+		//receiveRawData(rawData, 0x08, 0x01, 0x08); // Keyboard
+		//receiveRawData(rawData, 0x04, 0x01, 0x05); // Mouse
+		hrslt = receiveRawData(rawData, 0x1d, 0x01, 0x20); // Gamepad
 
 		serviceRequired = 0;
 
 		//debug
 		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
-			if(rawData[7] & 0x10) {
-				GPIOA->BSRR |= 0x01; // On
+			delete gamepadReport;
+			gamepadReport = new GamepadInputReport(&rawData[4]);
+
+			// Browse through every listeners and tell them that
+			// this object have an event pending
+			for(int32_t i=0; i<gamepadListeners.size(); i++) {
+				if(gamepadListeners.getElement(i) != 0) {
+					gamepadListeners.getElement(i)->gamepadReportReceived(this);
+				}
 			}
-			else if(rawData[7] & 0x20) {
-				GPIOA->BRR |= 0x01;	// Off
-			}
+
 		}
 
 	}
+}
+
+void Usb::addEventListener(GamepadReportListener* listener) {
+	gamepadListeners.addElement(listener);
 }
 
 void Usb::waitFrames(uint32_t number) {

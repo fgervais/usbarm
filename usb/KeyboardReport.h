@@ -8,11 +8,11 @@
 #ifndef KEYBOARDREPORT_H_
 #define KEYBOARDREPORT_H_
 
-#include "InterruptReport.h"
+#include "InputReport.h"
 
 #include <stdint.h>
 
-class KeyboardReport: public InterruptReport {
+class KeyboardReport: public InputReport {
 public:
 	/*
 	 * The bitmap of Modifier byte
