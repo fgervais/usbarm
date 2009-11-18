@@ -315,13 +315,13 @@ UartEventListener</string>
    <object id="ClassNode11" class="com.horstmann.violet.ClassNode"> 
     <void property="methods"> 
      <void property="text"> 
-      <string>+ reportReceived(Usb*)</string> 
+      <string>+ gamepadReportReceivedUsb*)</string> 
      </void> 
     </void> 
     <void property="name"> 
      <void property="text"> 
       <string>&quot;Interface&quot;
-UsbEventListener</string> 
+GamepadReportListener</string> 
      </void> 
     </void> 
    </object> 

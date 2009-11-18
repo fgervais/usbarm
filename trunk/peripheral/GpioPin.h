@@ -28,6 +28,8 @@ public:
 	void setHigh();
 	void setLow();
 	void addEventListener(GpioPinEventListener *listener);
+	uint8_t getPinNumber() { return pinNumber; }
+	uint8_t getPortNumber() { return portNumber; }
 
 private:
 	uint8_t pinNumber;

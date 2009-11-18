@@ -11,14 +11,17 @@
 #include "Peripheral.h"
 #include "GpioPinEventListener.h"
 #include "TimerOverflowListener.h"
-#include "GamepadReport.h"
+#include "GamepadInputReport.h"
+#include "Vector.h"
 
 class MAX3421E;
 class GpioPin;
 class Timer;
 class ControlRequest;
-class GamepadReport;
+class GamepadInpputReport;
 class OutputReport;
+class GamepadReportListener;
+
 
 class Usb: public Peripheral, GpioPinEventListener, TimerOverflowListener {
 public:
@@ -30,6 +33,8 @@ public:
 	void serviceHid();
 	uint8_t deviceDetected() { return devDetected; };
 	uint8_t deviceEnumerated() { return devEnumerated; };
+	void addEventListener(GamepadReportListener* listener);
+	GamepadInputReport getGamepadReport() { return *gamepadReport; };
 
 	// GpioPinEventListener interface implementation
 	void stateChanged(GpioPin* pin);
@@ -40,7 +45,8 @@ private:
 	MAX3421E *controller;
 	GpioPin* interruptPin;
 	Timer* timer;
-	GamepadReport* report;
+	GamepadInputReport* gamepadReport;
+	Vector<GamepadReportListener*> gamepadListeners;
 
 	// Maximum EP0 packet size
 	uint8_t maxPacketSize;
@@ -61,7 +67,6 @@ private:
 	uint8_t sendInterruptReport(OutputReport* outputReport);
 	uint8_t launchTransfer(uint8_t token, uint8_t endpoint);
 	void busReset();
-	GamepadReport getReport() { return *report; };
 };
 
 #endif /* USB_H_ */
