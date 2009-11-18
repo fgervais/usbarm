@@ -147,6 +147,10 @@ void Usb::listenForDevice() {
 	controller->writeRegister(MAX3421E::HIEN, MAX3421E::HIEN_CONNIE);
 	// Enable global interrupt
 	controller->writeRegister(MAX3421E::CPUCTL, MAX3421E::CPUCTL_IE);
+
+	// Perform a bus reset (Put the bus in SE0 state)
+	// Trick used to detect a device already plugged in
+	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_BUSRST);
 }
 
 void Usb::enumerateDevice() {
