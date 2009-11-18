@@ -24,7 +24,7 @@ public:
 	virtual ~ControlRequest();
 
 private:
-	uint8_t rawPacket[8];
+	uint8_t* rawPacket;
 };
 
 #endif /* CONTROLREQUEST_H_ */

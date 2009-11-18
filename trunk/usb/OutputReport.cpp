@@ -12,5 +12,6 @@ OutputReport::OutputReport() {
 }
 
 OutputReport::~OutputReport() {
-
+	// Free memory
+	delete rawReport;
 }

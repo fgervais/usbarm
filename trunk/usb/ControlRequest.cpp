@@ -14,10 +14,12 @@ ControlRequest::ControlRequest() {
 }
 
 ControlRequest::~ControlRequest() {
-
+	// Free memory
+	delete rawPacket;
 }
 
 uint8_t* ControlRequest::toArray() {
+	rawPacket = new uint8_t[8];
 	// TODO: I don't think it's safe to return an array like that
 	// The array should be allocated using new.
 	rawPacket[0] = bmRequestType;

@@ -76,31 +76,48 @@ Usb::Usb(MAX3421E *controller, GpioPin *interruptPin, Timer* timer) {
 	gpioPinconfig.pin = Gpio::PULLUP_PULLDOWN_INPUT;
 	interruptPin->configure(gpioPinconfig);
 
-	// Configure the Timer in counter mode
+	/*
+	 * Configure the Timer in counter mode
+	 *
+	 * Ok, there is some things that needs to be explained here.
+	 * First I take into account that I'll receive a general
+	 * purpose timer (TIM2 to TIM5). Furthermore, I assume that
+	 * APB1 prescaler is 2 so that the timer has an input clock
+	 * of 36 Mhz.
+	 *
+	 * For more information on what I'm going to say next, you can
+	 * look at in the STM32 reference manual chapter Clocks in
+	 * Reset and clock control (RCC).
+	 *
+	 * It is stated in the manual that if the APB1 prescaler is not 1,
+	 * the clock of the timer will be multiplied by two. In our case
+	 * The input clock is 36 Mhz so the timer2 is actually running at
+	 * 72 Mhz.
+	 *
+	 * In that case, the time taken by the timer to overflow can be
+	 * calculated that way :
+	 *
+	 * 1/(72 * 10^6) * ('prescaler' + 1) * 'auto reload'
+	 *
+	 * Keyboard interrupt = 24 ms
+	 * 1/(72 * 10^6) * (29 + 1) * 57600 = 24 ms
+	 *
+	 * Gamepad interrupt = 1 ms
+	 * 1/(72 * 10^6) * (1 + 1) * 36000 = 1 ms
+	 */
 	TimerConfiguration timerConfig;
 	timerConfig.mode = Timer::COUNTER_MODE;
-	timerConfig.autoReload = 57600;
-	timerConfig.prescaler = 15;
+	timerConfig.autoReload = 36000;
+	timerConfig.prescaler = 1;
 	//debug
 	//timerConfig.autoReload = 0xFFFF;
 	//timerConfig.prescaler = 1500;
 	timer->configure(timerConfig);
 
-	/*
-	 * Keyboard interrupt = 24 ms
-	 * 1/(36 * 10^6) * 57600 * 15 = 24 ms
-	 *
-	 * Gamepad interrupt = 1 ms
-	 * 1/(36 * 10^6) * 36000 = 1 ms
-	 */
-
 	// TODO: Change this for the "standard" configuration
 	/* Configure the controller */
 	controller->configure();
 	controller->reset();
-
-	//debug
-	controller->getRevision();
 
 	// Register as an external interrupt listener
 	interruptPin->addEventListener(this);
@@ -172,10 +189,11 @@ void Usb::enumerateDevice() {
 	maxPacketSize = 0x08;
 
 	request = new GetDescriptor(0x0100, 0x0008);
-
+	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_SNDTOG1);
 	sendRequest(request);
 
 	rawData = new uint8_t[request->wLength];
+	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
 	receiveRawData(rawData, request->wLength, 0x00, maxPacketSize);
 
 	// OUT Status stage
@@ -196,6 +214,7 @@ void Usb::enumerateDevice() {
 	 * Set address of the device.
 	 */
 	request = new SetAddress(0x07);
+	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_SNDTOG1);
 	sendRequest(request);
 
 	/*
@@ -220,6 +239,7 @@ void Usb::enumerateDevice() {
 	sendRequest(r);
 
 	rawData = new uint8_t[r->wLength];
+	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
 	receiveRawData(rawData, r->wLength, 0x00, maxPacketSize);
 
 	// OUT Status stage
@@ -249,10 +269,13 @@ void Usb::enumerateDevice() {
 			for(uint32_t i=0; i<100000; i++);*/
 		//}
 	//}
+	delete deviceDescriptor;
 }
 
 void Usb::serviceHid() {
-	uint8_t rawData[20];
+	uint8_t rawData[0x1d];
+	static uint8_t outPollingDelay = 7;
+	uint8_t hrslt = 1;
 
 	if(!serviceInitialized) {
 		timer->addEventListener(this);
@@ -260,21 +283,46 @@ void Usb::serviceHid() {
 		serviceInitialized = 1;
 
 		ControlRequest* setConfiguration = new SetConfiguration(0x01);
+		controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_SNDTOG1);
 		sendRequest(setConfiguration);
 		delete setConfiguration;
+
+		// Init data toggle
+		controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_SNDTOG0);
+		controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG0);
+
 		//debug
 		//serviceRequired = 1;
 	}
 	if(serviceRequired) {
-		OutputReport* outputReport = new GamepadOutputReport(0x02);
-		sendInterruptReport(outputReport);
-		delete outputReport;
+		if(outPollingDelay == 0) {
+			//OutputReport* outputReport = new GamepadOutputReport(0x02);
+			GamepadOutputReport outputReport(0x02);
+			sendInterruptReport(&outputReport);
+			//delete outputReport;
+			outPollingDelay = 7;
+		}
+		else {
+			outPollingDelay--;
 
-		// Get an interrupt report
-		//receiveRawData(rawData, 0x08, 0x01, 0x08); // Keyboard
-		//receiveRawData(rawData, 0x04, 0x01, 0x05); // Mouse
-		receiveRawData(rawData, 0x14, 0x01, 0x20); // Gamepad
+			// Get an interrupt report
+			//receiveRawData(rawData, 0x08, 0x01, 0x08); // Keyboard
+			//receiveRawData(rawData, 0x04, 0x01, 0x05); // Mouse
+			hrslt = receiveRawData(rawData, 0x1d, 0x01, 0x20); // Gamepad
+		}
+
 		serviceRequired = 0;
+
+		//debug
+		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
+			if(rawData[7] & 0x10) {
+				GPIOA->BSRR |= 0x01; // On
+			}
+			else if(rawData[7] & 0x20) {
+				GPIOA->BRR |= 0x01;	// Off
+			}
+		}
+
 	}
 }
 
@@ -314,22 +362,28 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 	uint8_t hrslt;
 	uint8_t rcvbc;
 	uint16_t offset = 0;
+	uint8_t retry = 0;
 
 	// First packet has DATA1 ID. See USB standard.
-	controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
+	//controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
 
 	do {
 		// Clear the receive IRQ and free the buffer
 		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
 		// TODO: should be able to timeout
-		do {
+		//retry = 200;
+		//do {
 			hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
-		} while(hrslt != MAX3421E::HRSLT_SUCCESS);
+			//retry--;
+		//} while(hrslt != MAX3421E::HRSLT_SUCCESS && retry > 0);
 
 		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
 			// Check the number of bytes received
 			controller->readRegister(MAX3421E::RCVBC, &rcvbc);
+
+			// Clear the receive IRQ and free the buffer
+			controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
 			if(rcvbc <= (length - offset)) {
 				// Fill the buffer
@@ -367,9 +421,9 @@ uint8_t Usb::sendInterruptReport(OutputReport* outputReport) {
 
 	// TODO: should be able to timeout
 	uint8_t hrslt;
-	do {
+	//do {
 		hrslt = launchTransfer(MAX3421E::TOKEN_BULKOUT, 0x01);
-	} while(hrslt != MAX3421E::HRSLT_SUCCESS);
+	//} while(hrslt != MAX3421E::HRSLT_SUCCESS);
 
 	return hrslt;
 }
@@ -475,7 +529,6 @@ void Usb::timerOverflowed(Timer* timer) {
 	//debug
 	// Blink led fast
 	/*GPIOA->BSRR |= 0x01;	// On
-	for(uint32_t i=0; i<100000; i++);
-	GPIOA->BRR |= 0x01;	// Off
-	for(uint32_t i=0; i<100000; i++);*/
+	for(uint32_t i=0; i<10; i++);
+	GPIOA->BRR |= 0x01;	// Off*/
 }

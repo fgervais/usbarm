@@ -57,30 +57,41 @@ void main_francois() {
 
 	usb->listenForDevice();
 
+	while(!usb->deviceDetected());
+
+	//debug
+	// Blink led fast
+	GPIOA->BSRR |= 0x01;	// On
+	for(uint32_t i=0; i<100000; i++);
+	GPIOA->BRR |= 0x01;	// Off
+	for(uint32_t i=0; i<100000; i++);
+
+	usb->enumerateDevice();
+
 	// Blink led
 	while(1) {
 
-		if(usb->deviceDetected()) {
+		//if(usb->deviceDetected()) {
 			/*led->setHigh();	// On
 			for(uint32_t i=0; i<100000; i++);
 			led->setLow();	// Off
 			for(uint32_t i=0; i<100000; i++);*/
 
-			if(!usb->deviceEnumerated()) {
+			//if(!usb->deviceEnumerated()) {
 
 				//debug
 				// Blink led fast
-				GPIOA->BSRR |= 0x01;	// On
+				/*GPIOA->BSRR |= 0x01;	// On
 				for(uint32_t i=0; i<100000; i++);
 				GPIOA->BRR |= 0x01;	// Off
 				for(uint32_t i=0; i<100000; i++);
 
-				usb->enumerateDevice();
-			}
-			else {
+				usb->enumerateDevice();*/
+			//}
+			//else {
 				usb->serviceHid();
-			}
-		}
+			//}
+		//}
 
 		/*
 		led->setHigh();	// On
