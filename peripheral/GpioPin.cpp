@@ -17,6 +17,7 @@ GpioPin::GpioPin(GPIO_TypeDef *gpioRegisters, uint8_t pinNumber, uint8_t portNum
 
 	// Initialization
 	extiConfigured = 0;
+	listener = 0;
 }
 
 GpioPin::~GpioPin() {
@@ -26,10 +27,14 @@ GpioPin::~GpioPin() {
 void GpioPin::extInterrupt() {
 	// Browse through every listeners and tell them that
 	// this object have an event pending
-	for(int32_t i=0; i<listeners.size(); i++) {
+	/*for(int32_t i=0; i<listeners.size(); i++) {
 		if(listeners.getElement(i) != 0) {
 			listeners.getElement(i)->stateChanged(this);
 		}
+	}*/
+
+	if(listener != 0) {
+		listener->stateChanged(this);
 	}
 }
 
@@ -82,12 +87,13 @@ void GpioPin::setLow() {
 	gpioRegisters->BRR |= (1 << pinNumber);
 }
 
-void GpioPin::addEventListener(GpioPinEventListener *listener) {
+void GpioPin::addEventListener(GpioPinEventListener* listener) {
 	if(!extiConfigured) {
 		configureInterrupt();
 		extiConfigured = 1;
 	}
-	listeners.addElement(listener);
+	//listeners.addElement(listener);
+	this->listener = listener;
 }
 
 
@@ -175,7 +181,7 @@ void GpioPin::configureInterrupt() {
 	// Priority is shifted because it's MSB first
 	NVIC->IP[irqNumber] = (priority & priotityMask) << __NVIC_PRIO_BITS;
 	// Clear interrupt pending bit
-	EXTI->PR |= 0x01;
+	EXTI->PR |= (0x01 << pinNumber);
 	NVIC->ICPR[irqNumber >> 5] = 1 << (irqNumber & 0x1F);
 	// Enable the interrupt
 	NVIC->ISER[irqNumber >> 5] = 1 << (irqNumber & 0x1F);

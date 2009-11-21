@@ -210,7 +210,8 @@ CFLAGS += -Wcast-qual
 endif
 
 # flags only for C++ (arm-elf-g++)
-CPPFLAGS = -fno-rtti -fno-exceptions
+#CPPFLAGS = -fno-rtti -fno-exceptions
+CPPFLAGS = -fno-exceptions
 
 # Assembler flags.
 #  -Wa,...:    tell GCC to pass this to the assembler.
@@ -233,7 +234,7 @@ ASFLAGS = $(ADEFS) -Wa,-adhlns=$(<:.S=.lst),--g$(DEBUG)
 
 MATH_LIB = -lm
 
-CPLUSPLUS_LIB = -lstdc++
+#CPLUSPLUS_LIB = -lstdc++
 
 # Linker flags.
 #  -Wl,...:     tell GCC to pass this to linker.

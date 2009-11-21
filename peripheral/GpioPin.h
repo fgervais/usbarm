@@ -35,7 +35,9 @@ private:
 	uint8_t pinNumber;
 	uint32_t portNumber;
 	GPIO_TypeDef *gpioRegisters;
-	Vector<GpioPinEventListener*> listeners;
+	// TODO: This vector thing is buggy
+	//Vector<GpioPinEventListener*> listeners;
+	GpioPinEventListener* listener;
 	uint8_t extiConfigured;
 
 	void configureInterrupt();

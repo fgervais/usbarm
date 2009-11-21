@@ -73,6 +73,7 @@ public:
 	uint8_t y;
 
 	GamepadInputReport(uint8_t* rawReport);
+	GamepadInputReport();
 	virtual ~GamepadInputReport();
 };
 
