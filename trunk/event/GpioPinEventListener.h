@@ -14,7 +14,7 @@ class GpioPinEventListener {
 public:
 	GpioPinEventListener();
 	virtual ~GpioPinEventListener();
-	virtual void stateChanged(GpioPin* pin) = 0;
+	virtual void stateChanged(GpioPin* pin) =0;
 };
 
 #endif /* GPIOPINEVENTLISTENER_H_ */

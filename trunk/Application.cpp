@@ -30,6 +30,7 @@ void main_francois() {
 	SystemInit();
 
 	Gpio *gpioA = STM32F103::getGpioA();
+	Gpio *gpioB = STM32F103::getGpioB();
 	Gpio *gpioC = STM32F103::getGpioC();
 
 	// Set default port behavior
@@ -46,20 +47,10 @@ void main_francois() {
 	// Create the usb port
 	Usb* usb = STM32F103::getUsb();
 
-	// Create a new NES controller intreface
-	NesControllerInterface* nesInterface = new NesControllerInterface(gpioC->getPin(3), gpioC->getPin(4), gpioC->getPin(5));
+	// Create a new NES controller interface
+	AFIO->MAPR |= AFIO_MAPR_SWJ_CFG_DISABLE;	// JTAG remap
+	NesControllerInterface* nesInterface = new NesControllerInterface(gpioB->getPin(3), gpioB->getPin(4), gpioC->getPin(5));
 	usb->addEventListener(nesInterface);
-
-	// Clear interrupt pending bit
-	EXTI->PR |= EXTI_PR_PR1;
-
-	// Reset led sequence
-	/*for(uint32_t j=0; j<10; j++) {
-		led->setHigh();	// On
-		for(uint32_t i=0; i<100000; i++);
-		led->setLow();	// Off
-		for(uint32_t i=0; i<100000; i++);
-	}*/
 
 	usb->listenForDevice();
 

@@ -158,14 +158,6 @@ void Usb::listenForDevice() {
 void Usb::enumerateDevice() {
 	ControlRequest* request;
 	uint8_t* rawData;
-	uint8_t hrsl;
-
-	//debug
-	// Blink led fast
-	/*GPIOA->BSRR |= 0x01;	// On
-	for(uint32_t i=0; i<100000; i++);
-	GPIOA->BRR |= 0x01;	// Off
-	for(uint32_t i=0; i<100000; i++);*/
 
 	/*
 	 * Host and device use this first reset to issue the high speed handshake.
@@ -255,12 +247,6 @@ void Usb::enumerateDevice() {
 
 	devEnumerated = 1;
 
-	// Blink led fast
-	/*GPIOA->BSRR |= 0x01;	// On
-	for(uint32_t i=0; i<100000; i++);
-	GPIOA->BRR |= 0x01;	// Off
-	for(uint32_t i=0; i<100000; i++);*/
-
 	// debug
 	//if(deviceDescriptor->idVendor == 0x04b3) { // Keyboard
 	//if(deviceDescriptor->idVendor == 0x046d) { // Mouse
@@ -317,14 +303,16 @@ void Usb::serviceHid() {
 
 		//debug
 		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
-			delete gamepadReport;
-			gamepadReport = new GamepadInputReport(&rawData[4]);
+			if(rawData[1] == 0x01) {
+				delete gamepadReport;
+				gamepadReport = new GamepadInputReport(&rawData[4]);
 
-			// Browse through every listeners and tell them that
-			// this object have an event pending
-			for(int32_t i=0; i<gamepadListeners.size(); i++) {
-				if(gamepadListeners.getElement(i) != 0) {
-					gamepadListeners.getElement(i)->gamepadReportReceived(this);
+				// Browse through every listeners and tell them that
+				// this object have an event pending
+				for(int32_t i=0; i<gamepadListeners.size(); i++) {
+					if(gamepadListeners.getElement(i) != 0) {
+						gamepadListeners.getElement(i)->gamepadReportReceived(this);
+					}
 				}
 			}
 
@@ -373,7 +361,6 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 	uint8_t hrslt;
 	uint8_t rcvbc;
 	uint16_t offset = 0;
-	uint8_t retry = 0;
 
 	// First packet has DATA1 ID. See USB standard.
 	//controller->writeRegister(MAX3421E::HCTL, MAX3421E::HCTL_RCVTOG1);
@@ -382,12 +369,7 @@ uint8_t Usb::receiveRawData(uint8_t* rawData, uint16_t length,
 		// Clear the receive IRQ and free the buffer
 		controller->writeRegister(MAX3421E::HIRQ, MAX3421E::HIRQ_RCVDAVIRQ);
 
-		// TODO: should be able to timeout
-		//retry = 200;
-		//do {
-			hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
-			//retry--;
-		//} while(hrslt != MAX3421E::HRSLT_SUCCESS && retry > 0);
+		hrslt = launchTransfer(MAX3421E::TOKEN_IN, endpoint);
 
 		if(hrslt == MAX3421E::HRSLT_SUCCESS) {
 			// Check the number of bytes received
@@ -430,11 +412,8 @@ uint8_t Usb::sendInterruptReport(OutputReport* outputReport) {
 	controller->writeBytes(MAX3421E::SNDFIFO,outputReport->toArray(),outputReport->length);
 	controller->writeRegister(MAX3421E::SNDBC, outputReport->length);
 
-	// TODO: should be able to timeout
 	uint8_t hrslt;
-	//do {
-		hrslt = launchTransfer(MAX3421E::TOKEN_BULKOUT, 0x01);
-	//} while(hrslt != MAX3421E::HRSLT_SUCCESS);
+	hrslt = launchTransfer(MAX3421E::TOKEN_BULKOUT, 0x01);
 
 	return hrslt;
 }
@@ -536,10 +515,4 @@ void Usb::stateChanged(GpioPin* pin) {
 
 void Usb::timerOverflowed(Timer* timer) {
 	serviceRequired = 1;
-
-	//debug
-	// Blink led fast
-	/*GPIOA->BSRR |= 0x01;	// On
-	for(uint32_t i=0; i<10; i++);
-	GPIOA->BRR |= 0x01;	// Off*/
 }

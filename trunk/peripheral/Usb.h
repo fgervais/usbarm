@@ -23,7 +23,7 @@ class OutputReport;
 class GamepadReportListener;
 
 
-class Usb: public Peripheral, GpioPinEventListener, TimerOverflowListener {
+class Usb: public Peripheral, public GpioPinEventListener, public TimerOverflowListener {
 public:
 	Usb(MAX3421E *controller, GpioPin *extInterrupt, Timer* timer);
 	virtual ~Usb();
@@ -34,7 +34,7 @@ public:
 	uint8_t deviceDetected() { return devDetected; };
 	uint8_t deviceEnumerated() { return devEnumerated; };
 	void addEventListener(GamepadReportListener* listener);
-	GamepadInputReport getGamepadReport() { return *gamepadReport; };
+	GamepadInputReport& getGamepadReport() { return *gamepadReport; };
 
 	// GpioPinEventListener interface implementation
 	void stateChanged(GpioPin* pin);

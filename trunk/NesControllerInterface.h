@@ -15,7 +15,7 @@
 
 class GpioPin;
 
-class NesControllerInterface : public GamepadReportListener, GpioPinEventListener {
+class NesControllerInterface : public GamepadReportListener, public GpioPinEventListener {
 public:
 	NesControllerInterface(GpioPin* latch, GpioPin* clock, GpioPin* dataOut);
 	virtual ~NesControllerInterface();
@@ -30,8 +30,8 @@ private:
 	GpioPin* clock;
 	GpioPin* dataOut;
 
-	uint8_t latchedButtons;
-	uint8_t currentButtons;
+	volatile uint8_t latchedButtons;
+	volatile uint8_t currentButtons;
 };
 
 #endif /* NESCONTROLLERINTERFACE_H_ */
