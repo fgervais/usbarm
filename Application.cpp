@@ -19,10 +19,12 @@
 
 void main_francois();
 void main_remi();
+void blinky();
 
 int main(void) {
-	main_francois();
+	//main_francois();
 	//main_remi();
+	blinky();
 }
 
 void main_francois() {
@@ -153,5 +155,26 @@ void main_remi() {
 		for(uint32_t i=0; i<1000000; i++){
 			uart1->poll();
 		}
+	}
+}
+
+void blinky() {
+	// Setup STM32 system (clock, PLL and Flash configuration)
+	SystemInit();
+
+	Gpio *gpioA = STM32F103::getGpioA();
+
+	// Configure blinking led
+	GpioPinConfiguration ledPinConfig;
+	ledPinConfig.pin = Gpio::GP_PUSH_PULL_OUTPUT | Gpio::OUTPUT_SPEED_50MHZ;
+	gpioA->getPin(0)->configure(ledPinConfig);
+
+	GpioPin *led = gpioA->getPin(0);
+
+	while(1) {
+		led->setHigh();	// On
+		for(uint32_t i=0; i<1000000; i++);
+		led->setLow();	// Off
+		for(uint32_t i=0; i<1000000; i++);
 	}
 }
