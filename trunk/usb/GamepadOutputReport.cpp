@@ -45,7 +45,7 @@ uint8_t* GamepadOutputReport::toArray() {
 	rawReport[0] = 0x00;
 	rawReport[1] = 0x00;
 	rawReport[2] = 0x08;
-	rawReport[3] = 0x40 + (command % 0x0e);
+	rawReport[3] = 0x40 + (command % 0x0E);
 	rawReport[4] = 0x00;
 	rawReport[5] = 0x00;
 	rawReport[6] = 0x00;

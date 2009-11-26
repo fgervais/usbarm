@@ -232,6 +232,7 @@ void Usb::enumerateDevice() {
 	// Free resources used for that request
 	delete request;
 
+	// TODO: Change this to use the request variable defined in that function
 	// Play with descriptors
 	ControlRequest* r = new GetDescriptor(0x0100, 0x0012);
 	sendRequest(r);

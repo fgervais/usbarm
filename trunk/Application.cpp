@@ -22,9 +22,9 @@ void main_remi();
 void blinky();
 
 int main(void) {
-	//main_francois();
+	main_francois();
 	//main_remi();
-	blinky();
+	//blinky();
 }
 
 void main_francois() {
