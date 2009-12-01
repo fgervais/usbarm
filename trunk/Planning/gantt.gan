@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2009-07-26" view-index="0" gantt-divider-location="614" resource-divider-location="300" version="2.0">
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2009-10-19" view-index="0" gantt-divider-location="614" resource-divider-location="300" version="2.0">
     <description/>
-    <view zooming-state="default:5" id="gantt-chart"/>
+    <view zooming-state="default:4" id="gantt-chart"/>
     <view id="resource-table">
-        <field id="0" name="Name" width="54" order="0"/>
-        <field id="1" name="Default role" width="45" order="1"/>
+        <field id="0" name="Nom" width="54" order="0"/>
+        <field id="1" name="Rôle par défaut" width="45" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -46,7 +46,7 @@
             </task>
             <task id="8" name="Choix de la solution" color="#8cb6ce" meeting="false" start="2009-08-19" duration="3" complete="100" priority="1" expand="true"/>
         </task>
-        <task id="10" name="Réalisation" color="#8cb6ce" meeting="false" start="2009-08-24" duration="70" complete="77" priority="1" expand="true">
+        <task id="10" name="Réalisation" color="#8cb6ce" meeting="false" start="2009-08-24" duration="72" complete="90" priority="1" expand="true">
             <task id="11" name="Achat du matériel" color="#8cb6ce" meeting="false" start="2009-08-24" duration="4" complete="100" priority="1" expand="true">
                 <depend id="33" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -57,7 +57,7 @@
             <task id="15" name="Familiarisation et installation des outils logiciels et matériel" color="#8cb6ce" meeting="false" start="2009-09-09" duration="8" complete="100" priority="1" expand="true">
                 <depend id="16" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="16" name="Création de la carte" color="#8cb6ce" meeting="false" start="2009-09-21" duration="50" complete="68" priority="1" expand="true">
+            <task id="16" name="Création de la carte" color="#8cb6ce" meeting="false" start="2009-09-21" duration="52" complete="86" priority="1" expand="true">
                 <task id="38" name="UML et planification" color="#8cb6ce" meeting="false" start="2009-09-21" duration="10" complete="100" priority="1" expand="true"/>
                 <task id="18" name="Intégration d'une télécommande XBOX" color="#8cb6ce" meeting="false" start="2009-09-21" duration="45" complete="100" priority="1" expand="true">
                     <depend id="28" type="2" difference="0" hardness="Strong"/>
@@ -82,18 +82,18 @@
                         <task id="22" name="Vérification de la robustesse de la transmission sans fil" color="#8cb6ce" meeting="false" start="2009-11-16" duration="5" complete="100" priority="1" expand="true"/>
                     </task>
                 </task>
-                <task id="23" name="Systeme de gestion de source (multiplexeur) et gestion de priorité" color="#8cb6ce" meeting="false" start="2009-10-05" duration="40" complete="68" priority="1" expand="true">
+                <task id="23" name="Systeme de gestion de source (multiplexeur) et gestion de priorité" color="#8cb6ce" meeting="false" start="2009-10-05" duration="35" complete="68" priority="1" expand="true">
                     <task id="24" name="Uart" color="#8cb6ce" meeting="false" start="2009-10-05" duration="15" complete="87" priority="1" expand="true"/>
-                    <task id="25" name="PWM" color="#8cb6ce" meeting="false" start="2009-11-16" duration="10" complete="10" priority="1" expand="true"/>
+                    <task id="25" name="PWM" color="#8cb6ce" meeting="false" start="2009-11-09" duration="10" complete="10" priority="1" expand="true"/>
                     <task id="26" name="Multiplexeur" color="#8cb6ce" meeting="false" start="2009-10-26" duration="15" complete="65" priority="1" expand="true"/>
                 </task>
-                <task id="14" name="Réorganisation des récepteurs" color="#8cb6ce" meeting="false" start="2009-10-19" duration="4" complete="0" priority="1" expand="true"/>
-                <task id="13" name="Réorganisation des arrêts d'urgence et alimentations" color="#8cb6ce" meeting="false" start="2009-10-26" duration="4" complete="0" priority="1" expand="true"/>
-                <task id="27" name="Création du circuit imprimé (Si le temps le permet)" color="#8cb6ce" meeting="false" start="2009-11-02" duration="12" complete="0" priority="1" expand="true"/>
-                <task id="28" name="Intégration" color="#8cb6ce" meeting="false" start="2009-11-23" duration="5" complete="0" priority="1" expand="true">
+                <task id="14" name="Réorganisation des récepteurs" color="#8cb6ce" meeting="false" start="2009-10-19" duration="4" complete="100" priority="1" expand="true"/>
+                <task id="13" name="Réorganisation des arrêts d'urgence et alimentations" color="#8cb6ce" meeting="false" start="2009-10-26" duration="4" complete="100" priority="1" expand="true"/>
+                <task id="27" name="Création du circuit imprimé (Si le temps le permet)" color="#8cb6ce" meeting="false" start="2009-11-13" duration="13" complete="100" priority="1" expand="true"/>
+                <task id="28" name="Intégration" color="#8cb6ce" meeting="false" start="2009-11-23" duration="5" complete="17" priority="1" expand="true">
                     <depend id="31" type="2" difference="0" hardness="Strong"/>
                     <task id="29" name="Mise en place du matériel" color="#8cb6ce" meeting="false" start="2009-11-23" duration="5" complete="0" priority="1" expand="true"/>
-                    <task id="30" name="Tests finaux" color="#8cb6ce" meeting="false" start="2009-11-23" duration="5" complete="0" priority="1" expand="true"/>
+                    <task id="30" name="Tests finaux" color="#8cb6ce" meeting="false" start="2009-11-23" duration="5" complete="35" priority="1" expand="true"/>
                 </task>
             </task>
         </task>
@@ -102,7 +102,7 @@
             <task id="41" name="Réunion #2" color="#8cb6ce" meeting="true" start="2009-11-13" duration="1" complete="0" thirdDate="2009-11-13" thirdDate-constraint="0" priority="1" expand="true"/>
             <task id="43" name="Réunion #3" color="#8cb6ce" meeting="true" start="2009-12-01" duration="1" complete="0" priority="1" expand="true"/>
         </task>
-        <task id="31" name="Rédaction du rapport" color="#8cb6ce" meeting="false" start="2009-11-30" duration="5" complete="0" priority="1" expand="true"/>
+        <task id="31" name="Rédaction du rapport" color="#8cb6ce" meeting="false" start="2009-11-30" duration="5" complete="29" priority="1" expand="true"/>
         <task id="32" name="Présentation finale" color="#8cb6ce" meeting="true" start="2009-12-09" duration="1" complete="0" priority="1" expand="true"/>
     </tasks>
     <resources>
