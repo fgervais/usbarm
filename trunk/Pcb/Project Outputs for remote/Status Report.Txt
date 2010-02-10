@@ -1,0 +1,21 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Project [remote.PrjPCB]
+   Generated File[board.GTL]
+   Generated File[board.GBL]
+   Generated File[board.GTO]
+   Generated File[board.GTP]
+   Generated File[board.GTS]
+   Generated File[board.GBS]
+   Generated File[board.GBO]
+   Generated File[board.GD1]
+   Generated File[board.GG1]
+   Generated File[board.RUL]
+   Generated File[board.EXTREP]
+   Generated File[board.REP]
+
+
+Files Generated   : 12
+Documents Printed : 0
+
+Finished Output Generation At 14:17:33 On 2010-02-10
