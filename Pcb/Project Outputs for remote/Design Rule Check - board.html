@@ -1,0 +1,535 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-16">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script></head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\PROGRAM FILES\ALTIUM DESIGNER SUMMER 09\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">2010-01-29</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">13:40:34</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:03</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc" class="file"><acronym title="C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc">C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">46</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDA2PWGEB"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA3OWGEB">Room communication (Bounding Region = (29430mil, 26345mil, 38120mil, 27685mil) (Disabled)(InComponentClass('communication'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDATOWGEB">Room arm (Bounding Region = (43035mil, 26195mil, 47160mil, 26805mil) (Disabled)(InComponentClass('arm'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAJOWGEB">Room alim (Bounding Region = (38310mil, 24020mil, 45045mil, 24990mil) (Disabled)(InComponentClass('alim'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA5NWGEB">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAVNWGEB">Silk to Silk (Clearance=10mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAJNWGEB">Silkscreen Over Component Pads (Clearance=4mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA5MWGEB">Minimum Solder Mask Sliver (Gap=6mil) (All),(All)</a></td>
+<td class="column2">46</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAWVXGEB">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAAWXGEB">Hole Size Constraint (Min=1mil) (Max=150mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKWXGEB">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAUWXGEB">Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA4WXGEB">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAIXXGEB">Clearance Constraint (Gap=6mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDASXXGEB">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA2XXGEB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAJYXGEB">Width Constraint (Min=10mil) (Max=19.685mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">46</td>
+</tr>
+</table><br><hr><a name="IDA5MWGEB"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Minimum Solder Mask Sliver (Gap=6mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43067.622mil|Location2.X=43084.283mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43067.622mil|Location2.X=43084.283mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-63(9535.953mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43087.307mil|Location2.X=43103.968mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43087.307mil|Location2.X=43103.968mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-64(9555.638mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43047.937mil|Location2.X=43064.598mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43047.937mil|Location2.X=43064.598mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-62(9516.268mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43067.622mil|Location2.X=43084.283mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43067.622mil|Location2.X=43084.283mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-63(9535.953mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43028.252mil|Location2.X=43044.913mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43028.252mil|Location2.X=43044.913mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-61(9496.583mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43047.937mil|Location2.X=43064.598mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43047.937mil|Location2.X=43064.598mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-62(9516.268mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43008.567mil|Location2.X=43025.228mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43008.567mil|Location2.X=43025.228mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-60(9476.898mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43028.252mil|Location2.X=43044.913mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43028.252mil|Location2.X=43044.913mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-61(9496.583mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42988.882mil|Location2.X=43005.543mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42988.882mil|Location2.X=43005.543mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-59(9457.212mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43008.567mil|Location2.X=43025.228mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43008.567mil|Location2.X=43025.228mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-60(9476.898mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42969.197mil|Location2.X=42985.858mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42969.197mil|Location2.X=42985.858mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-58(9437.528mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42988.882mil|Location2.X=43005.543mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42988.882mil|Location2.X=43005.543mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-59(9457.212mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42949.512mil|Location2.X=42966.173mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42949.512mil|Location2.X=42966.173mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-57(9417.843mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42969.197mil|Location2.X=42985.858mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42969.197mil|Location2.X=42985.858mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-58(9437.528mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42929.827mil|Location2.X=42946.488mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42929.827mil|Location2.X=42946.488mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-56(9398.157mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42949.512mil|Location2.X=42966.173mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42949.512mil|Location2.X=42966.173mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-57(9417.843mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42910.142mil|Location2.X=42926.803mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42910.142mil|Location2.X=42926.803mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-55(9378.472mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42929.827mil|Location2.X=42946.488mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42929.827mil|Location2.X=42946.488mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-56(9398.157mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42890.457mil|Location2.X=42907.118mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42890.457mil|Location2.X=42907.118mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-54(9358.787mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42910.142mil|Location2.X=42926.803mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42910.142mil|Location2.X=42926.803mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-55(9378.472mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42870.772mil|Location2.X=42887.433mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42870.772mil|Location2.X=42887.433mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-53(9339.102mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42890.457mil|Location2.X=42907.118mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42890.457mil|Location2.X=42907.118mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-54(9358.787mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42851.087mil|Location2.X=42867.748mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42851.087mil|Location2.X=42867.748mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-52(9319.417mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42870.772mil|Location2.X=42887.433mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42870.772mil|Location2.X=42887.433mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-53(9339.102mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42831.401mil|Location2.X=42848.063mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42831.401mil|Location2.X=42848.063mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-51(9299.732mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42851.087mil|Location2.X=42867.748mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42851.087mil|Location2.X=42867.748mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-52(9319.417mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42811.717mil|Location2.X=42828.378mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42811.717mil|Location2.X=42828.378mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-50(9280.047mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42831.401mil|Location2.X=42848.063mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42831.401mil|Location2.X=42848.063mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-51(9299.732mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42792.031mil|Location2.X=42808.693mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42792.031mil|Location2.X=42808.693mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-49(9260.362mil,9322.472mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42811.717mil|Location2.X=42828.378mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42811.717mil|Location2.X=42828.378mil|Location1.Y=39905.913mil|Location2.Y=39969.031mil|Absolute=True">Pad U3-50(9280.047mil,9322.472mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42811.717mil|Location2.X=42828.378mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42811.717mil|Location2.X=42828.378mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-31(9280.047mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42792.031mil|Location2.X=42808.693mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42792.031mil|Location2.X=42808.693mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-32(9260.362mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42831.401mil|Location2.X=42848.063mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42831.401mil|Location2.X=42848.063mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-30(9299.732mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42811.717mil|Location2.X=42828.378mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42811.717mil|Location2.X=42828.378mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-31(9280.047mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42851.087mil|Location2.X=42867.748mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42851.087mil|Location2.X=42867.748mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-29(9319.417mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42831.401mil|Location2.X=42848.063mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42831.401mil|Location2.X=42848.063mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-30(9299.732mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42870.772mil|Location2.X=42887.433mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42870.772mil|Location2.X=42887.433mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-28(9339.102mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42851.087mil|Location2.X=42867.748mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42851.087mil|Location2.X=42867.748mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-29(9319.417mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42890.457mil|Location2.X=42907.118mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42890.457mil|Location2.X=42907.118mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-27(9358.787mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42870.772mil|Location2.X=42887.433mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42870.772mil|Location2.X=42887.433mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-28(9339.102mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42910.142mil|Location2.X=42926.803mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42910.142mil|Location2.X=42926.803mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-26(9378.472mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42890.457mil|Location2.X=42907.118mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42890.457mil|Location2.X=42907.118mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-27(9358.787mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42929.827mil|Location2.X=42946.488mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42929.827mil|Location2.X=42946.488mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-25(9398.157mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42910.142mil|Location2.X=42926.803mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42910.142mil|Location2.X=42926.803mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-26(9378.472mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42949.512mil|Location2.X=42966.173mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42949.512mil|Location2.X=42966.173mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-24(9417.843mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42929.827mil|Location2.X=42946.488mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42929.827mil|Location2.X=42946.488mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-25(9398.157mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42969.197mil|Location2.X=42985.858mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42969.197mil|Location2.X=42985.858mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-23(9437.528mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42949.512mil|Location2.X=42966.173mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42949.512mil|Location2.X=42966.173mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-24(9417.843mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42988.882mil|Location2.X=43005.543mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42988.882mil|Location2.X=43005.543mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-22(9457.213mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42969.197mil|Location2.X=42985.858mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42969.197mil|Location2.X=42985.858mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-23(9437.528mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43008.567mil|Location2.X=43025.228mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43008.567mil|Location2.X=43025.228mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-21(9476.898mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42988.882mil|Location2.X=43005.543mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42988.882mil|Location2.X=43005.543mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-22(9457.213mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43028.252mil|Location2.X=43044.913mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43028.252mil|Location2.X=43044.913mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-20(9496.583mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43008.567mil|Location2.X=43025.228mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43008.567mil|Location2.X=43025.228mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-21(9476.898mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43047.937mil|Location2.X=43064.598mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43047.937mil|Location2.X=43064.598mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-19(9516.268mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43028.252mil|Location2.X=43044.913mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43028.252mil|Location2.X=43044.913mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-20(9496.583mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43067.622mil|Location2.X=43084.283mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43067.622mil|Location2.X=43084.283mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-18(9535.953mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43047.937mil|Location2.X=43064.598mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43047.937mil|Location2.X=43064.598mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-19(9516.268mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43087.307mil|Location2.X=43103.969mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43087.307mil|Location2.X=43103.969mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-17(9555.638mil,8881.528mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43067.622mil|Location2.X=43084.283mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=43067.622mil|Location2.X=43084.283mil|Location1.Y=39464.969mil|Location2.Y=39528.086mil|Absolute=True">Pad U3-18(9535.953mil,8881.528mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42695.315mil|Location2.X=42726.937mil|Location1.Y=38825.346mil|Location2.Y=38876.654mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42695.315mil|Location2.X=42726.937mil|Location1.Y=38825.346mil|Location2.Y=38876.654mil|Absolute=True">Pad MAX4793-2(9171.126mil,8236mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42732.717mil|Location2.X=42764.339mil|Location1.Y=38825.346mil|Location2.Y=38876.654mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42732.717mil|Location2.X=42764.339mil|Location1.Y=38825.346mil|Location2.Y=38876.654mil|Absolute=True">Pad MAX4793-3(9208.528mil,8236mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42657.913mil|Location2.X=42689.535mil|Location1.Y=38825.346mil|Location2.Y=38876.654mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42657.913mil|Location2.X=42689.535mil|Location1.Y=38825.346mil|Location2.Y=38876.654mil|Absolute=True">Pad MAX4793-1(9133.724mil,8236mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42695.315mil|Location2.X=42726.937mil|Location1.Y=38825.346mil|Location2.Y=38876.654mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42695.315mil|Location2.X=42726.937mil|Location1.Y=38825.346mil|Location2.Y=38876.654mil|Absolute=True">Pad MAX4793-2(9171.126mil,8236mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42163.913mil|Location2.X=42193.567mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42163.913mil|Location2.X=42193.567mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-10(8638.74mil,8805.614mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42195.41mil|Location2.X=42225.063mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42195.41mil|Location2.X=42225.063mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-9(8670.236mil,8805.614mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42132.417mil|Location2.X=42162.071mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42132.417mil|Location2.X=42162.071mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-11(8607.244mil,8805.614mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42163.913mil|Location2.X=42193.567mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42163.913mil|Location2.X=42193.567mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-10(8638.74mil,8805.614mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42100.921mil|Location2.X=42130.575mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42100.921mil|Location2.X=42130.575mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-12(8575.748mil,8805.614mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42132.417mil|Location2.X=42162.071mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42132.417mil|Location2.X=42162.071mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-11(8607.244mil,8805.614mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42069.425mil|Location2.X=42099.079mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42069.425mil|Location2.X=42099.079mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-13(8544.252mil,8805.614mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42100.921mil|Location2.X=42130.575mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42100.921mil|Location2.X=42130.575mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-12(8575.748mil,8805.614mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42037.929mil|Location2.X=42067.583mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42037.929mil|Location2.X=42067.583mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-14(8512.756mil,8805.614mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42069.425mil|Location2.X=42099.079mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42069.425mil|Location2.X=42099.079mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-13(8544.252mil,8805.614mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42006.433mil|Location2.X=42036.086mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42006.433mil|Location2.X=42036.086mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-15(8481.26mil,8805.614mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42037.929mil|Location2.X=42067.583mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42037.929mil|Location2.X=42067.583mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-14(8512.756mil,8805.614mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41974.937mil|Location2.X=42004.59mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41974.937mil|Location2.X=42004.59mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-16(8449.764mil,8805.614mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42006.433mil|Location2.X=42036.086mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42006.433mil|Location2.X=42036.086mil|Location1.Y=39390.039mil|Location2.Y=39451.189mil|Absolute=True">Pad MAX3421-15(8481.26mil,8805.614mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42006.433mil|Location2.X=42036.086mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42006.433mil|Location2.X=42036.086mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-26(8481.26mil,9132.386mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41974.937mil|Location2.X=42004.59mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41974.937mil|Location2.X=42004.59mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-25(8449.764mil,9132.386mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42037.929mil|Location2.X=42067.583mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42037.929mil|Location2.X=42067.583mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-27(8512.756mil,9132.386mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42006.433mil|Location2.X=42036.086mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42006.433mil|Location2.X=42036.086mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-26(8481.26mil,9132.386mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42069.425mil|Location2.X=42099.079mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42069.425mil|Location2.X=42099.079mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-28(8544.252mil,9132.386mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42037.929mil|Location2.X=42067.583mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42037.929mil|Location2.X=42067.583mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-27(8512.756mil,9132.386mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42100.921mil|Location2.X=42130.575mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42100.921mil|Location2.X=42130.575mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-29(8575.748mil,9132.386mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42069.425mil|Location2.X=42099.079mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42069.425mil|Location2.X=42099.079mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-28(8544.252mil,9132.386mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42132.417mil|Location2.X=42162.071mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42132.417mil|Location2.X=42162.071mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-30(8607.244mil,9132.386mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42100.921mil|Location2.X=42130.575mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42100.921mil|Location2.X=42130.575mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-29(8575.748mil,9132.386mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42163.913mil|Location2.X=42193.567mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42163.913mil|Location2.X=42193.567mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-31(8638.74mil,9132.386mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42132.417mil|Location2.X=42162.071mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42132.417mil|Location2.X=42162.071mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-30(8607.244mil,9132.386mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42195.41mil|Location2.X=42225.063mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42195.41mil|Location2.X=42225.063mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-32(8670.236mil,9132.386mil)  Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42163.913mil|Location2.X=42193.567mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=42163.913mil|Location2.X=42193.567mil|Location1.Y=39716.811mil|Location2.Y=39777.961mil|Absolute=True">Pad MAX3421-31(8638.74mil,9132.386mil)  Bottom Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

@@ -1,0 +1,148 @@
+Protel Design System Design Rule Check
+PCB File : C:\Documents and Settings\Oex\Desktop\usbarm\Pcb\board.PcbDoc
+Date     : 2010-01-29
+Time     : 13:40:34
+
+Processing Rule : Room communication (Bounding Region = (29430mil, 26345mil, 38120mil, 27685mil) (Disabled)(InComponentClass('communication'))
+Rule Violations :0
+
+Processing Rule : Room arm (Bounding Region = (43035mil, 26195mil, 47160mil, 26805mil) (Disabled)(InComponentClass('arm'))
+Rule Violations :0
+
+Processing Rule : Room alim (Bounding Region = (38310mil, 24020mil, 45045mil, 24990mil) (Disabled)(InComponentClass('alim'))
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Silkscreen Over Component Pads (Clearance=4mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=6mil) (All),(All)
+   Violation between Pad U3-63(9535.953mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-64(9555.638mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-62(9516.268mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-63(9535.953mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-61(9496.583mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-62(9516.268mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-60(9476.898mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-61(9496.583mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-59(9457.212mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-60(9476.898mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-58(9437.528mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-59(9457.212mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-57(9417.843mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-58(9437.528mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-56(9398.157mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-57(9417.843mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-55(9378.472mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-56(9398.157mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-54(9358.787mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-55(9378.472mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-53(9339.102mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-54(9358.787mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-52(9319.417mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-53(9339.102mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-51(9299.732mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-52(9319.417mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-50(9280.047mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-51(9299.732mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-49(9260.362mil,9322.472mil)  Bottom Layer and 
+                     Pad U3-50(9280.047mil,9322.472mil)  Bottom Layer
+   Violation between Pad U3-31(9280.047mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-32(9260.362mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-30(9299.732mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-31(9280.047mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-29(9319.417mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-30(9299.732mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-28(9339.102mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-29(9319.417mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-27(9358.787mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-28(9339.102mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-26(9378.472mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-27(9358.787mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-25(9398.157mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-26(9378.472mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-24(9417.843mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-25(9398.157mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-23(9437.528mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-24(9417.843mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-22(9457.213mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-23(9437.528mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-21(9476.898mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-22(9457.213mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-20(9496.583mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-21(9476.898mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-19(9516.268mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-20(9496.583mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-18(9535.953mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-19(9516.268mil,8881.528mil)  Bottom Layer
+   Violation between Pad U3-17(9555.638mil,8881.528mil)  Bottom Layer and 
+                     Pad U3-18(9535.953mil,8881.528mil)  Bottom Layer
+   Violation between Pad MAX4793-2(9171.126mil,8236mil)  Bottom Layer and 
+                     Pad MAX4793-3(9208.528mil,8236mil)  Bottom Layer
+   Violation between Pad MAX4793-1(9133.724mil,8236mil)  Bottom Layer and 
+                     Pad MAX4793-2(9171.126mil,8236mil)  Bottom Layer
+   Violation between Pad MAX3421-10(8638.74mil,8805.614mil)  Bottom Layer and 
+                     Pad MAX3421-9(8670.236mil,8805.614mil)  Bottom Layer
+   Violation between Pad MAX3421-11(8607.244mil,8805.614mil)  Bottom Layer and 
+                     Pad MAX3421-10(8638.74mil,8805.614mil)  Bottom Layer
+   Violation between Pad MAX3421-12(8575.748mil,8805.614mil)  Bottom Layer and 
+                     Pad MAX3421-11(8607.244mil,8805.614mil)  Bottom Layer
+   Violation between Pad MAX3421-13(8544.252mil,8805.614mil)  Bottom Layer and 
+                     Pad MAX3421-12(8575.748mil,8805.614mil)  Bottom Layer
+   Violation between Pad MAX3421-14(8512.756mil,8805.614mil)  Bottom Layer and 
+                     Pad MAX3421-13(8544.252mil,8805.614mil)  Bottom Layer
+   Violation between Pad MAX3421-15(8481.26mil,8805.614mil)  Bottom Layer and 
+                     Pad MAX3421-14(8512.756mil,8805.614mil)  Bottom Layer
+   Violation between Pad MAX3421-16(8449.764mil,8805.614mil)  Bottom Layer and 
+                     Pad MAX3421-15(8481.26mil,8805.614mil)  Bottom Layer
+   Violation between Pad MAX3421-26(8481.26mil,9132.386mil)  Bottom Layer and 
+                     Pad MAX3421-25(8449.764mil,9132.386mil)  Bottom Layer
+   Violation between Pad MAX3421-27(8512.756mil,9132.386mil)  Bottom Layer and 
+                     Pad MAX3421-26(8481.26mil,9132.386mil)  Bottom Layer
+   Violation between Pad MAX3421-28(8544.252mil,9132.386mil)  Bottom Layer and 
+                     Pad MAX3421-27(8512.756mil,9132.386mil)  Bottom Layer
+   Violation between Pad MAX3421-29(8575.748mil,9132.386mil)  Bottom Layer and 
+                     Pad MAX3421-28(8544.252mil,9132.386mil)  Bottom Layer
+   Violation between Pad MAX3421-30(8607.244mil,9132.386mil)  Bottom Layer and 
+                     Pad MAX3421-29(8575.748mil,9132.386mil)  Bottom Layer
+   Violation between Pad MAX3421-31(8638.74mil,9132.386mil)  Bottom Layer and 
+                     Pad MAX3421-30(8607.244mil,9132.386mil)  Bottom Layer
+   Violation between Pad MAX3421-32(8670.236mil,9132.386mil)  Bottom Layer and 
+                     Pad MAX3421-31(8638.74mil,9132.386mil)  Bottom Layer
+Rule Violations :46
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=150mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=19.685mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 46
+Time Elapsed        : 00:00:03
